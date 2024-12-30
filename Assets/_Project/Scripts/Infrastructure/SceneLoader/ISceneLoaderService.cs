@@ -1,7 +1,6 @@
-﻿using System;
-using Cysharp.Threading.Tasks;
+﻿using Cysharp.Threading.Tasks;
 
-namespace CodeBase.Infrastructure.Loader
+namespace _Project.Scripts.Infrastructure.SceneLoader
 {
     public interface ISceneLoaderService
     {

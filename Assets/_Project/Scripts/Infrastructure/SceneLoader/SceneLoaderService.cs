@@ -1,10 +1,9 @@
-﻿using System;
-using Cysharp.Threading.Tasks;
+﻿using Cysharp.Threading.Tasks;
 using JetBrains.Annotations;
 using UnityEngine.AddressableAssets;
 using UnityEngine.SceneManagement;
 
-namespace CodeBase.Infrastructure.Loader
+namespace _Project.Scripts.Infrastructure.SceneLoader
 {
     [UsedImplicitly(ImplicitUseKindFlags.InstantiatedNoFixedConstructorSignature)]
     public sealed class SceneLoaderService : ISceneLoaderService

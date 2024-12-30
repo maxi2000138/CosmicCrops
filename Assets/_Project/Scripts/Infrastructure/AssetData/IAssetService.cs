@@ -2,7 +2,7 @@
 using UnityEngine;
 using UnityEngine.AddressableAssets;
 
-namespace CodeBase.Infrastructure.AssetData
+namespace _Project.Scripts.Infrastructure.AssetData
 {
     public interface IAssetService
     {

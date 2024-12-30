@@ -1,9 +1,8 @@
-﻿using _Project.Scripts.Infrastructure.Services.Logger;
-using CodeBase.Infrastructure.StaticData;
+﻿using _Project.Scripts.Infrastructure.StaticData;
 using UnityEngine;
 using VContainer.Unity;
 
-namespace _Project.Scripts.Infrastructure.Services
+namespace _Project.Scripts.Infrastructure.Services.Logger
 {
   public class DebugLogger : IInitializable
   {
