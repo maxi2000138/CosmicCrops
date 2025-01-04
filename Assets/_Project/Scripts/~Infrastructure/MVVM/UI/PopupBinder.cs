@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 
-namespace _Project.Scripts.Infrastructure.MVVM.UI
+namespace _Project.Scripts._Infrastructure.MVVM.UI
 {
     public abstract class PopupBinder<T> : WindowBinder<T> where T : WindowViewModel
     {

@@ -2,7 +2,7 @@
 using Cysharp.Threading.Tasks;
 using UnityEngine;
 
-namespace _Project.Scripts.Infrastructure.MVVM.UI
+namespace _Project.Scripts._Infrastructure.MVVM.UI
 {
     public abstract class WindowBinder<T> : MonoBehaviour, IWindowBinder where T : WindowViewModel
     {

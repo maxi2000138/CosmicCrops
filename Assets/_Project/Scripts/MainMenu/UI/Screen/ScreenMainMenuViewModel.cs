@@ -1,8 +1,7 @@
-﻿using _Project.Scripts.Infrastructure.MVVM.UI;
-using _Project.Scripts.MainMenu.UI;
+﻿using _Project.Scripts._Infrastructure.MVVM.UI;
 using R3;
 
-namespace _Project.Scripts.Gameplay.UI.Screen
+namespace _Project.Scripts.MainMenu.UI.Screen
 {
   public class ScreenMainMenuViewModel : WindowViewModel
   {

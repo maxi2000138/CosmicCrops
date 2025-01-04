@@ -1,6 +1,6 @@
-﻿using _Project.Scripts.Infrastructure.MVVM.UI;
+﻿using _Project.Scripts._Infrastructure.MVVM.UI;
 
-namespace mBuilding.Scripts.Game.Gameplay.View.UI.PopupA
+namespace _Project.Scripts.Gameplay.UI.PopupA
 {
     public class PopupAViewModel : WindowViewModel
     {

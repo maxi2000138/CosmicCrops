@@ -1,9 +1,8 @@
-﻿using _Project.Scripts.Gameplay.UI.Screen;
-using _Project.Scripts.Infrastructure.MVVM.UI;
+﻿using _Project.Scripts._Infrastructure.MVVM.UI;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace mBuilding.Scripts.Game.Gameplay.View.UI.ScreenGameplay
+namespace _Project.Scripts.MainMenu.UI.Screen
 {
     public class ScreenMainMenuBinder : WindowBinder<ScreenMainMenuViewModel>
     {

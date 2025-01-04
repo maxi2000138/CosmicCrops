@@ -1,9 +1,9 @@
 ﻿using System.Collections.Generic;
-using _Project.Scripts.Infrastructure._Extensions;
+using _Project.Scripts._Infrastructure._Extensions;
 using Cysharp.Threading.Tasks;
 using UnityEngine;
 
-namespace _Project.Scripts.Infrastructure.MVVM.UI
+namespace _Project.Scripts._Infrastructure.MVVM.UI
 {
     public class WindowsContainer : MonoBehaviour
     {

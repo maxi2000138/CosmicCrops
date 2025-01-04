@@ -1,5 +1,4 @@
-﻿using _Project.Scripts.Infrastructure.MVVM.UI;
-using _Project.Scripts.Infrastructure.UI;
+﻿using _Project.Scripts._Infrastructure.MVVM.UI;
 using R3;
 
 namespace _Project.Scripts.Gameplay.UI.Screen

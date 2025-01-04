@@ -1,6 +1,6 @@
 ﻿using Cysharp.Threading.Tasks;
 
-namespace _Project.Scripts.Infrastructure.MVVM.UI
+namespace _Project.Scripts._Infrastructure.MVVM.UI
 {
     public interface IWindowBinder
     {

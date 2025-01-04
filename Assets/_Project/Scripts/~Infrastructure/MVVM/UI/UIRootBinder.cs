@@ -1,12 +1,9 @@
-﻿using System.Collections.Generic;
-using System.Linq;
-using Cysharp.Threading.Tasks;
+﻿using Cysharp.Threading.Tasks;
 using ObservableCollections;
 using R3;
-using Sirenix.Utilities;
 using UnityEngine;
 
-namespace _Project.Scripts.Infrastructure.MVVM.UI
+namespace _Project.Scripts._Infrastructure.MVVM.UI
 {
     public class UIRootBinder : MonoBehaviour
     {

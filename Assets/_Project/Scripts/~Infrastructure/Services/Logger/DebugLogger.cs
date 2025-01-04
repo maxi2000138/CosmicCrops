@@ -1,8 +1,8 @@
-﻿using _Project.Scripts.Infrastructure.StaticData;
+﻿using _Project.Scripts._Infrastructure.StaticData;
 using UnityEngine;
 using VContainer.Unity;
 
-namespace _Project.Scripts.Infrastructure.Services.Logger
+namespace _Project.Scripts._Infrastructure.Services.Logger
 {
   public class DebugLogger : IInitializable
   {

@@ -4,7 +4,7 @@ using System.Linq;
 using ObservableCollections;
 using R3;
 
-namespace _Project.Scripts.Infrastructure.MVVM.UI
+namespace _Project.Scripts._Infrastructure.MVVM.UI
 {
     public class UIRootViewModel : IDisposable
     {

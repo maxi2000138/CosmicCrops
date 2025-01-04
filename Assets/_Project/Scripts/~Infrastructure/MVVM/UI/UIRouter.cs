@@ -1,6 +1,6 @@
 ﻿using VContainer;
 
-namespace _Project.Scripts.Infrastructure.MVVM.UI
+namespace _Project.Scripts._Infrastructure.MVVM.UI
 {
     public abstract class UIRouter
     {

@@ -1,8 +1,8 @@
-﻿using _Project.Scripts.Infrastructure.AssetData;
-using _Project.Scripts.Infrastructure.StaticData.Data;
+﻿using _Project.Scripts._Infrastructure.AssetData;
+using _Project.Scripts._Infrastructure.StaticData.Data;
 using JetBrains.Annotations;
 
-namespace _Project.Scripts.Infrastructure.StaticData
+namespace _Project.Scripts._Infrastructure.StaticData
 {
     [UsedImplicitly(ImplicitUseKindFlags.InstantiatedNoFixedConstructorSignature)]
     public sealed class StaticDataService : IStaticDataService

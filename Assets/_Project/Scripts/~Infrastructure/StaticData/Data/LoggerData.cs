@@ -1,10 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
-using _Project.Scripts.Infrastructure.Services.Logger;
+using _Project.Scripts._Infrastructure.Services.Logger;
 using Sirenix.OdinInspector;
 using UnityEngine;
 
-namespace _Project.Scripts.Infrastructure.StaticData.Data
+namespace _Project.Scripts._Infrastructure.StaticData.Data
 {
   [CreateAssetMenu(fileName = nameof(LoggerData), menuName = "Data/" + nameof(LoggerData))]
   public sealed class LoggerData : SerializedScriptableObject

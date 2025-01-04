@@ -1,6 +1,7 @@
-﻿using _Project.Scripts.Gameplay.UI.Screen;
-using _Project.Scripts.Infrastructure.MVVM.UI;
-using _Project.Scripts.Infrastructure.UI;
+﻿using _Project.Scripts._Infrastructure.MVVM.UI;
+using _Project.Scripts._Infrastructure.UI;
+using _Project.Scripts.Gameplay.UI.Screen;
+using _Project.Scripts.MainMenu.UI.Screen;
 using R3;
 using VContainer;
 

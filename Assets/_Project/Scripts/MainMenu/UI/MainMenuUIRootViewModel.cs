@@ -1,4 +1,4 @@
-﻿using _Project.Scripts.Infrastructure.MVVM.UI;
+﻿using _Project.Scripts._Infrastructure.MVVM.UI;
 
 namespace _Project.Scripts.MainMenu.UI
 {
