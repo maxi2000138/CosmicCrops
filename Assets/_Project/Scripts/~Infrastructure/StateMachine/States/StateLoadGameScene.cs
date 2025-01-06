@@ -1,48 +1,31 @@
-﻿using _Project.Scripts._Infrastructure.AssetData;
-using _Project.Scripts._Infrastructure.SceneLoader;
-using _Project.Scripts._Infrastructure.Scopes;
+﻿using _Project.Scripts._Infrastructure.SceneLoader;
 using _Project.Scripts._Infrastructure.StateMachine.Machine;
-using _Project.Scripts._Infrastructure.StaticData;
-using _Project.Scripts._Infrastructure.UI;
+using CodeBase.Infrastructure.Curtain;
 using Cysharp.Threading.Tasks;
-using UnityEngine;
 
 namespace _Project.Scripts._Infrastructure.StateMachine.States
 {
-  public sealed class StateLoadGameScene : IOverloadedEnterState<int>, IExitState
+  public sealed class StateLoadGameScene : IEnterState, IExitState
   {
     private readonly ISceneLoaderService _sceneLoaderService;
-    private readonly IStaticDataService _staticData;
-    private readonly IAssetService _assetService;
-    private readonly UIRootView _uiRootView;
+    private readonly ILoadingCurtainService _loadingCurtain;
 
-
-    public StateLoadGameScene(ISceneLoaderService sceneLoaderService, IStaticDataService staticDataService, 
-      IAssetService assetService, UIRootView uiRootView)
+    public StateLoadGameScene(ISceneLoaderService sceneLoaderService, ILoadingCurtainService loadingCurtain)
     {
-      _uiRootView = uiRootView;
-      _assetService = assetService;
-      _staticData = staticDataService;
       _sceneLoaderService = sceneLoaderService;
+      _loadingCurtain = loadingCurtain;
     }
 
-    async UniTask IOverloadedEnterState<int>.Enter(IGameStateMachine gameStateMachine, int level)
+    async UniTask IEnterState.Enter(IGameStateMachine gameStateMachine)
     {
-      await _sceneLoaderService.Load(Scenes.GAME);
-      
-      var uiSceneRootBinder = await _assetService.LoadFromAddressable<GameObject>(_staticData.UIdata().GameplayUIBinder);
-      GameObject instance = Object.Instantiate(uiSceneRootBinder);
-      
-      _uiRootView.AttachSceneUI(instance);
-
-      Object.FindAnyObjectByType<GameScope>().SetupAndBuild(level);
-      
+      await _sceneLoaderService.Load(Scenes.GAMEPLAY);
       gameStateMachine.Enter<StateGameplayLoop>();
     }
 
     UniTask IExitState.Exit(IGameStateMachine gameStateMachine)
     {
-      _uiRootView.HideLoadingScreen();
+      _loadingCurtain.Hide();
+      
       return UniTask.CompletedTask;
     }
   }

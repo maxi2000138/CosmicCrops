@@ -14,17 +14,13 @@ namespace _Project.Scripts._Infrastructure.Factories.StateMachine
             _lifetimeScope = lifetimeScope;
         }
 
-        IGameStateMachine IStateMachineFactory.CreateGameStateMachine(string startScene)
+        IGameStateMachine IStateMachineFactory.CreateGameStateMachine()
         {
             LifetimeScope statesScope = _lifetimeScope.CreateChild(builder => {
                 builder.Register<IGameStateMachine, GameStateMachine>(Lifetime.Scoped);
                 
                 builder.Register<IState, StateBootstrap>(Lifetime.Scoped);
                 builder.Register<IState, StateLoadProgress>(Lifetime.Scoped);
-                builder.Register<IState, StateLoadTargetScene>(Lifetime.Scoped).WithParameter(startScene);
-
-                builder.Register<IState, StateLoadMenuScene>(Lifetime.Scoped);
-                builder.Register<IState, StateMenuLoop>(Lifetime.Scoped);
                 
                 builder.Register<IState, StateLoadGameScene>(Lifetime.Scoped);
                 builder.Register<IState, StateGameplayLoop>(Lifetime.Scoped);

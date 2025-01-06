@@ -45,6 +45,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   parentReference:
-    TypeName: _Project.Scripts.Infrastructure.Scopes.BootstrapScope
-  autoRun: 0
+    TypeName: _Project.Scripts._Infrastructure.LifeTime.Scopes.BootstrapScope
+  autoRun: 1
   autoInjectGameObjects: []
