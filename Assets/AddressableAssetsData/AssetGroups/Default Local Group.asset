@@ -15,11 +15,6 @@ MonoBehaviour:
   m_GroupName: Default Local Group
   m_GUID: a61e7eedf0225ca4ab8c106c4f3c93cc
   m_SerializeEntries:
-  - m_GUID: 45caf619cc2677048a8437253230fe6e
-    m_Address: Assets/_Project/Prefabs/UI/Root/GameplayUI.prefab
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 99c9720ab356a0642a771bea13969a05
     m_Address: GameScene
     m_ReadOnly: 0
@@ -27,16 +22,6 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: c2adfe1018503bc47a835e919796bd06
     m_Address: BootstrapScene
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: d0e16bcb7c135ea4abe0c80e4d69a9ec
-    m_Address: Assets/_Project/Prefabs/UI/Root/MainMenuUI.prefab
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: d562311d934fcee47a527e3568d0e521
-    m_Address: Assets/_Project/Prefabs/UI/Root/MainMenuUI.prefab
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0

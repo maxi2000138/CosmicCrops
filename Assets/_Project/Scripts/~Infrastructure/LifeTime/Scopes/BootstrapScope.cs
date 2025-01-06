@@ -40,9 +40,9 @@ namespace _Project.Scripts._Infrastructure.LifeTime.Scopes
       builder.Register<DebugLogger>(Lifetime.Singleton);
       builder.Register<IAssetService, AssetService>(Lifetime.Singleton);
       builder.Register<IStaticDataService, StaticDataService>(Lifetime.Singleton);
-      builder.Register<IStateMachineFactory, StateMachineFactory>(Lifetime.Singleton);
       builder.Register<ISceneLoaderService, SceneLoaderService>(Lifetime.Singleton);
       builder.Register<ISystemFactory, SystemFactory>(Lifetime.Singleton);
+      builder.Register<IStateMachineFactory, StateMachineFactory>(Lifetime.Singleton);
       
       builder.RegisterBuildCallback(ResolveNonLaziesServices);
       builder.RegisterBuildCallback(EnterGameStateMachine);
