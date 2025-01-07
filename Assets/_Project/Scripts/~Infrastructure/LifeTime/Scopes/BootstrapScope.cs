@@ -1,5 +1,6 @@
 ﻿using _Project.Scripts._Infrastructure.AssetData;
 using _Project.Scripts._Infrastructure.Camera;
+using _Project.Scripts._Infrastructure.Factories.Game;
 using _Project.Scripts._Infrastructure.Factories.StateMachine;
 using _Project.Scripts._Infrastructure.Factories.Systems;
 using _Project.Scripts._Infrastructure.Input;
@@ -7,6 +8,7 @@ using _Project.Scripts._Infrastructure.SceneLoader;
 using _Project.Scripts._Infrastructure.Services.Logger;
 using _Project.Scripts._Infrastructure.StateMachine.States;
 using _Project.Scripts._Infrastructure.StaticData;
+using _Project.Scripts.Game.Models;
 using CodeBase.Infrastructure.Curtain;
 using CodeBase.Infrastructure.GUI;
 using UnityEngine;
@@ -37,7 +39,10 @@ namespace _Project.Scripts._Infrastructure.LifeTime.Scopes
       builder.RegisterComponentInNewPrefab(_guiService, Lifetime.Singleton).UnderTransform(transform).As<IGuiService>();
       builder.RegisterComponentInNewPrefab(_joystickService, Lifetime.Singleton).UnderTransform(transform).As<IJoystickService>();
       
+      builder.Register<LevelModel>(Lifetime.Singleton);
+      
       builder.Register<DebugLogger>(Lifetime.Singleton);
+      builder.Register<IGameFactory, GameFactory>(Lifetime.Singleton);
       builder.Register<IAssetService, AssetService>(Lifetime.Singleton);
       builder.Register<IStaticDataService, StaticDataService>(Lifetime.Singleton);
       builder.Register<ISceneLoaderService, SceneLoaderService>(Lifetime.Singleton);

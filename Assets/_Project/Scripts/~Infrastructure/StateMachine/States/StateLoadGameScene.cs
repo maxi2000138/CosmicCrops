@@ -1,7 +1,9 @@
-﻿using _Project.Scripts._Infrastructure.SceneLoader;
+﻿using _Project.Scripts._Infrastructure.Factories.Game;
+using _Project.Scripts._Infrastructure.SceneLoader;
 using _Project.Scripts._Infrastructure.StateMachine.Machine;
 using CodeBase.Infrastructure.Curtain;
 using Cysharp.Threading.Tasks;
+using UnityEngine;
 
 namespace _Project.Scripts._Infrastructure.StateMachine.States
 {
@@ -9,11 +11,13 @@ namespace _Project.Scripts._Infrastructure.StateMachine.States
   {
     private readonly ISceneLoaderService _sceneLoaderService;
     private readonly ILoadingCurtainService _loadingCurtain;
+    private readonly IGameFactory _gameFactory;
 
-    public StateLoadGameScene(ISceneLoaderService sceneLoaderService, ILoadingCurtainService loadingCurtain)
+    public StateLoadGameScene(ISceneLoaderService sceneLoaderService, ILoadingCurtainService loadingCurtain, IGameFactory gameFactory)
     {
       _sceneLoaderService = sceneLoaderService;
       _loadingCurtain = loadingCurtain;
+      _gameFactory = gameFactory;
     }
 
     async UniTask IEnterState.Enter(IGameStateMachine gameStateMachine)
@@ -22,11 +26,12 @@ namespace _Project.Scripts._Infrastructure.StateMachine.States
       gameStateMachine.Enter<StateGameplayLoop>();
     }
 
-    UniTask IExitState.Exit(IGameStateMachine gameStateMachine)
+    async UniTask IExitState.Exit(IGameStateMachine gameStateMachine)
     {
+      var level = await _gameFactory.CreateLevel();
+      var character = await _gameFactory.CreateCharacter(Vector3.zero, null);
+
       _loadingCurtain.Hide();
-      
-      return UniTask.CompletedTask;
     }
   }
 }
