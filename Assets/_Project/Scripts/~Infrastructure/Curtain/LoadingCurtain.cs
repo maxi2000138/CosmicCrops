@@ -1,12 +1,12 @@
 ﻿using System;
 using System.Text;
 using System.Threading;
-using _Project.Scripts._Infrastructure.Services.Logger;
+using _Project.Scripts._Infrastructure.Logger;
 using Cysharp.Threading.Tasks;
 using TMPro;
 using UnityEngine;
 
-namespace CodeBase.Infrastructure.Curtain
+namespace _Project.Scripts._Infrastructure.Curtain
 {
     public sealed class LoadingCurtain : MonoBehaviour, ILoadingCurtainService
     {

@@ -1,11 +1,13 @@
 using System;
 using System.Collections.Generic;
-using _Project.Scripts._Infrastructure.Services.Logger;
+using _Project.Scripts._Infrastructure.Logger;
 using Cysharp.Threading.Tasks;
+using JetBrains.Annotations;
 using VContainer.Unity;
 
 namespace _Project.Scripts._Infrastructure.StateMachine.Machine
 {
+    [UsedImplicitly(ImplicitUseKindFlags.InstantiatedNoFixedConstructorSignature)]
     public class GameStateMachine : IGameStateMachine
     {
         private Dictionary<Type, IState> _states = new();

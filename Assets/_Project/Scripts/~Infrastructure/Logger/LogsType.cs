@@ -1,4 +1,4 @@
-﻿namespace _Project.Scripts._Infrastructure.Services.Logger
+﻿namespace _Project.Scripts._Infrastructure.Logger
 {
   public enum LogsType
   {

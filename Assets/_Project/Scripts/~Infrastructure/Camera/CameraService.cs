@@ -1,5 +1,5 @@
 ﻿using System;
-using _Project.Scripts._Infrastructure.UI.Screens;
+using _Project.Scripts.UI.Screens;
 using DG.Tweening;
 using Unity.Cinemachine;
 using UnityEngine;
@@ -9,8 +9,8 @@ namespace _Project.Scripts._Infrastructure.Camera
     public sealed class CameraService : MonoBehaviour, ICameraService
     {
         [SerializeField] private UnityEngine.Camera _camera;
-        [SerializeField] private CinemachineVirtualCamera _cameraZoomIn;
-        [SerializeField] private CinemachineVirtualCamera _cameraZoomOut;
+        [SerializeField] private CinemachineCamera _cameraZoomIn;
+        [SerializeField] private CinemachineCamera _cameraZoomOut;
         [SerializeField] private ShakeSettings _shakeSettings;
         
         private CinemachineBasicMultiChannelPerlin _basicMultiChannelPerlin;
@@ -20,7 +20,7 @@ namespace _Project.Scripts._Infrastructure.Camera
 
         void ICameraService.Init()
         {
-            _basicMultiChannelPerlin = _cameraZoomIn.GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>();
+            _basicMultiChannelPerlin = _cameraZoomIn.GetComponent<CinemachineBasicMultiChannelPerlin>();
         }
 
         void ICameraService.SetTarget(Transform target)

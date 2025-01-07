@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace CodeBase.Utils
+namespace _Project.Scripts._Infrastructure._Extensions
 {
     public static class CollectionExtension
     {

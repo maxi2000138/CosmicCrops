@@ -1,4 +1,4 @@
-﻿using _Project.Scripts._Infrastructure.Services.Logger;
+﻿using _Project.Scripts._Infrastructure.Logger;
 using VContainer;
 using VContainer.Unity;
 

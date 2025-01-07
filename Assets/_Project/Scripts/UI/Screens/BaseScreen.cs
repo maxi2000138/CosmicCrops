@@ -5,7 +5,7 @@ using R3;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace _Project.Scripts._Infrastructure.UI.Screens
+namespace _Project.Scripts.UI.Screens
 {
     public abstract class BaseScreen : MonoBehaviour
     {

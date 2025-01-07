@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.AddressableAssets;
 
-namespace CodeBase.Infrastructure.StaticData.Data
+namespace _Project.Scripts._Infrastructure.StaticData.Data
 {
     [CreateAssetMenu(fileName = nameof(CharacterData), menuName = "Data/" + nameof(CharacterData))]
     public sealed class CharacterData : ScriptableObject

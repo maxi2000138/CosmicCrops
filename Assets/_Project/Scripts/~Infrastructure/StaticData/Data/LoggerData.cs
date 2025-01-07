@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using _Project.Scripts._Infrastructure.Services.Logger;
+using _Project.Scripts._Infrastructure.Logger;
 using Sirenix.OdinInspector;
 using UnityEngine;
 

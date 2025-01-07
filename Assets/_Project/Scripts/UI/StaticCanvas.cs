@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace _Project.Scripts._Infrastructure.UI
+namespace _Project.Scripts.UI
 {
     public sealed class StaticCanvas : MonoBehaviour
     {

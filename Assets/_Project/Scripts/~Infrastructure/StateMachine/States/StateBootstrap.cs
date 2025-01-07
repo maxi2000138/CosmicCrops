@@ -1,9 +1,9 @@
 using _Project.Scripts._Infrastructure.AssetData;
 using _Project.Scripts._Infrastructure.Camera;
+using _Project.Scripts._Infrastructure.Curtain;
 using _Project.Scripts._Infrastructure.Input;
 using _Project.Scripts._Infrastructure.StateMachine.Machine;
 using _Project.Scripts._Infrastructure.StaticData;
-using CodeBase.Infrastructure.Curtain;
 using Cysharp.Threading.Tasks;
 using JetBrains.Annotations;
 

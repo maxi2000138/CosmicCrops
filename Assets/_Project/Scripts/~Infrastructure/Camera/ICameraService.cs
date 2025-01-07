@@ -1,4 +1,4 @@
-﻿using _Project.Scripts._Infrastructure.UI.Screens;
+﻿using _Project.Scripts.UI.Screens;
 using UnityEngine;
 
 namespace _Project.Scripts._Infrastructure.Camera

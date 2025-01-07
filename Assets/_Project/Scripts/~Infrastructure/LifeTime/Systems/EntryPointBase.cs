@@ -1,6 +1,6 @@
 ﻿using System;
+using _Project.Scripts._Infrastructure._Extensions;
 using _Project.Scripts._Infrastructure.ComponentSystemsCore.Systems;
-using CodeBase.Utils;
 using VContainer.Unity;
 
 namespace _Project.Scripts._Infrastructure.LifeTime.Systems

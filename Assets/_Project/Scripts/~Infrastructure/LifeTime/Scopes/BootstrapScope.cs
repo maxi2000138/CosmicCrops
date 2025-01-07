@@ -1,16 +1,17 @@
 ﻿using _Project.Scripts._Infrastructure.AssetData;
 using _Project.Scripts._Infrastructure.Camera;
+using _Project.Scripts._Infrastructure.Curtain;
 using _Project.Scripts._Infrastructure.Factories.Game;
 using _Project.Scripts._Infrastructure.Factories.StateMachine;
 using _Project.Scripts._Infrastructure.Factories.Systems;
+using _Project.Scripts._Infrastructure.Factories.UI;
 using _Project.Scripts._Infrastructure.Input;
+using _Project.Scripts._Infrastructure.Logger;
 using _Project.Scripts._Infrastructure.SceneLoader;
-using _Project.Scripts._Infrastructure.Services.Logger;
 using _Project.Scripts._Infrastructure.StateMachine.States;
 using _Project.Scripts._Infrastructure.StaticData;
 using _Project.Scripts.Game.Models;
-using CodeBase.Infrastructure.Curtain;
-using CodeBase.Infrastructure.GUI;
+using _Project.Scripts.UI.GUIService;
 using UnityEngine;
 using VContainer;
 using VContainer.Unity;
@@ -47,6 +48,7 @@ namespace _Project.Scripts._Infrastructure.LifeTime.Scopes
       builder.Register<IStaticDataService, StaticDataService>(Lifetime.Singleton);
       builder.Register<ISceneLoaderService, SceneLoaderService>(Lifetime.Singleton);
       builder.Register<ISystemFactory, SystemFactory>(Lifetime.Singleton);
+      builder.Register<IUIFactory, UIFactory>(Lifetime.Singleton);
       builder.Register<IStateMachineFactory, StateMachineFactory>(Lifetime.Singleton);
       
       builder.RegisterBuildCallback(ResolveNonLaziesServices);

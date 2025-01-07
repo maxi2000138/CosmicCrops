@@ -4,12 +4,13 @@ using _Project.Scripts._Infrastructure.StaticData.Data;
 using _Project.Scripts.Game.Interfaces;
 using _Project.Scripts.Game.Level.Components;
 using _Project.Scripts.Game.Models;
-using CodeBase.Infrastructure.StaticData.Data;
 using Cysharp.Threading.Tasks;
+using JetBrains.Annotations;
 using UnityEngine;
 
 namespace _Project.Scripts._Infrastructure.Factories.Game
 {
+  [UsedImplicitly(ImplicitUseKindFlags.InstantiatedNoFixedConstructorSignature)]
   public class GameFactory : IGameFactory
   {
     private readonly IStaticDataService _staticDataService;

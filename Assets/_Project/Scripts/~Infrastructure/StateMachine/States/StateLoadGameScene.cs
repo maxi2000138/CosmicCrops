@@ -1,12 +1,14 @@
-﻿using _Project.Scripts._Infrastructure.Factories.Game;
+﻿using _Project.Scripts._Infrastructure.Curtain;
+using _Project.Scripts._Infrastructure.Factories.Game;
 using _Project.Scripts._Infrastructure.SceneLoader;
 using _Project.Scripts._Infrastructure.StateMachine.Machine;
-using CodeBase.Infrastructure.Curtain;
 using Cysharp.Threading.Tasks;
+using JetBrains.Annotations;
 using UnityEngine;
 
 namespace _Project.Scripts._Infrastructure.StateMachine.States
 {
+  [UsedImplicitly(ImplicitUseKindFlags.InstantiatedNoFixedConstructorSignature)]
   public sealed class StateLoadGameScene : IEnterState, IExitState
   {
     private readonly ISceneLoaderService _sceneLoaderService;

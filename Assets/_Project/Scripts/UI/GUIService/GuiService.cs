@@ -1,11 +1,10 @@
 ﻿using System.Collections.Generic;
 using _Project.Scripts._Infrastructure.Camera;
-using _Project.Scripts._Infrastructure.UI;
-using _Project.Scripts._Infrastructure.UI.Screens;
+using _Project.Scripts.UI.Screens;
 using UnityEngine;
 using VContainer;
 
-namespace CodeBase.Infrastructure.GUI
+namespace _Project.Scripts.UI.GUIService
 {
     public sealed class GuiService : MonoBehaviour, IGuiService
     {

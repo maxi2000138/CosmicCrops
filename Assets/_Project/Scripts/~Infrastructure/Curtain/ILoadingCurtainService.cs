@@ -1,4 +1,4 @@
-﻿namespace CodeBase.Infrastructure.Curtain
+﻿namespace _Project.Scripts._Infrastructure.Curtain
 {
     public interface ILoadingCurtainService
     {

@@ -1,5 +1,5 @@
 ﻿using _Project.Scripts._Infrastructure.StaticData.Data;
-using CodeBase.Infrastructure.StaticData.Data;
+using _Project.Scripts.UI.Screens;
 
 namespace _Project.Scripts._Infrastructure.StaticData
 {
@@ -10,5 +10,6 @@ namespace _Project.Scripts._Infrastructure.StaticData
         LoggerData LoggerData();
         CharacterData CharacterData();
         void Load();
+        ScreenInfo ScreenData(ScreenType type);
     }
 }

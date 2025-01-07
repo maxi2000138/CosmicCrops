@@ -1,4 +1,4 @@
-﻿namespace _Project.Scripts._Infrastructure.UI.Screens
+﻿namespace _Project.Scripts.UI.Screens
 {
     public enum ScreenType
     {

@@ -1,6 +1,7 @@
-﻿using _Project.Scripts._Infrastructure.AssetData;
+﻿using System.Collections.Generic;
+using _Project.Scripts._Infrastructure.AssetData;
 using _Project.Scripts._Infrastructure.StaticData.Data;
-using CodeBase.Infrastructure.StaticData.Data;
+using _Project.Scripts.UI.Screens;
 using JetBrains.Annotations;
 
 namespace _Project.Scripts._Infrastructure.StaticData
@@ -16,6 +17,7 @@ namespace _Project.Scripts._Infrastructure.StaticData
         private LevelData _levelData;
         private CharacterData _characterData;
         private LoggerData _loggerData;
+        private ScreenData _screenData;
 
         public StaticDataService(IAssetService assetService)
         {
@@ -27,8 +29,13 @@ namespace _Project.Scripts._Infrastructure.StaticData
              _uiData = LoadData<UIData>();
              _levelData = LoadData<LevelData>();
              _characterData = LoadData<CharacterData>();
+             _characterData = LoadData<CharacterData>();
+             _screenData = LoadData<ScreenData>();
              _loggerData ??= LoadData<LoggerData>();
         }
+        
+        ScreenInfo IStaticDataService.ScreenData(ScreenType type) => 
+            _screenData.Screens.GetValueOrDefault(type);
         
         UIData IStaticDataService.UIdata() => _uiData;
         LevelData IStaticDataService.LevelData() => _levelData;

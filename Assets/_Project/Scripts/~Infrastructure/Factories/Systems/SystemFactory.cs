@@ -1,4 +1,5 @@
 ﻿using _Project.Scripts._Infrastructure.ComponentSystemsCore.Systems;
+using _Project.Scripts.Game.Character.Systems;
 using JetBrains.Annotations;
 
 namespace _Project.Scripts._Infrastructure.Factories.Systems
@@ -10,7 +11,7 @@ namespace _Project.Scripts._Infrastructure.Factories.Systems
         {
             ISystem[] systems = 
             {
-                
+                new CharacterSpawnerSystem(),
             };
 
             return systems;

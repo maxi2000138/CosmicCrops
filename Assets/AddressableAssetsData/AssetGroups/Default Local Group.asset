@@ -15,6 +15,11 @@ MonoBehaviour:
   m_GroupName: Default Local Group
   m_GUID: a61e7eedf0225ca4ab8c106c4f3c93cc
   m_SerializeEntries:
+  - m_GUID: 3bfda78987cc15146b3ad22c99fff1f6
+    m_Address: Assets/_Project/Prefabs/UI/GameScreen.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 99c9720ab356a0642a771bea13969a05
     m_Address: GameScene
     m_ReadOnly: 0
