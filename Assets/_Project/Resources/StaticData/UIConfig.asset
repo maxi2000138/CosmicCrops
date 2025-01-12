@@ -9,13 +9,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 35abf91ef562405487a8ae77256da2b3, type: 3}
-  m_Name: CharacterData
+  m_Script: {fileID: 11500000, guid: 6c4f87666ff149eb99adf94fc672e2cc, type: 3}
+  m_Name: UIConfig
   m_EditorClassIdentifier: 
-  Health: 6
-  Speed: 3
-  PrefabReference:
-    m_AssetGUID: a3b0ca0cb4b554241b704cdafe91295d
+  GameplayUIBinder:
+    m_AssetGUID: 45caf619cc2677048a8437253230fe6e
+    m_SubObjectName: 
+    m_SubObjectGUID: 
+    m_SubObjectType: 
+    m_EditorAssetChanged: 1
+  MainMenuUIBinder:
+    m_AssetGUID: d0e16bcb7c135ea4abe0c80e4d69a9ec
     m_SubObjectName: 
     m_SubObjectGUID: 
     m_SubObjectType: 

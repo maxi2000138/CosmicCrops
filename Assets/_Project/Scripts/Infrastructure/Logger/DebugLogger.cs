@@ -18,7 +18,7 @@ namespace _Project.Scripts.Infrastructure.Logger
     
     public static void Log(string message, LogsType logsType)
     {
-      if (_staticDataService.LoggerData().IsLogTypeActive(logsType)) 
+      if (_staticDataService.LoggerConfig().IsLogTypeActive(logsType)) 
         Debug.Log(message);
     }
   }

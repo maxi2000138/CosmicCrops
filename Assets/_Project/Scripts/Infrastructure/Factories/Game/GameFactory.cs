@@ -1,6 +1,8 @@
 ﻿using _Project.Scripts.Game.Level.Components;
 using _Project.Scripts.Game.Level.Interface;
 using _Project.Scripts.Game.Level.Model;
+using _Project.Scripts.Game.Loot.Components;
+using _Project.Scripts.Game.Loot.Data;
 using _Project.Scripts.Game.Units.Character.Components;
 using _Project.Scripts.Infrastructure.AssetData;
 using _Project.Scripts.Infrastructure.StaticData;
@@ -29,9 +31,9 @@ namespace _Project.Scripts.Infrastructure.Factories.Game
     async UniTask<ILevel> IGameFactory.CreateLevel()
     {
       int levelNumber = 1;
-      LevelData levelData = _staticDataService.LevelData();
-      int index = levelNumber > levelData.Levels.Length ? (levelNumber - 1) % levelData.Levels.Length : levelNumber - 1;
-      var data = levelData.Levels[index];
+      LevelConfig levelConfig = _staticDataService.LevelConfig();
+      int index = levelNumber > levelConfig.Levels.Length ? (levelNumber - 1) % levelConfig.Levels.Length : levelNumber - 1;
+      var data = levelConfig.Levels[index];
       GameObject prefab = await _assetService.LoadFromAddressable<GameObject>(data.PrefabReference);
       LevelComponent level = Object.Instantiate(prefab).GetComponent<LevelComponent>();
       _levelModel.SetLevel(level);
@@ -40,14 +42,23 @@ namespace _Project.Scripts.Infrastructure.Factories.Game
     
     async UniTask<CharacterComponent> IGameFactory.CreateCharacter(Vector3 position, Transform parent)
     {
-      CharacterData characterData = _staticDataService.CharacterData();
-      GameObject prefab = await _assetService.LoadFromAddressable<GameObject>(characterData.PrefabReference);
+      CharacterConfig characterConfig = _staticDataService.CharacterConfig();
+      GameObject prefab = await _assetService.LoadFromAddressable<GameObject>(characterConfig.PrefabReference);
       CharacterComponent character = Object.Instantiate(prefab, position, Quaternion.identity, parent).GetComponent<CharacterComponent>();
       _levelModel.SetCharacter(character);
       
-      character.CharacterController.SetBaseSpeed(2f);
+      character.CharacterController.SetBaseSpeed(characterConfig.Speed);
       
       return character;
+    }
+    
+    public async UniTask<LootComponent> CreateLoot(LootType lootType, Vector3 position, Transform parent)
+    {
+      LootConfig lootConfig = _staticDataService.LootConfig();
+      GameObject prefab = await _assetService.LoadFromAddressable<GameObject>(lootConfig.Loot[lootType].PrefabReference);
+      LootComponent loot = Object.Instantiate(prefab, position, Quaternion.identity, parent).GetComponent<LootComponent>();
+      _levelModel.AddLoot(loot);
+      return loot;
     }
   }
 }

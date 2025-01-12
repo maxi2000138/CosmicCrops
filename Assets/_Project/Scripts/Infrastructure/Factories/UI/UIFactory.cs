@@ -31,7 +31,7 @@ namespace _Project.Scripts.Infrastructure.Factories.UI
         async UniTask<BaseScreen> IUIFactory.CreateScreen(ScreenType type)
         {
             _guiService.Pop();
-            ScreenInfo data = _staticDataService.ScreenData(type);
+            ScreenData data = _staticDataService.ScreenData(type);
             GameObject prefab = await _assetService.LoadFromAddressable<GameObject>(data.PrefabReference);
             BaseScreen screen = _objectResolver.Instantiate(prefab, _guiService.StaticCanvas.transform).GetComponent<BaseScreen>();
             _guiService.Push(screen);
@@ -40,7 +40,7 @@ namespace _Project.Scripts.Infrastructure.Factories.UI
 
         async UniTask<BaseScreen> IUIFactory.CreatePopUp(ScreenType type)
         {
-            ScreenInfo data = _staticDataService.ScreenData(type);
+            ScreenData data = _staticDataService.ScreenData(type);
             GameObject prefab = await _assetService.LoadFromAddressable<GameObject>(data.PrefabReference);
             BaseScreen screen = _objectResolver.Instantiate(prefab, _guiService.StaticCanvas.transform).GetComponent<BaseScreen>();
             _guiService.Push(screen);

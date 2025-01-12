@@ -9,8 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 24d289d5fcfe4ffeae2b1dca7eeab4df, type: 3}
-  m_Name: ScreenData
+  m_Script: {fileID: 11500000, guid: 8462e11827db4068b29c6b333424a490, type: 3}
+  m_Name: LootConfig
   m_EditorClassIdentifier: 
   serializationData:
     SerializedFormat: 2
@@ -21,14 +21,14 @@ MonoBehaviour:
     PrefabModificationsReferencedUnityObjects: []
     PrefabModifications: []
     SerializationNodes:
-    - Name: Screens
+    - Name: Loot
       Entry: 7
-      Data: 0|System.Collections.Generic.Dictionary`2[[_Project.Scripts.UI.Screens.ScreenType,
-        Assembly-CSharp],[_Project.Scripts._Infrastructure.StaticData.Data.ScreenInfo,
+      Data: 0|System.Collections.Generic.Dictionary`2[[_Project.Scripts.Game.Loot.Data.LootType,
+        Assembly-CSharp],[_Project.Scripts.Infrastructure.StaticData.Data.LootData,
         Assembly-CSharp]], mscorlib
     - Name: comparer
       Entry: 7
-      Data: 1|System.Collections.Generic.EnumEqualityComparer`1[[_Project.Scripts.UI.Screens.ScreenType,
+      Data: 1|System.Collections.Generic.EnumEqualityComparer`1[[_Project.Scripts.Game.Loot.Data.LootType,
         Assembly-CSharp]], mscorlib
     - Name: 
       Entry: 12
@@ -47,16 +47,16 @@ MonoBehaviour:
       Data: 
     - Name: $k
       Entry: 3
-      Data: 1
+      Data: 0
     - Name: $v
       Entry: 7
-      Data: 2|_Project.Scripts._Infrastructure.StaticData.Data.ScreenInfo, Assembly-CSharp
+      Data: 2|_Project.Scripts.Infrastructure.StaticData.Data.LootData, Assembly-CSharp
     - Name: PrefabReference
       Entry: 7
       Data: 3|UnityEngine.AddressableAssets.AssetReference, Unity.Addressables
     - Name: m_AssetGUID
       Entry: 1
-      Data: 3bfda78987cc15146b3ad22c99fff1f6
+      Data: bffc58cdb5a6f5d45aaea588bbb82045
     - Name: m_SubObjectName
       Entry: 6
       Data: 

@@ -13,11 +13,12 @@ namespace _Project.Scripts.Infrastructure.StaticData
         
         private readonly IAssetService _assetService;
         
-        private UIData _uiData;
-        private LevelData _levelData;
-        private CharacterData _characterData;
-        private LoggerData _loggerData;
-        private ScreenData _screenData;
+        private UIConfig _uiConfig;
+        private LevelConfig _levelConfig;
+        private CharacterConfig _characterConfig;
+        private LoggerConfig _loggerConfig;
+        private ScreenConfig _screenConfig;
+        private LootConfig _lootConfig;
 
         public StaticDataService(IAssetService assetService)
         {
@@ -26,22 +27,23 @@ namespace _Project.Scripts.Infrastructure.StaticData
 
         void IStaticDataService.Load()
         {
-             _uiData = LoadData<UIData>();
-             _levelData = LoadData<LevelData>();
-             _characterData = LoadData<CharacterData>();
-             _characterData = LoadData<CharacterData>();
-             _screenData = LoadData<ScreenData>();
-             _loggerData ??= LoadData<LoggerData>();
+             _lootConfig = LoadConfig<LootConfig>();
+             _uiConfig = LoadConfig<UIConfig>();
+             _levelConfig = LoadConfig<LevelConfig>();
+             _characterConfig = LoadConfig<CharacterConfig>();
+             _screenConfig = LoadConfig<ScreenConfig>();
+             _loggerConfig ??= LoadConfig<LoggerConfig>();
         }
         
-        ScreenInfo IStaticDataService.ScreenData(ScreenType type) => 
-            _screenData.Screens.GetValueOrDefault(type);
-        
-        UIData IStaticDataService.UIdata() => _uiData;
-        LevelData IStaticDataService.LevelData() => _levelData;
-        CharacterData IStaticDataService.CharacterData() => _characterData;
-        LoggerData IStaticDataService.LoggerData() => _loggerData ??= LoadData<LoggerData>();
+        ScreenData IStaticDataService.ScreenData(ScreenType type) => 
+            _screenConfig.Screens.GetValueOrDefault(type);
 
-        private T LoadData<T>() where T : UnityEngine.Object => _assetService.LoadFromResources<T>(DataFolder + typeof(T).Name);
+        public LootConfig LootConfig() => _lootConfig;
+        UIConfig IStaticDataService.UIConfig() => _uiConfig;
+        LevelConfig IStaticDataService.LevelConfig() => _levelConfig;
+        CharacterConfig IStaticDataService.CharacterConfig() => _characterConfig;
+        LoggerConfig IStaticDataService.LoggerConfig() => _loggerConfig ??= LoadConfig<LoggerConfig>();
+
+        private T LoadConfig<T>() where T : UnityEngine.Object => _assetService.LoadFromResources<T>(DataFolder + typeof(T).Name);
     }
 }

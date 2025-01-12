@@ -3,8 +3,8 @@ using UnityEngine.AddressableAssets;
 
 namespace _Project.Scripts.Infrastructure.StaticData.Data
 {
-  [CreateAssetMenu(fileName = nameof(LevelData), menuName = "Data/" + nameof(LevelData))]
-  public sealed class LevelData : ScriptableObject
+  [CreateAssetMenu(fileName = nameof(LevelConfig), menuName = "Config/" + nameof(LevelConfig))]
+  public sealed class LevelConfig : ScriptableObject
   {
     public Level[] Levels;
   }

@@ -6,8 +6,8 @@ using UnityEngine;
 
 namespace _Project.Scripts.Infrastructure.StaticData.Data
 {
-  [CreateAssetMenu(fileName = nameof(LoggerData), menuName = "Data/" + nameof(LoggerData))]
-  public sealed class LoggerData : SerializedScriptableObject
+  [CreateAssetMenu(fileName = nameof(LoggerConfig), menuName = "Config/" + nameof(LoggerConfig))]
+  public sealed class LoggerConfig : SerializedScriptableObject
   {
     [DictionaryDrawerSettings(IsReadOnly = true, DisplayMode = DictionaryDisplayOptions.OneLine)]
     [SerializeField]

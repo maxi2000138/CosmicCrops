@@ -5,11 +5,12 @@ namespace _Project.Scripts.Infrastructure.StaticData
 {
     public interface IStaticDataService
     {
-        UIData UIdata();
-        LevelData LevelData();
-        LoggerData LoggerData();
-        CharacterData CharacterData();
+        UIConfig UIConfig();
+        LevelConfig LevelConfig();
+        LoggerConfig LoggerConfig();
+        CharacterConfig CharacterConfig();
         void Load();
-        ScreenInfo ScreenData(ScreenType type);
+        ScreenData ScreenData(ScreenType type);
+        LootConfig LootConfig();
     }
 }
