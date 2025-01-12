@@ -1,4 +1,4 @@
-﻿using _Project.Scripts._Infrastructure._Extensions;
+﻿using _Project.Scripts.Utils.Extensions;
 using Cysharp.Threading.Tasks;
 using DG.Tweening;
 using R3;

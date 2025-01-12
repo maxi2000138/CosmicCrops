@@ -1,0 +1,15 @@
+﻿using _Project.Scripts.Infrastructure.StaticData.Data;
+using _Project.Scripts.UI.Screens;
+
+namespace _Project.Scripts.Infrastructure.StaticData
+{
+    public interface IStaticDataService
+    {
+        UIData UIdata();
+        LevelData LevelData();
+        LoggerData LoggerData();
+        CharacterData CharacterData();
+        void Load();
+        ScreenInfo ScreenData(ScreenType type);
+    }
+}

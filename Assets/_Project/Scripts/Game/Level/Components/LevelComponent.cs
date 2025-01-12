@@ -1,5 +1,5 @@
-﻿using _Project.Scripts._Infrastructure.ComponentSystemsCore.Components;
-using _Project.Scripts.Game.Interfaces;
+﻿using _Project.Scripts.Game.Level.Interface;
+using _Project.Scripts.Infrastructure.Systems.Components;
 
 namespace _Project.Scripts.Game.Level.Components
 {

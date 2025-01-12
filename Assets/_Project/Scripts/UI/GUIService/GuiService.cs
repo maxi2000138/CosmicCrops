@@ -1,5 +1,5 @@
 ﻿using System.Collections.Generic;
-using _Project.Scripts._Infrastructure.Camera;
+using _Project.Scripts.Infrastructure.Camera;
 using _Project.Scripts.UI.Screens;
 using UnityEngine;
 using VContainer;
