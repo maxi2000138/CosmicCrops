@@ -1,4 +1,5 @@
-﻿using _Project.Scripts.Game.Infrastructure.StateMachine.Systems;
+﻿using _Project.Scripts.Game.Collector.Systems;
+using _Project.Scripts.Game.Infrastructure.StateMachine.Systems;
 using _Project.Scripts.Game.Input.Systems;
 using _Project.Scripts.Game.Loot.Systems;
 using _Project.Scripts.Game.Units.Character.Systems;
@@ -20,6 +21,8 @@ namespace _Project.Scripts.Infrastructure.Factories.Systems
                 new JoystickUpdateSystem(),
                 
                 new LootSpawnerSystem(),
+                
+                new ExecuteCollectorSystem(),
             };
 
             return systems;

@@ -1,4 +1,6 @@
-﻿using _Project.Scripts.Game.Level.Model;
+﻿using _Project.Scripts.Game.Collector.Factory;
+using _Project.Scripts.Game.Inventory;
+using _Project.Scripts.Game.Level.Model;
 using _Project.Scripts.Infrastructure.AssetData;
 using _Project.Scripts.Infrastructure.Camera;
 using _Project.Scripts.Infrastructure.Curtain;
@@ -11,6 +13,7 @@ using _Project.Scripts.Infrastructure.Logger;
 using _Project.Scripts.Infrastructure.SceneLoader;
 using _Project.Scripts.Infrastructure.StateMachine.States;
 using _Project.Scripts.Infrastructure.StaticData;
+using _Project.Scripts.Infrastructure.Time;
 using _Project.Scripts.UI.GUIService;
 using UnityEngine;
 using VContainer;
@@ -41,14 +44,17 @@ namespace _Project.Scripts.Infrastructure.LifeTime.Scopes
       builder.RegisterComponentInNewPrefab(_joystickService, Lifetime.Singleton).UnderTransform(transform).As<IJoystickService>();
       
       builder.Register<LevelModel>(Lifetime.Singleton);
+      builder.Register<InventoryModel>(Lifetime.Singleton);
       
       builder.Register<DebugLogger>(Lifetime.Singleton);
+      builder.Register<ITimeService, TimeService>(Lifetime.Singleton);
       builder.Register<IGameFactory, GameFactory>(Lifetime.Singleton);
       builder.Register<IAssetService, AssetService>(Lifetime.Singleton);
       builder.Register<IStaticDataService, StaticDataService>(Lifetime.Singleton);
       builder.Register<ISceneLoaderService, SceneLoaderService>(Lifetime.Singleton);
       builder.Register<ISystemFactory, SystemFactory>(Lifetime.Singleton);
       builder.Register<IUIFactory, UIFactory>(Lifetime.Singleton);
+      builder.Register<ICollectorFactory, CollectorFactory>(Lifetime.Singleton);
       builder.Register<IStateMachineFactory, StateMachineFactory>(Lifetime.Singleton);
       
       builder.RegisterBuildCallback(ResolveNonLaziesServices);

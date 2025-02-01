@@ -1,4 +1,6 @@
-﻿using _Project.Scripts.Game.Level.Components;
+﻿using _Project.Scripts.Game.Collector.Collectors;
+using _Project.Scripts.Game.Collector.Factory;
+using _Project.Scripts.Game.Inventory;
 using _Project.Scripts.Game.Units.Character.Components;
 using _Project.Scripts.Game.Units.Character.StateMachine.States;
 using _Project.Scripts.Infrastructure.Camera;
@@ -15,10 +17,14 @@ namespace _Project.Scripts.Game.Units.Character.Systems
     private IGameFactory _gameFactory;
     private ICameraService _cameraService;
     private IStateMachineFactory _stateMachineFactory;
+    private InventoryModel _inventoryModel;
+    private ICollectorFactory _collectorFactory;
 
     [Inject]
-    private void Construct(IGameFactory gameFactory, ICameraService cameraService, IStateMachineFactory stateMachineFactory)
+    private void Construct(IGameFactory gameFactory, ICollectorFactory collectorFactory, ICameraService cameraService, IStateMachineFactory stateMachineFactory, InventoryModel inventoryModel)
     {
+      _collectorFactory = collectorFactory;
+      _inventoryModel = inventoryModel;
       _stateMachineFactory = stateMachineFactory;
       _cameraService = cameraService;
       _gameFactory = gameFactory;
@@ -38,6 +44,8 @@ namespace _Project.Scripts.Game.Units.Character.Systems
       character.StateMachine.StateMachine.Enter<CharacterStateIdle>();
 
       character.CharacterController.SetSpeed(character.CharacterController.BaseSpeed);
+      
+      character.Collector.SetCollector(_collectorFactory.CreateDefault());
 
       SetCameraTarget(character);
     }

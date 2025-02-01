@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using _Project.Scripts.Infrastructure.Time;
+using UnityEngine;
 
 namespace _Project.Scripts.Infrastructure.Input
 {
@@ -6,7 +7,7 @@ namespace _Project.Scripts.Infrastructure.Input
     {
         Vector2 GetAxis();
         float GetDeadZone();
-        void Init();
+        void Init(ITimeService time);
         void Enable(bool isEnable);
         void Execute();
     }

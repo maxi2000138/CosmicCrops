@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using _Project.Scripts.Infrastructure.Time;
+using UnityEngine;
 using UnityEngine.EventSystems;
 
 namespace _Project.Scripts.Infrastructure.Input
@@ -15,6 +16,8 @@ namespace _Project.Scripts.Infrastructure.Input
         [SerializeField] private float _fadeTime = 4f;
         [SerializeField] private bool _isStatick = false;
 
+        private ITimeService _time;
+        
         private Vector3 _startPosition;
         private float _loverMovementAreaRadius;
         private float _movementAreaRadiusSqr;
@@ -25,8 +28,9 @@ namespace _Project.Scripts.Infrastructure.Input
 
         private Vector2 _axis;
 
-        void IJoystickService.Init()
+        void IJoystickService.Init(ITimeService time)
         {
+            _time = time;
             _axis = Vector2.zero;
             _opacity = 0f;
             _canvasGroup.alpha = _opacity;
@@ -62,8 +66,8 @@ namespace _Project.Scripts.Infrastructure.Input
         void IJoystickService.Execute()
         {
             _opacity = _joystickHeld ? 
-                Mathf.Min(1f, _opacity + Time.deltaTime * _fadeTime) : 
-                Mathf.Max(0f, _opacity - Time.deltaTime * _fadeTime);
+                Mathf.Min(1f, _opacity + _time.DeltaTime * _fadeTime) : 
+                Mathf.Max(0f, _opacity - _time.DeltaTime * _fadeTime);
 
             _canvasGroup.alpha = _opacity;
         }

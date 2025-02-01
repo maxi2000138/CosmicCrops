@@ -50,7 +50,7 @@ namespace _Project.Scripts.Infrastructure.Curtain
 
                 while (elapsed < _durationCanvas)
                 {
-                    elapsed += Time.deltaTime;
+                    elapsed += UnityEngine.Time.deltaTime;
                     _canvasGroup.alpha = Mathf.Lerp(1f, 0f, elapsed / _durationCanvas);
                     
                     await UniTask.Yield(PlayerLoopTiming.Update, cancellationToken: _cancellationTokenSource.Token);

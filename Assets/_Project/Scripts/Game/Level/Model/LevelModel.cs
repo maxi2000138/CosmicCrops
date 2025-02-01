@@ -2,6 +2,7 @@
 using _Project.Scripts.Game.Level.Interface;
 using _Project.Scripts.Game.Loot.Interface;
 using _Project.Scripts.Game.Units.Character.Interface;
+using R3;
 
 namespace _Project.Scripts.Game.Level.Model
 {
@@ -11,9 +12,10 @@ namespace _Project.Scripts.Game.Level.Model
 
     public ILevel Level { get; private set; }
     public ICharacter Character { get; private set; }
+    public ReactiveProperty<ILoot> CurrentLoot { get; } = new ReactiveProperty<ILoot>();
     public IReadOnlyList<ILoot> Loot => _loot;
 
-    
+
     public void SetCharacter(ICharacter character) => Character = character;
     public void SetLevel(ILevel level) => Level = level;
     public void AddLoot(ILoot enemy) => _loot.Add(enemy);

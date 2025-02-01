@@ -4,6 +4,7 @@ using _Project.Scripts.Infrastructure.Curtain;
 using _Project.Scripts.Infrastructure.Input;
 using _Project.Scripts.Infrastructure.StateMachine.States.Interfaces;
 using _Project.Scripts.Infrastructure.StaticData;
+using _Project.Scripts.Infrastructure.Time;
 using Cysharp.Threading.Tasks;
 using JetBrains.Annotations;
 
@@ -17,15 +18,18 @@ namespace _Project.Scripts.Infrastructure.StateMachine.States
     private readonly IJoystickService _joystickService;
     private readonly ICameraService _cameraService;
     private readonly ILoadingCurtainService _loadingCurtain;
+    private readonly ITimeService _time;
 
 
     public StateBootstrap(IStaticDataService staticDataService, IAssetService assetService, 
-      IJoystickService joystickService, ICameraService cameraService, ILoadingCurtainService loadingCurtain)
+      IJoystickService joystickService, ICameraService cameraService, ILoadingCurtainService loadingCurtain,
+      ITimeService time)
     {
       _assetService = assetService;
       _joystickService = joystickService;
       _cameraService = cameraService;
       _loadingCurtain = loadingCurtain;
+      _time = time;
       _staticDataService = staticDataService;
     }
 
@@ -44,7 +48,7 @@ namespace _Project.Scripts.Infrastructure.StateMachine.States
 
     private void LoadResources() => _staticDataService.Load();
     private async UniTask InitAsset() => await _assetService.Init();
-    private void InitJoystick() => _joystickService.Init();
+    private void InitJoystick() => _joystickService.Init(_time);
     private void InitCameraService() => _cameraService.Init();
 
 

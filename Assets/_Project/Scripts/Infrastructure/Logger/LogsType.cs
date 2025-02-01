@@ -4,5 +4,6 @@
   {
     Infrastructure = 0,
     Character = 1,
+    Collector = 2,
   }
 }

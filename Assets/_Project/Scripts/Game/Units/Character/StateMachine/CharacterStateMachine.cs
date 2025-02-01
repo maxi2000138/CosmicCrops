@@ -17,6 +17,7 @@ namespace _Project.Scripts.Game.Units.Character.StateMachine
 
                 {typeof(CharacterStateIdle), new CharacterStateIdle(this, character)},
                 {typeof(CharacterStateRun), new CharacterStateRun(this, character)},
+                {typeof(CharacterStateLoot), new CharacterStateLoot(this, character)},
             };
         }
     }

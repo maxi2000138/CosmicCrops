@@ -1,5 +1,6 @@
 ﻿using _Project.Scripts.Game.Infrastructure.StateMachine;
 using _Project.Scripts.Game.Level.Components;
+using _Project.Scripts.Game.Level.Model;
 using _Project.Scripts.Game.Units.Character.Components;
 using _Project.Scripts.Infrastructure.Input;
 using _Project.Scripts.Infrastructure.Logger;
@@ -11,6 +12,7 @@ namespace _Project.Scripts.Game.Units.Character.StateMachine.States
     public sealed class CharacterStateIdle : CharacterState, IState
     {
         private IJoystickService _joystickService;
+        private LevelModel _levelModel;
 
         public CharacterStateIdle(IStateMachine stateMachine, CharacterComponent character) : base(stateMachine, character)
         {
@@ -18,8 +20,9 @@ namespace _Project.Scripts.Game.Units.Character.StateMachine.States
         }
         
         [Inject]
-        private void Construct(IJoystickService joystickService)
+        private void Construct(IJoystickService joystickService, LevelModel levelModel)
         {
+            _levelModel = levelModel;
             _joystickService = joystickService;
         }
 
@@ -28,7 +31,8 @@ namespace _Project.Scripts.Game.Units.Character.StateMachine.States
             DebugLogger.Log("Enter Character Idle State", LogsType.Character);
         }
 
-        void IState.Exit() { }
+        void IState.Exit()
+        { }
 
         void IState.Tick()
         {
@@ -37,6 +41,13 @@ namespace _Project.Scripts.Game.Units.Character.StateMachine.States
             if (HasInput())
             {
                 EnterState<CharacterStateRun>();
+                return;
+            }
+
+            if (HasDetectedLoot())
+            {
+                EnterState<CharacterStateLoot>();
+                return;
             }
         }
 
@@ -48,10 +59,27 @@ namespace _Project.Scripts.Game.Units.Character.StateMachine.States
             move.y = Physics.gravity.y;
             Character.CharacterController.CharacterController.Move(move * Character.CharacterController.Speed * Time.deltaTime);
         }
+        
+        private bool HasDetectedLoot()
+        {
+            for (int i = 0; i < _levelModel.Loot.Count; i++)
+            {
+                //TODO: Set distance from config
+                if (DistanceToTarget(_levelModel.Loot[i].Position) < 5f)
+                {
+                    return true;
+                }
+            }
+
+            return false;
+        }
+
 
         private bool HasInput()
         {
             return _joystickService.GetAxis().sqrMagnitude > _joystickService.GetDeadZone();
         }
+        
+        private float DistanceToTarget(Vector3 target) => (Character.Position - target).sqrMagnitude;
     }
 }

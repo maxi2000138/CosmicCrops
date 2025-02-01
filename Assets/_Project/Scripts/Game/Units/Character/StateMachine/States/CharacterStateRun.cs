@@ -20,10 +20,7 @@ namespace _Project.Scripts.Game.Units.Character.StateMachine.States
         
         private float _angle;
 
-        public CharacterStateRun(IStateMachine stateMachine, CharacterComponent character) : base(stateMachine, character)
-        {
-            
-        }
+        public CharacterStateRun(IStateMachine stateMachine, CharacterComponent character) : base(stateMachine, character) { }
         
         [Inject]
         private void Construct(IJoystickService joystickService, ICameraService cameraService)
@@ -82,4 +79,6 @@ namespace _Project.Scripts.Game.Units.Character.StateMachine.States
             Character.CharacterController.transform.rotation = Quaternion.Euler(0f, lerpAngle, 0f);
         }
     }
+
+
 }
