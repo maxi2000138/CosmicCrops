@@ -13,7 +13,7 @@ namespace _Project.Scripts.Game.Collector.Systems
 {
     public sealed class CollectingViewSystem : SystemComponent<CollectingViewComponent>
     {
-        private ICameraService _cameraService;
+        private ICameraService _cameraService;  
         private InventoryModel _inventoryModel;
         private LevelModel _levelModel;
 

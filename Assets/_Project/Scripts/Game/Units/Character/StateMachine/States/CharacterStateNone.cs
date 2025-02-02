@@ -13,6 +13,7 @@ namespace _Project.Scripts.Game.Units.Character.StateMachine.States
 
         void IState.Enter()
         {
+            Character.Animator.OnRun.Execute(0f);
             Character.CleanSubscribe();
         }
 

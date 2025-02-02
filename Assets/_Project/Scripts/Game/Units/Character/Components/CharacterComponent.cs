@@ -1,5 +1,6 @@
 ﻿using _Project.Scripts.Game.Collector.Components;
 using _Project.Scripts.Game.Infrastructure.StateMachine.Components;
+using _Project.Scripts.Game.Units._Components;
 using _Project.Scripts.Game.Units.Character.Interface;
 using _Project.Scripts.Infrastructure.Systems.Components;
 using UnityEngine;
@@ -8,13 +9,15 @@ namespace _Project.Scripts.Game.Units.Character.Components
 {
   public class CharacterComponent : MonoComponent<CharacterComponent>, ICharacter
   {
+    [SerializeField] private AnimatorComponent _animator;
     [SerializeField] private CharacterControllerComponent _characterController;
     [SerializeField] private CollectorComponent _collector;
     [SerializeField] private StateMachineComponent _stateMachine;
 
-    
-    public CollectorComponent Collector => _collector;
+
+    public AnimatorComponent Animator => _animator;
     public CharacterControllerComponent CharacterController => _characterController;
+    public CollectorComponent Collector => _collector;
     public StateMachineComponent StateMachine => _stateMachine;
     public Vector3 Position => transform.position;
     
