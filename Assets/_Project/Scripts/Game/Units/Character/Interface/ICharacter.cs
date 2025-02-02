@@ -1,6 +1,8 @@
+using _Project.Scripts.Game.Units._Interfaces;
+
 namespace _Project.Scripts.Game.Units.Character.Interface
 {
-  public interface ICharacter
+  public interface ICharacter : IPosition, IHeight
   {
     
   }

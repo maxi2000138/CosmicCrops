@@ -23,6 +23,9 @@ namespace _Project.Scripts.Infrastructure.Factories.Systems
                 new LootSpawnerSystem(),
                 
                 new ExecuteCollectorSystem(),
+                
+                //View
+                new CollectingViewSystem(),
             };
 
             return systems;

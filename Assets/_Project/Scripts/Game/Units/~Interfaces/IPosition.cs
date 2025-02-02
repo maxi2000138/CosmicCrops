@@ -6,4 +6,5 @@ namespace _Project.Scripts.Game.Units._Interfaces
   {
     public Vector3 Position { get; }
   }
+
 }

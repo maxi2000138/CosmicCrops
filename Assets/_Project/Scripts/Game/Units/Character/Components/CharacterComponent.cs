@@ -17,5 +17,8 @@ namespace _Project.Scripts.Game.Units.Character.Components
     public CharacterControllerComponent CharacterController => _characterController;
     public StateMachineComponent StateMachine => _stateMachine;
     public Vector3 Position => transform.position;
+    
+    public float Height => 3f;
+    public float Scale => 1.5f;
   }
 }
