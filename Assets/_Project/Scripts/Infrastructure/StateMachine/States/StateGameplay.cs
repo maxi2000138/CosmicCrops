@@ -4,8 +4,11 @@ using _Project.Scripts.Infrastructure.Factories.UI;
 using _Project.Scripts.Infrastructure.Input;
 using _Project.Scripts.Infrastructure.StateMachine.States.Interfaces;
 using _Project.Scripts.UI.Screens;
+using _Project.Scripts.Utils.Extensions;
 using Cysharp.Threading.Tasks;
 using JetBrains.Annotations;
+using ObservableCollections;
+using R3;
 using VContainer;
 
 namespace _Project.Scripts.Infrastructure.StateMachine.States
@@ -14,9 +17,12 @@ namespace _Project.Scripts.Infrastructure.StateMachine.States
   [UsedImplicitly(ImplicitUseKindFlags.InstantiatedNoFixedConstructorSignature)]
   public sealed class StateGameplay : IEnterState, IExitState
   {
-    private IUIFactory _uiFactory;
     private IJoystickService _joystickService;
+    private IGameStateMachine _gameStateMachine;
     private LevelModel _levelModel;
+    private IUIFactory _uiFactory;
+    
+    private readonly CompositeDisposable _transitionDisposable = new();
 
     [Inject]
     private void Construct(IUIFactory uiFactory, IJoystickService joystickService, LevelModel levelModel)
@@ -29,23 +35,44 @@ namespace _Project.Scripts.Infrastructure.StateMachine.States
 
     public async UniTask Enter(IGameStateMachine gameStateMachine)
     {
+      _gameStateMachine = gameStateMachine;
       await _uiFactory.CreateScreen(ScreenType.Game);
       _joystickService.Enable(true);
       
       ActivateUnitStateMachine();
+      
+      SubscribeOnWin();
     }
     
     public UniTask Exit(IGameStateMachine gameStateMachine)
     {
       _joystickService.Enable(false);
+      _transitionDisposable.Clear();
       
       return UniTask.CompletedTask;
     }
-    
+
     private void ActivateUnitStateMachine()
     {
       _levelModel.Character.StateMachine.StateMachine.Enter<CharacterStateIdle>();
     }
+    
+    private void SubscribeOnWin()
+    {
+      _levelModel.Loot
+        .ObserveRemove()
+        .First(_ => AllLootCollected())
+        .Subscribe(_ => Win())
+        .AddTo(_transitionDisposable);
+    }
+    
+    private void Win()
+    {
+      _gameStateMachine.Enter<StateGameResult, GameResult>(GameResult.Win);
+      _levelModel.Character.StateMachine.StateMachine.Enter<CharacterStateNone>();
+    }
+    
+    private bool AllLootCollected() => _levelModel.Loot.Count == 0;
 
   }
 }

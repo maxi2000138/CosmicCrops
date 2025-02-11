@@ -1,4 +1,4 @@
-﻿using _Project.Scripts.Game.Loot.Interface;
+﻿using _Project.Scripts.Game.Units.Loot.Interface;
 
 namespace _Project.Scripts.Game.Collector.Interfaces
 {

@@ -1,11 +1,10 @@
-﻿using _Project.Scripts.Game.Level.Model;
-using _Project.Scripts.Game.Loot.Components;
+﻿using _Project.Scripts.Game.Units.Loot.Components;
 using _Project.Scripts.Infrastructure.Factories.Game;
 using _Project.Scripts.Infrastructure.Systems;
 using Cysharp.Threading.Tasks;
 using VContainer;
 
-namespace _Project.Scripts.Game.Loot.Systems
+namespace _Project.Scripts.Game.Units.Loot.Systems
 {
   public class LootSpawnerSystem : SystemComponent<LootSpawnerComponent>
   {

@@ -41,6 +41,5 @@ namespace _Project.Scripts.Infrastructure.StateMachine.States
     }
 
     private void ChangeState(Unit _) => _gameStateMachine.Enter<StateGameplay>();
-
   }
 }

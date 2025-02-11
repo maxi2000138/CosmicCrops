@@ -1,8 +1,8 @@
 ﻿using System.Diagnostics;
 using _Project.Scripts.Game.Infrastructure.StateMachine;
 using _Project.Scripts.Game.Level.Model;
-using _Project.Scripts.Game.Loot.Interface;
 using _Project.Scripts.Game.Units.Character.Components;
+using _Project.Scripts.Game.Units.Loot.Interface;
 using _Project.Scripts.Infrastructure.Input;
 using _Project.Scripts.Infrastructure.Logger;
 using UnityEngine;

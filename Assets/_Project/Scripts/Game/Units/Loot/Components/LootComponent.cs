@@ -1,8 +1,8 @@
-﻿using _Project.Scripts.Game.Loot.Interface;
+﻿using _Project.Scripts.Game.Units.Loot.Interface;
 using _Project.Scripts.Infrastructure.Systems.Components;
 using UnityEngine;
 
-namespace _Project.Scripts.Game.Loot.Components
+namespace _Project.Scripts.Game.Units.Loot.Components
 {
   public class LootComponent : MonoComponent<LootComponent>, ILoot
   {
