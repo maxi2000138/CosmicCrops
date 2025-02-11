@@ -1,7 +1,7 @@
 ﻿using _Project.Scripts.Infrastructure.AssetData;
+using _Project.Scripts.Infrastructure.GUI;
 using _Project.Scripts.Infrastructure.StaticData;
 using _Project.Scripts.Infrastructure.StaticData.Data;
-using _Project.Scripts.UI.GUIService;
 using _Project.Scripts.UI.Screens;
 using Cysharp.Threading.Tasks;
 using JetBrains.Annotations;

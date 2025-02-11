@@ -20,6 +20,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 6df19e06a43020e4a9ae94c4bf206ed9
+    m_Address: Assets/_Project/Prefabs/UI/Screens/Lobby/LobbyScreen.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 99c9720ab356a0642a771bea13969a05
     m_Address: GameScene
     m_ReadOnly: 0

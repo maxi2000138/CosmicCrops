@@ -24,7 +24,7 @@ namespace _Project.Scripts.Infrastructure.StateMachine.States
     async UniTask IEnterState.Enter(IGameStateMachine gameStateMachine)
     {
       await _sceneLoaderService.Load(Scenes.GAMEPLAY);
-      gameStateMachine.Enter<StateGameplayLoop>();
+      gameStateMachine.Enter<StateLobby>();
     }
 
     async UniTask IExitState.Exit(IGameStateMachine gameStateMachine)

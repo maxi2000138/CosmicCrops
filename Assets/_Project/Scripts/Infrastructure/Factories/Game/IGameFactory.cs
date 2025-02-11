@@ -1,8 +1,8 @@
 using _Project.Scripts.Game.Level.Components;
 using _Project.Scripts.Game.Level.Interface;
-using _Project.Scripts.Game.Loot.Components;
-using _Project.Scripts.Game.Loot.Data;
 using _Project.Scripts.Game.Units.Character.Components;
+using _Project.Scripts.Game.Units.Loot.Components;
+using _Project.Scripts.Game.Units.Loot.Data;
 using Cysharp.Threading.Tasks;
 using UnityEngine;
 

@@ -24,7 +24,7 @@ MonoBehaviour:
     - Name: Screens
       Entry: 7
       Data: 0|System.Collections.Generic.Dictionary`2[[_Project.Scripts.UI.Screens.ScreenType,
-        Assembly-CSharp],[_Project.Scripts._Infrastructure.StaticData.Data.ScreenInfo,
+        Assembly-CSharp],[_Project.Scripts.Infrastructure.StaticData.Data.ScreenData,
         Assembly-CSharp]], mscorlib
     - Name: comparer
       Entry: 7
@@ -41,7 +41,7 @@ MonoBehaviour:
       Data: 
     - Name: 
       Entry: 12
-      Data: 1
+      Data: 2
     - Name: 
       Entry: 7
       Data: 
@@ -50,13 +50,49 @@ MonoBehaviour:
       Data: 1
     - Name: $v
       Entry: 7
-      Data: 2|_Project.Scripts._Infrastructure.StaticData.Data.ScreenInfo, Assembly-CSharp
+      Data: 2|_Project.Scripts.Infrastructure.StaticData.Data.ScreenData, Assembly-CSharp
     - Name: PrefabReference
       Entry: 7
       Data: 3|UnityEngine.AddressableAssets.AssetReference, Unity.Addressables
     - Name: m_AssetGUID
       Entry: 1
       Data: 3bfda78987cc15146b3ad22c99fff1f6
+    - Name: m_SubObjectName
+      Entry: 6
+      Data: 
+    - Name: m_SubObjectGUID
+      Entry: 1
+      Data: 
+    - Name: m_SubObjectType
+      Entry: 6
+      Data: 
+    - Name: m_EditorAssetChanged
+      Entry: 5
+      Data: true
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 3
+      Data: 2
+    - Name: $v
+      Entry: 7
+      Data: 4|_Project.Scripts.Infrastructure.StaticData.Data.ScreenData, Assembly-CSharp
+    - Name: PrefabReference
+      Entry: 7
+      Data: 5|UnityEngine.AddressableAssets.AssetReference, Unity.Addressables
+    - Name: m_AssetGUID
+      Entry: 1
+      Data: 6df19e06a43020e4a9ae94c4bf206ed9
     - Name: m_SubObjectName
       Entry: 6
       Data: 

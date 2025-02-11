@@ -4,5 +4,6 @@
     {
         None     = 0,
         Game     = 1,
+        Lobby    = 2,
     }
 }

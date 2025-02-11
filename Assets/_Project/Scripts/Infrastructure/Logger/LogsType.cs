@@ -2,8 +2,9 @@
 {
   public enum LogsType
   {
-    Infrastructure = 0,
-    Character = 1,
-    Collector = 2,
+    Infrastructure  = 0,
+    Character       = 1,
+    Collector       = 2,
+    Haptic          = 3,
   }
 }

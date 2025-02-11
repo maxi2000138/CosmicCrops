@@ -1,6 +1,7 @@
-﻿using _Project.Scripts.UI.Screens;
+﻿using _Project.Scripts.UI;
+using _Project.Scripts.UI.Screens;
 
-namespace _Project.Scripts.UI.GUIService
+namespace _Project.Scripts.Infrastructure.GUI
 {
     public interface IGuiService
     {
