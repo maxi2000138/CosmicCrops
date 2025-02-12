@@ -1,4 +1,4 @@
-﻿namespace _Project.Scripts.Infrastructure.StateMachine.States
+﻿namespace _Project.Scripts.Infrastructure.StateMachine.Data
 {
   public enum GameResult
   {

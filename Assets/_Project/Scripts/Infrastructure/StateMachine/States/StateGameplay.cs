@@ -1,7 +1,8 @@
-﻿using _Project.Scripts.Game.Level.Model;
-using _Project.Scripts.Game.Units.Character.StateMachine.States;
+﻿using _Project.Scripts.Game.Entities.Character.StateMachine.States;
+using _Project.Scripts.Game.Level.Model;
 using _Project.Scripts.Infrastructure.Factories.UI;
 using _Project.Scripts.Infrastructure.Input;
+using _Project.Scripts.Infrastructure.StateMachine.Data;
 using _Project.Scripts.Infrastructure.StateMachine.States.Interfaces;
 using _Project.Scripts.UI.Screens;
 using _Project.Scripts.Utils.Extensions;

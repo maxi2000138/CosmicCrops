@@ -1,6 +1,7 @@
 ﻿using System;
 using _Project.Scripts.Infrastructure.Curtain;
 using _Project.Scripts.Infrastructure.Factories.UI;
+using _Project.Scripts.Infrastructure.StateMachine.Data;
 using _Project.Scripts.Infrastructure.StateMachine.States.Interfaces;
 using _Project.Scripts.UI.Screens;
 using _Project.Scripts.Utils.Extensions;

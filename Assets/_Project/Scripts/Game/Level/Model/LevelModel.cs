@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
+using _Project.Scripts.Game.Entities._Interfaces;
+using _Project.Scripts.Game.Entities.Loot.Interface;
 using _Project.Scripts.Game.Level.Interface;
-using _Project.Scripts.Game.Units.Character.Interface;
-using _Project.Scripts.Game.Units.Loot.Interface;
 using ObservableCollections;
 using R3;
 

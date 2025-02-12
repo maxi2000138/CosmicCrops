@@ -1,7 +1,7 @@
-﻿using _Project.Scripts.Game.Infrastructure.StateMachine;
+﻿using _Project.Scripts.Game.Entities.Character.Components;
+using _Project.Scripts.Game.Entities.Character.StateMachine;
+using _Project.Scripts.Game.Infrastructure.StateMachine;
 using _Project.Scripts.Game.Level.Components;
-using _Project.Scripts.Game.Units.Character.Components;
-using _Project.Scripts.Game.Units.Character.StateMachine;
 using _Project.Scripts.Infrastructure.StateMachine;
 using _Project.Scripts.Infrastructure.StateMachine.States;
 using _Project.Scripts.Utils.Extensions;

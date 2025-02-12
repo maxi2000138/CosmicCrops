@@ -1,7 +1,7 @@
 ﻿using _Project.Scripts.Game.Collector.Interfaces;
+using _Project.Scripts.Game.Entities.Loot.Interface;
 using _Project.Scripts.Game.Inventory;
 using _Project.Scripts.Game.Level.Model;
-using _Project.Scripts.Game.Units.Loot.Interface;
 using _Project.Scripts.Infrastructure.Logger;
 using _Project.Scripts.Infrastructure.Time;
 using R3;

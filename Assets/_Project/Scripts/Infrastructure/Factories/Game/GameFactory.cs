@@ -1,9 +1,9 @@
-﻿using _Project.Scripts.Game.Level.Components;
+﻿using _Project.Scripts.Game.Entities.Character.Components;
+using _Project.Scripts.Game.Entities.Loot.Components;
+using _Project.Scripts.Game.Entities.Loot.Data;
+using _Project.Scripts.Game.Level.Components;
 using _Project.Scripts.Game.Level.Interface;
 using _Project.Scripts.Game.Level.Model;
-using _Project.Scripts.Game.Units.Character.Components;
-using _Project.Scripts.Game.Units.Loot.Components;
-using _Project.Scripts.Game.Units.Loot.Data;
 using _Project.Scripts.Infrastructure.AssetData;
 using _Project.Scripts.Infrastructure.StaticData;
 using _Project.Scripts.Infrastructure.StaticData.Data;
