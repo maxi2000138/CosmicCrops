@@ -41,7 +41,7 @@ MonoBehaviour:
       Data: 
     - Name: 
       Entry: 12
-      Data: 3
+      Data: 4
     - Name: 
       Entry: 7
       Data: 
@@ -129,6 +129,42 @@ MonoBehaviour:
     - Name: m_AssetGUID
       Entry: 1
       Data: 199b426e5d7b9fa4da25b33239920b35
+    - Name: m_SubObjectName
+      Entry: 6
+      Data: 
+    - Name: m_SubObjectGUID
+      Entry: 1
+      Data: 
+    - Name: m_SubObjectType
+      Entry: 6
+      Data: 
+    - Name: m_EditorAssetChanged
+      Entry: 5
+      Data: true
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 3
+      Data: 4
+    - Name: $v
+      Entry: 7
+      Data: 8|_Project.Scripts.Infrastructure.StaticData.Data.ScreenData, Assembly-CSharp
+    - Name: PrefabReference
+      Entry: 7
+      Data: 9|UnityEngine.AddressableAssets.AssetReference, Unity.Addressables
+    - Name: m_AssetGUID
+      Entry: 1
+      Data: 442db06ab34b2c949b10e10d8ff9e8d9
     - Name: m_SubObjectName
       Entry: 6
       Data: 

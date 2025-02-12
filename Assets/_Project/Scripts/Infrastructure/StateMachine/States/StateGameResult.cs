@@ -14,14 +14,13 @@ namespace _Project.Scripts.Infrastructure.StateMachine.States
   [UsedImplicitly(ImplicitUseKindFlags.InstantiatedNoFixedConstructorSignature)]
   public class StateGameResult : IOverloadedEnterState<GameResult>, IExitState
   {
-    private ILoadingCurtainService _loadingCurtain;
+    private readonly ILoadingCurtainService _loadingCurtain;
+    private readonly IUIFactory _uiFactory;
     private IGameStateMachine _gameStateMachine;
-    private IUIFactory _uiFactory;
 
     private IDisposable _transitionDisposable;
 
-    [Inject]
-    private void Construct(IUIFactory uiFactory, ILoadingCurtainService loadingCurtain)
+    public StateGameResult(IUIFactory uiFactory, ILoadingCurtainService loadingCurtain)
     {
       _loadingCurtain = loadingCurtain;
       _uiFactory = uiFactory;
@@ -53,9 +52,8 @@ namespace _Project.Scripts.Infrastructure.StateMachine.States
       }
       
       _transitionDisposable = screen!.CloseScreen.First().Subscribe(ChangeState);
-
     }
     
-    private void ChangeState(Unit _) => _gameStateMachine.Enter<StateLoadGameScene>();
+    private void ChangeState(Unit _) => _gameStateMachine.Enter<StateMenu>();
   }
 }

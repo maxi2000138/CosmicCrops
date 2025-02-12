@@ -17,15 +17,14 @@ namespace _Project.Scripts.Infrastructure.StateMachine.States
   [UsedImplicitly(ImplicitUseKindFlags.InstantiatedNoFixedConstructorSignature)]
   public sealed class StateGameplay : IEnterState, IExitState
   {
-    private IJoystickService _joystickService;
+    private readonly IJoystickService _joystickService;
+    private readonly LevelModel _levelModel;
+    private readonly IUIFactory _uiFactory;
     private IGameStateMachine _gameStateMachine;
-    private LevelModel _levelModel;
-    private IUIFactory _uiFactory;
     
     private readonly CompositeDisposable _transitionDisposable = new();
 
-    [Inject]
-    private void Construct(IUIFactory uiFactory, IJoystickService joystickService, LevelModel levelModel)
+    public StateGameplay(IUIFactory uiFactory, IJoystickService joystickService, LevelModel levelModel)
     {
       _levelModel = levelModel;
       _joystickService = joystickService;

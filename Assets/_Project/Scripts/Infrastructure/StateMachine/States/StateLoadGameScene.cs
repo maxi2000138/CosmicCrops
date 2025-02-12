@@ -23,13 +23,15 @@ namespace _Project.Scripts.Infrastructure.StateMachine.States
 
     async UniTask IEnterState.Enter(IGameStateMachine gameStateMachine)
     {
+      _loadingCurtain.Show();
+      
       await _sceneLoaderService.Load(Scenes.GAMEPLAY);
       gameStateMachine.Enter<StateLobby>();
     }
 
     async UniTask IExitState.Exit(IGameStateMachine gameStateMachine)
     {
-      var level = await _gameFactory.CreateLevel();
+      await _gameFactory.CreateLevel();
       
       _loadingCurtain.Hide();
     }

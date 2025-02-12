@@ -10,7 +10,7 @@ namespace _Project.Scripts.Infrastructure.StateMachine.States
     
     UniTask IEnterState.Enter(IGameStateMachine gameStateMachine)
     {
-      gameStateMachine.Enter<StateLoadGameScene>();
+      gameStateMachine.Enter<StateMenu>();
 
       return UniTask.CompletedTask;
     }
