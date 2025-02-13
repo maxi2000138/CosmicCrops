@@ -10,4 +10,6 @@ namespace _Project.Scripts.Infrastructure.StaticData.Data
         [Range(1f, 5f)] public float Speed;
         public AssetReference PrefabReference;
     }
+
+
 }

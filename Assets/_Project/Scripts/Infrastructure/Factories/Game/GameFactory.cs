@@ -1,6 +1,7 @@
 ﻿using _Project.Scripts.Game.Entities.Character.Components;
 using _Project.Scripts.Game.Entities.Loot.Components;
 using _Project.Scripts.Game.Entities.Loot.Data;
+using _Project.Scripts.Game.Entities.Unit.Components;
 using _Project.Scripts.Game.Level.Components;
 using _Project.Scripts.Game.Level.Interface;
 using _Project.Scripts.Game.Level.Model;
@@ -51,6 +52,16 @@ namespace _Project.Scripts.Infrastructure.Factories.Game
       
       return character;
     }
+    
+    async UniTask<UnitComponent> IGameFactory.CreateUnit(Vector3 position, Transform parent)
+    {
+      UnitConfig config = _staticDataService.UnitConfig();
+      GameObject prefab = await _assetService.LoadFromAddressable<GameObject>(config.PrefabReference);
+      UnitComponent unit = Object.Instantiate(prefab, position, Quaternion.identity, parent).GetComponent<UnitComponent>();
+      _levelModel.AddEnemy(unit);
+      return unit;
+    }
+
     
     public async UniTask<LootComponent> CreateLoot(LootType lootType, Vector3 position, Transform parent)
     {

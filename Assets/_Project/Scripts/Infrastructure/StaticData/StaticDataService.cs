@@ -19,6 +19,7 @@ namespace _Project.Scripts.Infrastructure.StaticData
         private LoggerConfig _loggerConfig;
         private ScreenConfig _screenConfig;
         private LootConfig _lootConfig;
+        private UnitConfig _unitConfig;
 
         public StaticDataService(IAssetService assetService)
         {
@@ -32,6 +33,8 @@ namespace _Project.Scripts.Infrastructure.StaticData
              _levelConfig = LoadConfig<LevelConfig>();
              _characterConfig = LoadConfig<CharacterConfig>();
              _screenConfig = LoadConfig<ScreenConfig>();
+             _unitConfig = LoadConfig<UnitConfig>();
+        
              _loggerConfig ??= LoadConfig<LoggerConfig>();
         }
         
@@ -42,6 +45,8 @@ namespace _Project.Scripts.Infrastructure.StaticData
         UIConfig IStaticDataService.UIConfig() => _uiConfig;
         LevelConfig IStaticDataService.LevelConfig() => _levelConfig;
         CharacterConfig IStaticDataService.CharacterConfig() => _characterConfig;
+        UnitConfig IStaticDataService.UnitConfig() => _unitConfig;
+
         LoggerConfig IStaticDataService.LoggerConfig() => _loggerConfig ??= LoadConfig<LoggerConfig>();
 
         private T LoadConfig<T>() where T : UnityEngine.Object => _assetService.LoadFromResources<T>(DataFolder + typeof(T).Name);

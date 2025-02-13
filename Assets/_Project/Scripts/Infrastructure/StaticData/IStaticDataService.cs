@@ -12,5 +12,6 @@ namespace _Project.Scripts.Infrastructure.StaticData
         void Load();
         ScreenData ScreenData(ScreenType type);
         LootConfig LootConfig();
+        UnitConfig UnitConfig();
     }
 }

@@ -1,6 +1,7 @@
 using _Project.Scripts.Game.Entities.Character.Components;
 using _Project.Scripts.Game.Entities.Loot.Components;
 using _Project.Scripts.Game.Entities.Loot.Data;
+using _Project.Scripts.Game.Entities.Unit.Components;
 using _Project.Scripts.Game.Level.Components;
 using _Project.Scripts.Game.Level.Interface;
 using Cysharp.Threading.Tasks;
@@ -12,6 +13,7 @@ namespace _Project.Scripts.Infrastructure.Factories.Game
   {
     UniTask<ILevel> CreateLevel();
     UniTask<CharacterComponent> CreateCharacter(Vector3 position, Transform parent);
-    UniTask<LootComponent> CreateLoot(LootType lootType, Vector3 position, Transform parent); 
+    UniTask<LootComponent> CreateLoot(LootType lootType, Vector3 position, Transform parent);
+    UniTask<UnitComponent> CreateUnit(Vector3 position, Transform parent);
   }
 }

@@ -2,6 +2,7 @@
 using _Project.Scripts.Game.Entities._Systems;
 using _Project.Scripts.Game.Entities.Character.Systems;
 using _Project.Scripts.Game.Entities.Loot.Systems;
+using _Project.Scripts.Game.Entities.Unit.Systems;
 using _Project.Scripts.Game.Input.Systems;
 using _Project.Scripts.Infrastructure.Systems;
 using _Project.Scripts.UI.Haptic.Systems;
@@ -22,6 +23,7 @@ namespace _Project.Scripts.Infrastructure.Factories.Systems
                 new JoystickUpdateSystem(),
                 
                 new LootSpawnerSystem(),
+                new UnitSpawnerSystem(),
                 
                 new ExecuteCollectorSystem(),
                 
