@@ -14,5 +14,6 @@ namespace _Project.Scripts.Game.Entities.Unit.Components
     public AgentComponent Agent => _agent;
     public AnimatorComponent Animator => _animator;
     public StateMachineComponent StateMachine => _stateMachine;
+    public Vector3 Position => transform.position;
   }
 }

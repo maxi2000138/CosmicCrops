@@ -1,5 +1,7 @@
 ﻿using _Project.Scripts.Game.Entities.Character.Components;
 using _Project.Scripts.Game.Entities.Character.StateMachine;
+using _Project.Scripts.Game.Entities.Unit.Components;
+using _Project.Scripts.Game.Entities.Unit.StateMachine;
 using _Project.Scripts.Game.Infrastructure.StateMachine;
 using _Project.Scripts.Game.Level.Components;
 using _Project.Scripts.Infrastructure.StateMachine;
@@ -49,6 +51,13 @@ namespace _Project.Scripts.Infrastructure.Factories.StateMachine
             CharacterStateMachine characterStateMachine = new CharacterStateMachine(character);
             characterStateMachine.States.Values.Foreach(_lifetimeScope.Container.Inject);
             return characterStateMachine;
+        }
+        
+        public IStateMachine CreateUnitStateMachine(UnitComponent unit)
+        {
+            UnitStateMachine unitStateMachine = new UnitStateMachine(unit);
+            unitStateMachine.States.Values.Foreach(_lifetimeScope.Container.Inject);
+            return unitStateMachine;
         }
     }
 }
