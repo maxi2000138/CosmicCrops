@@ -15,6 +15,7 @@ namespace _Project.Scripts.Game.Level.Model
 
     public ILevel Level { get; private set; }
     public ICharacter Character { get; private set; }
+    public ReactiveProperty<ITarget> Target { get; } = new ReactiveProperty<ITarget>();
     public ReactiveProperty<ILoot> CurrentLoot { get; } = new ReactiveProperty<ILoot>();
     public IReadOnlyObservableList<ILoot> Loot => _loot;
     public IReadOnlyObservableList<IEnemy> Enemies => _enemies;

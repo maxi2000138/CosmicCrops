@@ -12,14 +12,15 @@ namespace _Project.Scripts.Infrastructure.StaticData
         private const string DataFolder = "StaticData/";
         
         private readonly IAssetService _assetService;
-        
-        private UIConfig _uiConfig;
-        private LevelConfig _levelConfig;
+
+        private WeaponCharacteristicConfig _weaponCharacteristicConfig;
         private CharacterConfig _characterConfig;
         private LoggerConfig _loggerConfig;
         private ScreenConfig _screenConfig;
-        private LootConfig _lootConfig;
+        private LevelConfig _levelConfig;
         private UnitConfig _unitConfig;
+        private LootConfig _lootConfig;
+        private UIConfig _uiConfig;
 
         public StaticDataService(IAssetService assetService)
         {
@@ -34,6 +35,7 @@ namespace _Project.Scripts.Infrastructure.StaticData
              _characterConfig = LoadConfig<CharacterConfig>();
              _screenConfig = LoadConfig<ScreenConfig>();
              _unitConfig = LoadConfig<UnitConfig>();
+             _weaponCharacteristicConfig = LoadConfig<WeaponCharacteristicConfig>();
         
              _loggerConfig ??= LoadConfig<LoggerConfig>();
         }
@@ -46,6 +48,7 @@ namespace _Project.Scripts.Infrastructure.StaticData
         LevelConfig IStaticDataService.LevelConfig() => _levelConfig;
         CharacterConfig IStaticDataService.CharacterConfig() => _characterConfig;
         UnitConfig IStaticDataService.UnitConfig() => _unitConfig;
+        WeaponCharacteristicConfig IStaticDataService.WeaponCharacteristicConfig() => _weaponCharacteristicConfig;
 
         LoggerConfig IStaticDataService.LoggerConfig() => _loggerConfig ??= LoadConfig<LoggerConfig>();
 

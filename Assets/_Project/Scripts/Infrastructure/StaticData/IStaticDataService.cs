@@ -13,5 +13,6 @@ namespace _Project.Scripts.Infrastructure.StaticData
         ScreenData ScreenData(ScreenType type);
         LootConfig LootConfig();
         UnitConfig UnitConfig();
+        WeaponCharacteristicConfig WeaponCharacteristicConfig();
     }
 }

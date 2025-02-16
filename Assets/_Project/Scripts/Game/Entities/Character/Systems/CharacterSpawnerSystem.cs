@@ -2,6 +2,9 @@
 using _Project.Scripts.Game.Entities.Character.Components;
 using _Project.Scripts.Game.Entities.Character.StateMachine.States;
 using _Project.Scripts.Game.Inventory;
+using _Project.Scripts.Game.Weapon;
+using _Project.Scripts.Game.Weapon.Data;
+using _Project.Scripts.Game.Weapon.Factories;
 using _Project.Scripts.Infrastructure.Camera;
 using _Project.Scripts.Infrastructure.Factories.Game;
 using _Project.Scripts.Infrastructure.Factories.StateMachine;
@@ -18,10 +21,13 @@ namespace _Project.Scripts.Game.Entities.Character.Systems
     private IStateMachineFactory _stateMachineFactory;
     private InventoryModel _inventoryModel;
     private ICollectorFactory _collectorFactory;
+    private IWeaponFactory _weaponFactory;
 
     [Inject]
-    private void Construct(IGameFactory gameFactory, ICollectorFactory collectorFactory, ICameraService cameraService, IStateMachineFactory stateMachineFactory, InventoryModel inventoryModel)
+    private void Construct(IGameFactory gameFactory, ICollectorFactory collectorFactory, ICameraService cameraService, 
+      IStateMachineFactory stateMachineFactory, InventoryModel inventoryModel, IWeaponFactory weaponFactory)
     {
+      _weaponFactory = weaponFactory;
       _collectorFactory = collectorFactory;
       _inventoryModel = inventoryModel;
       _stateMachineFactory = stateMachineFactory;
@@ -39,6 +45,8 @@ namespace _Project.Scripts.Game.Entities.Character.Systems
     private async UniTaskVoid CreateCharacter(CharacterSpawnerComponent component)
     {
       var character = await _gameFactory.CreateCharacter(component.Position, component.transform.parent);
+      var weapon = await _weaponFactory.CreateCharacterWeapon(character.WeaponComponent, WeaponType.Knife, character.transform);
+      
       character.StateMachine.CreateStateMachine(_stateMachineFactory.CreateCharacterStateMachine(character));
       character.StateMachine.StateMachine.Enter<CharacterStateIdle>();
 

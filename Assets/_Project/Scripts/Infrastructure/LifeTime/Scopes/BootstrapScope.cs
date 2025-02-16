@@ -1,6 +1,7 @@
 ﻿using _Project.Scripts.Game.Collector.Factory;
 using _Project.Scripts.Game.Inventory;
 using _Project.Scripts.Game.Level.Model;
+using _Project.Scripts.Game.Weapon.Factories;
 using _Project.Scripts.Infrastructure.AssetData;
 using _Project.Scripts.Infrastructure.Camera;
 using _Project.Scripts.Infrastructure.Curtain;
@@ -50,6 +51,7 @@ namespace _Project.Scripts.Infrastructure.LifeTime.Scopes
       builder.Register<DebugLogger>(Lifetime.Singleton);
       builder.Register<ITimeService, TimeService>(Lifetime.Singleton);
       builder.Register<IGameFactory, GameFactory>(Lifetime.Singleton);
+      builder.Register<IWeaponFactory, WeaponFactory>(Lifetime.Singleton);
       builder.Register<IAssetService, AssetService>(Lifetime.Singleton);
       builder.Register<IHapticService, HapticService>(Lifetime.Singleton);
       builder.Register<IStaticDataService, StaticDataService>(Lifetime.Singleton);

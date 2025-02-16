@@ -12,6 +12,7 @@ namespace _Project.Scripts.Game.Entities._Components
 
     public readonly ReactiveCommand<float> OnRun = new();
     public readonly ReactiveCommand OnCollect = new();
+    public readonly ReactiveCommand OnAttack = new();
     public readonly ReactiveCommand OnDeath = new();
     public readonly ReactiveCommand OnVictory = new();
   }

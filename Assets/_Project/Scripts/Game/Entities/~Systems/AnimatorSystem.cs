@@ -26,6 +26,10 @@ namespace _Project.Scripts.Game.Entities._Systems
       component.OnVictory
         .Subscribe(_ => component.Animator.SetTrigger(Animations.Victory))
         .AddTo(component.LifetimeDisposable);
+
+      component.OnAttack
+        .Subscribe(_ => component.Animator.SetTrigger(Animations.Attack))
+        .AddTo(component.LifetimeDisposable);
     }
   }
 }

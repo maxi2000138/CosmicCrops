@@ -6,5 +6,6 @@
     Character       = 1,
     Collector       = 2,
     Haptic          = 3,
+    Weapon          = 4,
   }
 }

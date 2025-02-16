@@ -4,6 +4,8 @@ using _Project.Scripts.Game.Entities.Character.Systems;
 using _Project.Scripts.Game.Entities.Loot.Systems;
 using _Project.Scripts.Game.Entities.Unit.Systems;
 using _Project.Scripts.Game.Input.Systems;
+using _Project.Scripts.Game.Weapon;
+using _Project.Scripts.Game.Weapon.Systems;
 using _Project.Scripts.Infrastructure.Systems;
 using _Project.Scripts.UI.Haptic.Systems;
 using JetBrains.Annotations;
@@ -26,6 +28,8 @@ namespace _Project.Scripts.Infrastructure.Factories.Systems
                 new UnitSpawnerSystem(),
                 
                 new ExecuteCollectorSystem(),
+               
+                new ExecuteWeaponAmmunitionSystem(),
                 
                 //View
                 new AnimatorSystem(),

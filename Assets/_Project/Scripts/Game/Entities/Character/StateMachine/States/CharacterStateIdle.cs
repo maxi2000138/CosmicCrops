@@ -32,8 +32,7 @@ namespace _Project.Scripts.Game.Entities.Character.StateMachine.States
             DebugLogger.Log("Enter Character Idle State", LogsType.Character);
         }
 
-        void IState.Exit()
-        { }
+        void IState.Exit() { }
 
         void IState.Tick()
         {
@@ -49,6 +48,11 @@ namespace _Project.Scripts.Game.Entities.Character.StateMachine.States
             {
                 EnterState<CharacterStateLoot>();
                 return;
+            }
+            
+            if (HasDetectedTarget())
+            {
+                EnterState<CharacterStateFight>();
             }
         }
 
@@ -74,13 +78,27 @@ namespace _Project.Scripts.Game.Entities.Character.StateMachine.States
 
             return false;
         }
+        
+        private bool HasDetectedTarget()
+        {
+            for (int i = 0; i < _levelModel.Enemies.Count; i++)
+            {
+                if (DistanceToTarget(_levelModel.Enemies[i].Position) < Character.WeaponComponent.Weapon.AttackDistance())
+                {
+                    return true;
+                }
+            }
 
+            return false;
+        }
 
         private bool HasInput()
         {
             return _joystickService.GetAxis().sqrMagnitude > _joystickService.GetDeadZone();
         }
         
+        
         private float DistanceToTarget(Vector3 target) => (Character.Position - target).sqrMagnitude;
     }
+
 }
