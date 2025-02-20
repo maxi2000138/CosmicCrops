@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using _Project.Scripts.Game.Entities.Unit.Components;
 using _Project.Scripts.Game.Entities.Unit.StateMachine.States;
 using _Project.Scripts.Game.Infrastructure.StateMachine;
-using CodeBase.Game.StateMachine.Unit;
 
 namespace _Project.Scripts.Game.Entities.Unit.StateMachine
 {

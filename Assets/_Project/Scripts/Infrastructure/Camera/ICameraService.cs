@@ -11,6 +11,6 @@ namespace _Project.Scripts.Infrastructure.Camera
         void ActivateCamera(ScreenType type);
         void Shake();
         bool IsOnScreen(Vector3 viewportPoint);
-        void CleanUp();
+        void Cleanup();
     }
 }

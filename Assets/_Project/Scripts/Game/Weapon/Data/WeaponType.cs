@@ -2,7 +2,7 @@
 {
   public enum WeaponType
   {
-    None      = 0,
+    Unknown   = 0,
     
     Knife     = 1,
   }

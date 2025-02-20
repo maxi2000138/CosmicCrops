@@ -1,0 +1,5 @@
+type	prefab_name
+Game	GameScreen
+Lobby	LobbyScreen
+Win	WinScreen
+Menu	MenuScreen

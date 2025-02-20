@@ -1,0 +1,2 @@
+type	prefab_name
+Coin	Loot_coin

@@ -2,6 +2,8 @@
 {
   public enum LootType
   {
-    Coin,
+    Unknown = 0,
+    
+    Coin    = 1,
   }
 }

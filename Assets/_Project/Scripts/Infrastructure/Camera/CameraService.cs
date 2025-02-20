@@ -45,7 +45,7 @@ namespace _Project.Scripts.Infrastructure.Camera
 
         bool ICameraService.IsOnScreen(Vector3 viewportPoint) => viewportPoint is { x: > 0f and < 1f, y: > 0f and < 1f };
 
-        void ICameraService.CleanUp()
+        void ICameraService.Cleanup()
         {
             _cameraZoomIn.Follow = null;
             _cameraZoomIn.LookAt = null;

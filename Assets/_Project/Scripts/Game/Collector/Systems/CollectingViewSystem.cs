@@ -4,7 +4,6 @@ using _Project.Scripts.Infrastructure.Camera;
 using _Project.Scripts.Game.Level.Model;
 using _Project.Scripts.Utils.Extensions;
 using _Project.Scripts.Game.Inventory;
-using VHierarchy.Libs;
 using UnityEngine;
 using VContainer;
 using R3;

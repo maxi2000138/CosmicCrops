@@ -1,6 +1,12 @@
-﻿using _Project.Scripts.Game.Collector.Factory;
+﻿using _Project.Scripts.Game.Abilities._Configs;
+using _Project.Scripts.Game.Collector.Factory;
+using _Project.Scripts.Game.Entities.Character._Configs;
+using _Project.Scripts.Game.Entities.Loot._Configs;
+using _Project.Scripts.Game.Entities.Unit._Configs;
 using _Project.Scripts.Game.Inventory;
+using _Project.Scripts.Game.Level._Configs;
 using _Project.Scripts.Game.Level.Model;
+using _Project.Scripts.Game.Weapon._Configs;
 using _Project.Scripts.Game.Weapon.Factories;
 using _Project.Scripts.Infrastructure.AssetData;
 using _Project.Scripts.Infrastructure.Camera;
@@ -16,7 +22,11 @@ using _Project.Scripts.Infrastructure.Logger;
 using _Project.Scripts.Infrastructure.SceneLoader;
 using _Project.Scripts.Infrastructure.StateMachine.States;
 using _Project.Scripts.Infrastructure.StaticData;
+using _Project.Scripts.Infrastructure.StaticData.Configs;
 using _Project.Scripts.Infrastructure.Time;
+using _Project.Scripts.UI._Configs;
+using _Project.Scripts.Utils.Extensions;
+using _Project.Scripts.Utils.PartLinears;
 using UnityEngine;
 using VContainer;
 using VContainer.Unity;
@@ -53,6 +63,7 @@ namespace _Project.Scripts.Infrastructure.LifeTime.Scopes
       builder.Register<IGameFactory, GameFactory>(Lifetime.Singleton);
       builder.Register<IWeaponFactory, WeaponFactory>(Lifetime.Singleton);
       builder.Register<IAssetService, AssetService>(Lifetime.Singleton);
+      builder.Register<IConfigsLoader, ConfigsLoader>(Lifetime.Singleton);
       builder.Register<IHapticService, HapticService>(Lifetime.Singleton);
       builder.Register<IStaticDataService, StaticDataService>(Lifetime.Singleton);
       builder.Register<ISceneLoaderService, SceneLoaderService>(Lifetime.Singleton);
@@ -61,6 +72,15 @@ namespace _Project.Scripts.Infrastructure.LifeTime.Scopes
       builder.Register<ICollectorFactory, CollectorFactory>(Lifetime.Singleton);
       builder.Register<IStateMachineFactory, StateMachineFactory>(Lifetime.Singleton);
       
+      builder.RegisterConfig<PartLinearsConfig>(Lifetime.Singleton);
+      builder.RegisterConfig<AbilitiesConfig>(Lifetime.Singleton);
+      builder.RegisterConfig<CharacterConfig>(Lifetime.Singleton);
+      builder.RegisterConfig<LevelConfig>(Lifetime.Singleton);
+      builder.RegisterConfig<LootConfig>(Lifetime.Singleton);
+      builder.RegisterConfig<ScreensConfig>(Lifetime.Singleton);
+      builder.RegisterConfig<UnitsConfig>(Lifetime.Singleton);
+      builder.RegisterConfig<WeaponsConfig>(Lifetime.Singleton);
+
       builder.RegisterBuildCallback(ResolveNonLaziesServices);
       builder.RegisterBuildCallback(EnterGameStateMachine);
     }

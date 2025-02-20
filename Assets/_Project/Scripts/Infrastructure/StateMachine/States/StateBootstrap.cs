@@ -58,6 +58,6 @@ namespace _Project.Scripts.Infrastructure.StateMachine.States
 
 
     private void EnterStateLoadProgressState(IGameStateMachine gameStateMachine) => 
-      gameStateMachine.Enter<StateLoadProgress>();
+      gameStateMachine.Enter<StateLoadConfigs>();
   }
 }

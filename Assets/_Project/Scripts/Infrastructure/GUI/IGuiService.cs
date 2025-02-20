@@ -9,6 +9,6 @@ namespace _Project.Scripts.Infrastructure.GUI
         float ScaleFactor { get; }
         void Push(BaseScreen screen);
         void Pop();
-        void CleanUp();
+        void Cleanup();
     }
 }

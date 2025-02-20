@@ -52,7 +52,7 @@ namespace _Project.Scripts.Infrastructure.GUI
             }
         }
 
-        void IGuiService.CleanUp()
+        void IGuiService.Cleanup()
         {
             foreach (BaseScreen screen in _screens)
             {

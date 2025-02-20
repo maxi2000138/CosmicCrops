@@ -1,0 +1,2 @@
+type	ability	clip_count	recharge_time	fire_interval	detection_distance	attack_distance	aiming
+Knife	knife_attack	10	0.5	1	5	2	0.2

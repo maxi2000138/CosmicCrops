@@ -28,7 +28,7 @@ namespace _Project.Scripts.Infrastructure.Factories.StateMachine
                 builder.Register<IGameStateMachine, GameStateMachine>(Lifetime.Scoped);
                 
                 builder.Register<IState, StateBootstrap>(Lifetime.Scoped);
-                builder.Register<IState, StateLoadProgress>(Lifetime.Scoped);
+                builder.Register<IState, StateLoadConfigs>(Lifetime.Scoped);
                 
                 builder.Register<IState, StateMenu>(Lifetime.Scoped);
                 builder.Register<IState, StateLoadGameScene>(Lifetime.Scoped);

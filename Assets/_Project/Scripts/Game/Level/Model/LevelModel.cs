@@ -5,6 +5,7 @@ using _Project.Scripts.Game.Entities.Unit.Components;
 using _Project.Scripts.Game.Level.Interface;
 using ObservableCollections;
 using R3;
+using Unity.VisualScripting;
 
 namespace _Project.Scripts.Game.Level.Model
 {
@@ -32,7 +33,9 @@ namespace _Project.Scripts.Game.Level.Model
     {
       Character = null;
       Level = null;
+      
       _loot.Clear();
+      _enemies.Clear();
     }
   }
 }

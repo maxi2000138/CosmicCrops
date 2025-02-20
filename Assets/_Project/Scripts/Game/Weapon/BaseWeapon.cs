@@ -1,4 +1,5 @@
 ﻿using _Project.Scripts.Game.Entities._Interfaces;
+using _Project.Scripts.Game.Weapon._Configs;
 using _Project.Scripts.Game.Weapon.Data;
 using _Project.Scripts.Game.Weapon.Interfaces;
 using UnityEngine;
@@ -7,7 +8,7 @@ namespace _Project.Scripts.Game.Weapon
 {
   public class BaseWeapon : IWeapon
   {
-    protected WeaponCharacteristic WeaponCharacteristic;
+    protected readonly WeaponCharacteristicData WeaponCharacteristic;
     
     private int _clipCount;
     private bool _canAttack;
@@ -16,7 +17,7 @@ namespace _Project.Scripts.Game.Weapon
 
     protected float AttackDistance;
 
-    public BaseWeapon(WeaponCharacteristic weaponCharacteristic)
+    public BaseWeapon(WeaponCharacteristicData weaponCharacteristic)
     {
       WeaponCharacteristic = weaponCharacteristic;
     }

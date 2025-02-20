@@ -1,9 +1,8 @@
 ﻿using _Project.Scripts.Game.Entities.Unit.Components;
-using _Project.Scripts.Game.Entities.Unit.StateMachine;
 using _Project.Scripts.Game.Infrastructure.StateMachine;
 using _Project.Scripts.Infrastructure.Systems.Components;
 
-namespace CodeBase.Game.StateMachine.Unit
+namespace _Project.Scripts.Game.Entities.Unit.StateMachine.States
 {
     public sealed class UnitStateNone : UnitState, IState
     {

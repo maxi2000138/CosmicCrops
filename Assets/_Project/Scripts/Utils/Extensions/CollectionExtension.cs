@@ -1,10 +1,22 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace _Project.Scripts.Utils.Extensions
 {
     public static class CollectionExtension
     {
+        public static bool IsNullOrEmpty<T>(this IEnumerable<T> enumerable)
+        {
+            if (enumerable == null)
+                return true;
+
+            if (enumerable is ICollection<T> collection)
+                return collection.Count == 0;
+
+            return !enumerable.Any();
+        }
+        
         public static void Foreach<T>(this IEnumerable<T> collection, Action<T> action)
         {
             foreach (T element in collection) action.Invoke(element);

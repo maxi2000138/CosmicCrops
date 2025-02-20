@@ -18,13 +18,13 @@ namespace _Project.Scripts.Infrastructure.Logger
     
     public static void Log(string message, LogsType logsType, DebugColorType color = DebugColorType.Silver)
     {
-      if (_staticDataService.LoggerConfig().IsLogTypeActive(logsType)) 
+      if (_staticDataService.LoggerPreset().IsLogTypeActive(logsType)) 
         Debug.Log($"<color=#{DebugColorDictionary.Colors[color]}>{message}</color>");
     }
     
     public static void LogWarning(string message, LogsType logsType, DebugColorType color = DebugColorType.Yellow)
     {
-      if (_staticDataService.LoggerConfig().IsLogTypeActive(logsType)) 
+      if (_staticDataService.LoggerPreset().IsLogTypeActive(logsType)) 
         Debug.LogWarning($"<color=#{DebugColorDictionary.Colors[color]}>{message}</color>");
     }
     

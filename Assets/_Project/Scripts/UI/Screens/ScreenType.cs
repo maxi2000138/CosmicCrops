@@ -2,7 +2,8 @@
 {
     public enum ScreenType
     {
-        None     = 0,
+        Unknown  = 0,
+        
         Game     = 1,
         Lobby    = 2,
         Win      = 3,
