@@ -1,11 +1,8 @@
-﻿using System.Collections.Generic;
-using _Project.Scripts.Game.Entities._Interfaces;
+﻿using _Project.Scripts.Game.Entities._Interfaces;
 using _Project.Scripts.Game.Entities.Loot.Interface;
-using _Project.Scripts.Game.Entities.Unit.Components;
 using _Project.Scripts.Game.Level.Interface;
 using ObservableCollections;
 using R3;
-using Unity.VisualScripting;
 
 namespace _Project.Scripts.Game.Level.Model
 {
