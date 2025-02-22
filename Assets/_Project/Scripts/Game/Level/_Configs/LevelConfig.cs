@@ -15,7 +15,7 @@ namespace _Project.Scripts.Game.Level._Configs
     protected override LevelData ParseData(List<string> row) => new LevelData
     {
       Level = StringParseUtils.ToInt(row[0]),
-      PrefabName =  row[1],
+      Prefab =  StringParseUtils.ToPrefab(row[1]),
     };
   }
 }

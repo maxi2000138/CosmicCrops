@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
+using _Project.Scripts.Infrastructure.StaticData.Configs.Data;
 using _Project.Scripts.UI.Screens;
 using Sirenix.Utilities;
 using UnityEngine;
@@ -118,6 +119,8 @@ namespace _Project.Scripts.Utils.Parse
                 ? value.Split(separator, count)
                 : value.Split(separator);
         }
+        
+        public static ConfigPrefab ToPrefab(string value) => new ConfigPrefab { Name = value };
 
         private static Color32 ToColor(string colorString)
         {

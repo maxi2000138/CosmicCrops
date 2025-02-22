@@ -1,4 +1,5 @@
 ﻿using _Project.Scripts.Infrastructure.StaticData.Configs;
+using _Project.Scripts.Infrastructure.StaticData.Configs.Data;
 using _Project.Scripts.Utils.Parse;
 using JetBrains.Annotations;
 
@@ -15,7 +16,7 @@ namespace _Project.Scripts.Game.Entities.Character._Configs
         public int Speed => _speed ??= StringParseUtils.ToInt(Data["speed"]);
         private int? _speed;
 
-        public string PrefabName => _prefabName ??= Data["prefab_name"];
-        private string _prefabName;
+        public ConfigPrefab Prefab => _prefab ??= StringParseUtils.ToPrefab(Data["prefab_name"]);
+        private ConfigPrefab _prefab;
     }
 }

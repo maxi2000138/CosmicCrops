@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using _Project.Scripts.Infrastructure.StaticData.Configs;
+using _Project.Scripts.Infrastructure.StaticData.Configs.Data;
 using _Project.Scripts.UI.Screens;
 using _Project.Scripts.Utils.Parse;
 using JetBrains.Annotations;
@@ -17,7 +18,7 @@ namespace _Project.Scripts.UI._Configs
             return new()
             {
                 Type =  StringParseUtils.ToEnum<ScreenType>(row[0]),
-                PrefabName = row[1],
+                Prefab = StringParseUtils.ToPrefab(row[1]),
             };
         }
     }
@@ -26,6 +27,6 @@ namespace _Project.Scripts.UI._Configs
     public class ScreenData
     {
         public ScreenType Type;
-        public string PrefabName;
+        public ConfigPrefab Prefab;
     }
 }

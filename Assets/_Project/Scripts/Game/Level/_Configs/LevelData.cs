@@ -1,9 +1,11 @@
-﻿namespace _Project.Scripts.Game.Level._Configs
+﻿using _Project.Scripts.Infrastructure.StaticData.Configs.Data;
+
+namespace _Project.Scripts.Game.Level._Configs
 {
   [System.Serializable]
   public struct LevelData
   {
     public int Level;
-    public string PrefabName;
+    public ConfigPrefab Prefab;
   }
 }

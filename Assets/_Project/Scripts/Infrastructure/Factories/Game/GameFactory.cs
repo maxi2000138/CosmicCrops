@@ -46,7 +46,7 @@ namespace _Project.Scripts.Infrastructure.Factories.Game
       int levelNumber = 1;
       int index = levelNumber > _levelConfig.Data.Count ? levelNumber % _levelConfig.Data.Count : levelNumber ;
       var data = _levelConfig.Data[index];
-      GameObject prefab = await _assetService.LoadFromAddressable<GameObject>(data.PrefabName);
+      GameObject prefab = await _assetService.LoadFromAddressable<GameObject>(data.Prefab.Name);
       LevelComponent level = Object.Instantiate(prefab).GetComponent<LevelComponent>();
       _levelModel.SetLevel(level);
       return level;
@@ -54,7 +54,7 @@ namespace _Project.Scripts.Infrastructure.Factories.Game
     
     async UniTask<CharacterComponent> IGameFactory.CreateCharacter(Vector3 position, Transform parent)
     {
-      GameObject prefab = await _assetService.LoadFromAddressable<GameObject>(_characterConfig.PrefabName);
+      GameObject prefab = await _assetService.LoadFromAddressable<GameObject>(_characterConfig.Prefab.Name);
       CharacterComponent character = Object.Instantiate(prefab, position, Quaternion.identity, parent).GetComponent<CharacterComponent>();
       _levelModel.SetCharacter(character);
       
