@@ -1,8 +1,11 @@
-﻿using _Project.Scripts.Game.UI._Configs;
+﻿using _Project.Scripts.Game.Entities._Components.UI;
+using _Project.Scripts.Game.Entities._Interfaces;
+using _Project.Scripts.Game.UI._Configs;
 using _Project.Scripts.Game.UI.Screens;
 using _Project.Scripts.Infrastructure.AssetData;
 using _Project.Scripts.Infrastructure.GUI;
 using _Project.Scripts.Infrastructure.StaticData;
+using _Project.Scripts.Utils.Extensions;
 using Cysharp.Threading.Tasks;
 using JetBrains.Annotations;
 using UnityEngine;
@@ -16,14 +19,16 @@ namespace _Project.Scripts.Infrastructure.Factories.UI
     {
         private readonly IStaticDataService _staticDataService;
         private readonly ScreensConfig _screensConfig;
+        private readonly UIPrefabsConfig _uiPrefabsConfig;
         private readonly IGuiService _guiService;
         private readonly IAssetService _assetService;
         private readonly IObjectResolver _objectResolver;
 
-        public UIFactory(ScreensConfig screensConfig, IGuiService guiService, 
+        public UIFactory(ScreensConfig screensConfig, UIPrefabsConfig uiPrefabsConfig, IGuiService guiService, 
             IAssetService assetService, IObjectResolver objectResolver)
         {
             _screensConfig = screensConfig;
+            _uiPrefabsConfig = uiPrefabsConfig;
             _guiService = guiService;
             _assetService = assetService;
             _objectResolver = objectResolver;
@@ -46,6 +51,14 @@ namespace _Project.Scripts.Infrastructure.Factories.UI
             BaseScreen screen = _objectResolver.Instantiate(prefab, _guiService.StaticCanvas.transform).GetComponent<BaseScreen>();
             _guiService.Push(screen);
             return screen;
+        }
+        
+        async UniTask<EnemyHealthViewComponent> IUIFactory.CreateEnemyHealth(IEnemy enemy, Transform parent)
+        {
+            GameObject prefab = await _assetService.LoadFromAddressable<GameObject>(_uiPrefabsConfig.HealthViewPrefab.Name);
+            EnemyHealthViewComponent enemyHealth = Object.Instantiate(prefab, parent).GetComponent<EnemyHealthViewComponent>();
+            enemyHealth.Enemy.SetValueAndForceNotify(enemy);
+            return enemyHealth;
         }
     }
 }

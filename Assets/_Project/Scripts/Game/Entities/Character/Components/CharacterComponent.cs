@@ -3,6 +3,7 @@ using _Project.Scripts.Game.Entities._Interfaces;
 using _Project.Scripts.Game.Features.Collector.Components;
 using _Project.Scripts.Game.Features.Weapon.Componets;
 using _Project.Scripts.Infrastructure.Systems.Components;
+using UnityEditorInternal;
 using UnityEngine;
 using UnityEngine.Serialization;
 
@@ -14,19 +15,22 @@ namespace _Project.Scripts.Game.Entities.Character.Components
     [SerializeField] private CharacterControllerComponent _characterController;
     [SerializeField] private CollectorComponent _collector;
     [SerializeField] private StateMachineComponent _stateMachine;
-    [FormerlySerializedAs("_weapon")]
-    [SerializeField] private WeaponComponent weaponComponent;
+    [SerializeField] private WeaponComponent _weaponComponent;
+    [SerializeField] private HealthComponent _healthComponent;
+    
 
 
     public AnimatorComponent Animator => _animator;
     public CharacterControllerComponent CharacterController => _characterController;
     public CollectorComponent Collector => _collector;
     public StateMachineComponent StateMachine => _stateMachine;
+    public WeaponComponent WeaponComponent => _weaponComponent;
+    public HealthComponent Health => _healthComponent;
+
     public Vector3 Position => transform.position;
-    public WeaponComponent WeaponComponent => weaponComponent;
-    
     public Vector3 Forward => transform.forward;
+
+    //TODO setup from config
     public float Height => 3f;
-    public float Scale => 1.5f;
   }
 }

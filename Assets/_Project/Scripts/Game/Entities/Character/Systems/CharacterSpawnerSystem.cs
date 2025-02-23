@@ -1,4 +1,5 @@
-﻿using _Project.Scripts.Game.Entities.Character.Components;
+﻿using _Project.Scripts.Game.Entities.Character._Configs;
+using _Project.Scripts.Game.Entities.Character.Components;
 using _Project.Scripts.Game.Entities.Character.StateMachine.States;
 using _Project.Scripts.Game.Features.Collector.Factory;
 using _Project.Scripts.Game.Features.Inventory;
@@ -8,6 +9,7 @@ using _Project.Scripts.Infrastructure.Camera;
 using _Project.Scripts.Infrastructure.Factories.Game;
 using _Project.Scripts.Infrastructure.Factories.StateMachine;
 using _Project.Scripts.Infrastructure.Systems;
+using _Project.Scripts.Utils.Extensions;
 using Cysharp.Threading.Tasks;
 using VContainer;
 
@@ -21,11 +23,13 @@ namespace _Project.Scripts.Game.Entities.Character.Systems
     private InventoryModel _inventoryModel;
     private ICollectorFactory _collectorFactory;
     private IWeaponFactory _weaponFactory;
+    private CharacterConfig _characterConfig;
 
     [Inject]
     private void Construct(IGameFactory gameFactory, ICollectorFactory collectorFactory, ICameraService cameraService, 
-      IStateMachineFactory stateMachineFactory, InventoryModel inventoryModel, IWeaponFactory weaponFactory)
+      IStateMachineFactory stateMachineFactory, InventoryModel inventoryModel, IWeaponFactory weaponFactory, CharacterConfig characterConfig)
     {
+      _characterConfig = characterConfig;
       _weaponFactory = weaponFactory;
       _collectorFactory = collectorFactory;
       _inventoryModel = inventoryModel;
@@ -41,9 +45,9 @@ namespace _Project.Scripts.Game.Entities.Character.Systems
       CreateCharacter(component).Forget();
     }
     
-    private async UniTaskVoid CreateCharacter(CharacterSpawnerComponent component)
+    private async UniTaskVoid CreateCharacter(CharacterSpawnerComponent spawner)
     {
-      var character = await _gameFactory.CreateCharacter(component.Position, component.transform.parent);
+      var character = await _gameFactory.CreateCharacter(spawner.Position, spawner.transform.parent);
       var weapon = await _weaponFactory.CreateCharacterWeapon(character.WeaponComponent, WeaponType.Knife, character.transform);
       
       character.StateMachine.CreateStateMachine(_stateMachineFactory.CreateCharacterStateMachine(character));
@@ -52,6 +56,10 @@ namespace _Project.Scripts.Game.Entities.Character.Systems
       character.CharacterController.SetSpeed(character.CharacterController.BaseSpeed);
       
       character.Collector.SetCollector(_collectorFactory.CreateDefault());
+
+      character.Health.SetBaseHealth(_characterConfig.Health);
+      character.Health.SetMaxHealth(_characterConfig.Health);
+      character.Health.CurrentHealth.SetValueAndForceNotify(_characterConfig.Health);
 
       SetCameraTarget(character);
     }

@@ -10,10 +10,16 @@ namespace _Project.Scripts.Game.Entities.Unit.Components
     [SerializeField] private AgentComponent _agent;
     [SerializeField] private StateMachineComponent _stateMachine;
     [SerializeField] private AnimatorComponent _animator;
-    
+    [SerializeField] private HealthComponent _health;
+
     public AgentComponent Agent => _agent;
     public AnimatorComponent Animator => _animator;
     public StateMachineComponent StateMachine => _stateMachine;
+    public HealthComponent Health => _health;
     public Vector3 Position => transform.position;
+    
+    //TODO setup from config
+    public float Height => 3f;
+    
   }
 }

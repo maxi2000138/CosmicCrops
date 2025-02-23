@@ -20,6 +20,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 1e36f800db20f6a4ea1956cd95af55ed
+    m_Address: EnemyHealthView
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 3bfda78987cc15146b3ad22c99fff1f6
     m_Address: GameScreen
     m_ReadOnly: 0

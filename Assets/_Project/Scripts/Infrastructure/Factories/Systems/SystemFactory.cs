@@ -1,4 +1,6 @@
-﻿using _Project.Scripts.Game.Entities._Systems;
+﻿using _Project.Scripts.Game.Entities._Components;
+using _Project.Scripts.Game.Entities._Systems;
+using _Project.Scripts.Game.Entities._Systems.UI;
 using _Project.Scripts.Game.Entities.Character.Systems;
 using _Project.Scripts.Game.Entities.Unit.Systems;
 using _Project.Scripts.Game.Features.Collector.Systems;
@@ -34,6 +36,9 @@ namespace _Project.Scripts.Infrastructure.Factories.Systems
                 new AnimatorSystem(),
                 new CollectingViewSystem(),
                 new HapticButtonSystem(),
+                
+                new EnemyHealthViewUpdateSystem(),
+                new EnemyHealthProviderSystem(),
             };
 
             return systems;

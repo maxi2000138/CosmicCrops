@@ -4,6 +4,7 @@ using _Project.Scripts.Game.Entities.Unit.Components;
 using _Project.Scripts.Infrastructure.Factories.Game;
 using _Project.Scripts.Infrastructure.Factories.StateMachine;
 using _Project.Scripts.Infrastructure.Systems;
+using _Project.Scripts.Utils.Extensions;
 using Cysharp.Threading.Tasks;
 using VContainer;
 
@@ -28,11 +29,15 @@ namespace _Project.Scripts.Game.Entities.Unit.Systems
       CreateUnit(component).Forget();
     }
     
-    private async UniTaskVoid CreateUnit(UnitSpawnerComponent component)
+    private async UniTaskVoid CreateUnit(UnitSpawnerComponent spawner)
     {
-      UnitComponent unit = await _gameFactory.CreateUnit(component.Position, component.transform.parent);
+      UnitComponent unit = await _gameFactory.CreateUnit(spawner.Position, spawner.transform.parent);
 
       unit.StateMachine.CreateStateMachine(_stateMachineFactory.CreateUnitStateMachine(unit));
+      
+      unit.Health.SetBaseHealth(spawner.UnitStats.Health);
+      unit.Health.SetMaxHealth(spawner.UnitStats.Health);
+      unit.Health.CurrentHealth.SetValueAndForceNotify(spawner.UnitStats.Health);
     }
   }
 }
