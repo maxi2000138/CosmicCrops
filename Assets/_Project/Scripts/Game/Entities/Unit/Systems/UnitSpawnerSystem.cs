@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections;
-using _Project.Scripts.Game.Entities.Loot.Components;
 using _Project.Scripts.Game.Entities.Unit.Components;
 using _Project.Scripts.Infrastructure.Factories.Game;
 using _Project.Scripts.Infrastructure.Factories.StateMachine;

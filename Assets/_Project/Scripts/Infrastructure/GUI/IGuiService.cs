@@ -1,5 +1,5 @@
-﻿using _Project.Scripts.UI;
-using _Project.Scripts.UI.Screens;
+﻿using _Project.Scripts.Game.UI;
+using _Project.Scripts.Game.UI.Screens;
 
 namespace _Project.Scripts.Infrastructure.GUI
 {

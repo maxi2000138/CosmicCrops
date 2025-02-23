@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
+using _Project.Scripts.Game.UI;
+using _Project.Scripts.Game.UI.Screens;
 using _Project.Scripts.Infrastructure.Camera;
-using _Project.Scripts.UI;
-using _Project.Scripts.UI.Screens;
 using UnityEngine;
 using VContainer;
 

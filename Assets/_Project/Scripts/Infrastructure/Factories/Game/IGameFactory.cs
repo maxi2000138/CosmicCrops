@@ -1,9 +1,8 @@
 using _Project.Scripts.Game.Entities.Character.Components;
-using _Project.Scripts.Game.Entities.Loot.Components;
-using _Project.Scripts.Game.Entities.Loot.Data;
 using _Project.Scripts.Game.Entities.Unit.Components;
-using _Project.Scripts.Game.Level.Components;
-using _Project.Scripts.Game.Level.Interface;
+using _Project.Scripts.Game.Features.Level.Interface;
+using _Project.Scripts.Game.Features.Loot.Components;
+using _Project.Scripts.Game.Features.Loot.Data;
 using Cysharp.Threading.Tasks;
 using UnityEngine;
 

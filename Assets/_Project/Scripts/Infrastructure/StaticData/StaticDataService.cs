@@ -1,4 +1,4 @@
-﻿using _Project.Scripts.Game.Weapon._Configs;
+﻿using _Project.Scripts.Game.Features.Weapon._Configs;
 using _Project.Scripts.Infrastructure.AssetData;
 using _Project.Scripts.Infrastructure.Logger._Configs;
 using JetBrains.Annotations;

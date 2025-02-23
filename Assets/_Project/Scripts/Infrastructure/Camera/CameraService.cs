@@ -1,5 +1,5 @@
 ﻿using System;
-using _Project.Scripts.UI.Screens;
+using _Project.Scripts.Game.UI.Screens;
 using DG.Tweening;
 using Unity.Cinemachine;
 using UnityEngine;

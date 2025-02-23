@@ -1,8 +1,8 @@
-﻿using _Project.Scripts.Infrastructure.AssetData;
+﻿using _Project.Scripts.Game.UI._Configs;
+using _Project.Scripts.Game.UI.Screens;
+using _Project.Scripts.Infrastructure.AssetData;
 using _Project.Scripts.Infrastructure.GUI;
 using _Project.Scripts.Infrastructure.StaticData;
-using _Project.Scripts.UI._Configs;
-using _Project.Scripts.UI.Screens;
 using Cysharp.Threading.Tasks;
 using JetBrains.Annotations;
 using UnityEngine;

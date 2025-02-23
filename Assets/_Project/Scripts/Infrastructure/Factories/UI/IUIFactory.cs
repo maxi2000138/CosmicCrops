@@ -1,4 +1,4 @@
-﻿using _Project.Scripts.UI.Screens;
+﻿using _Project.Scripts.Game.UI.Screens;
 using Cysharp.Threading.Tasks;
 
 namespace _Project.Scripts.Infrastructure.Factories.UI

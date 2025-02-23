@@ -1,7 +1,7 @@
-﻿using _Project.Scripts.Game.Collector.Components;
-using _Project.Scripts.Game.Entities._Components;
+﻿using _Project.Scripts.Game.Entities._Components;
 using _Project.Scripts.Game.Entities._Interfaces;
-using _Project.Scripts.Game.Weapon.Componets;
+using _Project.Scripts.Game.Features.Collector.Components;
+using _Project.Scripts.Game.Features.Weapon.Componets;
 using _Project.Scripts.Infrastructure.Systems.Components;
 using UnityEngine;
 using UnityEngine.Serialization;

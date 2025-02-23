@@ -1,6 +1,6 @@
 ﻿using _Project.Scripts.Game.Entities.Unit.Components;
+using _Project.Scripts.Game.Features.Level.Model;
 using _Project.Scripts.Game.Infrastructure.StateMachine;
-using _Project.Scripts.Game.Level.Model;
 using _Project.Scripts.Infrastructure.Systems.Components;
 using DG.Tweening;
 using VContainer;

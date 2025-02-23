@@ -1,6 +1,6 @@
 ﻿using _Project.Scripts.Game.Entities.Character.Components;
+using _Project.Scripts.Game.Features.Level.Model;
 using _Project.Scripts.Game.Infrastructure.StateMachine;
-using _Project.Scripts.Game.Level.Model;
 using _Project.Scripts.Infrastructure.Input;
 using _Project.Scripts.Infrastructure.Logger;
 using UnityEngine;

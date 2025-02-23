@@ -1,13 +1,12 @@
-﻿using _Project.Scripts.Game.Collector.Systems;
-using _Project.Scripts.Game.Entities._Systems;
+﻿using _Project.Scripts.Game.Entities._Systems;
 using _Project.Scripts.Game.Entities.Character.Systems;
-using _Project.Scripts.Game.Entities.Loot.Systems;
 using _Project.Scripts.Game.Entities.Unit.Systems;
-using _Project.Scripts.Game.Input.Systems;
-using _Project.Scripts.Game.Weapon;
-using _Project.Scripts.Game.Weapon.Systems;
+using _Project.Scripts.Game.Features.Collector.Systems;
+using _Project.Scripts.Game.Features.Input.Systems;
+using _Project.Scripts.Game.Features.Loot.Systems;
+using _Project.Scripts.Game.Features.Weapon.Systems;
+using _Project.Scripts.Game.UI.Haptic.Systems;
 using _Project.Scripts.Infrastructure.Systems;
-using _Project.Scripts.UI.Haptic.Systems;
 using JetBrains.Annotations;
 
 namespace _Project.Scripts.Infrastructure.Factories.Systems

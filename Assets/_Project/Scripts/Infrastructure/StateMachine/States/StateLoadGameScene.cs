@@ -1,4 +1,4 @@
-﻿using _Project.Scripts.Game.Level.Model;
+﻿using _Project.Scripts.Game.Features.Level.Model;
 using _Project.Scripts.Infrastructure.Camera;
 using _Project.Scripts.Infrastructure.Curtain;
 using _Project.Scripts.Infrastructure.Factories.Game;

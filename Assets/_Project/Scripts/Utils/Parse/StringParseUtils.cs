@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
 using _Project.Scripts.Infrastructure.StaticData.Configs.Data;
-using _Project.Scripts.UI.Screens;
 using Sirenix.Utilities;
 using UnityEngine;
 

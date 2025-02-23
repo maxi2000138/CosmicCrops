@@ -1,10 +1,9 @@
-﻿using _Project.Scripts.Game.Collector.Factory;
-using _Project.Scripts.Game.Entities.Character.Components;
+﻿using _Project.Scripts.Game.Entities.Character.Components;
 using _Project.Scripts.Game.Entities.Character.StateMachine.States;
-using _Project.Scripts.Game.Inventory;
-using _Project.Scripts.Game.Weapon;
-using _Project.Scripts.Game.Weapon.Data;
-using _Project.Scripts.Game.Weapon.Factories;
+using _Project.Scripts.Game.Features.Collector.Factory;
+using _Project.Scripts.Game.Features.Inventory;
+using _Project.Scripts.Game.Features.Weapon.Data;
+using _Project.Scripts.Game.Features.Weapon.Factories;
 using _Project.Scripts.Infrastructure.Camera;
 using _Project.Scripts.Infrastructure.Factories.Game;
 using _Project.Scripts.Infrastructure.Factories.StateMachine;
