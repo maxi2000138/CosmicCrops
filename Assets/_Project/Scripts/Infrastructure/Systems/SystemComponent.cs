@@ -3,7 +3,7 @@ using _Project.Scripts.Infrastructure.Systems.Components;
 
 namespace _Project.Scripts.Infrastructure.Systems
 {
-    public abstract class SystemComponent<T> : SystemBase where T : Component
+    public abstract class SystemComponent<T> : SystemBase where T : IComponent
     {
         private readonly List<T> _components;
         

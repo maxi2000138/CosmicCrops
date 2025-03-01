@@ -1,15 +1,26 @@
 using R3;
-using UnityEngine;
 
 namespace _Project.Scripts.Infrastructure.Systems.Components
 {
-  public abstract class Component : MonoBehaviour
+  public abstract class Component : IComponent
   {
     public CompositeDisposable LifetimeDisposable { get; private set; }
 
-    protected virtual void OnComponentCreate() => LifetimeDisposable = new CompositeDisposable();
-    protected virtual void OnComponentEnable() { }
-    protected virtual void OnComponentDisable() => LifetimeDisposable?.Clear();
-    protected virtual void OnComponentDestroy() => LifetimeDisposable?.Dispose();
+    protected Component()
+    {
+      OnComponentCreate();
+      OnComponentEnable();
+    }
+
+    ~Component()
+    {
+      OnComponentDisable();
+      OnComponentDestroy();
+    }
+
+    public virtual void OnComponentCreate() => LifetimeDisposable = new CompositeDisposable();
+    public virtual void OnComponentEnable() { }
+    public virtual void OnComponentDisable() => LifetimeDisposable?.Clear();
+    public virtual void OnComponentDestroy() => LifetimeDisposable?.Dispose();
   }
 }

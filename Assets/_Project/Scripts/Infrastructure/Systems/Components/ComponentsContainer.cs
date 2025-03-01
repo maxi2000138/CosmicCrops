@@ -2,12 +2,12 @@
 
 namespace _Project.Scripts.Infrastructure.Systems.Components
 {
-    public static class ComponentsContainer<T> where T : Component
+    public static class ComponentsContainer<T> where T : IComponent
     {
         public static event Action<T> OnRegistered;
         public static event Action<T> OnUnregistered;
 
-        public static void Registered(Component component)
+        public static void Registered(IComponent component)
         {
             if (component is T typedComponent)
             {
@@ -15,7 +15,7 @@ namespace _Project.Scripts.Infrastructure.Systems.Components
             }
         }
 
-        public static void Unregistered(Component component)
+        public static void Unregistered(IComponent component)
         {
             if (component is T typedComponent)
             {
