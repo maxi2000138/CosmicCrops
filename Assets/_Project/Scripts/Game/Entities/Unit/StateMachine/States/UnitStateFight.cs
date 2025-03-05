@@ -26,7 +26,7 @@ namespace _Project.Scripts.Game.Entities.Unit.StateMachine.States
         public void Enter()
         {
             Unit.Agent.Agent.ResetPath();
-            Unit.Animator.OnRun.Execute(0f);
+            Unit.UnitAnimator.OnRun.Execute(0f);
         }
 
         public void Exit() { }

@@ -7,5 +7,6 @@
     Collector       = 2,
     Haptic          = 3,
     Weapon          = 4,
+    Ability         = 5,
   }
 }

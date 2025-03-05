@@ -1,34 +1,38 @@
 ﻿using _Project.Scripts.Game.Entities._Components;
 using _Project.Scripts.Infrastructure.Systems;
 using _Project.Scripts.Utils;
+using _Project.Scripts.Utils.Constants;
 using R3;
 
 namespace _Project.Scripts.Game.Entities._Systems
 {
-  public sealed class AnimatorSystem : SystemComponent<AnimatorComponent>
+  public sealed class AnimatorSystem : SystemComponent<UnitAnimatorComponent>
   {
-    protected override void OnEnableComponent(AnimatorComponent component)
+    protected override void OnEnableComponent(UnitAnimatorComponent component)
     {
       base.OnEnableComponent(component);
 
       component.OnRun
-        .Subscribe(delta => component.Animator.SetFloat(Animations.Velocity, delta))
+        .Subscribe(delta => component.AnimatorWrapper.Animator.SetFloat(Animations.Velocity, delta))
         .AddTo(component.LifetimeDisposable);
 
       component.OnCollect
-        .Subscribe(_ => component.Animator.SetTrigger(Animations.Collect))
+        .Subscribe(_ => component.AnimatorWrapper.PlayAnimation(Animations.Collect))
         .AddTo(component.LifetimeDisposable);
 
       component.OnDeath
-        .Subscribe(_ => component.Animator.SetTrigger(Animations.Death))
+        .Subscribe(_ => component.AnimatorWrapper.PlayAnimation(Animations.Death))
         .AddTo(component.LifetimeDisposable);
             
       component.OnVictory
-        .Subscribe(_ => component.Animator.SetTrigger(Animations.Victory))
+        .Subscribe(_ => component.AnimatorWrapper.PlayAnimation(Animations.Victory))
         .AddTo(component.LifetimeDisposable);
 
       component.OnAttack
-        .Subscribe(_ => component.Animator.SetTrigger(Animations.Attack))
+        .Subscribe(interval => {
+          component.AnimatorWrapper.SetSpeed(Animations.Attack , Animations.AttackSpeed, interval);
+          component.AnimatorWrapper.PlayAnimation(Animations.Attack);
+        })
         .AddTo(component.LifetimeDisposable);
     }
   }

@@ -12,7 +12,7 @@ namespace _Project.Scripts.Game.Entities.Character.StateMachine.States
 
         void IState.Enter()
         {
-            Character.Animator.OnRun.Execute(0f);
+            Character.UnitAnimator.OnRun.Execute(0f);
             Character.CleanSubscribe();
         }
 

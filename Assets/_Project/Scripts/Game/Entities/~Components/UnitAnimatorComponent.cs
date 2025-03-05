@@ -1,0 +1,21 @@
+﻿using _Project.Scripts.Game.Entities.Unit;
+using _Project.Scripts.Infrastructure.Systems.Components;
+using R3;
+using UnityEngine;
+
+namespace _Project.Scripts.Game.Entities._Components
+{
+  public sealed class UnitAnimatorComponent : MonoComponent<UnitAnimatorComponent>
+  {
+    [SerializeField] private AnimatorWrapper _animatorWrapper;
+        
+    public AnimatorWrapper AnimatorWrapper => _animatorWrapper;
+    
+    
+    public readonly ReactiveCommand<float> OnRun = new();
+    public readonly ReactiveCommand OnCollect = new();
+    public readonly ReactiveCommand<float> OnAttack = new();
+    public readonly ReactiveCommand OnDeath = new();
+    public readonly ReactiveCommand OnVictory = new();
+  }
+}

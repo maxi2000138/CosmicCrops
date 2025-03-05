@@ -1,6 +1,6 @@
 ﻿namespace _Project.Scripts.Infrastructure.Pool.Item
 {
-  public class SpawnableItem : ISpawnableItem
+  public abstract class SpawnableItem : ISpawnableItem
   {
     private IObjectPool _objectPool;
 

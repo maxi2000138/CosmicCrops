@@ -1,3 +1,4 @@
+using _Project.Scripts.Game.Features.Abilities.Services;
 using _Project.Scripts.Game.Features.Weapon._Configs;
 using _Project.Scripts.Game.Features.Weapon.Componets;
 using _Project.Scripts.Game.Features.Weapon.Data;
@@ -13,23 +14,27 @@ namespace _Project.Scripts.Game.Features.Weapon.Factories
   {
     private readonly IStaticDataService _staticDataService;
     private readonly IObjectResolver _objectResolver;
+    private readonly IAbilityApplier _abilityApplier;
     private readonly WeaponsConfig _weaponsConfig;
-    public WeaponFactory(WeaponsConfig weaponsConfig, IObjectResolver objectResolver)
+    public WeaponFactory(WeaponsConfig weaponsConfig, IObjectResolver objectResolver, IAbilityApplier abilityApplier)
     {
       _weaponsConfig = weaponsConfig;
       _objectResolver = objectResolver;
+      _abilityApplier = abilityApplier;
     }
   
     async UniTask<WeaponComponent> IWeaponFactory.CreateCharacterWeapon(WeaponComponent weapon, WeaponType type, Transform parent)
     {
-      weapon.SetWeapon(CreateSpecificCharacterWeapon(type, _weaponsConfig.Data[type]));
+      weapon.SetWeapon(CreateSpecificCharacterWeapon(weapon, type, _weaponsConfig.Data[type]));
       return weapon;
     }
   
-    private IWeapon CreateSpecificCharacterWeapon(WeaponType type, WeaponCharacteristicData weaponCharacteristic)
+    private IWeapon CreateSpecificCharacterWeapon(WeaponComponent weapon, WeaponType type, WeaponCharacteristicData weaponCharacteristic)
     {
+      //TODO: setup correct weapon choose without nullRefs
+        
       BaseWeapon currentWeapon = type == WeaponType.Knife
-        ? new CharacterMeleeWeapon(weaponCharacteristic)
+        ? new CharacterMeleeWeapon(weapon, weaponCharacteristic, _abilityApplier)
         : null;
       
       _objectResolver.Inject(currentWeapon);

@@ -11,5 +11,6 @@ namespace _Project.Scripts.Game.Features.Weapon.Interfaces
     float DetectionDistance();
     float AimingSpeed();
     void Execute();
+    float AttackInterval();
   }
 }

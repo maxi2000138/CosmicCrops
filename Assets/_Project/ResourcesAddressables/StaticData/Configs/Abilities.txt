@@ -1,1 +1,2 @@
 id	effects	statuses
+knife_attack	knife_attack_damage	

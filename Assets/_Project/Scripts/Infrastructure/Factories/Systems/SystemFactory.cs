@@ -3,6 +3,7 @@ using _Project.Scripts.Game.Entities._Systems;
 using _Project.Scripts.Game.Entities._Systems.UI;
 using _Project.Scripts.Game.Entities.Character.Systems;
 using _Project.Scripts.Game.Entities.Unit.Systems;
+using _Project.Scripts.Game.Features.Abilities.Systems;
 using _Project.Scripts.Game.Features.Collector.Systems;
 using _Project.Scripts.Game.Features.Input.Systems;
 using _Project.Scripts.Game.Features.Loot.Systems;
@@ -31,6 +32,8 @@ namespace _Project.Scripts.Infrastructure.Factories.Systems
                 new ExecuteCollectorSystem(),
                
                 new ExecuteWeaponAmmunitionSystem(),
+                
+                new ProcessAbilitySystem(),
                 
                 //View
                 new AnimatorSystem(),

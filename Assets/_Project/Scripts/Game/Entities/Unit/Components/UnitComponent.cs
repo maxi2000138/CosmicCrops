@@ -9,11 +9,11 @@ namespace _Project.Scripts.Game.Entities.Unit.Components
   {
     [SerializeField] private AgentComponent _agent;
     [SerializeField] private StateMachineComponent _stateMachine;
-    [SerializeField] private AnimatorComponent _animator;
+    [SerializeField] private UnitAnimatorComponent unitAnimator;
     [SerializeField] private HealthComponent _health;
 
     public AgentComponent Agent => _agent;
-    public AnimatorComponent Animator => _animator;
+    public UnitAnimatorComponent UnitAnimator => unitAnimator;
     public StateMachineComponent StateMachine => _stateMachine;
     public HealthComponent Health => _health;
     public Vector3 Position => transform.position;

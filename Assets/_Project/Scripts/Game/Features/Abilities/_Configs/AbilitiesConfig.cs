@@ -9,15 +9,15 @@ namespace _Project.Scripts.Game.Features.Abilities._Configs
   public class AbilitiesConfig : BaseConfig<string, AbilityData>
   {
     public override string ConfigName => "Abilities";
-    protected override string GetKey(AbilityData data) => data.id;
+    protected override string GetKey(AbilityData data) => data.Id;
 
     protected override AbilityData ParseData(List<string> row)
     {
       return new()
       {
-        id = row[0],
-        effects = StringParseUtils.ToStringArray(row[1]),
-        statuses = StringParseUtils.ToStringArray(row[2]),
+        Id = row[0],
+        Effects = StringParseUtils.ToStringArray(row[1]),
+        Statuses = StringParseUtils.ToStringArray(row[2]),
       };
     }
   }

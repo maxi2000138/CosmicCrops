@@ -65,7 +65,7 @@ namespace _Project.Scripts.Game.Entities.Character.StateMachine.States
     
     private void Attack()
     {
-      Character.Animator.OnAttack.Execute(R3.Unit.Default);
+      Character.UnitAnimator.OnAttack.Execute(Character.WeaponComponent.Weapon.AttackInterval());
       Character.WeaponComponent.Weapon.Attack(_target);
     }
     

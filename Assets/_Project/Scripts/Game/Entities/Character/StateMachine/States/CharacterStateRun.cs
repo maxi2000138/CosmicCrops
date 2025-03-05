@@ -30,7 +30,7 @@ namespace _Project.Scripts.Game.Entities.Character.StateMachine.States
 
         void IState.Enter()
         {
-            Character.Animator.OnRun.Execute(1f);
+            Character.UnitAnimator.OnRun.Execute(1f);
             
             DebugLogger.Log("Enter Character Run State", LogsType.Character);
         }

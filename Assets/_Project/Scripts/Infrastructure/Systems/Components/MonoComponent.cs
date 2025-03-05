@@ -21,16 +21,6 @@ namespace _Project.Scripts.Infrastructure.Systems.Components
       OnComponentCreate();
     }
 
-    private void OnEnable()
-    {
-      OnComponentEnable();
-    }
-
-    private void OnDisable()
-    {
-      OnComponentDisable();
-    }
-
     private void OnDestroy()
     {
       OnComponentDestroy();

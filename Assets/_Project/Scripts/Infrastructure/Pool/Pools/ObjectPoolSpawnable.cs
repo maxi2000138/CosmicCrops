@@ -5,17 +5,17 @@ namespace _Project.Scripts.Infrastructure.Pool
 {
   public class ObjectPoolSpawnable<T> : ObjectPool<T> where T : class, ISpawnableItem
   {
-    public ObjectPoolSpawnable()
+    protected ObjectPoolSpawnable()
     {
             
     }
-        
-    public ObjectPoolSpawnable(Func<T> spawner) : base(spawner)
+
+    protected ObjectPoolSpawnable(Func<T> spawner) : base(spawner)
     {
       
     }
 
-    public ObjectPoolSpawnable(Func<T> spawner, int initSize) : base(spawner, initSize)
+    protected ObjectPoolSpawnable(Func<T> spawner, int initSize) : base(spawner, initSize)
     {
       Resize(initSize);
     }

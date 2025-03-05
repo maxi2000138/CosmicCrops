@@ -12,7 +12,7 @@ namespace _Project.Scripts.Game.Entities.Unit.StateMachine.States
         
         public void Enter()
         {
-            Unit.Animator.OnRun.Execute(1f);
+            Unit.UnitAnimator.OnRun.Execute(1f);
         }
 
         public void Exit()

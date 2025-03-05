@@ -9,7 +9,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5122625319035243459}
-  - component: {fileID: 9140431784144308695}
   - component: {fileID: 4939949681372523251}
   - component: {fileID: 7089426131222044458}
   - component: {fileID: 3665450266240912470}
@@ -17,6 +16,8 @@ GameObject:
   - component: {fileID: 8207717363938801468}
   - component: {fileID: 5347454041197499060}
   - component: {fileID: 4124770575494882808}
+  - component: {fileID: 4252294492556248024}
+  - component: {fileID: 9140431784144308695}
   - component: {fileID: 1033339285006748889}
   m_Layer: 0
   m_Name: Player
@@ -41,28 +42,6 @@ Transform:
   - {fileID: 6352804122192634853}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!95 &9140431784144308695
-Animator:
-  serializedVersion: 7
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2954330636745076640}
-  m_Enabled: 1
-  m_Avatar: {fileID: 9000000, guid: 9695f4ca0e744334e9c91587eb831aa9, type: 2}
-  m_Controller: {fileID: 9100000, guid: 0888f2576e1d7e7428c67fcbbca89ea5, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_AnimatePhysics: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
 --- !u!114 &4939949681372523251
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -75,7 +54,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e5797790beff4d4cac6d20908cb04be6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _animator: {fileID: 7089426131222044458}
+  _unitAnimator: {fileID: 0}
   _characterController: {fileID: 3665450266240912470}
   _collector: {fileID: 8207717363938801468}
   _stateMachine: {fileID: 2372030079065391473}
@@ -93,7 +72,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 92a35e2d114b45729733b3f2a29317f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _animator: {fileID: 9140431784144308695}
+  _animatorWrapper: {fileID: 4252294492556248024}
 --- !u!114 &3665450266240912470
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -155,6 +134,70 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 20e0f26b774942f29ad4565340997798, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &4252294492556248024
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2954330636745076640}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 27eef99125d946ce81cf5fcc9967bebd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes:
+    - Name: _animationDurations
+      Entry: 7
+      Data: 0|System.Collections.Generic.Dictionary`2[[System.Int32, mscorlib],[System.Single,
+        mscorlib]], mscorlib
+    - Name: comparer
+      Entry: 7
+      Data: 1|System.Collections.Generic.GenericEqualityComparer`1[[System.Int32,
+        mscorlib]], mscorlib
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+  <Animator>k__BackingField: {fileID: 9140431784144308695}
+--- !u!95 &9140431784144308695
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2954330636745076640}
+  m_Enabled: 1
+  m_Avatar: {fileID: 9000000, guid: 9695f4ca0e744334e9c91587eb831aa9, type: 2}
+  m_Controller: {fileID: 9100000, guid: 0888f2576e1d7e7428c67fcbbca89ea5, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!143 &1033339285006748889
 CharacterController:
   m_ObjectHideFlags: 0

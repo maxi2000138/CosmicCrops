@@ -24,7 +24,7 @@ namespace _Project.Scripts.Game.Entities.Unit.StateMachine.States
         public void Enter()
         {
             Unit.Agent.Agent.ResetPath();
-            Unit.Animator.OnDeath.Execute(R3.Unit.Default);
+            Unit.UnitAnimator.OnDeath.Execute(R3.Unit.Default);
             Unit.CleanSubscribe();
 
             DeactivateUnit();

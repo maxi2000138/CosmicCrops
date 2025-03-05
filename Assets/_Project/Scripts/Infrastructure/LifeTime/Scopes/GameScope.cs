@@ -1,4 +1,5 @@
-﻿using _Project.Scripts.Infrastructure.LifeTime.EntryPoints;
+﻿using _Project.Scripts.Game.Features.Abilities.Services;
+using _Project.Scripts.Infrastructure.LifeTime.EntryPoints;
 using VContainer;
 using VContainer.Unity;
 

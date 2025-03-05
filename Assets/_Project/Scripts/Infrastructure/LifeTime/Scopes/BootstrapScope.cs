@@ -1,6 +1,7 @@
 ﻿using _Project.Scripts.Game.Entities.Character._Configs;
 using _Project.Scripts.Game.Entities.Unit._Configs;
 using _Project.Scripts.Game.Features.Abilities._Configs;
+using _Project.Scripts.Game.Features.Abilities.Services;
 using _Project.Scripts.Game.Features.Collector.Factory;
 using _Project.Scripts.Game.Features.Inventory;
 using _Project.Scripts.Game.Features.Level._Configs;
@@ -20,6 +21,7 @@ using _Project.Scripts.Infrastructure.GUI;
 using _Project.Scripts.Infrastructure.Haptic;
 using _Project.Scripts.Infrastructure.Input;
 using _Project.Scripts.Infrastructure.Logger;
+using _Project.Scripts.Infrastructure.Pool.Service;
 using _Project.Scripts.Infrastructure.SceneLoader;
 using _Project.Scripts.Infrastructure.StateMachine.States;
 using _Project.Scripts.Infrastructure.StaticData;
@@ -70,10 +72,12 @@ namespace _Project.Scripts.Infrastructure.LifeTime.Scopes
       builder.Register<ISystemFactory, SystemFactory>(Lifetime.Singleton);
       builder.Register<IUIFactory, UIFactory>(Lifetime.Singleton);
       builder.Register<ICollectorFactory, CollectorFactory>(Lifetime.Singleton);
+      builder.Register<IPoolProvider, PoolProvider>(Lifetime.Singleton);
       builder.Register<IStateMachineFactory, StateMachineFactory>(Lifetime.Singleton);
+      builder.Register<IAbilityApplier, AbilityApplier>(Lifetime.Singleton);
+      builder.Register<IAbilityStatsProvider, AbilityStatsProvider>(Lifetime.Singleton);
       
       builder.RegisterConfig<PartLinearsConfig>(Lifetime.Singleton);
-      builder.RegisterConfig<AbilitiesConfig>(Lifetime.Singleton);
       builder.RegisterConfig<CharacterConfig>(Lifetime.Singleton);
       builder.RegisterConfig<UIPrefabsConfig>(Lifetime.Singleton);
       builder.RegisterConfig<ScreensConfig>(Lifetime.Singleton);
@@ -81,6 +85,8 @@ namespace _Project.Scripts.Infrastructure.LifeTime.Scopes
       builder.RegisterConfig<UnitsConfig>(Lifetime.Singleton);
       builder.RegisterConfig<LevelConfig>(Lifetime.Singleton);
       builder.RegisterConfig<LootConfig>(Lifetime.Singleton);
+      builder.RegisterConfig<AbilitiesConfig>(Lifetime.Singleton);
+      builder.RegisterConfig<EffectsConfig>(Lifetime.Singleton);
 
       builder.RegisterBuildCallback(ResolveNonLaziesServices);
       builder.RegisterBuildCallback(EnterGameStateMachine);

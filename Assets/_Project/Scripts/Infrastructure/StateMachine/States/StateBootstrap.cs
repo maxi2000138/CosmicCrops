@@ -3,6 +3,7 @@ using _Project.Scripts.Infrastructure.Camera;
 using _Project.Scripts.Infrastructure.Curtain;
 using _Project.Scripts.Infrastructure.Haptic;
 using _Project.Scripts.Infrastructure.Input;
+using _Project.Scripts.Infrastructure.Pool.Service;
 using _Project.Scripts.Infrastructure.StateMachine.States.Interfaces;
 using _Project.Scripts.Infrastructure.StaticData;
 using _Project.Scripts.Infrastructure.Time;
@@ -18,6 +19,7 @@ namespace _Project.Scripts.Infrastructure.StateMachine.States
     private readonly IStaticDataService _staticDataService;
     private readonly IJoystickService _joystickService;
     private readonly IHapticService _hapticService;
+    private readonly IPoolProvider _poolProvider;
     private readonly ICameraService _cameraService;
     private readonly IAssetService _assetService;
     private readonly ITimeService _time;
@@ -25,7 +27,7 @@ namespace _Project.Scripts.Infrastructure.StateMachine.States
 
     public StateBootstrap(IStaticDataService staticDataService, IAssetService assetService, 
       IJoystickService joystickService, ICameraService cameraService, ILoadingCurtainService loadingCurtain,
-      ITimeService time, IHapticService hapticService)
+      ITimeService time, IHapticService hapticService, IPoolProvider poolProvider)
     {
       _assetService = assetService;
       _joystickService = joystickService;
@@ -33,6 +35,7 @@ namespace _Project.Scripts.Infrastructure.StateMachine.States
       _loadingCurtain = loadingCurtain;
       _time = time;
       _hapticService = hapticService;
+      _poolProvider = poolProvider;
       _staticDataService = staticDataService;
     }
 
@@ -46,6 +49,7 @@ namespace _Project.Scripts.Infrastructure.StateMachine.States
       InitJoystick();
       InitCameraService();
       InitHaptic();
+      InitPool();
       
       EnterStateLoadProgressState(gameStateMachine);
     }
@@ -55,6 +59,7 @@ namespace _Project.Scripts.Infrastructure.StateMachine.States
     private void InitJoystick() => _joystickService.Init(_time);
     private void InitCameraService() => _cameraService.Init();
     private void InitHaptic() => _hapticService.Init();
+    private void InitPool() => _poolProvider.Init();
 
 
     private void EnterStateLoadProgressState(IGameStateMachine gameStateMachine) => 

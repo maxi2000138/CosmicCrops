@@ -1,5 +1,6 @@
 ﻿using _Project.Scripts.Game.Entities._Interfaces;
 using _Project.Scripts.Game.Features.Weapon._Configs;
+using _Project.Scripts.Game.Features.Weapon.Componets;
 using _Project.Scripts.Game.Features.Weapon.Interfaces;
 using UnityEngine;
 
@@ -7,6 +8,7 @@ namespace _Project.Scripts.Game.Features.Weapon
 {
   public class BaseWeapon : IWeapon
   {
+    protected readonly WeaponComponent Weapon;
     protected readonly WeaponCharacteristicData WeaponCharacteristic;
     
     private int _clipCount;
@@ -14,11 +16,13 @@ namespace _Project.Scripts.Game.Features.Weapon
     private float _rechargeDelay;
     private float _fireIntervalDelay;
 
-    protected float AttackDistance;
+    private float _attackDistance;
+    private float _attackInterval;
 
-    public BaseWeapon(WeaponCharacteristicData weaponCharacteristic)
+    public BaseWeapon(WeaponComponent weapon, WeaponCharacteristicData weaponCharacteristic)
     {
       WeaponCharacteristic = weaponCharacteristic;
+      Weapon = weapon;
     }
     
     public virtual void Dispose()
@@ -26,9 +30,10 @@ namespace _Project.Scripts.Game.Features.Weapon
       
     }
     
-    public void Initialize()
+    public virtual void Initialize()
     {
-      AttackDistance = Mathf.Pow(WeaponCharacteristic.AttackDistance, 2);
+      _attackDistance = Mathf.Pow(WeaponCharacteristic.AttackDistance, 2);
+      _attackInterval = WeaponCharacteristic.FireInterval;
             
       ReadyAttack();
       ReloadClip();
@@ -47,7 +52,8 @@ namespace _Project.Scripts.Game.Features.Weapon
     }
     
     bool IWeapon.CanAttack() => _clipCount > 0 && _canAttack; 
-    float IWeapon.AttackDistance() => AttackDistance;
+    float IWeapon.AttackDistance() => _attackDistance;
+    float IWeapon.AttackInterval() => _attackInterval;
     float IWeapon.DetectionDistance() => WeaponCharacteristic.DetectionDistance;
     float IWeapon.AimingSpeed() => WeaponCharacteristic.Aiming;
     
