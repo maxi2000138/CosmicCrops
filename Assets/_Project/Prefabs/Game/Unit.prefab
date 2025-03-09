@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 7089426131222044458}
   - component: {fileID: 2372030079065391473}
   - component: {fileID: 5739448988222388505}
+  - component: {fileID: 9103638465139443711}
   - component: {fileID: 6581596657439240305}
   - component: {fileID: 2221937766991152480}
   - component: {fileID: 8958869384667127040}
@@ -54,7 +55,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _agent: {fileID: 5739448988222388505}
   _stateMachine: {fileID: 2372030079065391473}
-  unitAnimator: {fileID: 7089426131222044458}
+  animator: {fileID: 7089426131222044458}
+  _weaponComponent: {fileID: 9103638465139443711}
   _health: {fileID: 3146205040923083350}
 --- !u!114 &3146205040923083350
 MonoBehaviour:
@@ -106,6 +108,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _agent: {fileID: 8958869384667127040}
+--- !u!114 &9103638465139443711
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2954330636745076640}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 20e0f26b774942f29ad4565340997798, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &6581596657439240305
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -118,6 +132,35 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 27eef99125d946ce81cf5fcc9967bebd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes:
+    - Name: _animationDurations
+      Entry: 7
+      Data: 0|System.Collections.Generic.Dictionary`2[[System.Int32, mscorlib],[System.Single,
+        mscorlib]], mscorlib
+    - Name: comparer
+      Entry: 7
+      Data: 1|System.Collections.Generic.GenericEqualityComparer`1[[System.Int32,
+        mscorlib]], mscorlib
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
   <Animator>k__BackingField: {fileID: 2221937766991152480}
 --- !u!95 &2221937766991152480
 Animator:

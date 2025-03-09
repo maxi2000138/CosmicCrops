@@ -1,9 +1,9 @@
-﻿using R3;
-using UnityEngine;
+﻿using _Project.Scripts.Infrastructure.Pool.Item;
+using R3;
 
 namespace _Project.Scripts.Infrastructure.Systems.Components
 {
-  public abstract class MonoComponent : MonoBehaviour, IComponent
+  public abstract class MonoComponent : MonoSpawnableItem, IComponent
   {
     public CompositeDisposable LifetimeDisposable { get; private set; }
 

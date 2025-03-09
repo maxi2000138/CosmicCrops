@@ -1,4 +1,6 @@
-﻿using _Project.Scripts.Game.Entities.Character.StateMachine.States;
+﻿using _Project.Scripts.Game.Entities._Interfaces;
+using _Project.Scripts.Game.Entities.Character.StateMachine.States;
+using _Project.Scripts.Game.Entities.Unit.StateMachine.States;
 using _Project.Scripts.Game.Features.Level.Model;
 using _Project.Scripts.Game.UI.Screens;
 using _Project.Scripts.Infrastructure.Factories.UI;
@@ -55,6 +57,7 @@ namespace _Project.Scripts.Infrastructure.StateMachine.States
     private void ActivateUnitStateMachine()
     {
       _levelModel.Character.StateMachine.StateMachine.Enter<CharacterStateIdle>();
+      _levelModel.Enemies.Foreach(SetEnemyStateIdle);
     }
     
     private void SubscribeOnWin()
@@ -73,6 +76,6 @@ namespace _Project.Scripts.Infrastructure.StateMachine.States
     }
     
     private bool AllLootCollected() => _levelModel.Loot.Count == 0;
-
+    private void SetEnemyStateIdle(IEnemy enemy) => enemy.StateMachine.StateMachine.Enter<UnitStateIdle>();
   }
 }

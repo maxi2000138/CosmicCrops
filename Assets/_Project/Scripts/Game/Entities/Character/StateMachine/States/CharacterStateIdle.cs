@@ -28,8 +28,6 @@ namespace _Project.Scripts.Game.Entities.Character.StateMachine.States
         void IState.Enter()
         {
             Character.UnitAnimator.OnRun.Execute(0f);
-
-            DebugLogger.Log("Enter Character Idle State", LogsType.Character);
         }
 
         void IState.Exit() { }

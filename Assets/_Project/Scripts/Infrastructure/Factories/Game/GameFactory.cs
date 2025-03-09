@@ -13,7 +13,7 @@ using _Project.Scripts.Game.Features.Loot.Components;
 using _Project.Scripts.Game.Features.Loot.Data;
 using _Project.Scripts.Infrastructure.AssetData;
 using _Project.Scripts.Infrastructure.Pool.Service;
-using _Project.Scripts.Infrastructure.StaticData;
+using _Project.Scripts.Utils.Extensions;
 using Cysharp.Threading.Tasks;
 using JetBrains.Annotations;
 using UnityEngine;
@@ -23,7 +23,6 @@ namespace _Project.Scripts.Infrastructure.Factories.Game
   [UsedImplicitly(ImplicitUseKindFlags.InstantiatedNoFixedConstructorSignature)]
   public class GameFactory : IGameFactory
   {
-    private readonly IStaticDataService _staticDataService;
     private readonly IAssetService _assetService;
     private readonly LevelModel _levelModel;
     private readonly LevelConfig _levelConfig;
@@ -32,11 +31,10 @@ namespace _Project.Scripts.Infrastructure.Factories.Game
     private readonly LootConfig _lootConfig;
     private readonly UnitsConfig _unitsConfig;
 
-    public GameFactory(IStaticDataService staticDataService, IAssetService assetService, 
+    public GameFactory(IAssetService assetService, 
       LevelModel levelModel, LevelConfig levelConfig, CharacterConfig characterConfig, IPoolProvider poolProvider,
       LootConfig lootConfig, UnitsConfig unitsConfig)
     {
-      _staticDataService = staticDataService;
       _assetService = assetService;
       _levelModel = levelModel;
       _levelConfig = levelConfig;
@@ -68,10 +66,9 @@ namespace _Project.Scripts.Infrastructure.Factories.Game
       return character;
     }
     
-    async UniTask<UnitComponent> IGameFactory.CreateUnit(Vector3 position, Transform parent)
+    async UniTask<UnitComponent> IGameFactory.CreateUnit(string unitName, Vector3 position, Transform parent)
     {
-      // TODO: set correct unit name
-      GameObject prefab = await _assetService.LoadFromAddressable<GameObject>(_unitsConfig.Data["Base"].PrefabName);
+      GameObject prefab = await _assetService.LoadFromAddressable<GameObject>(_unitsConfig.Data[unitName].PrefabName);
       UnitComponent unit = Object.Instantiate(prefab, position, Quaternion.identity, parent).GetComponent<UnitComponent>();
       _levelModel.AddEnemy(unit);
       return unit;

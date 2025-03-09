@@ -1,6 +1,7 @@
-﻿using System;
-using System.Collections;
+﻿using _Project.Scripts.Game.Entities.Unit._Configs;
 using _Project.Scripts.Game.Entities.Unit.Components;
+using _Project.Scripts.Game.Features.Weapon.Data;
+using _Project.Scripts.Game.Features.Weapon.Factories;
 using _Project.Scripts.Infrastructure.Factories.Game;
 using _Project.Scripts.Infrastructure.Factories.StateMachine;
 using _Project.Scripts.Infrastructure.Systems;
@@ -12,13 +13,18 @@ namespace _Project.Scripts.Game.Entities.Unit.Systems
 {
   public class UnitSpawnerSystem : SystemComponent<UnitSpawnerComponent>
   {
-    private IGameFactory _gameFactory;
     private IStateMachineFactory _stateMachineFactory;
+    private IWeaponFactory _weaponFactory;
+    private IGameFactory _gameFactory;
+    private UnitsConfig _unitsConfig;
 
     [Inject]
-    private void Construct(IGameFactory gameFactory, IStateMachineFactory stateMachineFactory)
+    private void Construct(IGameFactory gameFactory, IStateMachineFactory stateMachineFactory, UnitsConfig unitsConfig, 
+      IWeaponFactory weaponFactory)
     {
+      _weaponFactory = weaponFactory;
       _stateMachineFactory = stateMachineFactory;
+      _unitsConfig = unitsConfig;
       _gameFactory = gameFactory;
     }
     
@@ -31,13 +37,18 @@ namespace _Project.Scripts.Game.Entities.Unit.Systems
     
     private async UniTaskVoid CreateUnit(UnitSpawnerComponent spawner)
     {
-      UnitComponent unit = await _gameFactory.CreateUnit(spawner.Position, spawner.transform.parent);
+      UnitData unitData = _unitsConfig.Data[spawner.Unit];
+      UnitComponent unit = await _gameFactory.CreateUnit(spawner.Unit, spawner.Position, spawner.transform.parent);
 
-      unit.StateMachine.CreateStateMachine(_stateMachineFactory.CreateUnitStateMachine(unit));
+      await _weaponFactory.CreateCharacterWeapon(unit.WeaponComponent, WeaponType.Knife, unit.transform);
+
+      unit.Stats = unitData;
+
+      unit.Health.SetBaseHealth(unitData.Health);
+      unit.Health.SetMaxHealth(unitData.Health);
+      unit.Health.CurrentHealth.SetValueAndForceNotify(unitData.Health);
       
-      unit.Health.SetBaseHealth(spawner.UnitStats.Health);
-      unit.Health.SetMaxHealth(spawner.UnitStats.Health);
-      unit.Health.CurrentHealth.SetValueAndForceNotify(spawner.UnitStats.Health);
+      unit.StateMachine.CreateStateMachine(_stateMachineFactory.CreateUnitStateMachine(unit));
     }
   }
 }

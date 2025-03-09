@@ -2,6 +2,7 @@
 using _Project.Scripts.Game.Features.Level.Model;
 using _Project.Scripts.Game.Infrastructure.StateMachine;
 using _Project.Scripts.Infrastructure.Systems.Components;
+using _Project.Scripts.Utils.Extensions;
 using DG.Tweening;
 using VContainer;
 
@@ -24,7 +25,7 @@ namespace _Project.Scripts.Game.Entities.Unit.StateMachine.States
         public void Enter()
         {
             Unit.Agent.Agent.ResetPath();
-            Unit.UnitAnimator.OnDeath.Execute(R3.Unit.Default);
+            Unit.Animator.OnDeath.Execute(R3.Unit.Default);
             Unit.CleanSubscribe();
 
             DeactivateUnit();
@@ -38,7 +39,7 @@ namespace _Project.Scripts.Game.Entities.Unit.StateMachine.States
 
         private void DeactivateUnit()
         {
-            DOVirtual.DelayedCall(3f, () => Unit.SetActive(false)).SetLink(Unit.gameObject);
+            DOVirtual.DelayedCall(1.5f, () => Unit.Remove()).SetLink(Unit.gameObject);
         }
     }
 }

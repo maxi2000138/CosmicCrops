@@ -1,6 +1,7 @@
 ﻿using _Project.Scripts.Game.Entities.Unit.Components;
 using _Project.Scripts.Game.Infrastructure.StateMachine;
 using _Project.Scripts.Infrastructure.Systems.Components;
+using _Project.Scripts.Utils.Extensions;
 
 namespace _Project.Scripts.Game.Entities.Unit.StateMachine.States
 {
@@ -13,7 +14,7 @@ namespace _Project.Scripts.Game.Entities.Unit.StateMachine.States
         public void Enter()
         {
             Unit.Agent.Agent.ResetPath();
-            Unit.UnitAnimator.OnRun.Execute(0f);
+            Unit.Animator.OnRun.Execute(0f);
             Unit.CleanSubscribe();
         }
 

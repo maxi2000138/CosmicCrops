@@ -1,6 +1,7 @@
 ﻿using _Project.Scripts.Game.Entities.Character.Components;
 using _Project.Scripts.Game.Infrastructure.StateMachine;
 using _Project.Scripts.Infrastructure.Systems.Components;
+using _Project.Scripts.Utils.Extensions;
 
 namespace _Project.Scripts.Game.Entities.Character.StateMachine.States
 {

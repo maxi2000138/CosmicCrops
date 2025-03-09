@@ -1,6 +1,8 @@
-﻿using _Project.Scripts.Game.Entities._Components;
+﻿using _Project.Scripts.Infrastructure.Systems.Components;
+using _Project.Scripts.Game.Entities.Unit._Configs;
+using _Project.Scripts.Game.Entities._Components;
 using _Project.Scripts.Game.Entities._Interfaces;
-using _Project.Scripts.Infrastructure.Systems.Components;
+using _Project.Scripts.Game.Features.Weapon.Componets;
 using UnityEngine;
 
 namespace _Project.Scripts.Game.Entities.Unit.Components
@@ -9,17 +11,19 @@ namespace _Project.Scripts.Game.Entities.Unit.Components
   {
     [SerializeField] private AgentComponent _agent;
     [SerializeField] private StateMachineComponent _stateMachine;
-    [SerializeField] private UnitAnimatorComponent unitAnimator;
+    [SerializeField] private UnitAnimatorComponent animator;
+    [SerializeField] private WeaponComponent _weaponComponent;
     [SerializeField] private HealthComponent _health;
 
+    public UnitData Stats { get; set; }
+
     public AgentComponent Agent => _agent;
-    public UnitAnimatorComponent UnitAnimator => unitAnimator;
+    public UnitAnimatorComponent Animator => animator;
+    public WeaponComponent WeaponComponent => _weaponComponent;
     public StateMachineComponent StateMachine => _stateMachine;
     public HealthComponent Health => _health;
     public Vector3 Position => transform.position;
-    
-    //TODO setup from config
-    public float Height => 3f;
-    
+    public float Height => Stats.Height;
+    public Vector3 Forward => transform.forward;
   }
 }

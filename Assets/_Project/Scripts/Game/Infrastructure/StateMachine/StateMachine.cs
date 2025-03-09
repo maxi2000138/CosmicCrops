@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using _Project.Scripts.Game.Entities.Unit.StateMachine;
+using _Project.Scripts.Infrastructure.Logger;
 
 namespace _Project.Scripts.Game.Infrastructure.StateMachine
 {
@@ -14,6 +16,9 @@ namespace _Project.Scripts.Game.Infrastructure.StateMachine
             T state = ChangeState<T>();
 
             state.Enter();
+            
+            if(this is UnitStateMachine)
+                DebugLogger.Log("Enter Unit State: " + state.GetType().Name, LogsType.Character);
         }
 
         void IStateMachine.Tick() => _activeState?.Tick();

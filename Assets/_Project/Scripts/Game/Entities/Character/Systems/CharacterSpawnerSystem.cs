@@ -48,7 +48,7 @@ namespace _Project.Scripts.Game.Entities.Character.Systems
     private async UniTaskVoid CreateCharacter(CharacterSpawnerComponent spawner)
     {
       var character = await _gameFactory.CreateCharacter(spawner.Position, spawner.transform.parent);
-      var weapon = await _weaponFactory.CreateCharacterWeapon(character.WeaponComponent, WeaponType.Knife, character.transform);
+      await _weaponFactory.CreateCharacterWeapon(character.WeaponComponent, WeaponType.Knife, character.transform);
       
       character.StateMachine.CreateStateMachine(_stateMachineFactory.CreateCharacterStateMachine(character));
       character.StateMachine.StateMachine.Enter<CharacterStateIdle>();

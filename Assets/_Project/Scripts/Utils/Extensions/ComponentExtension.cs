@@ -1,4 +1,6 @@
-﻿namespace _Project.Scripts.Infrastructure.Systems.Components
+﻿using _Project.Scripts.Infrastructure.Systems.Components;
+
+namespace _Project.Scripts.Utils.Extensions
 {
     public static class ComponentExtension
     {

@@ -54,7 +54,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e5797790beff4d4cac6d20908cb04be6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _unitAnimator: {fileID: 0}
+  _unitAnimator: {fileID: 7089426131222044458}
   _characterController: {fileID: 3665450266240912470}
   _collector: {fileID: 8207717363938801468}
   _stateMachine: {fileID: 2372030079065391473}

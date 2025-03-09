@@ -1,11 +1,11 @@
-﻿using _Project.Scripts.Game.Entities._Components;
-using _Project.Scripts.Game.Entities._Systems;
+﻿using _Project.Scripts.Game.Entities._Systems;
 using _Project.Scripts.Game.Entities._Systems.UI;
 using _Project.Scripts.Game.Entities.Character.Systems;
 using _Project.Scripts.Game.Entities.Unit.Systems;
 using _Project.Scripts.Game.Features.Abilities.Systems;
 using _Project.Scripts.Game.Features.Collector.Systems;
 using _Project.Scripts.Game.Features.Input.Systems;
+using _Project.Scripts.Game.Features.Level.Systems;
 using _Project.Scripts.Game.Features.Loot.Systems;
 using _Project.Scripts.Game.Features.Weapon.Systems;
 using _Project.Scripts.Game.UI.Haptic.Systems;
@@ -26,6 +26,7 @@ namespace _Project.Scripts.Infrastructure.Factories.Systems
                 
                 new JoystickUpdateSystem(),
                 
+                new BuildGroundNavMeshSystem(),
                 new LootSpawnerSystem(),
                 new UnitSpawnerSystem(),
                 

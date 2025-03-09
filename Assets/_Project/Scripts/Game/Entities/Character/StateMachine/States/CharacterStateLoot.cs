@@ -26,7 +26,7 @@ namespace _Project.Scripts.Game.Entities.Character.StateMachine.States
 
     void IState.Enter()
     {
-      DebugLogger.Log("Enter Character Loot State", LogsType.Character);
+      
     }
 
     void IState.Exit() { }
