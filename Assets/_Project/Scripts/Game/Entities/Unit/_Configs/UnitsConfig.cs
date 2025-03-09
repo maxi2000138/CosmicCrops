@@ -23,6 +23,7 @@ namespace _Project.Scripts.Game.Entities.Unit._Configs
         WalkSpeed = StringParseUtils.ToFloat(row[6]),
         PursuitSpeed = StringParseUtils.ToFloat(row[7]),
         PursuitRadius = StringParseUtils.ToFloat(row[8]),
+        StayDelay = StringParseUtils.ToFloat(row[9])
       };
     }
   }
@@ -38,5 +39,6 @@ namespace _Project.Scripts.Game.Entities.Unit._Configs
     public float WalkSpeed;
     public float PursuitSpeed;
     public float PursuitRadius;
+    public float StayDelay;
   }
 }

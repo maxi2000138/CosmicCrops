@@ -1,2 +1,2 @@
-name	prefab_name	health	patrol_radius	height	scale	walk_speed	pursuit_speed	pursuit_radius
-Orc_1	Unit	10	5	3	1	2	1	5
+name	prefab_name	health	patrol_radius	height	scale	walk_speed	pursuit_speed	pursuit_radius	stay_delay
+Orc_1	Unit	10	5	3	1	2	1	5	2

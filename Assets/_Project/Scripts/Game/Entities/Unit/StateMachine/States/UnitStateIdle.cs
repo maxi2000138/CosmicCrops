@@ -11,6 +11,7 @@ namespace _Project.Scripts.Game.Entities.Unit.StateMachine.States
         private LevelModel _levelModel;
 
         private float _detectionDistance;
+        private float _delay;
 
         public UnitStateIdle(IStateMachine stateMachine, UnitComponent unit) : base(stateMachine, unit)
         {
@@ -26,6 +27,7 @@ namespace _Project.Scripts.Game.Entities.Unit.StateMachine.States
         public void Enter()
         {
             _detectionDistance = Mathf.Pow(Unit.WeaponComponent.Weapon.DetectionDistance(), 2);
+            _delay = Unit.Stats.StayDelay;
 
             Unit.Animator.OnRun.Execute(0f);
         }
@@ -45,7 +47,14 @@ namespace _Project.Scripts.Game.Entities.Unit.StateMachine.States
             }
             else
             {
-                EnterState<UnitStatePatrol>();
+                if (_delay > 0f)
+                {
+                    _delay -= Time.deltaTime;
+                }
+                else
+                {
+                    EnterState<UnitStatePatrol>();
+                }
             }
         }
         public void Exit() { }
