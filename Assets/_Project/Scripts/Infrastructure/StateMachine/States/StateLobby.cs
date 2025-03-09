@@ -42,7 +42,7 @@ namespace _Project.Scripts.Infrastructure.StateMachine.States
       _transitionDisposable = screen.CloseScreen.First().Subscribe(ChangeState);
     }
 
-    private void ChangeState(Unit _) => _gameStateMachine.Enter<StateGameplay>();
+    private void ChangeState(Unit _) => _gameStateMachine.Enter<StateGame>();
   }
 
 

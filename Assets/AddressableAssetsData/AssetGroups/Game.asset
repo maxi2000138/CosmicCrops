@@ -45,6 +45,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 9aa1606cb99a2204fa8f633927ce446a
+    m_Address: LooseScreen
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: a3b0ca0cb4b554241b704cdafe91295d
     m_Address: Player
     m_ReadOnly: 0

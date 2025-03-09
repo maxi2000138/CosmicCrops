@@ -160,4 +160,5 @@ namespace _Project.Scripts.Game.Entities.Character.StateMachine.States
       _levelModel.Target.Value = target;
     }
   }
+
 }

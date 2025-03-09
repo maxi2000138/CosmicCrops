@@ -1,10 +1,9 @@
-﻿using _Project.Scripts.Game.UI.Screens;
-using _Project.Scripts.Utils.Extensions;
+﻿using _Project.Scripts.Utils.Extensions;
 using Cysharp.Threading.Tasks;
 using DG.Tweening;
 using R3;
 
-namespace _Project.Scripts.Infrastructure.StateMachine.States
+namespace _Project.Scripts.Game.UI.Screens
 {
   public sealed class WinScreen : BaseScreen
   {
@@ -41,4 +40,5 @@ namespace _Project.Scripts.Infrastructure.StateMachine.States
       CloseScreen.Execute(Unit.Default);
     }
   }
+
 }

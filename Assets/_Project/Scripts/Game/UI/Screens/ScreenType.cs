@@ -8,5 +8,6 @@
         Lobby    = 2,
         Win      = 3,
         Menu     = 4,
+        Loose    = 5,
     }
 }

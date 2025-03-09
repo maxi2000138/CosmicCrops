@@ -51,6 +51,10 @@ namespace _Project.Scripts.Infrastructure.StateMachine.States
       {
         screen = await _uiFactory.CreateScreen(ScreenType.Win);
       }
+      else if (gameResult == GameResult.Loose)
+      {
+        screen = await _uiFactory.CreateScreen(ScreenType.Loose);
+      }
       
       _transitionDisposable = screen!.CloseScreen.First().Subscribe(ChangeState);
     }

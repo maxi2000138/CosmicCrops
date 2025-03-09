@@ -12,13 +12,12 @@ using Cysharp.Threading.Tasks;
 using JetBrains.Annotations;
 using ObservableCollections;
 using R3;
-using VContainer;
 
 namespace _Project.Scripts.Infrastructure.StateMachine.States
 {
   
   [UsedImplicitly(ImplicitUseKindFlags.InstantiatedNoFixedConstructorSignature)]
-  public sealed class StateGameplay : IEnterState, IExitState
+  public sealed class StateGame : IEnterState, IExitState
   {
     private readonly IJoystickService _joystickService;
     private readonly LevelModel _levelModel;
@@ -27,7 +26,7 @@ namespace _Project.Scripts.Infrastructure.StateMachine.States
     
     private readonly CompositeDisposable _transitionDisposable = new();
 
-    public StateGameplay(IUIFactory uiFactory, IJoystickService joystickService, LevelModel levelModel)
+    public StateGame(IUIFactory uiFactory, IJoystickService joystickService, LevelModel levelModel)
     {
       _levelModel = levelModel;
       _joystickService = joystickService;
@@ -38,12 +37,14 @@ namespace _Project.Scripts.Infrastructure.StateMachine.States
     public async UniTask Enter(IGameStateMachine gameStateMachine)
     {
       _gameStateMachine = gameStateMachine;
+      
       await _uiFactory.CreateScreen(ScreenType.Game);
       _joystickService.Enable(true);
       
       ActivateUnitStateMachine();
       
       SubscribeOnWin();
+      SubscribeOnLoose();
     }
     
     public UniTask Exit(IGameStateMachine gameStateMachine)
@@ -64,8 +65,16 @@ namespace _Project.Scripts.Infrastructure.StateMachine.States
     {
       _levelModel.Loot
         .ObserveRemove()
-        .First(_ => AllLootCollected())
+        .First(_ => AllLootCollected() && AllEnemyIsDeath())
         .Subscribe(_ => Win())
+        .AddTo(_transitionDisposable);
+    }
+    
+    private void SubscribeOnLoose()
+    {
+      _levelModel.Character.Health.CurrentHealth
+        .First(_ => CharacterIsDeath())
+        .Subscribe(_ => Loose())
         .AddTo(_transitionDisposable);
     }
     
@@ -75,7 +84,19 @@ namespace _Project.Scripts.Infrastructure.StateMachine.States
       _levelModel.Character.StateMachine.StateMachine.Enter<CharacterStateNone>();
     }
     
+    private void Loose()
+    {
+      _gameStateMachine.Enter<StateGameResult, GameResult>(GameResult.Loose);
+      _levelModel.Character.StateMachine.StateMachine.Enter<CharacterStateDeath>();
+      _levelModel.Enemies.Foreach(SetEnemyStateNone);
+    }
+
+    private bool AllEnemyIsDeath() => _levelModel.Enemies.Count == 0;
+        
+    private bool CharacterIsDeath() => _levelModel.Character.Health.IsAlive == false;
     private bool AllLootCollected() => _levelModel.Loot.Count == 0;
+
     private void SetEnemyStateIdle(IEnemy enemy) => enemy.StateMachine.StateMachine.Enter<UnitStateIdle>();
+    private void SetEnemyStateNone(IEnemy enemy) => enemy.StateMachine.StateMachine.Enter<UnitStateNone>();
   }
 }

@@ -18,6 +18,7 @@ namespace _Project.Scripts.Game.Entities.Character.StateMachine
                 {typeof(CharacterStateRun), new CharacterStateRun(this, character)},
                 {typeof(CharacterStateLoot), new CharacterStateLoot(this, character)},
                 {typeof(CharacterStateFight), new CharacterStateFight(this, character)},
+                {typeof(CharacterStateDeath), new CharacterStateDeath(this, character)},
             };
         }
     }

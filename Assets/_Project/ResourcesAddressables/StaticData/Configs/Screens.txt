@@ -3,3 +3,4 @@ Game	GameScreen
 Lobby	LobbyScreen
 Win	WinScreen
 Menu	MenuScreen
+Loose	LooseScreen

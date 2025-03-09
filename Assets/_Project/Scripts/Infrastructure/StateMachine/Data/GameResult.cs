@@ -3,6 +3,6 @@
   public enum GameResult
   {
     Win   = 0,
-    Lose  = 1,
+    Loose = 1,
   }
 }
