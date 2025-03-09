@@ -4,6 +4,7 @@ using _Project.Scripts.Game.Features.Level.Model;
 using _Project.Scripts.Infrastructure.Camera;
 using _Project.Scripts.Infrastructure.Systems;
 using _Project.Scripts.Utils.Extensions;
+using DG.Tweening;
 using R3;
 using UnityEngine;
 using VContainer;
@@ -38,20 +39,39 @@ namespace _Project.Scripts.Game.Features.Collector.Systems
             SubscribeOnStartCollecting(component);
             SubscribeOnCancelCollecting(component);
         }
+        
+        protected override void OnDisableComponent(CollectingViewComponent component)
+        {
+            base.OnDisableComponent(component);
+            
+            component.Tween?.Kill(true);
+        }
 
         private void SubscribeOnStartCollecting(CollectingViewComponent component)
         {
-            component.collectingAnimation.OnSubscribe();
+            void SetFillAmount(float value) => component.Fill.fillAmount = value;
+            void SetCanvasGroupAlphaOne() => component.CanvasGroup.alpha = 1f;
+            void SetCanvasGroupAlphaZero() => component.CanvasGroup.alpha = 0f;
+
             
+            SetCanvasGroupAlphaZero();
+
             _inventoryModel.StartCollectingLoot
-                .Subscribe(delay => component.collectingAnimation.StartReloading(delay))
+                .Subscribe(delay => {
+                    component.Tween = DOVirtual.Float(0f, 1f, delay, SetFillAmount)
+                        .SetEase(Ease.Linear)
+                        .OnStart(SetCanvasGroupAlphaOne)
+                        .OnComplete(SetCanvasGroupAlphaZero);
+                })
                 .AddTo(component.LifetimeDisposable);
         }
         
         private void SubscribeOnCancelCollecting(CollectingViewComponent component)
         {
             _inventoryModel.CancelCollectingLoot
-                .Subscribe(_ => component.collectingAnimation.CancelReloading())
+                .Subscribe(_ => {
+                    component.Tween.Kill(true);
+                })
                 .AddTo(component.LifetimeDisposable);
         }
 

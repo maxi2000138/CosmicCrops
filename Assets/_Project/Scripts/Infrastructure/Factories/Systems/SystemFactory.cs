@@ -41,6 +41,7 @@ namespace _Project.Scripts.Infrastructure.Factories.Systems
                 new CollectingViewSystem(),
                 new HapticButtonSystem(),
                 
+                new CharacterHealthViewUpdateSystem(),
                 new EnemyHealthViewUpdateSystem(),
                 new EnemyHealthProviderSystem(),
             };

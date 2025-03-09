@@ -1,7 +1,6 @@
-﻿using _Project.Scripts.Game.Features.Collector.Animations;
-using _Project.Scripts.Infrastructure.Systems.Components;
+﻿using _Project.Scripts.Infrastructure.Systems.Components;
+using DG.Tweening;
 using UnityEngine;
-using UnityEngine.Serialization;
 using UnityEngine.UI;
 
 namespace _Project.Scripts.Game.Features.Collector.Components
@@ -16,7 +15,6 @@ namespace _Project.Scripts.Game.Features.Collector.Components
     public Image Fill => _fill;
     public Transform Transform => _transform;
 
-    [FormerlySerializedAs("ReloadingAnimation")]
-    public CollectingViewAnimation collectingAnimation;
+    public Tween Tween { get; set; }
   }
 }
