@@ -1,11 +1,12 @@
-﻿using UnityEngine;
+﻿using CodeBase.Infrastructure.Pool;
+using UnityEngine;
 
 namespace _Project.Scripts.Infrastructure.Pool.Item
 {
   public class MonoSpawnableItem : MonoBehaviour, ISpawnableItem
   {
-    private IObjectPool _objectPool;
-    
+    private IObjectPoolService _objectPool;
+
     public virtual void Remove()
     {
       if (_objectPool is null)
@@ -14,10 +15,11 @@ namespace _Project.Scripts.Infrastructure.Pool.Item
         return;
       }
             
-      _objectPool.Despawn(this);
+      _objectPool.ReleaseObject(this);
     }
 
-    public virtual void OnCreated(IObjectPool objectPool)
+    
+    public virtual void OnCreated(IObjectPoolService objectPool)
     {
       _objectPool = objectPool;
     }
@@ -27,6 +29,5 @@ namespace _Project.Scripts.Infrastructure.Pool.Item
     {
       Destroy(gameObject);
     }
-
   }
 }

@@ -1,4 +1,5 @@
-﻿using _Project.Scripts.Game.Entities.Character._Configs;
+﻿using System;
+using _Project.Scripts.Game.Entities.Character._Configs;
 using _Project.Scripts.Game.Entities.Unit._Configs;
 using _Project.Scripts.Game.Features.Abilities._Configs;
 using _Project.Scripts.Game.Features.Abilities.Services;
@@ -21,7 +22,6 @@ using _Project.Scripts.Infrastructure.GUI;
 using _Project.Scripts.Infrastructure.Haptic;
 using _Project.Scripts.Infrastructure.Input;
 using _Project.Scripts.Infrastructure.Logger;
-using _Project.Scripts.Infrastructure.Pool.Service;
 using _Project.Scripts.Infrastructure.SceneLoader;
 using _Project.Scripts.Infrastructure.StateMachine.States;
 using _Project.Scripts.Infrastructure.StaticData;
@@ -29,6 +29,7 @@ using _Project.Scripts.Infrastructure.StaticData.Configs;
 using _Project.Scripts.Infrastructure.Time;
 using _Project.Scripts.Utils.Extensions;
 using _Project.Scripts.Utils.PartLinears;
+using CodeBase.Infrastructure.Pool;
 using UnityEngine;
 using VContainer;
 using VContainer.Unity;
@@ -72,12 +73,13 @@ namespace _Project.Scripts.Infrastructure.LifeTime.Scopes
       builder.Register<ISystemFactory, SystemFactory>(Lifetime.Singleton);
       builder.Register<IUIFactory, UIFactory>(Lifetime.Singleton);
       builder.Register<ICollectorFactory, CollectorFactory>(Lifetime.Singleton);
-      builder.Register<IPoolProvider, PoolProvider>(Lifetime.Singleton);
+      builder.Register<IObjectPoolService, ObjectPoolService>(Lifetime.Singleton).WithParameter(transform).As<IDisposable>();
       builder.Register<IStateMachineFactory, StateMachineFactory>(Lifetime.Singleton);
       builder.Register<IAbilityApplier, AbilityApplier>(Lifetime.Singleton);
       builder.Register<IAbilityStatsProvider, AbilityStatsProvider>(Lifetime.Singleton);
       
       builder.RegisterConfig<PartLinearsConfig>(Lifetime.Singleton);
+      builder.RegisterConfig<ProjectilesConfig>(Lifetime.Singleton);
       builder.RegisterConfig<CharacterConfig>(Lifetime.Singleton);
       builder.RegisterConfig<UIPrefabsConfig>(Lifetime.Singleton);
       builder.RegisterConfig<ScreensConfig>(Lifetime.Singleton);

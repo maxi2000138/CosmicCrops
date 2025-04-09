@@ -7,4 +7,4 @@ namespace _Project.Scripts.Game.Features.Level.Components
   {
     
   }
-}
+} 

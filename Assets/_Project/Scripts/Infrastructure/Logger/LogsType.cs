@@ -8,5 +8,6 @@
     Haptic          = 3,
     Weapon          = 4,
     Ability         = 5,
+    Pool            = 6,
   }
 }

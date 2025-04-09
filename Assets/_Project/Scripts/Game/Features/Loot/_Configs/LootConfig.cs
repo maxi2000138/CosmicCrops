@@ -22,9 +22,4 @@ namespace _Project.Scripts.Game.Features.Loot._Configs
     }
   }
 
-  public class LootData
-  {
-    public LootType Type;
-    public string PrefabName;
-  }
 }

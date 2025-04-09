@@ -1,0 +1,2 @@
+type	collision_radius	lifetime	prefab_reference
+Bullet	1	2.5	Bullet

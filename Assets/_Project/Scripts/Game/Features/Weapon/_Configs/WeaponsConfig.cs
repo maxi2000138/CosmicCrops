@@ -24,20 +24,9 @@ namespace _Project.Scripts.Game.Features.Weapon._Configs
         DetectionDistance = StringParseUtils.ToFloat(row[5]),
         AttackDistance = StringParseUtils.ToFloat(row[6]),
         Aiming = StringParseUtils.ToFloat(row[7]),
+        ForceBullet = StringParseUtils.ToFloat(row[7]),
       };
     }
   }
-  
-  public class WeaponCharacteristicData
-  {
-    public WeaponType WeaponType;
-    
-    public string Ability;
-    public int ClipCount;
-    public float RechargeTime;
-    public float FireInterval;
-    public float DetectionDistance;
-    public float AttackDistance;
-    public float Aiming;
-  }
+
 }

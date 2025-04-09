@@ -1,10 +1,13 @@
-﻿namespace _Project.Scripts.Infrastructure.Pool.Item
+﻿using CodeBase.Infrastructure.Pool;
+
+namespace _Project.Scripts.Infrastructure.Pool.Item
 {
   public interface ISpawnableItem
   {
-    void OnCreated(IObjectPool objectPool);
+    void OnCreated(IObjectPoolService objectPool);
     void OnSpawned();
     void OnDespawned();
     void OnRemoved();
   }
+
 }

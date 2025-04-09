@@ -2,15 +2,18 @@
 using _Project.Scripts.Game.Features.Weapon.Interfaces;
 using _Project.Scripts.Infrastructure.Animation;
 using _Project.Scripts.Infrastructure.Systems.Components;
-using _Project.Scripts.Utils;
 using _Project.Scripts.Utils.Constants;
+using UnityEngine;
 
 namespace _Project.Scripts.Game.Features.Weapon.Componets
 {
   public class WeaponComponent : MonoComponent<WeaponComponent>, IAnimationStateReader
   {
-    public event Action OnHit;
+    public Transform SpawnPoint;
+
     public IWeapon Weapon { get; private set; }
+    
+    public event Action OnHit;
 
     public void SetWeapon(IWeapon weapon)
     {

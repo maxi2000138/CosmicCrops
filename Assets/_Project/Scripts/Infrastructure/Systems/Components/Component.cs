@@ -1,5 +1,5 @@
-using _Project.Scripts.Infrastructure.Pool;
 using _Project.Scripts.Infrastructure.Pool.Item;
+using CodeBase.Infrastructure.Pool;
 using R3;
 
 namespace _Project.Scripts.Infrastructure.Systems.Components
@@ -8,7 +8,23 @@ namespace _Project.Scripts.Infrastructure.Systems.Components
   {
     public CompositeDisposable LifetimeDisposable { get; private set; }
 
-    public override void OnCreated(IObjectPool objectPool)
+    public void Create()
+    {
+      OnSpawned();
+      OnCreated(null);
+      
+      ComponentsContainer<T>.Registered(this);
+    }
+    
+    public override void Remove()
+    {
+      ComponentsContainer<T>.Unregistered(this);
+
+      OnDespawned();
+      OnRemoved();
+    }
+
+    public override void OnCreated(IObjectPoolService objectPool)
     {
       base.OnCreated(objectPool);
       

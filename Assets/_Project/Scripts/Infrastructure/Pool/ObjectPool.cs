@@ -1,89 +1,106 @@
 ﻿using System;
 using System.Collections.Generic;
+using _Project.Scripts.Infrastructure.Logger;
 
-namespace _Project.Scripts.Infrastructure.Pool
+namespace CodeBase.Infrastructure.Pool
 {
-    public class ObjectPool<T> : IObjectPool, IObjectPool<T> where T : class
+    public sealed class ObjectPool<T>
     {
-        public const int DefaultInitSize = 10;
+        private readonly IList<ObjectPoolContainer<T>> _list;
+        private readonly IDictionary<T, ObjectPoolContainer<T>> _lookup;
+        private readonly Func<T> _factoryFunc;
+	    
+        private int _lastIndex = 0;
 
-        private readonly Func<T> _spawner;
-        private readonly Stack<T> _items = new Stack<T>();
+        public int Count => _list.Count;
+        public int CountUsedItems => _lookup.Count;
 
-        public int ItemCount => _items.Count;
+        public ObjectPool(Func<T> factoryFunc, int size)
+        {
+            _factoryFunc = factoryFunc;
 
-        public ObjectPool()
-        {
-            Resize(DefaultInitSize);
-        }
-        
-        public ObjectPool(Func<T> spawner)
-        {
-            _spawner = spawner;
-            Resize(DefaultInitSize);
-        }
+            _list = new List<ObjectPoolContainer<T>>(size);
+            _lookup = new Dictionary<T, ObjectPoolContainer<T>>(size);
 
-        public ObjectPool(Func<T> spawner, int initSize)
-        {
-            _spawner = spawner;
-            Resize(initSize);
-        }
-        
-        public void Resize(int itemCount)
-        {
-            var countDifference = itemCount - ItemCount;
-            AddElements(countDifference);
-            RemoveElements(- countDifference);
-        }
-        
-        public virtual void Clear()
-        {
-            _items.Clear();
+            Warm(size);
         }
 
-        public T Spawn()
+        private void Warm(int capacity)
         {
-            var item = _items.Count > 0 ? _items.Pop() : CreatePoolItem();
-            OnItemSpawned(item);
-            return item;
-        }
-
-        public void Despawn(object item)
-        {
-            if (item is T typeItem)
+            for (int i = 0; i < capacity; i++)
             {
-                _items.Push(typeItem);
-                OnDespawnItem(typeItem);
-            }
-        }
-        
-        private void AddElements(int count)
-        {
-            for (int i = 0; i < count; i++)
-            {
-                _items.Push(CreatePoolItem() );
+                CreateContainer();
             }
         }
 
-        private void RemoveElements(int count)
+        private ObjectPoolContainer<T> CreateContainer()
         {
-            for (int i = 0; i < count; i++)
+            ObjectPoolContainer<T> container = new ObjectPoolContainer<T>
             {
-                var item = _items.Pop();
-                OnRemoveItem(item);
+                Item = _factoryFunc()
+            };
+		    
+            _list.Add(container);
+		    
+            return container;
+        }
+
+        public T GetItem()
+        {
+            ObjectPoolContainer<T> container = null;
+		    
+            for (int i = 0; i < _list.Count; i++)
+            {
+                _lastIndex++;
+
+                if (_lastIndex > _list.Count - 1)
+                {
+                    _lastIndex = 0;
+                }
+
+                if (!_list[_lastIndex].Used)
+                {
+                    container = _list[_lastIndex];
+                    break;
+                }
+            }
+
+            if (container == null)
+            {
+                container = CreateContainer();
+            }
+
+            container.Consume();
+
+            _lookup.Add(container.Item, container);
+		    
+            return container.Item;
+        }
+
+        public ObjectPoolContainer<T> GetContainer(T item) => _lookup[item];
+
+        public void ReleaseItem(T item)
+        {
+            if (_lookup.ContainsKey(item))
+            {
+                ObjectPoolContainer<T> container = _lookup[item];
+                container.Release();
+                _lookup.Remove(item);
+            }
+            else
+            {
+                DebugLogger.LogWarning($"This object pool does not contain the item provided: {item}", LogsType.Pool);
             }
         }
 
-        private T CreatePoolItem()
+        public void ReleaseAll()
         {
-            var item = _spawner.Invoke();
-            OnItemCreated(item);
-            return item;
+            foreach (ObjectPoolContainer<T> container in _lookup.Values)
+            {
+                container.Release();
+            }
+            
+            _lookup.Clear();
         }
-
-        protected virtual void OnItemCreated(T item) { }
-        protected virtual void OnItemSpawned(T item) { }
-        protected virtual void OnDespawnItem(T item) { }
-        protected virtual void OnRemoveItem(T item) { }
     }
 }

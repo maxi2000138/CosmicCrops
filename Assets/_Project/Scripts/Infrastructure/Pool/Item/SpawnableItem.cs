@@ -1,24 +1,15 @@
-﻿namespace _Project.Scripts.Infrastructure.Pool.Item
+﻿using CodeBase.Infrastructure.Pool;
+
+namespace _Project.Scripts.Infrastructure.Pool.Item
 {
-  public abstract class SpawnableItem : ISpawnableItem
+  public class SpawnableItem : ISpawnableItem
   {
-    private IObjectPool _objectPool;
-
-    public void Remove()
+    public virtual void Remove()
     {
-      if (_objectPool is null)
-      {
-        OnRemoved();
-        return;
-      }
-            
-      _objectPool.Despawn(this);
+      OnRemoved();
     }
-
-    public virtual void OnCreated(IObjectPool objectPool)
-    {
-      _objectPool = objectPool;
-    }
+    
+    public virtual void OnCreated(IObjectPoolService objectPool) { }
     public virtual void OnSpawned() { }
     public virtual void OnDespawned() { }
     public virtual void OnRemoved() { }

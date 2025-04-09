@@ -12,8 +12,8 @@ using _Project.Scripts.Game.Features.Loot._Configs;
 using _Project.Scripts.Game.Features.Loot.Components;
 using _Project.Scripts.Game.Features.Loot.Data;
 using _Project.Scripts.Infrastructure.AssetData;
-using _Project.Scripts.Infrastructure.Pool.Service;
-using _Project.Scripts.Utils.Extensions;
+using _Project.Scripts.Infrastructure.Systems.Components;
+using CodeBase.Infrastructure.Pool;
 using Cysharp.Threading.Tasks;
 using JetBrains.Annotations;
 using UnityEngine;
@@ -27,19 +27,19 @@ namespace _Project.Scripts.Infrastructure.Factories.Game
     private readonly LevelModel _levelModel;
     private readonly LevelConfig _levelConfig;
     private readonly CharacterConfig _characterConfig;
-    private readonly IPoolProvider _poolProvider;
+    private readonly IObjectPoolService _objectPoolService;
     private readonly LootConfig _lootConfig;
     private readonly UnitsConfig _unitsConfig;
 
     public GameFactory(IAssetService assetService, 
-      LevelModel levelModel, LevelConfig levelConfig, CharacterConfig characterConfig, IPoolProvider poolProvider,
+      LevelModel levelModel, LevelConfig levelConfig, CharacterConfig characterConfig, IObjectPoolService objectPoolService,
       LootConfig lootConfig, UnitsConfig unitsConfig)
     {
       _assetService = assetService;
       _levelModel = levelModel;
       _levelConfig = levelConfig;
       _characterConfig = characterConfig;
-      _poolProvider = poolProvider;
+      _objectPoolService = objectPoolService;
       _lootConfig = lootConfig;
       _unitsConfig = unitsConfig;
     }
@@ -49,7 +49,7 @@ namespace _Project.Scripts.Infrastructure.Factories.Game
       int levelNumber = 1;
       int index = levelNumber > _levelConfig.Data.Count ? levelNumber % _levelConfig.Data.Count : levelNumber ;
       var data = _levelConfig.Data[index];
-      GameObject prefab = await _assetService.LoadFromAddressable<GameObject>(data.Prefab.Name);
+      var prefab = await _assetService.LoadFromAddressable<GameObject>(data.Prefab.Name);
       LevelComponent level = Object.Instantiate(prefab).GetComponent<LevelComponent>();
       _levelModel.SetLevel(level);
       return level;
@@ -57,7 +57,7 @@ namespace _Project.Scripts.Infrastructure.Factories.Game
     
     async UniTask<CharacterComponent> IGameFactory.CreateCharacter(Vector3 position, Transform parent)
     {
-      GameObject prefab = await _assetService.LoadFromAddressable<GameObject>(_characterConfig.Prefab.Name);
+      var prefab = await _assetService.LoadFromAddressable<GameObject>(_characterConfig.Prefab.Name);
       CharacterComponent character = Object.Instantiate(prefab, position, Quaternion.identity, parent).GetComponent<CharacterComponent>();
       _levelModel.SetCharacter(character);
       
@@ -85,8 +85,10 @@ namespace _Project.Scripts.Infrastructure.Factories.Game
     
     AbilityComponent IGameFactory.CreateAbility(string abilityName, ITarget target)
     {
-      AbilityComponent abilityComponent = _poolProvider.PoolAbility.Spawn();
+      AbilityComponent abilityComponent = new AbilityComponent();
       abilityComponent.Setup(abilityName, target);
+      abilityComponent.Create();
+
       return abilityComponent;
     }
   }
