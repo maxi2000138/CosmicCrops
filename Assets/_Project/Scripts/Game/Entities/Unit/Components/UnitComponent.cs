@@ -12,14 +12,15 @@ namespace _Project.Scripts.Game.Entities.Unit.Components
     [SerializeField] private AgentComponent _agent;
     [SerializeField] private StateMachineComponent _stateMachine;
     [SerializeField] private UnitAnimatorComponent animator;
-    [SerializeField] private WeaponComponent _weaponComponent;
     [SerializeField] private HealthComponent _health;
+    [SerializeField] private WeaponMediatorComponent _weaponMediatorComponent;
+
 
     public UnitData Stats { get; set; }
 
     public AgentComponent Agent => _agent;
     public UnitAnimatorComponent Animator => animator;
-    public WeaponComponent WeaponComponent => _weaponComponent;
+    public WeaponMediatorComponent WeaponMediator => _weaponMediatorComponent;
     public StateMachineComponent StateMachine => _stateMachine;
     public HealthComponent Health => _health;
     public Vector3 Position => transform.position;

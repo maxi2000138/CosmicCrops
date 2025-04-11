@@ -27,7 +27,7 @@ namespace _Project.Scripts.Game.Entities.Unit.StateMachine.States
         public void Enter()
         {
             _pursuitRadius = Mathf.Pow(Unit.Stats.PursuitRadius, 2);
-            _attackDistance = Unit.WeaponComponent.Weapon.AttackDistance();
+            _attackDistance = Unit.WeaponMediator.Weapon.Weapon.AttackDistance();
             Unit.Agent.Agent.speed = Unit.Stats.PursuitSpeed;
             Unit.Animator.OnRun.Execute(1f);
         }

@@ -4,6 +4,7 @@ using _Project.Scripts.Game.Features.Collector.Components;
 using _Project.Scripts.Game.Features.Weapon.Componets;
 using _Project.Scripts.Infrastructure.Systems.Components;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace _Project.Scripts.Game.Entities.Character.Components
 {
@@ -13,15 +14,15 @@ namespace _Project.Scripts.Game.Entities.Character.Components
     [SerializeField] private CharacterControllerComponent _characterController;
     [SerializeField] private CollectorComponent _collector;
     [SerializeField] private StateMachineComponent _stateMachine;
-    [SerializeField] private WeaponComponent _weaponComponent;
     [SerializeField] private HealthComponent _healthComponent;
+    [SerializeField] private WeaponMediatorComponent weaponMediatorComponent;
 
 
     public UnitAnimatorComponent UnitAnimator => _unitAnimator;
     public CharacterControllerComponent CharacterController => _characterController;
     public CollectorComponent Collector => _collector;
     public StateMachineComponent StateMachine => _stateMachine;
-    public WeaponComponent WeaponComponent => _weaponComponent;
+    public WeaponMediatorComponent WeaponMediator => weaponMediatorComponent;
     public HealthComponent Health => _healthComponent;
 
     public Vector3 Position => transform.position;

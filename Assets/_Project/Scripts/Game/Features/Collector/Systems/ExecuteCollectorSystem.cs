@@ -13,6 +13,6 @@ namespace _Project.Scripts.Game.Features.Collector.Systems
       Components.Foreach(Execute);
     }
     
-    private void Execute(CollectorComponent component) => component.Collector.Execute();
+    private void Execute(CollectorComponent component) => component.Collector?.Execute();
   }
 }

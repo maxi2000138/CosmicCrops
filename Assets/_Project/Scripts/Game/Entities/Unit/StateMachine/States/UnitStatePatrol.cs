@@ -31,7 +31,7 @@ namespace _Project.Scripts.Game.Entities.Unit.StateMachine.States
         public void Enter()
         {
             _patrolRadius = Unit.Stats.PatrolRadius;
-            _aggroRadius = Mathf.Pow(Unit.WeaponComponent.Weapon.DetectionDistance(), 2);
+            _aggroRadius = Mathf.Pow(Unit.WeaponMediator.Weapon.Weapon.DetectionDistance(), 2);
             
             Unit.Agent.Agent.speed = Unit.Stats.WalkSpeed;
             Unit.Animator.OnRun.Execute(1f);

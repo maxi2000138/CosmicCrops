@@ -65,8 +65,8 @@ namespace _Project.Scripts.Game.Entities.Character.StateMachine.States
     
     private void Attack()
     {
-      Character.UnitAnimator.OnAttack.Execute(Character.WeaponComponent.Weapon.AttackInterval());
-      Character.WeaponComponent.Weapon.Attack(_target);
+      Character.UnitAnimator.OnAttack.Execute(Character.WeaponMediator.Weapon.Weapon.AttackInterval());
+      Character.WeaponMediator.Weapon.Weapon.Attack(_target);
     }
     
     private bool HasInput()
@@ -79,7 +79,7 @@ namespace _Project.Scripts.Game.Entities.Character.StateMachine.States
       Quaternion lookRotation = Quaternion.LookRotation(_target.Position - Character.Position);
 
       Character.CharacterController.transform.rotation = Quaternion
-        .Slerp(Character.CharacterController.transform.rotation, lookRotation, Character.WeaponComponent.Weapon.AimingSpeed());
+        .Slerp(Character.CharacterController.transform.rotation, lookRotation, Character.WeaponMediator.Weapon.Weapon.AimingSpeed());
     }
 
     private void UseGravity()
@@ -114,13 +114,13 @@ namespace _Project.Scripts.Game.Entities.Character.StateMachine.States
     {
       int index = -1;
             
-      float minDistance = Character.WeaponComponent.Weapon.AttackDistance();
+      float minDistance = Character.WeaponMediator.Weapon.Weapon.AttackDistance();
 
       for (int i = 0; i < _levelModel.Enemies.Count; i++)
       {
         float distance = DistanceToTarget(_levelModel.Enemies[i].Position);
 
-        if (distance < Character.WeaponComponent.Weapon.AttackDistance())
+        if (distance < Character.WeaponMediator.Weapon.Weapon.AttackDistance())
         {
           if (distance < minDistance)
           {
@@ -150,7 +150,7 @@ namespace _Project.Scripts.Game.Entities.Character.StateMachine.States
     private bool CanAttack()
     {
       return HasFacingTarget() && 
-             Character.WeaponComponent.Weapon.CanAttack() &&
+             Character.WeaponMediator.Weapon.Weapon.CanAttack() &&
              HasObstacleOnAttackPath(_target.Position) == false;
     }
 

@@ -1,5 +1,6 @@
 ﻿using _Project.Scripts.Game.Entities.Unit._Configs;
 using _Project.Scripts.Game.Entities.Unit.Components;
+using _Project.Scripts.Game.Features.Weapon.Componets;
 using _Project.Scripts.Game.Features.Weapon.Data;
 using _Project.Scripts.Game.Features.Weapon.Factories;
 using _Project.Scripts.Infrastructure.Factories.Game;
@@ -39,8 +40,9 @@ namespace _Project.Scripts.Game.Entities.Unit.Systems
     {
       UnitData unitData = _unitsConfig.Data[spawner.Unit];
       UnitComponent unit = await _gameFactory.CreateUnit(spawner.Unit, spawner.Position, spawner.transform.parent);
-
-      await _weaponFactory.CreateCharacterWeapon(unit.WeaponComponent, WeaponType.Knife, unit.transform);
+      
+      WeaponComponent weapon = await _weaponFactory.CreateCharacterWeapon(WeaponType.Knife, unit.WeaponMediator.Container);
+      unit.WeaponMediator.SetWeapon(weapon);
 
       unit.Stats = unitData;
 

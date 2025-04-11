@@ -3,6 +3,7 @@ using _Project.Scripts.Game.Entities.Character.Components;
 using _Project.Scripts.Game.Entities.Character.StateMachine.States;
 using _Project.Scripts.Game.Features.Collector.Factory;
 using _Project.Scripts.Game.Features.Inventory;
+using _Project.Scripts.Game.Features.Weapon.Componets;
 using _Project.Scripts.Game.Features.Weapon.Data;
 using _Project.Scripts.Game.Features.Weapon.Factories;
 using _Project.Scripts.Infrastructure.Camera;
@@ -48,7 +49,8 @@ namespace _Project.Scripts.Game.Entities.Character.Systems
     private async UniTaskVoid CreateCharacter(CharacterSpawnerComponent spawner)
     {
       var character = await _gameFactory.CreateCharacter(spawner.Position, spawner.transform.parent);
-      await _weaponFactory.CreateCharacterWeapon(character.WeaponComponent, WeaponType.Knife, character.transform);
+      WeaponComponent weapon = await _weaponFactory.CreateCharacterWeapon(WeaponType.Rifle, character.WeaponMediator.Container);
+      character.WeaponMediator.SetWeapon(weapon);
       
       character.StateMachine.CreateStateMachine(_stateMachineFactory.CreateCharacterStateMachine(character));
       character.StateMachine.StateMachine.Enter<CharacterStateIdle>();

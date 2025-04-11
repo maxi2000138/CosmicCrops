@@ -18,13 +18,14 @@ namespace _Project.Scripts.Game.Features.Weapon._Configs
       {
         WeaponType = StringParseUtils.ToEnum<WeaponType>(row[0]),
         Ability = row[1],
-        ClipCount = StringParseUtils.ToInt(row[2]),
-        RechargeTime = StringParseUtils.ToFloat(row[3]),
-        FireInterval = StringParseUtils.ToFloat(row[4]),
+        Prefab = StringParseUtils.ToPrefab(row[2]),
+        ClipCount = StringParseUtils.ToInt(row[3]),
+        RechargeTime = StringParseUtils.ToFloat(row[4]),
+        FireInterval = StringParseUtils.ToFloat(row[5]),
         DetectionDistance = StringParseUtils.ToFloat(row[5]),
         AttackDistance = StringParseUtils.ToFloat(row[6]),
         Aiming = StringParseUtils.ToFloat(row[7]),
-        ForceBullet = StringParseUtils.ToFloat(row[7]),
+        ForceBullet = StringParseUtils.ToFloat(row[8]),
       };
     }
   }

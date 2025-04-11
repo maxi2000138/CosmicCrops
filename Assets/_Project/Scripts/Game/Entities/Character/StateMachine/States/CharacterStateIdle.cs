@@ -81,7 +81,7 @@ namespace _Project.Scripts.Game.Entities.Character.StateMachine.States
         {
             for (int i = 0; i < _levelModel.Enemies.Count; i++)
             {
-                if (DistanceToTarget(_levelModel.Enemies[i].Position) < Character.WeaponComponent.Weapon.AttackDistance())
+                if (DistanceToTarget(_levelModel.Enemies[i].Position) < Character.WeaponMediator.Weapon.Weapon.AttackDistance())
                 {
                     return true;
                 }

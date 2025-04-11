@@ -8,7 +8,7 @@ namespace _Project.Scripts.Game.Features.Weapon.Factories
 {
   public interface IWeaponFactory
   {
-    UniTask<WeaponComponent> CreateCharacterWeapon(WeaponComponent weapon, WeaponType type, Transform parent);
-    UniTask<IProjectile> CreateProjectile(ProjectileType type, Transform spawnPoint, int damage, Vector3 direction);
+    UniTask<WeaponComponent> CreateCharacterWeapon(WeaponType type, Transform parent);
+    UniTask<IProjectile> CreateProjectile(ProjectileType type, Transform spawnPoint, string ability, Vector3 direction);
   }
 }

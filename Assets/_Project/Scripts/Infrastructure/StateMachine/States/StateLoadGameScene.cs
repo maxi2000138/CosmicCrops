@@ -38,7 +38,7 @@ namespace _Project.Scripts.Infrastructure.StateMachine.States
       CleanupWorld();
       
       await _sceneLoaderService.Load(Scenes.GAMEPLAY);
-      gameStateMachine.Enter<StateLobby>();
+      gameStateMachine.Enter<StateLobby>().Forget();
     }
 
 

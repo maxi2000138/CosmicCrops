@@ -22,7 +22,7 @@ namespace _Project.Scripts.Game.Features.Weapon.Factories
     private readonly IAssetService _assetService;
     private readonly IObjectPoolService _objectPoolService;
     private readonly WeaponsConfig _weaponsConfig;
-    
+
     public WeaponFactory(WeaponsConfig weaponsConfig, IObjectResolver objectResolver, IAbilityApplier abilityApplier, ProjectilesConfig projectilesConfig, 
       IAssetService assetService, IObjectPoolService objectPoolService)
     {
@@ -34,37 +34,40 @@ namespace _Project.Scripts.Game.Features.Weapon.Factories
       _objectPoolService = objectPoolService;
     }
   
-    async UniTask<WeaponComponent> IWeaponFactory.CreateCharacterWeapon(WeaponComponent weapon, WeaponType type, Transform parent)
+    async UniTask<WeaponComponent> IWeaponFactory.CreateCharacterWeapon(WeaponType type, Transform parent)
     {
-      weapon.SetWeapon(CreateSpecificCharacterWeapon(weapon, type, _weaponsConfig.Data[type]));
+      WeaponCharacteristicData data = _weaponsConfig.Data[type];
+      GameObject prefab = await _assetService.LoadFromAddressable<GameObject>(data.Prefab.Name);
+      WeaponComponent weapon = Object.Instantiate(prefab, parent.position, parent.rotation).GetComponent<WeaponComponent>();
+      weapon.transform.SetParent(parent, true);
+
+      weapon.SetWeapon(CreateSpecificCharacterWeapon(weapon, type, data));
       return weapon;
     }
   
     private IWeapon CreateSpecificCharacterWeapon(WeaponComponent weapon, WeaponType type, WeaponCharacteristicData weaponCharacteristic)
     {
       //TODO: setup correct weapon choose without nullRefs
-        
+          
       BaseWeapon currentWeapon = type == WeaponType.Knife
         ? new CharacterMeleeWeapon(weapon, weaponCharacteristic, _abilityApplier)
-        : null;
+        : new CharacterRangeWeapon(weapon, weaponCharacteristic);
       
       _objectResolver.Inject(currentWeapon);
       currentWeapon.Initialize();
       return currentWeapon;
     }
     
-    async UniTask<IProjectile> IWeaponFactory.CreateProjectile(ProjectileType type, Transform spawnPoint, int damage, Vector3 direction)
+    async UniTask<IProjectile> IWeaponFactory.CreateProjectile(ProjectileType type, Transform spawnPoint, string ability, Vector3 direction)
     {
-      // ProjectileData data = _projectilesConfig.Data[type];
-      // MonoSpawnableItem prefab = await _assetService.LoadFromAddressable<MonoSpawnableItem>(data.Prefab.Name);
-      // CBullet bullet = _objectPoolService.SpawnObject(prefab, spawnPoint.position, spawnPoint.rotation, null).GetComponent<CBullet>();
-      // bullet.LifeTime = data.LifeTime;
-      // bullet.SetDamage(damage);
-      // bullet.SetDirection(direction);
-      // bullet.SetCollisionDistance(Mathf.Pow(data.CollisionRadius, 2));
-      // return bullet;
-
-      return null;
+      ProjectileData data = _projectilesConfig.Data[type];
+      MonoSpawnableItem prefab = (await _assetService.LoadFromAddressable<GameObject>(data.Prefab.Name)).GetComponent<MonoSpawnableItem>();
+      BulletComponent bullet = _objectPoolService.SpawnObject(prefab, spawnPoint.position, spawnPoint.rotation, null).GetComponent<BulletComponent>();
+      bullet.LifeTime = data.LifeTime;
+      bullet.SetAbility(ability);
+      bullet.SetDirection(direction);
+      bullet.SetCollisionDistance(Mathf.Pow(data.CollisionRadius, 2));
+      return bullet;
     }
   }
 }

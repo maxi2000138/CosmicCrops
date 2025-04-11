@@ -10,11 +10,12 @@ namespace _Project.Scripts.Game.Features.Weapon
 {
   public class BaseRangeWeapon : BaseWeapon
   {
-    private protected IWeaponFactory WeaponFactory;
+    protected IWeaponFactory WeaponFactory;
         
     protected BaseRangeWeapon(WeaponComponent weapon, WeaponCharacteristicData weaponCharacteristic) 
       : base(weapon, weaponCharacteristic)
     {
+      
     }
 
     public override void Attack(ITarget target = null)
@@ -34,7 +35,7 @@ namespace _Project.Scripts.Game.Features.Weapon
         Vector3 normalized = Weapon.SpawnPoint.forward.normalized;
         Vector3 direction = new Vector3(normalized.x, 0f, normalized.z) * WeaponCharacteristic.ForceBullet;
         
-        //await WeaponFactory.CreateProjectile(Weapon.ProjectileType, Weapon.SpawnPoints[i], damage, direction);
+        await WeaponFactory.CreateProjectile(Weapon.ProjectileType, Weapon.SpawnPoint, WeaponCharacteristic.Ability, direction);
     }
 
   }
