@@ -17,6 +17,10 @@ namespace _Project.Scripts.Game.Entities.Character._Configs
         private int? _speed;
 
         public ConfigPrefab Prefab => _prefab ??= StringParseUtils.ToPrefab(Data["prefab_name"]);
+
+        public float Height => _height ??= StringParseUtils.ToInt(Data["height"]);
+        private float? _height;
+
         private ConfigPrefab _prefab;
     }
 }

@@ -62,6 +62,8 @@ namespace _Project.Scripts.Game.Entities.Character.Systems
       character.Health.SetBaseHealth(_characterConfig.Health);
       character.Health.SetMaxHealth(_characterConfig.Health);
       character.Health.CurrentHealth.SetValueAndForceNotify(_characterConfig.Health);
+      
+      character.SetHeight(_characterConfig.Height);
 
       SetCameraTarget(character);
     }

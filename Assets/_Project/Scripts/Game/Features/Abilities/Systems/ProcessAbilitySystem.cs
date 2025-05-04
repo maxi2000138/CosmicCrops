@@ -49,9 +49,6 @@ namespace _Project.Scripts.Game.Features.Abilities.Systems
         case EffectTypeId.Damage:
           target.Health.CurrentHealth.Value -= effect.Value;
           break;
-        
-        default:
-          throw new System.NotImplementedException();
       }
     }
   }

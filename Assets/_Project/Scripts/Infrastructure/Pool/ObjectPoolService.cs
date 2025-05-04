@@ -124,12 +124,11 @@ namespace CodeBase.Infrastructure.Pool
 		    ObjectPool<MonoSpawnableItem> pool = _prefabLookup[prefab];
 
 		    MonoSpawnableItem clone = pool.GetItem();
-		    
+		    clone.OnSpawned();
 		    
 		    clone.transform.position = position;
 		    clone.transform.rotation = rotation;
-		    clone.transform.parent = parent;
-		    clone.OnSpawned();
+		    if (parent != null) clone.transform.parent = parent;
 
 		    _instanceLookup.Add(clone, pool);
 		    
@@ -161,7 +160,7 @@ namespace CodeBase.Infrastructure.Pool
 		    
 		    if (_root != null)
 		    {
-			    spawnableItem.transform.SetParent(_root);
+			    spawnableItem.SetParent(_root);
 		    }
 
 		    return spawnableItem;

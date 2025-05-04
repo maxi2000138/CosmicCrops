@@ -1,0 +1,2 @@
+type	collect_time	collect_distance
+Default	3	5

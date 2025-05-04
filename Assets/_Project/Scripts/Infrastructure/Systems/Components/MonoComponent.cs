@@ -25,6 +25,20 @@ namespace _Project.Scripts.Infrastructure.Systems.Components
     {
       OnComponentDestroy();
     }
+
+    public override void OnSpawned()
+    {
+      base.OnSpawned();
+
+      SetActive(true);
+    }
+    
+    public override void OnDespawned()
+    {
+      base.OnDespawned();
+      
+      SetActive(false);
+    }
   }
   
   public abstract class MonoComponent<T> : MonoComponent where T : MonoComponent

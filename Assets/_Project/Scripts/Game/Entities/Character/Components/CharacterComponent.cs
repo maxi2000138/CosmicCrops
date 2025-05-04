@@ -28,7 +28,11 @@ namespace _Project.Scripts.Game.Entities.Character.Components
     public Vector3 Position => transform.position;
     public Vector3 Forward => transform.forward;
 
-    //TODO setup from config
-    public float Height => 3f;
+    public float Height { get; private set; }
+
+    public void SetHeight(float height)
+    {
+      Height = height;
+    }
   }
 }

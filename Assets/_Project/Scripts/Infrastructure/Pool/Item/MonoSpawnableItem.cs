@@ -6,6 +6,11 @@ namespace _Project.Scripts.Infrastructure.Pool.Item
   public class MonoSpawnableItem : MonoBehaviour, ISpawnableItem
   {
     private IObjectPoolService _objectPool;
+    
+    public void SetParent(Transform root)
+    {
+      transform.SetParent(root);
+    }
 
     public virtual void Remove()
     {
@@ -28,6 +33,6 @@ namespace _Project.Scripts.Infrastructure.Pool.Item
     public virtual void OnRemoved()
     {
       Destroy(gameObject);
-    }
+    } 
   }
 }

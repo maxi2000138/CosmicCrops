@@ -7,7 +7,5 @@ namespace _Project.Scripts.Game.Features.Loot.Components
   public class LootComponent : MonoComponent<LootComponent>, ILoot
   {
     public Vector3 Position => transform.position;
-
-    public void Destroy() => Destroy(gameObject);
   }
 }

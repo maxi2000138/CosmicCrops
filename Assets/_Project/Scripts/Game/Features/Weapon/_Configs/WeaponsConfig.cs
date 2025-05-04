@@ -22,10 +22,10 @@ namespace _Project.Scripts.Game.Features.Weapon._Configs
         ClipCount = StringParseUtils.ToInt(row[3]),
         RechargeTime = StringParseUtils.ToFloat(row[4]),
         FireInterval = StringParseUtils.ToFloat(row[5]),
-        DetectionDistance = StringParseUtils.ToFloat(row[5]),
-        AttackDistance = StringParseUtils.ToFloat(row[6]),
-        Aiming = StringParseUtils.ToFloat(row[7]),
-        ForceBullet = StringParseUtils.ToFloat(row[8]),
+        DetectionDistance = StringParseUtils.ToFloat(row[6]),
+        AttackDistance = StringParseUtils.ToFloat(row[7]),
+        Aiming = StringParseUtils.ToFloat(row[8]),
+        ForceBullet = StringParseUtils.ToFloat(row[9]),
       };
     }
   }

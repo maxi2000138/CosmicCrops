@@ -33,6 +33,9 @@ namespace _Project.Scripts.Infrastructure.Factories.Systems
                 new ExecuteCollectorSystem(),
                
                 new ExecuteWeaponAmmunitionSystem(),
+                new BulletLifetimeSystem(),
+                new BulletMoveSystem(),
+                new BulletCollisionSystem(),
                 
                 new ProcessAbilitySystem(),
                 

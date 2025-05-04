@@ -3,6 +3,7 @@ using _Project.Scripts.Game.Entities.Character._Configs;
 using _Project.Scripts.Game.Entities.Unit._Configs;
 using _Project.Scripts.Game.Features.Abilities._Configs;
 using _Project.Scripts.Game.Features.Abilities.Services;
+using _Project.Scripts.Game.Features.Collector._Configs;
 using _Project.Scripts.Game.Features.Collector.Factory;
 using _Project.Scripts.Game.Features.Inventory;
 using _Project.Scripts.Game.Features.Level._Configs;
@@ -89,6 +90,7 @@ namespace _Project.Scripts.Infrastructure.LifeTime.Scopes
       builder.RegisterConfig<LootConfig>(Lifetime.Singleton);
       builder.RegisterConfig<AbilitiesConfig>(Lifetime.Singleton);
       builder.RegisterConfig<EffectsConfig>(Lifetime.Singleton);
+      builder.RegisterConfig<CollectorsConfig>(Lifetime.Singleton);
 
       builder.RegisterBuildCallback(ResolveNonLaziesServices);
       builder.RegisterBuildCallback(EnterGameStateMachine);

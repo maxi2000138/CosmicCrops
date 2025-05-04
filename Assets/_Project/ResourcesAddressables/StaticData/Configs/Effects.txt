@@ -1,2 +1,3 @@
 id	EffectType	Value
 knife_attack_damage	Damage	5
+shotgun_player_damage	Damage	5

@@ -1,4 +1,5 @@
-﻿using _Project.Scripts.Game.Features.Collector.Collectors;
+﻿using _Project.Scripts.Game.Features.Collector._Configs;
+using _Project.Scripts.Game.Features.Collector.Collectors;
 using _Project.Scripts.Game.Features.Collector.Interfaces;
 using _Project.Scripts.Game.Features.Inventory;
 using _Project.Scripts.Game.Features.Level.Model;
@@ -18,7 +19,9 @@ namespace _Project.Scripts.Game.Features.Collector.Factory
     
     public ICollector CreateDefault()
     {
-      var collector = new DefaultCollector(_objectResolver.Resolve<InventoryModel>(), _objectResolver.Resolve<LevelModel>(), _objectResolver.Resolve<ITimeService>());
+      var collector = new DefaultCollector(_objectResolver.Resolve<InventoryModel>(), _objectResolver.Resolve<LevelModel>(), 
+        _objectResolver.Resolve<ITimeService>(), _objectResolver.Resolve<CollectorsConfig>());
+      
       collector.Initialize();
       
       return collector;

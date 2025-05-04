@@ -1,4 +1,5 @@
 key	value
+prefab_name	Player
 health	20
 speed	2
-prefab_name	Player
+height	3

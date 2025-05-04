@@ -15,6 +15,11 @@ MonoBehaviour:
   m_GroupName: Default Local Group
   m_GUID: a61e7eedf0225ca4ab8c106c4f3c93cc
   m_SerializeEntries:
+  - m_GUID: 83d500e1ba667d1408a6144183fc7285
+    m_Address: Assets/_Project/ResourcesAddressables/StaticData/Configs/Collectors.txt
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: c2adfe1018503bc47a835e919796bd06
     m_Address: BootstrapScene
     m_ReadOnly: 0

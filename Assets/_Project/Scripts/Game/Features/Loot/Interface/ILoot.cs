@@ -4,6 +4,6 @@ namespace _Project.Scripts.Game.Features.Loot.Interface
 {
   public interface ILoot : IPosition
   {
-    void Destroy();
+    void Remove();
   }
 }

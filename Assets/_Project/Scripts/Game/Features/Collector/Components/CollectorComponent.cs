@@ -1,5 +1,6 @@
 ﻿using _Project.Scripts.Game.Features.Collector.Interfaces;
 using _Project.Scripts.Infrastructure.Systems.Components;
+using UnityEngine;
 
 namespace _Project.Scripts.Game.Features.Collector.Components
 {

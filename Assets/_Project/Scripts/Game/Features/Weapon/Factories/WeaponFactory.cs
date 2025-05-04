@@ -47,8 +47,6 @@ namespace _Project.Scripts.Game.Features.Weapon.Factories
   
     private IWeapon CreateSpecificCharacterWeapon(WeaponComponent weapon, WeaponType type, WeaponCharacteristicData weaponCharacteristic)
     {
-      //TODO: setup correct weapon choose without nullRefs
-          
       BaseWeapon currentWeapon = type == WeaponType.Knife
         ? new CharacterMeleeWeapon(weapon, weaponCharacteristic, _abilityApplier)
         : new CharacterRangeWeapon(weapon, weaponCharacteristic);
@@ -67,6 +65,7 @@ namespace _Project.Scripts.Game.Features.Weapon.Factories
       bullet.SetAbility(ability);
       bullet.SetDirection(direction);
       bullet.SetCollisionDistance(Mathf.Pow(data.CollisionRadius, 2));
+      bullet.SetCollisionMask(data.CollisionMask);
       return bullet;
     }
   }

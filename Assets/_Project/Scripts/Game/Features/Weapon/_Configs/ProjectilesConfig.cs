@@ -16,9 +16,10 @@ namespace _Project.Scripts.Game.Features.Weapon._Configs
       return new()
       {
         ProjectileType = StringParseUtils.ToEnum<ProjectileType>(row[0]),
-        CollisionRadius = StringParseUtils.ToFloat(row[1]),
-        LifeTime = StringParseUtils.ToFloat(row[2]),
-        Prefab = StringParseUtils.ToPrefab(row[3]),
+        CollisionMask = StringParseUtils.ToCollisionMask(row[1]),
+        CollisionRadius = StringParseUtils.ToFloat(row[2]),
+        LifeTime = StringParseUtils.ToFloat(row[3]),
+        Prefab = StringParseUtils.ToPrefab(row[4]),
       };
     }
   }

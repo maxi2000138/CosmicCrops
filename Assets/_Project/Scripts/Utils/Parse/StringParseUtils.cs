@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
+using _Project.Scripts.Game.Features.Weapon.Data;
 using _Project.Scripts.Infrastructure.StaticData.Configs.Data;
 using Sirenix.Utilities;
 using UnityEngine;
@@ -127,6 +128,18 @@ namespace _Project.Scripts.Utils.Parse
             return new Color32((byte)arr[0], (byte)arr[1], (byte)arr[2], (byte)arr[3]);
         }
         
+        public static int ToCollisionMask(string value)
+        {
+            var arr = ToStringArray(value);
+            int result = 0;
+            for (int i = 0; i < arr.Length; i++)
+            {
+                result |= 1 << (int)ToEnum<CollisionLayer>(arr[i]);
+            }
+
+            return result;
+        }
+        
         public static T ToJson<T>(string json) => json.ToDeserialized<T>();
 
         public static TEnum ToEnum<TEnum>(string value) where TEnum : Enum => EnumParser<TEnum>.Convert(value);
@@ -175,6 +188,5 @@ namespace _Project.Scripts.Utils.Parse
                 return false;
             }
         }
-
     }
 }

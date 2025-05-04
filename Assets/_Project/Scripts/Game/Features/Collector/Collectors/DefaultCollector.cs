@@ -1,4 +1,6 @@
-﻿using _Project.Scripts.Game.Features.Collector.Interfaces;
+﻿using System.Linq;
+using _Project.Scripts.Game.Features.Collector._Configs;
+using _Project.Scripts.Game.Features.Collector.Interfaces;
 using _Project.Scripts.Game.Features.Inventory;
 using _Project.Scripts.Game.Features.Level.Model;
 using _Project.Scripts.Game.Features.Loot.Interface;
@@ -13,17 +15,24 @@ namespace _Project.Scripts.Game.Features.Collector.Collectors
     private readonly InventoryModel _inventoryModel;
     private readonly LevelModel _levelModel;
     private readonly ITimeService _time;
+    private readonly CollectorsConfig _collectorsConfig;
 
     private bool _collecting;
     private float _collectingTimeLeft;
     
     private ILoot _loot;
 
-    public DefaultCollector(InventoryModel inventoryModel, LevelModel levelModel, ITimeService time)
+    public CollectorType CollectorType => CollectorType.Default;
+    public float CollectorDistance => CollectorData.CollectRadius;
+    
+    private CollectorData CollectorData => _collectorsConfig.Data[CollectorType];
+
+    public DefaultCollector(InventoryModel inventoryModel, LevelModel levelModel, ITimeService time, CollectorsConfig collectorsConfig)
     {
       _inventoryModel = inventoryModel;
       _levelModel = levelModel;
       _time = time;
+      _collectorsConfig = collectorsConfig;
     }
       
     public void Initialize()
@@ -41,10 +50,9 @@ namespace _Project.Scripts.Game.Features.Collector.Collectors
 
       NotReadyCollect();
 
-      float collectTime = 5f;
-      ReloadCollectingTime(collectTime);
+      ReloadCollectingTime(CollectorData.CollectTime);
       
-      _inventoryModel.StartCollectingLoot.Execute(collectTime);
+      _inventoryModel.StartCollectingLoot.Execute(CollectorData.CollectTime);
     }
 
     public void CancelCollecting()
@@ -82,7 +90,7 @@ namespace _Project.Scripts.Game.Features.Collector.Collectors
       
       _levelModel.RemoveLoot(_loot);
       
-      _loot.Destroy();
+      _loot.Remove();
       _loot = null;
     }
     

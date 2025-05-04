@@ -67,8 +67,7 @@ namespace _Project.Scripts.Game.Entities.Character.StateMachine.States
         {
             for (int i = 0; i < _levelModel.Loot.Count; i++)
             {
-                //TODO: Set distance from config
-                if (DistanceToTarget(_levelModel.Loot[i].Position) < 5f)
+                if (DistanceToTarget(_levelModel.Loot[i].Position) < Character.Collector.Collector.CollectorDistance)
                 {
                     return true;
                 }

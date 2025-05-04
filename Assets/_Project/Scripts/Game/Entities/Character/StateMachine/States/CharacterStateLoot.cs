@@ -97,8 +97,7 @@ namespace _Project.Scripts.Game.Entities.Character.StateMachine.States
     {
       int index = -1;
             
-      //TODO: setup min distance from config
-      float minDistanceValue = 5f;
+      float minDistanceValue = Character.Collector.Collector.CollectorDistance;
       float minDistance = minDistanceValue;
 
       for (int i = 0; i < _levelModel.Loot.Count; i++)
