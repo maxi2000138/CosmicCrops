@@ -13,7 +13,7 @@ namespace _Project.Scripts.Infrastructure.LifeTime.EntryPoints
       _gameStateMachine = gameStateMachine;
     }
     
-    public override void Entry()
+    protected override void Entry()
     {
       base.Entry();
       

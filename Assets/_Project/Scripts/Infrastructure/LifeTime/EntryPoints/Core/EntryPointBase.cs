@@ -4,8 +4,7 @@ namespace _Project.Scripts.Infrastructure.LifeTime.EntryPoints.Core
 {
   public class EntryPointBase : IEntryPoint
   {
-    public virtual void Initialize() { }
-    public virtual void Entry() { }
+    protected virtual void Entry() { }
 
     void IStartable.Start()
     {

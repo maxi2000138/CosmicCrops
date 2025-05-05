@@ -3,6 +3,7 @@ using _Project.Scripts.Game.Features.Collector.Factory;
 using _Project.Scripts.Game.Features.Inventory;
 using _Project.Scripts.Game.Features.Level.Model;
 using _Project.Scripts.Game.Features.Weapon.Factories;
+using _Project.Scripts.Game.Infrastructure.Systems;
 using _Project.Scripts.Infrastructure.Factories.Game;
 using _Project.Scripts.Infrastructure.Factories.StateMachine;
 using _Project.Scripts.Infrastructure.Factories.Systems;
@@ -20,6 +21,7 @@ namespace _Project.Scripts.Infrastructure.LifeTime.Scopes
     {
       base.Configure(builder);
 
+      builder.RegisterEntryPoint<SystemsContainer>();
       builder.RegisterEntryPoint<GameEntryPoint>();
       
       builder.Register<LevelModel>(Lifetime.Singleton);

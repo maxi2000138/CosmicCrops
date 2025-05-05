@@ -8,29 +8,16 @@ using VContainer;
 
 namespace _Project.Scripts.Infrastructure.LifeTime.EntryPoints
 {
-    [UsedImplicitly(ImplicitUseKindFlags.InstantiatedNoFixedConstructorSignature)]
-    public sealed class GameEntryPoint : EntryPointSystemBase
+    public sealed class GameEntryPoint : EntryPointBase
     {
-        private readonly IObjectResolver _objectResolver;
-        private readonly ISystemFactory _systemFactory;
         private readonly IGameStateMachine _gameStateMachine;
 
-        public GameEntryPoint(IObjectResolver objectResolver, ISystemFactory systemFactory, IGameStateMachine gameStateMachine)
+        public GameEntryPoint(IGameStateMachine gameStateMachine)
         {
-            _objectResolver = objectResolver;
-            _systemFactory = systemFactory;
             _gameStateMachine = gameStateMachine;
         }
-        
-        public override void Initialize()
-        {
-            base.Initialize();
-            
-            Systems = _systemFactory.CreateGameSystems();
-            Systems.Foreach(_objectResolver.Inject);
-        }
 
-        public override void Entry()
+        protected override void Entry()
         {
             base.Entry();
             

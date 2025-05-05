@@ -2,6 +2,7 @@
 using _Project.Scripts.Infrastructure.Camera;
 using _Project.Scripts.Infrastructure.Curtain;
 using _Project.Scripts.Infrastructure.Factories.Game;
+using _Project.Scripts.Infrastructure.Factories.Systems;
 using _Project.Scripts.Infrastructure.GUI;
 using _Project.Scripts.Infrastructure.StateMachine.States.Interfaces;
 using Cysharp.Threading.Tasks;
