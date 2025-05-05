@@ -1,10 +1,9 @@
-﻿using _Project.Scripts.Game.Entities._Interfaces;
+﻿using _Project.Scripts.Game.Common.Data;
+using _Project.Scripts.Game.Entities._Interfaces;
 using _Project.Scripts.Game.Features.Abilities.Services;
 using _Project.Scripts.Game.Features.Level.Model;
 using _Project.Scripts.Game.Features.Weapon.Componets;
-using _Project.Scripts.Game.Features.Weapon.Data;
 using _Project.Scripts.Infrastructure.Systems;
-using _Project.Scripts.Utils.Collision;
 using _Project.Scripts.Utils.Extensions;
 using R3;
 using UnityEngine;

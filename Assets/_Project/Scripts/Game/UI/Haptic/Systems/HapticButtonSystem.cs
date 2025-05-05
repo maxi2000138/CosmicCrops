@@ -2,6 +2,7 @@
 using _Project.Scripts.Infrastructure.Haptic;
 using _Project.Scripts.Infrastructure.Systems;
 using _Project.Scripts.Utils;
+using _Project.Scripts.Utils.Constants;
 using R3;
 using VContainer;
 

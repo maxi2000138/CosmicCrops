@@ -1,8 +1,8 @@
 ﻿using System;
-using CodeBase.Infrastructure.Progress.Data;
+using _Project.Scripts.Infrastructure.Progress.Data;
 using JetBrains.Annotations;
 
-namespace CodeBase.Infrastructure.Progress
+namespace _Project.Scripts.Infrastructure.Progress
 {
     [UsedImplicitly(ImplicitUseKindFlags.InstantiatedNoFixedConstructorSignature)]
     public sealed class ProgressService : IProgressService

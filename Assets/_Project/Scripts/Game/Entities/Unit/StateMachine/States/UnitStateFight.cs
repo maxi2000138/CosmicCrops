@@ -2,12 +2,13 @@
 using _Project.Scripts.Game.Features.Level.Model;
 using _Project.Scripts.Game.Infrastructure.StateMachine;
 using _Project.Scripts.Utils;
+using _Project.Scripts.Utils.Constants;
 using UnityEngine;
 using VContainer;
 
 namespace _Project.Scripts.Game.Entities.Unit.StateMachine.States
 {
-    public sealed class UnitStateFight : UnitState, IState
+    public sealed class UnitStateFight : UnitState, IUnitState
     {
         private LevelModel _levelModel;
 
@@ -15,7 +16,7 @@ namespace _Project.Scripts.Game.Entities.Unit.StateMachine.States
         private readonly float _aimingSpeed;
         private readonly float _attackInterval;
 
-        public UnitStateFight(IStateMachine stateMachine, UnitComponent unit) : base(stateMachine, unit)
+        public UnitStateFight(IUnitStateMachine unitStateMachine, UnitComponent unit) : base(unitStateMachine, unit)
         {
             _attackDistance = Unit.WeaponMediator.Weapon.Weapon.AttackDistance();
             _aimingSpeed = Unit.WeaponMediator.Weapon.Weapon.AimingSpeed();

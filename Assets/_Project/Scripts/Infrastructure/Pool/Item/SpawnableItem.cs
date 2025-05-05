@@ -1,6 +1,4 @@
-﻿using CodeBase.Infrastructure.Pool;
-
-namespace _Project.Scripts.Infrastructure.Pool.Item
+﻿namespace _Project.Scripts.Infrastructure.Pool.Item
 {
   public class SpawnableItem : ISpawnableItem
   {

@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
-using _Project.Scripts.Game.Features.Weapon.Data;
+using _Project.Scripts.Game.Common.Data;
 using _Project.Scripts.Infrastructure.StaticData.Configs.Data;
 using Sirenix.Utilities;
 using UnityEngine;

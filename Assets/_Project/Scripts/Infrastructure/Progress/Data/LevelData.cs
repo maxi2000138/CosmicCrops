@@ -1,9 +1,9 @@
 ﻿using System;
-using CodeBase.Infrastructure.SaveLoad;
+using _Project.Scripts.Infrastructure.SaveLoad;
 using R3;
 using UnityEngine;
 
-namespace CodeBase.Infrastructure.Progress.Data
+namespace _Project.Scripts.Infrastructure.Progress.Data
 {
     public sealed class LevelData : ISaveLoad<int>
     {

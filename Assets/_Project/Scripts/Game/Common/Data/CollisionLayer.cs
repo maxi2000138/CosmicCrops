@@ -1,4 +1,4 @@
-﻿namespace _Project.Scripts.Game.Features.Weapon.Data
+﻿namespace _Project.Scripts.Game.Common.Data
 {
   public enum CollisionLayer
   {

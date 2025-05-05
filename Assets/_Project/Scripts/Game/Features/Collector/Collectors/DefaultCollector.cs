@@ -1,5 +1,6 @@
 ﻿using System.Linq;
 using _Project.Scripts.Game.Features.Collector._Configs;
+using _Project.Scripts.Game.Features.Collector._Configs.Data;
 using _Project.Scripts.Game.Features.Collector.Interfaces;
 using _Project.Scripts.Game.Features.Inventory;
 using _Project.Scripts.Game.Features.Level.Model;

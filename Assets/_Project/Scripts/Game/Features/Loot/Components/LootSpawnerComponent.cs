@@ -1,4 +1,4 @@
-﻿using _Project.Scripts.Game.Features.Loot.Data;
+﻿using _Project.Scripts.Game.Features.Loot._Configs.Data;
 using _Project.Scripts.Infrastructure.Systems.Components;
 using UnityEngine;
 

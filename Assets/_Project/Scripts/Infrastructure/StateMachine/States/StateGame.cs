@@ -57,7 +57,7 @@ namespace _Project.Scripts.Infrastructure.StateMachine.States
 
     private void ActivateUnitStateMachine()
     {
-      _levelModel.Character.StateMachine.StateMachine.Enter<CharacterStateIdle>();
+      _levelModel.Character.StateMachine.UnitStateMachine.Enter<CharacterStateIdle>();
       _levelModel.Enemies.Foreach(SetEnemyStateIdle);
     }
     
@@ -81,13 +81,13 @@ namespace _Project.Scripts.Infrastructure.StateMachine.States
     private void Win()
     {
       _gameStateMachine.Enter<StateGameResult, GameResult>(GameResult.Win);
-      _levelModel.Character.StateMachine.StateMachine.Enter<CharacterStateNone>();
+      _levelModel.Character.StateMachine.UnitStateMachine.Enter<CharacterStateNone>();
     }
     
     private void Loose()
     {
       _gameStateMachine.Enter<StateGameResult, GameResult>(GameResult.Loose);
-      _levelModel.Character.StateMachine.StateMachine.Enter<CharacterStateDeath>();
+      _levelModel.Character.StateMachine.UnitStateMachine.Enter<CharacterStateDeath>();
       _levelModel.Enemies.Foreach(SetEnemyStateNone);
     }
 
@@ -96,7 +96,7 @@ namespace _Project.Scripts.Infrastructure.StateMachine.States
     private bool CharacterIsDeath() => _levelModel.Character.Health.IsAlive == false;
     private bool AllLootCollected() => _levelModel.Loot.Count == 0;
 
-    private void SetEnemyStateIdle(IEnemy enemy) => enemy.StateMachine.StateMachine.Enter<UnitStateIdle>();
-    private void SetEnemyStateNone(IEnemy enemy) => enemy.StateMachine.StateMachine.Enter<UnitStateNone>();
+    private void SetEnemyStateIdle(IEnemy enemy) => enemy.StateMachine.UnitStateMachine.Enter<UnitStateIdle>();
+    private void SetEnemyStateNone(IEnemy enemy) => enemy.StateMachine.UnitStateMachine.Enter<UnitStateNone>();
   }
 }

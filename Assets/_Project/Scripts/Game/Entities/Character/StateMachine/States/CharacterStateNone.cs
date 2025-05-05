@@ -5,20 +5,20 @@ using _Project.Scripts.Utils.Extensions;
 
 namespace _Project.Scripts.Game.Entities.Character.StateMachine.States
 {
-    public sealed class CharacterStateNone : CharacterState, IState
+    public sealed class CharacterStateNone : CharacterState, IUnitState
     {
-        public CharacterStateNone(IStateMachine stateMachine, CharacterComponent character) : base(stateMachine, character)
+        public CharacterStateNone(IUnitStateMachine unitStateMachine, CharacterComponent character) : base(unitStateMachine, character)
         {
         }
 
-        void IState.Enter()
+        void IUnitState.Enter()
         {
             Character.UnitAnimator.OnRun.Execute(0f);
             Character.CleanSubscribe();
         }
 
-        void IState.Exit() { }
+        void IUnitState.Exit() { }
 
-        void IState.Tick() { }
+        void IUnitState.Tick() { }
     }
 }

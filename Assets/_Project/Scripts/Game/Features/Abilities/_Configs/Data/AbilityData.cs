@@ -1,7 +1,6 @@
 ﻿using System;
-using UnityEngine.Serialization;
 
-namespace _Project.Scripts.Game.Features.Abilities._Configs
+namespace _Project.Scripts.Game.Features.Abilities._Configs.Data
 {
   [Serializable]
   public class AbilityData

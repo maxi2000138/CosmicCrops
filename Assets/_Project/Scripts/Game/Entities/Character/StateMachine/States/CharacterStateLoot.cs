@@ -9,13 +9,13 @@ using VContainer;
 
 namespace _Project.Scripts.Game.Entities.Character.StateMachine.States
 {
-  public sealed class CharacterStateLoot : CharacterState, IState
+  public sealed class CharacterStateLoot : CharacterState, IUnitState
   {
     private IJoystickService _joystickService;
     private LevelModel _levelModel;
     private ILoot _loot;
 
-    public CharacterStateLoot(IStateMachine stateMachine, CharacterComponent character) : base(stateMachine, character) { }
+    public CharacterStateLoot(IUnitStateMachine unitStateMachine, CharacterComponent character) : base(unitStateMachine, character) { }
         
     [Inject]
     private void Construct(IJoystickService joystickService, LevelModel levelModel)
@@ -24,14 +24,14 @@ namespace _Project.Scripts.Game.Entities.Character.StateMachine.States
       _joystickService = joystickService;
     }
 
-    void IState.Enter()
+    void IUnitState.Enter()
     {
       
     }
 
-    void IState.Exit() { }
+    void IUnitState.Exit() { }
 
-    void IState.Tick()
+    void IUnitState.Tick()
     {
       UseGravity();
       

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using _Project.Scripts.Infrastructure.Logger;
 
-namespace CodeBase.Infrastructure.Pool
+namespace _Project.Scripts.Infrastructure.Pool
 {
     public sealed class ObjectPool<T>
     {

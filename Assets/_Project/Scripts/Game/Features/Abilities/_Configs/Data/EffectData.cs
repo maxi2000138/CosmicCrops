@@ -1,6 +1,4 @@
-﻿using _Project.Scripts.Game.Features.Abilities.Effects;
-
-namespace _Project.Scripts.Game.Features.Abilities._Configs
+﻿namespace _Project.Scripts.Game.Features.Abilities._Configs.Data
 {
   public class EffectData
   {

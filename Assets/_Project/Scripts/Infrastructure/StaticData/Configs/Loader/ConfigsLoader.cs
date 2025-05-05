@@ -7,7 +7,7 @@ using _Project.Scripts.Utils.PartLinears;
 using Cysharp.Threading.Tasks;
 using UnityEngine;
 
-namespace _Project.Scripts.Infrastructure.StaticData.Configs
+namespace _Project.Scripts.Infrastructure.StaticData.Configs.Loader
 {
     public class ConfigsLoader : IConfigsLoader
     {

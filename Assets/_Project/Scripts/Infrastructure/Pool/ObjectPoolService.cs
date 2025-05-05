@@ -6,7 +6,7 @@ using Cysharp.Threading.Tasks;
 using JetBrains.Annotations;
 using UnityEngine;
 
-namespace CodeBase.Infrastructure.Pool
+namespace _Project.Scripts.Infrastructure.Pool
 {
 	[UsedImplicitly(ImplicitUseKindFlags.InstantiatedNoFixedConstructorSignature)]
     public sealed class ObjectPoolService : IObjectPoolService, IDisposable
@@ -49,7 +49,7 @@ namespace CodeBase.Infrastructure.Pool
 		    {
 			    for (int i = _release.Count - 1; i >= 0; i--)
 			    {
-				    _release[i].Time -= Time.deltaTime;
+				    _release[i].Time -= UnityEngine.Time.deltaTime;
 
 				    if (_release[i].Time < 0f)
 				    {

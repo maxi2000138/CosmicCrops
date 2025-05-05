@@ -1,4 +1,4 @@
-﻿namespace CodeBase.Infrastructure.Progress
+﻿namespace _Project.Scripts.Infrastructure.Progress
 {
     public static class DataKeys
     {

@@ -6,11 +6,11 @@ using _Project.Scripts.Game.Infrastructure.StateMachine;
 
 namespace _Project.Scripts.Game.Entities.Unit.StateMachine
 {
-  public class UnitStateMachine : Infrastructure.StateMachine.StateMachine
+  public class UnitStateMachine : Infrastructure.StateMachine.UnitStateMachine
   {
     public UnitStateMachine(UnitComponent unit)
     {
-      States = new Dictionary<Type, IState>
+      States = new Dictionary<Type, IUnitState>
       {
         {typeof(UnitStateNone), new UnitStateNone(this, unit)},
 

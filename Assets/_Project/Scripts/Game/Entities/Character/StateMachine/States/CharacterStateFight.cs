@@ -4,12 +4,13 @@ using _Project.Scripts.Game.Features.Level.Model;
 using _Project.Scripts.Game.Infrastructure.StateMachine;
 using _Project.Scripts.Infrastructure.Input;
 using _Project.Scripts.Utils;
+using _Project.Scripts.Utils.Constants;
 using UnityEngine;
 using VContainer;
 
 namespace _Project.Scripts.Game.Entities.Character.StateMachine.States
 {
-  public class CharacterStateFight : CharacterState, IState
+  public class CharacterStateFight : CharacterState, IUnitState
   {
     private IJoystickService _joystickService;
     private LevelModel _levelModel;
@@ -22,22 +23,22 @@ namespace _Project.Scripts.Game.Entities.Character.StateMachine.States
       _levelModel = levelModel;
     }
     
-    public CharacterStateFight(IStateMachine stateMachine, CharacterComponent character) : base(stateMachine, character)
+    public CharacterStateFight(IUnitStateMachine unitStateMachine, CharacterComponent character) : base(unitStateMachine, character)
     {
             
     }
     
-    void IState.Enter()
+    void IUnitState.Enter()
     {
       SetTarget(null);
     }
     
-    void IState.Exit()
+    void IUnitState.Exit()
     {
       SetTarget(null);
     }
     
-    void IState.Tick()
+    void IUnitState.Tick()
     {
       UseGravity();
             

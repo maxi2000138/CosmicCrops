@@ -1,5 +1,5 @@
-﻿using _Project.Scripts.Game.Features.Weapon.Componets;
-using _Project.Scripts.Game.Features.Weapon.Data;
+﻿using _Project.Scripts.Game.Features.Weapon._Configs.Data;
+using _Project.Scripts.Game.Features.Weapon.Componets;
 using _Project.Scripts.Game.Features.Weapon.Factories;
 using VContainer;
 

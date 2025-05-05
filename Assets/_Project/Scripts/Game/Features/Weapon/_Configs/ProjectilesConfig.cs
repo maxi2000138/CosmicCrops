@@ -1,5 +1,5 @@
 ﻿using System.Collections.Generic;
-using _Project.Scripts.Game.Features.Weapon.Data;
+using _Project.Scripts.Game.Features.Weapon._Configs.Data;
 using _Project.Scripts.Infrastructure.StaticData.Configs;
 using _Project.Scripts.Utils.Parse;
 using JetBrains.Annotations;

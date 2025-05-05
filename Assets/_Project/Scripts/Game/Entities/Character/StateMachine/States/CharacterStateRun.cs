@@ -4,12 +4,13 @@ using _Project.Scripts.Infrastructure.Camera;
 using _Project.Scripts.Infrastructure.Input;
 using _Project.Scripts.Infrastructure.Logger;
 using _Project.Scripts.Utils;
+using _Project.Scripts.Utils.Constants;
 using UnityEngine;
 using VContainer;
 
 namespace _Project.Scripts.Game.Entities.Character.StateMachine.States
 {
-    public sealed class CharacterStateRun : CharacterState, IState
+    public sealed class CharacterStateRun : CharacterState, IUnitState
     {
         private IJoystickService _joystickService;
         private ICameraService _cameraService;
@@ -19,7 +20,7 @@ namespace _Project.Scripts.Game.Entities.Character.StateMachine.States
         
         private float _angle;
 
-        public CharacterStateRun(IStateMachine stateMachine, CharacterComponent character) : base(stateMachine, character) { }
+        public CharacterStateRun(IUnitStateMachine unitStateMachine, CharacterComponent character) : base(unitStateMachine, character) { }
         
         [Inject]
         private void Construct(IJoystickService joystickService, ICameraService cameraService)
@@ -28,14 +29,14 @@ namespace _Project.Scripts.Game.Entities.Character.StateMachine.States
             _cameraService = cameraService;
         }
 
-        void IState.Enter()
+        void IUnitState.Enter()
         {
             Character.UnitAnimator.OnRun.Execute(1f);
         }
 
-        void IState.Exit() { }
+        void IUnitState.Exit() { }
 
-        void IState.Tick()
+        void IUnitState.Tick()
         {
             if (HasNoInput())
             {

@@ -1,6 +1,6 @@
-﻿using _Project.Scripts.Game.Features.Weapon.Data;
+﻿using _Project.Scripts.Game.Common.Data;
 
-namespace _Project.Scripts.Utils.Collision
+namespace _Project.Scripts.Utils.Extensions
 {
   public static class CollisionExtensions
   {

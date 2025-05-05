@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace _Project.Scripts.Utils
+namespace _Project.Scripts.Utils.Constants
 {
   public static class ButtonSettings
   {

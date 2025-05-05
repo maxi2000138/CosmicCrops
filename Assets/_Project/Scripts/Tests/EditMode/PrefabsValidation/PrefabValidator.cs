@@ -1,15 +1,17 @@
 ﻿using Cysharp.Threading.Tasks;
 using UnityEngine.AddressableAssets;
-
-public class PrefabValidator
+namespace _Project.Scripts.Tests.EditMode.PrefabsValidation
 {
-  public async UniTask<bool> ExistsInAdressables(string assetName)
+  public class PrefabValidator
   {
-    var assetLocation = await Addressables.LoadResourceLocationsAsync(assetName).ToUniTask();
+    public async UniTask<bool> ExistsInAdressables(string assetName)
+    {
+      var assetLocation = await Addressables.LoadResourceLocationsAsync(assetName).ToUniTask();
     
-    if(assetLocation.Count > 0)
-      return true;
+      if(assetLocation.Count > 0)
+        return true;
 
-    return false;
+      return false;
+    }
   }
 }

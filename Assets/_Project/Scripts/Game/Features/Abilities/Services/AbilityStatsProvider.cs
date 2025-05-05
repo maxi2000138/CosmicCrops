@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 using _Project.Scripts.Game.Features.Abilities._Configs;
-using _Project.Scripts.Game.Features.Abilities.Effects;
+using _Project.Scripts.Game.Features.Abilities._Configs.Data;
 using JetBrains.Annotations;
 
 namespace _Project.Scripts.Game.Features.Abilities.Services

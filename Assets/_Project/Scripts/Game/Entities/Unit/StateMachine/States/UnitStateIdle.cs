@@ -6,14 +6,14 @@ using VContainer;
 
 namespace _Project.Scripts.Game.Entities.Unit.StateMachine.States
 {
-    public sealed class UnitStateIdle : UnitState, IState
+    public sealed class UnitStateIdle : UnitState, IUnitState
     {
         private LevelModel _levelModel;
 
         private float _detectionDistance;
         private float _delay;
 
-        public UnitStateIdle(IStateMachine stateMachine, UnitComponent unit) : base(stateMachine, unit)
+        public UnitStateIdle(IUnitStateMachine unitStateMachine, UnitComponent unit) : base(unitStateMachine, unit)
         {
             
         }

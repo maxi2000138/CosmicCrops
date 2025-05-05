@@ -2,19 +2,20 @@
 using _Project.Scripts.Game.Features.Level.Model;
 using _Project.Scripts.Game.Infrastructure.StateMachine;
 using _Project.Scripts.Utils;
+using _Project.Scripts.Utils.Constants;
 using UnityEngine;
 using VContainer;
 
 namespace _Project.Scripts.Game.Entities.Unit.StateMachine.States
 {
-    public sealed class UnitStatePursuit : UnitState, IState
+    public sealed class UnitStatePursuit : UnitState, IUnitState
     {
         private LevelModel _levelModel;
 
         private float _pursuitRadius;
         private float _attackDistance;
         
-        public UnitStatePursuit(IStateMachine stateMachine, UnitComponent unit) : base(stateMachine, unit)
+        public UnitStatePursuit(IUnitStateMachine unitStateMachine, UnitComponent unit) : base(unitStateMachine, unit)
         {
         }
         

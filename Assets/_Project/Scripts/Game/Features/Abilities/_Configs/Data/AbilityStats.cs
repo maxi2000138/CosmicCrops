@@ -1,7 +1,6 @@
 ﻿using System.Collections.Generic;
-using _Project.Scripts.Game.Features.Abilities.Effects;
 
-namespace _Project.Scripts.Game.Features.Abilities.Services
+namespace _Project.Scripts.Game.Features.Abilities._Configs.Data
 {
   public class AbilityStats
   {

@@ -1,12 +1,12 @@
 using _Project.Scripts.Game.Features.Abilities.Services;
 using _Project.Scripts.Game.Features.Weapon._Configs;
+using _Project.Scripts.Game.Features.Weapon._Configs.Data;
 using _Project.Scripts.Game.Features.Weapon.Componets;
-using _Project.Scripts.Game.Features.Weapon.Data;
 using _Project.Scripts.Game.Features.Weapon.Interfaces;
 using _Project.Scripts.Infrastructure.AssetData;
+using _Project.Scripts.Infrastructure.Pool;
 using _Project.Scripts.Infrastructure.Pool.Item;
 using _Project.Scripts.Infrastructure.StaticData;
-using CodeBase.Infrastructure.Pool;
 using Cysharp.Threading.Tasks;
 using UnityEngine;
 using VContainer;

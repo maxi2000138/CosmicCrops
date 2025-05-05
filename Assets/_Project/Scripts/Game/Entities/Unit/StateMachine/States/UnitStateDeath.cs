@@ -8,11 +8,11 @@ using VContainer;
 
 namespace _Project.Scripts.Game.Entities.Unit.StateMachine.States
 {
-    public sealed class UnitStateDeath : UnitState, IState
+    public sealed class UnitStateDeath : UnitState, IUnitState
     {
         private LevelModel _levelModel;
 
-        public UnitStateDeath(IStateMachine stateMachine, UnitComponent unit) : base(stateMachine, unit)
+        public UnitStateDeath(IUnitStateMachine unitStateMachine, UnitComponent unit) : base(unitStateMachine, unit)
         {
         }
 

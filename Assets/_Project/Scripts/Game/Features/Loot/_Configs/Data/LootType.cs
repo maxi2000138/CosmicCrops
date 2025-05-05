@@ -1,4 +1,4 @@
-﻿namespace _Project.Scripts.Game.Features.Loot.Data
+﻿namespace _Project.Scripts.Game.Features.Loot._Configs.Data
 {
   public enum LootType
   {

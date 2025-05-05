@@ -5,17 +5,17 @@ namespace _Project.Scripts.Game.Entities.Unit.StateMachine
 {
   public class UnitState
   {
-    private readonly IStateMachine _stateMachine;
+    private readonly IUnitStateMachine _unitStateMachine;
         
     protected UnitComponent Unit { get; }
 
-    protected UnitState(IStateMachine stateMachine, UnitComponent unit)
+    protected UnitState(IUnitStateMachine unitStateMachine, UnitComponent unit)
     {
-      _stateMachine = stateMachine;
+      _unitStateMachine = unitStateMachine;
       Unit = unit;
     }
 
-    protected void EnterState<T>() where T : UnitState, IState => _stateMachine.Enter<T>();
+    protected void EnterState<T>() where T : UnitState, IUnitState => _unitStateMachine.Enter<T>();
 
   }
 }

@@ -7,8 +7,7 @@ namespace _Project.Scripts.Infrastructure.Factories.StateMachine
 {
     public interface IStateMachineFactory
     {
-        IGameStateMachine CreateGameStateMachine();
-        IStateMachine CreateCharacterStateMachine(CharacterComponent character);
-        IStateMachine CreateUnitStateMachine(UnitComponent unit);
+        IUnitStateMachine CreateCharacterStateMachine(CharacterComponent character);
+        IUnitStateMachine CreateUnitStateMachine(UnitComponent unit);
     }
 }

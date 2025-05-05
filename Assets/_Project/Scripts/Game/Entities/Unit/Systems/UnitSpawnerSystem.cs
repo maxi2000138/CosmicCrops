@@ -1,7 +1,7 @@
 ﻿using _Project.Scripts.Game.Entities.Unit._Configs;
 using _Project.Scripts.Game.Entities.Unit.Components;
+using _Project.Scripts.Game.Features.Weapon._Configs.Data;
 using _Project.Scripts.Game.Features.Weapon.Componets;
-using _Project.Scripts.Game.Features.Weapon.Data;
 using _Project.Scripts.Game.Features.Weapon.Factories;
 using _Project.Scripts.Infrastructure.Factories.Game;
 using _Project.Scripts.Infrastructure.Factories.StateMachine;

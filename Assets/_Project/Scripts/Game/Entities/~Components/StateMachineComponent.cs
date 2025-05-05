@@ -5,13 +5,13 @@ namespace _Project.Scripts.Game.Entities._Components
 {
   public class StateMachineComponent : MonoComponent<StateMachineComponent>
   {
-    public IStateMachine StateMachine { get; private set; }
+    public IUnitStateMachine UnitStateMachine { get; private set; }
 
     private bool _isExecute;
         
-    public void CreateStateMachine(IStateMachine stateMachine)
+    public void CreateStateMachine(IUnitStateMachine unitStateMachine)
     {
-      StateMachine = stateMachine;
+      UnitStateMachine = unitStateMachine;
             
       _isExecute = true;
     }
@@ -20,7 +20,7 @@ namespace _Project.Scripts.Game.Entities._Components
     {
       if (_isExecute == false) return;
 
-      StateMachine.Tick();
+      UnitStateMachine.Tick();
     }
   }
 }

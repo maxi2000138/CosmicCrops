@@ -5,16 +5,16 @@ namespace _Project.Scripts.Game.Entities.Character.StateMachine
 {
     public abstract class CharacterState
     {
-        private readonly IStateMachine _stateMachine;
+        private readonly IUnitStateMachine _unitStateMachine;
         
         protected CharacterComponent Character { get; }
 
-        protected CharacterState(IStateMachine stateMachine, CharacterComponent character)
+        protected CharacterState(IUnitStateMachine unitStateMachine, CharacterComponent character)
         {
-            _stateMachine = stateMachine;
+            _unitStateMachine = unitStateMachine;
             Character = character;
         }
 
-        protected void EnterState<T>() where T : CharacterState, IState => _stateMachine.Enter<T>();
+        protected void EnterState<T>() where T : CharacterState, IUnitState => _unitStateMachine.Enter<T>();
     }
 }

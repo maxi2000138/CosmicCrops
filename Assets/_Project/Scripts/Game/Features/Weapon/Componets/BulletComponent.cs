@@ -1,5 +1,4 @@
-﻿using _Project.Scripts.Game.Features.Weapon.Data;
-using _Project.Scripts.Game.Features.Weapon.Interfaces;
+﻿using _Project.Scripts.Game.Features.Weapon.Interfaces;
 using _Project.Scripts.Infrastructure.Systems.Components;
 using R3;
 using UnityEngine;

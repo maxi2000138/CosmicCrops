@@ -1,6 +1,6 @@
-﻿using CodeBase.Infrastructure.Progress;
+﻿using _Project.Scripts.Infrastructure.Progress;
 
-namespace CodeBase.Infrastructure.SaveLoad
+namespace _Project.Scripts.Infrastructure.SaveLoad
 {
     public interface ISaveLoad<T> : IData<T>
     {

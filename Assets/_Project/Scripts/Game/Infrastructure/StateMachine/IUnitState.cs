@@ -1,6 +1,6 @@
 ﻿namespace _Project.Scripts.Game.Infrastructure.StateMachine
 {
-    public interface IState
+    public interface IUnitState
     {
         void Enter();
         void Exit();

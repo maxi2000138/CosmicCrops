@@ -1,4 +1,4 @@
-﻿namespace _Project.Scripts.Game.Features.Abilities.Statuses
+﻿namespace _Project.Scripts.Game.Features.Abilities._Configs.Data
 {
   public class StatusSetup
   {

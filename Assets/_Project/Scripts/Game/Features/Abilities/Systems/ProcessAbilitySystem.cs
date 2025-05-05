@@ -1,6 +1,6 @@
 ﻿using _Project.Scripts.Game.Entities._Interfaces;
+using _Project.Scripts.Game.Features.Abilities._Configs.Data;
 using _Project.Scripts.Game.Features.Abilities.Components;
-using _Project.Scripts.Game.Features.Abilities.Effects;
 using _Project.Scripts.Game.Features.Abilities.Services;
 using _Project.Scripts.Infrastructure.Logger;
 using _Project.Scripts.Infrastructure.Systems;

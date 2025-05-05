@@ -1,5 +1,5 @@
+using _Project.Scripts.Infrastructure.Pool;
 using _Project.Scripts.Infrastructure.Pool.Item;
-using CodeBase.Infrastructure.Pool;
 using R3;
 
 namespace _Project.Scripts.Infrastructure.Systems.Components

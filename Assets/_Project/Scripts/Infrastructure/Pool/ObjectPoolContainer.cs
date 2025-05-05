@@ -1,4 +1,4 @@
-﻿namespace CodeBase.Infrastructure.Pool
+﻿namespace _Project.Scripts.Infrastructure.Pool
 {
     public sealed class ObjectPoolContainer<T>
     {

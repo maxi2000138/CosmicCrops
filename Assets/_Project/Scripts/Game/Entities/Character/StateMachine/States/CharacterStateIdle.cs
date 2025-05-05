@@ -8,12 +8,12 @@ using VContainer;
 
 namespace _Project.Scripts.Game.Entities.Character.StateMachine.States
 {
-    public sealed class CharacterStateIdle : CharacterState, IState
+    public sealed class CharacterStateIdle : CharacterState, IUnitState
     {
         private IJoystickService _joystickService;
         private LevelModel _levelModel;
 
-        public CharacterStateIdle(IStateMachine stateMachine, CharacterComponent character) : base(stateMachine, character)
+        public CharacterStateIdle(IUnitStateMachine unitStateMachine, CharacterComponent character) : base(unitStateMachine, character)
         {
             
         }
@@ -25,14 +25,14 @@ namespace _Project.Scripts.Game.Entities.Character.StateMachine.States
             _joystickService = joystickService;
         }
 
-        void IState.Enter()
+        void IUnitState.Enter()
         {
             Character.UnitAnimator.OnRun.Execute(0f);
         }
 
-        void IState.Exit() { }
+        void IUnitState.Exit() { }
 
-        void IState.Tick()
+        void IUnitState.Tick()
         {
             UseGravity();
             

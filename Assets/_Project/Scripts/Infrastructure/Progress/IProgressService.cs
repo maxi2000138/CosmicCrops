@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace CodeBase.Infrastructure.Progress
+namespace _Project.Scripts.Infrastructure.Progress
 {
     public interface IProgressService : IDisposable
     {

@@ -1,4 +1,5 @@
 ﻿using _Project.Scripts.Utils;
+using _Project.Scripts.Utils.Constants;
 using Cysharp.Threading.Tasks;
 using DG.Tweening;
 using R3;

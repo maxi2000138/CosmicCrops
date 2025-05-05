@@ -2,7 +2,7 @@
 using Cysharp.Threading.Tasks;
 using UnityEngine;
 
-namespace CodeBase.Infrastructure.Pool
+namespace _Project.Scripts.Infrastructure.Pool
 {
     public interface IObjectPoolService
     {

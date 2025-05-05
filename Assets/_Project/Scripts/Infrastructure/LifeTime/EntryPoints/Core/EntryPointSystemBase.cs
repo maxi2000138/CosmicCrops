@@ -3,17 +3,26 @@ using _Project.Scripts.Infrastructure.Systems;
 using _Project.Scripts.Utils.Extensions;
 using VContainer.Unity;
 
-namespace _Project.Scripts.Infrastructure.LifeTime.EntryPoints
+namespace _Project.Scripts.Infrastructure.LifeTime.EntryPoints.Core
 {
-    public abstract class EntryPointBase : IEntryPointSystem
+    public abstract class EntryPointSystemBase : IEntryPoint, ITickable, IFixedTickable, ILateTickable
     {
         protected ISystem[] Systems = Array.Empty<ISystem>();
 
-        public virtual void Initialize()
+        public virtual void Initialize() { }
+        public virtual void Entry() { }
+        
+        void IInitializable.Initialize()
         {
+            Initialize();
+            
+            Systems.Foreach(Enable);
         }
         
-        void IStartable.Start() => Systems.Foreach(Enable);
+        void IStartable.Start()
+        {
+            Entry();
+        }
 
         void ITickable.Tick()
         {

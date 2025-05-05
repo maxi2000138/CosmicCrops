@@ -1,4 +1,4 @@
-namespace _Project.Scripts.Game.Features.Collector._Configs
+namespace _Project.Scripts.Game.Features.Collector._Configs.Data
 {
   public enum CollectorType
   {

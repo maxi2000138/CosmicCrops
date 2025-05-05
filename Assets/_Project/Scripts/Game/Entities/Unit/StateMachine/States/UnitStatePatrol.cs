@@ -8,7 +8,7 @@ using VContainer;
 
 namespace _Project.Scripts.Game.Entities.Unit.StateMachine.States
 {
-    public sealed class UnitStatePatrol : UnitState, IState
+    public sealed class UnitStatePatrol : UnitState, IUnitState
     {
         private LevelModel _levelModel;
 
@@ -17,7 +17,7 @@ namespace _Project.Scripts.Game.Entities.Unit.StateMachine.States
         private float _aggroRadius;
         
 
-        public UnitStatePatrol(IStateMachine stateMachine, UnitComponent unit) : base(stateMachine, unit)
+        public UnitStatePatrol(IUnitStateMachine unitStateMachine, UnitComponent unit) : base(unitStateMachine, unit)
         {
             _patrolPosition = unit.Position;
         }

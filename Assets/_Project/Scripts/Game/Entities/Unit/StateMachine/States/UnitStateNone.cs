@@ -5,9 +5,9 @@ using _Project.Scripts.Utils.Extensions;
 
 namespace _Project.Scripts.Game.Entities.Unit.StateMachine.States
 {
-    public sealed class UnitStateNone : UnitState, IState
+    public sealed class UnitStateNone : UnitState, IUnitState
     {
-        public UnitStateNone(IStateMachine stateMachine, UnitComponent unit) : base(stateMachine, unit)
+        public UnitStateNone(IUnitStateMachine unitStateMachine, UnitComponent unit) : base(unitStateMachine, unit)
         {
         }
 

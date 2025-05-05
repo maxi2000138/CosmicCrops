@@ -3,8 +3,8 @@ using _Project.Scripts.Game.Entities.Character.Components;
 using _Project.Scripts.Game.Entities.Character.StateMachine.States;
 using _Project.Scripts.Game.Features.Collector.Factory;
 using _Project.Scripts.Game.Features.Inventory;
+using _Project.Scripts.Game.Features.Weapon._Configs.Data;
 using _Project.Scripts.Game.Features.Weapon.Componets;
-using _Project.Scripts.Game.Features.Weapon.Data;
 using _Project.Scripts.Game.Features.Weapon.Factories;
 using _Project.Scripts.Infrastructure.Camera;
 using _Project.Scripts.Infrastructure.Factories.Game;
@@ -53,7 +53,7 @@ namespace _Project.Scripts.Game.Entities.Character.Systems
       character.WeaponMediator.SetWeapon(weapon);
       
       character.StateMachine.CreateStateMachine(_stateMachineFactory.CreateCharacterStateMachine(character));
-      character.StateMachine.StateMachine.Enter<CharacterStateIdle>();
+      character.StateMachine.UnitStateMachine.Enter<CharacterStateIdle>();
 
       character.CharacterController.SetSpeed(character.CharacterController.BaseSpeed);
       
