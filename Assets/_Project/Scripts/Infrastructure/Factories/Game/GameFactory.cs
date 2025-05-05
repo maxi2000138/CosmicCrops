@@ -13,6 +13,7 @@ using _Project.Scripts.Game.Features.Loot._Configs.Data;
 using _Project.Scripts.Game.Features.Loot.Components;
 using _Project.Scripts.Infrastructure.AssetData;
 using _Project.Scripts.Infrastructure.Pool;
+using _Project.Scripts.Infrastructure.Progress;
 using _Project.Scripts.Infrastructure.Systems.Components;
 using Cysharp.Threading.Tasks;
 using JetBrains.Annotations;
@@ -27,18 +28,20 @@ namespace _Project.Scripts.Infrastructure.Factories.Game
     private readonly LevelModel _levelModel;
     private readonly LevelConfig _levelConfig;
     private readonly CharacterConfig _characterConfig;
+    private readonly IProgressService _progressService;
     private readonly IObjectPoolService _objectPoolService;
     private readonly LootConfig _lootConfig;
     private readonly UnitsConfig _unitsConfig;
 
     public GameFactory(IAssetService assetService, 
-      LevelModel levelModel, LevelConfig levelConfig, CharacterConfig characterConfig, IObjectPoolService objectPoolService,
-      LootConfig lootConfig, UnitsConfig unitsConfig)
+      LevelModel levelModel, LevelConfig levelConfig, CharacterConfig characterConfig, IProgressService progressService, 
+      IObjectPoolService objectPoolService, LootConfig lootConfig, UnitsConfig unitsConfig)
     {
       _assetService = assetService;
       _levelModel = levelModel;
       _levelConfig = levelConfig;
       _characterConfig = characterConfig;
+      _progressService = progressService;
       _objectPoolService = objectPoolService;
       _lootConfig = lootConfig;
       _unitsConfig = unitsConfig;
@@ -46,7 +49,7 @@ namespace _Project.Scripts.Infrastructure.Factories.Game
     
     async UniTask<ILevel> IGameFactory.CreateLevel()
     {
-      int levelNumber = 1;
+      int levelNumber = _progressService.LevelData.Data.CurrentValue;
       int index = levelNumber > _levelConfig.Data.Count ? levelNumber % _levelConfig.Data.Count : levelNumber ;
       var data = _levelConfig.Data[index];
       var prefab = await _assetService.LoadFromAddressable<GameObject>(data.Prefab.Name);

@@ -11,7 +11,7 @@ namespace _Project.Scripts.Infrastructure.Progress.Data
         
         private const int DefaultValue = 1;
 
-        public ReadOnlyReactiveProperty<int> Data { get; }
+        public ReactiveProperty<int> Data { get; }
 
         public LevelData()
         {

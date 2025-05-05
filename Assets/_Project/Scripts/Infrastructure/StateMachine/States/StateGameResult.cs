@@ -2,6 +2,7 @@
 using _Project.Scripts.Game.UI.Screens;
 using _Project.Scripts.Infrastructure.Curtain;
 using _Project.Scripts.Infrastructure.Factories.UI;
+using _Project.Scripts.Infrastructure.Progress;
 using _Project.Scripts.Infrastructure.StateMachine.Data;
 using _Project.Scripts.Infrastructure.StateMachine.States.Interfaces;
 using _Project.Scripts.Utils.Extensions;
@@ -16,14 +17,16 @@ namespace _Project.Scripts.Infrastructure.StateMachine.States
   public class StateGameResult : IOverloadedEnterState<GameResult>, IExitState
   {
     private readonly ILoadingCurtainService _loadingCurtain;
+    private readonly IProgressService _progressService;
     private readonly IUIFactory _uiFactory;
     private IGameStateMachine _gameStateMachine;
 
     private IDisposable _transitionDisposable;
 
-    public StateGameResult(IUIFactory uiFactory, ILoadingCurtainService loadingCurtain)
+    public StateGameResult(IUIFactory uiFactory, ILoadingCurtainService loadingCurtain, IProgressService progressService)
     {
       _loadingCurtain = loadingCurtain;
+      _progressService = progressService;
       _uiFactory = uiFactory;
     }
 
@@ -49,6 +52,8 @@ namespace _Project.Scripts.Infrastructure.StateMachine.States
       
       if (gameResult == GameResult.Win)
       {
+        _progressService.LevelData.Data.Value++;
+        
         screen = await _uiFactory.CreateScreen(ScreenType.Win);
       }
       else if (gameResult == GameResult.Loose)
