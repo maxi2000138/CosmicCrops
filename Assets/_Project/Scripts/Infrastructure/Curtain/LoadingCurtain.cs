@@ -1,10 +1,12 @@
 ﻿using System;
 using System.Text;
 using System.Threading;
+using _Project.Scripts.Infrastructure.AssetData;
 using _Project.Scripts.Infrastructure.Logger;
 using Cysharp.Threading.Tasks;
 using TMPro;
 using UnityEngine;
+using VContainer;
 
 namespace _Project.Scripts.Infrastructure.Curtain
 {
@@ -12,14 +14,30 @@ namespace _Project.Scripts.Infrastructure.Curtain
     {
         [SerializeField] private CanvasGroup _canvasGroup;
         [SerializeField] private TextMeshProUGUI _loadingText;
+        [SerializeField] private ProgressBar _progressBar;
         [SerializeField] private float _durationCanvas;
         [SerializeField] private float _durationPrintText;
 
         private readonly CancellationTokenSource _cancellationTokenSource = new ();
         private readonly StringBuilder _stringBuilder = new ();
+        
+        private IAssetDownloadReporter _assetDownloadReporter;
+
+        [Inject]
+        private void Construct(IAssetDownloadReporter assetDownloadReporter)
+        {
+            _assetDownloadReporter = assetDownloadReporter;
+        }
+        
+        private void Awake()
+        {
+            _assetDownloadReporter.ProgressUpdated += OnProgressUpdated;
+        }
 
         private void OnDestroy()
         {
+            _assetDownloadReporter.ProgressUpdated -= OnProgressUpdated;
+
             _cancellationTokenSource.Cancel();
             _cancellationTokenSource.Dispose();
         }
@@ -32,7 +50,10 @@ namespace _Project.Scripts.Infrastructure.Curtain
             _canvasGroup.alpha = 1f;
         }
 
-        void ILoadingCurtainService.Hide() => ShowAnimation().Forget();
+        void ILoadingCurtainService.Hide()
+        {
+            ShowAnimation().Forget();
+        }
 
         private async UniTaskVoid ShowAnimation()
         {
@@ -78,6 +99,14 @@ namespace _Project.Scripts.Infrastructure.Curtain
             _loadingText.text = _stringBuilder.ToString();
             
             index++;
+        }
+        
+        private void OnProgressUpdated()
+        {
+            if(_progressBar.Disabled) _progressBar.Enable();
+            if(Mathf.Approximately(_assetDownloadReporter.Progress, 1f)) _progressBar.Disable();
+            
+            _progressBar.SetProgress(_assetDownloadReporter.Progress);
         }
     }
 }

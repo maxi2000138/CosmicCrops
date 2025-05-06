@@ -21,16 +21,16 @@ namespace _Project.Scripts.Infrastructure.Factories.UI
         private readonly ScreensConfig _screensConfig;
         private readonly UIPrefabsConfig _uiPrefabsConfig;
         private readonly IGuiService _guiService;
-        private readonly IAssetService _assetService;
+        private readonly IAssetProvider _assetProvider;
         private readonly IObjectResolver _objectResolver;
 
         public UIFactory(ScreensConfig screensConfig, UIPrefabsConfig uiPrefabsConfig, IGuiService guiService, 
-            IAssetService assetService, IObjectResolver objectResolver)
+            IAssetProvider assetProvider, IObjectResolver objectResolver)
         {
             _screensConfig = screensConfig;
             _uiPrefabsConfig = uiPrefabsConfig;
             _guiService = guiService;
-            _assetService = assetService;
+            _assetProvider = assetProvider;
             _objectResolver = objectResolver;
         }
 
@@ -38,7 +38,7 @@ namespace _Project.Scripts.Infrastructure.Factories.UI
         {
             _guiService.Pop();
             ScreenData data = _screensConfig.Data[type];
-            GameObject prefab = await _assetService.LoadFromAddressable<GameObject>(data.Prefab.Name);
+            GameObject prefab = await _assetProvider.LoadFromAddressable<GameObject>(data.Prefab.Name);
             BaseScreen screen = _objectResolver.Instantiate(prefab, _guiService.StaticCanvas.transform).GetComponent<BaseScreen>();
             _guiService.Push(screen);
             return screen;
@@ -47,7 +47,7 @@ namespace _Project.Scripts.Infrastructure.Factories.UI
         async UniTask<BaseScreen> IUIFactory.CreatePopUp(ScreenType type)
         {
             ScreenData data = _screensConfig.Data[type];
-            GameObject prefab = await _assetService.LoadFromAddressable<GameObject>(data.Prefab.Name);
+            GameObject prefab = await _assetProvider.LoadFromAddressable<GameObject>(data.Prefab.Name);
             BaseScreen screen = _objectResolver.Instantiate(prefab, _guiService.StaticCanvas.transform).GetComponent<BaseScreen>();
             _guiService.Push(screen);
             return screen;
@@ -55,7 +55,7 @@ namespace _Project.Scripts.Infrastructure.Factories.UI
         
         async UniTask<EnemyHealthViewComponent> IUIFactory.CreateEnemyHealth(IEnemy enemy, Transform parent)
         {
-            GameObject prefab = await _assetService.LoadFromAddressable<GameObject>(_uiPrefabsConfig.HealthViewPrefab.Name);
+            GameObject prefab = await _assetProvider.LoadFromAddressable<GameObject>(_uiPrefabsConfig.HealthViewPrefab.Name);
             EnemyHealthViewComponent enemyHealth = Object.Instantiate(prefab, parent).GetComponent<EnemyHealthViewComponent>();
             enemyHealth.Enemy.SetValueAndForceNotify(enemy);
             return enemyHealth;

@@ -1,4 +1,0 @@
-level	prefab_name
-1	Level_1
-2	Level_2
-3	Level_3

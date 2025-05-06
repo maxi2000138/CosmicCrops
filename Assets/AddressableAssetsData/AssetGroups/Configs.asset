@@ -18,62 +18,74 @@ MonoBehaviour:
   - m_GUID: 16add2e3a7d047b9ab9c0abe4e93a494
     m_Address: Weapons
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - remote
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 332ae48cce7c4597b90d6130d7943f4f
     m_Address: Projectiles
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - remote
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 4ee591ea2f35a3043bab878e9a648d70
     m_Address: PartLinears
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - remote
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 52c26e8b5e3b51f43a67af5d5a86e80e
     m_Address: Screens
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - remote
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 55a7129453c34da19d0aa57ec93d0a9e
     m_Address: Effects
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - remote
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 5788d71786e1b22429191536263a4fab
     m_Address: Abilities
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - remote
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 7da52ce36cd44d468a13785391cbf718
     m_Address: Units
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - remote
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 83d500e1ba667d1408a6144183fc7285
     m_Address: Collectors
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - remote
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 9e2b7ed2e5e04396bd65b1f96218d81e
     m_Address: Character
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - remote
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: bd9e31837dd14e34b7bb7c432ba1e539
     m_Address: UIPrefabs
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - remote
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: c566e9b09d397814293a1aa57b6c3c2e
     m_Address: Levels
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - remote
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: d674c337030ddd24ea4a096730bcf805
     m_Address: Loot
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - remote
     FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 515fc7b8e12ae534e8914e9b77b01a48, type: 2}

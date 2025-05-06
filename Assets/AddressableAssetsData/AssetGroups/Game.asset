@@ -18,67 +18,86 @@ MonoBehaviour:
   - m_GUID: 199b426e5d7b9fa4da25b33239920b35
     m_Address: WinScreen
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - remote
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 1e36f800db20f6a4ea1956cd95af55ed
     m_Address: EnemyHealthView
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - remote
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 2de47394c47cde843bda599382124103
+    m_Address: Level3
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - remote
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 3bfda78987cc15146b3ad22c99fff1f6
     m_Address: GameScreen
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - remote
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 6df19e06a43020e4a9ae94c4bf206ed9
     m_Address: LobbyScreen
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - remote
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 7413da3ef6426d74d9234afbee871f95
     m_Address: Bullet
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - remote
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 74dc452bcee644f43a0b4a09049ba527
     m_Address: Unit
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - remote
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 7b006b0d085a1b24f97ee75ab835b668
     m_Address: Knife
     m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 99c9720ab356a0642a771bea13969a05
-    m_Address: GameScene
-    m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - remote
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 9aa1606cb99a2204fa8f633927ce446a
     m_Address: LooseScreen
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - remote
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: a3b0ca0cb4b554241b704cdafe91295d
     m_Address: Player
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - remote
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: b3cad5adef7997d46b4a3fe5475d5c93
-    m_Address: Level
+    m_Address: Level1
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - remote
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: b74d0f9929158d54880f7b420213e8d0
     m_Address: Rifle
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - remote
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: bffc58cdb5a6f5d45aaea588bbb82045
     m_Address: Loot_coin
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - remote
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d94fe0c7892a3e2458ae18b9c057c01e
+    m_Address: Level2
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - remote
     FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 515fc7b8e12ae534e8914e9b77b01a48, type: 2}

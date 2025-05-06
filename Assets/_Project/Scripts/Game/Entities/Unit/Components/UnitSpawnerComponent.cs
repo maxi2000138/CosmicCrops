@@ -1,10 +1,8 @@
 ﻿using System.Collections;
-using _Project.Scripts.Game.Entities.Unit._Configs;
 using _Project.Scripts.Infrastructure.Systems.Components;
-using _Project.Scripts.Utils.Parse;
+using _Project.Scripts.Utils.Configs;
 using Sirenix.OdinInspector;
 using UnityEngine;
-using UnityEngine.AddressableAssets;
 
 namespace _Project.Scripts.Game.Entities.Unit.Components
 {
@@ -19,17 +17,7 @@ namespace _Project.Scripts.Game.Entities.Unit.Components
     
     private static IEnumerable GetAllUnits()
     {
-#if UNITY_EDITOR
-      UnitsConfig configParser = new UnitsConfig();
-      var textAsset = Addressables.LoadAssetAsync<TextAsset>(configParser.ConfigName).WaitForCompletion();
-      
-      var data = TsvHelper.ParseTsv(textAsset.text);
-      data.RemoveAt(0);
-
-      configParser.Parse(data);
-      
-      return configParser.Data.Keys;
-#endif
+      return ConfigsUtils.GetAllUnitNames();
     }
   }
 }

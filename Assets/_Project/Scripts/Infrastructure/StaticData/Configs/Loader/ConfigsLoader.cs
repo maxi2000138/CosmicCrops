@@ -13,13 +13,13 @@ namespace _Project.Scripts.Infrastructure.StaticData.Configs.Loader
     {
         private const int ProcessConfigsPerFrame = 4;
 
-        private readonly IAssetService _assetService;
+        private readonly IAssetProvider _assetProvider;
         private readonly PartLinearsConfig _partLinearConfig;
         private readonly IReadOnlyList<IConfigParser> _configParsers;
 
-        public ConfigsLoader(PartLinearsConfig partLinearConfig, IEnumerable<IConfigParser> configParsers, IAssetService assetService)
+        public ConfigsLoader(PartLinearsConfig partLinearConfig, IEnumerable<IConfigParser> configParsers, IAssetProvider assetProvider)
         {
-            _assetService = assetService;
+            _assetProvider = assetProvider;
             _partLinearConfig = partLinearConfig;
             _configParsers = configParsers.ToList();
         }
@@ -59,7 +59,7 @@ namespace _Project.Scripts.Infrastructure.StaticData.Configs.Loader
 
         private async UniTask<List<List<string>>> LoadTsv(string configName)
         {
-            var textAsset = await _assetService.LoadFromAddressable<TextAsset>(configName);
+            var textAsset = await _assetProvider.LoadFromAddressable<TextAsset>(configName);
             var data = TsvHelper.ParseTsv(textAsset.text);
             
             //TODO: correct unload with addressables

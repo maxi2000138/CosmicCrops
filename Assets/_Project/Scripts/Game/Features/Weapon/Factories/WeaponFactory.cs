@@ -19,25 +19,25 @@ namespace _Project.Scripts.Game.Features.Weapon.Factories
     private readonly IObjectResolver _objectResolver;
     private readonly IAbilityApplier _abilityApplier;
     private readonly ProjectilesConfig _projectilesConfig;
-    private readonly IAssetService _assetService;
+    private readonly IAssetProvider _assetProvider;
     private readonly IObjectPoolService _objectPoolService;
     private readonly WeaponsConfig _weaponsConfig;
 
     public WeaponFactory(WeaponsConfig weaponsConfig, IObjectResolver objectResolver, IAbilityApplier abilityApplier, ProjectilesConfig projectilesConfig, 
-      IAssetService assetService, IObjectPoolService objectPoolService)
+      IAssetProvider assetProvider, IObjectPoolService objectPoolService)
     {
       _weaponsConfig = weaponsConfig;
       _objectResolver = objectResolver;
       _abilityApplier = abilityApplier;
       _projectilesConfig = projectilesConfig;
-      _assetService = assetService;
+      _assetProvider = assetProvider;
       _objectPoolService = objectPoolService;
     }
   
     async UniTask<WeaponComponent> IWeaponFactory.CreateCharacterWeapon(WeaponType type, Transform parent)
     {
       WeaponCharacteristicData data = _weaponsConfig.Data[type];
-      GameObject prefab = await _assetService.LoadFromAddressable<GameObject>(data.Prefab.Name);
+      GameObject prefab = await _assetProvider.LoadFromAddressable<GameObject>(data.Prefab.Name);
       WeaponComponent weapon = Object.Instantiate(prefab, parent.position, parent.rotation).GetComponent<WeaponComponent>();
       weapon.transform.SetParent(parent, true);
 
@@ -59,7 +59,7 @@ namespace _Project.Scripts.Game.Features.Weapon.Factories
     async UniTask<IProjectile> IWeaponFactory.CreateProjectile(ProjectileType type, Transform spawnPoint, string ability, Vector3 direction)
     {
       ProjectileData data = _projectilesConfig.Data[type];
-      MonoSpawnableItem prefab = (await _assetService.LoadFromAddressable<GameObject>(data.Prefab.Name)).GetComponent<MonoSpawnableItem>();
+      MonoSpawnableItem prefab = (await _assetProvider.LoadFromAddressable<GameObject>(data.Prefab.Name)).GetComponent<MonoSpawnableItem>();
       BulletComponent bullet = _objectPoolService.SpawnObject(prefab, spawnPoint.position, spawnPoint.rotation, null).GetComponent<BulletComponent>();
       bullet.LifeTime = data.LifeTime;
       bullet.SetAbility(ability);

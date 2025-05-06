@@ -13,13 +13,44 @@ MonoBehaviour:
   m_Name: ProfileDataSourceSettings
   m_EditorClassIdentifier: 
   profileGroupTypes:
+  - m_GroupTypePrefix: Automatic
+    m_Variables:
+    - m_Suffix: BuildPath
+      m_Value: CCDBuildData/ManagedEnvironment/ManagedBucket/ManagedBadge
+    - m_Suffix: EnvironmentName
+      m_Value: production
+    - m_Suffix: LoadPath
+      m_Value: https://e645e112-f8a5-4032-8c18-71b046374154.client-api.unity3dusercontent.com/client_api/v1/environments/{CcdManager.EnvironmentName}/buckets/{CcdManager.BucketId}/release_by_badge/{CcdManager.Badge}/entry_by_path/content/?path=
+  - m_GroupTypePrefix: Automatic
+    m_Variables:
+    - m_Suffix: BuildPath
+      m_Value: CCDBuildData/d14ab87f-a9b0-4b42-b289-efc23a43830d/831a472f-22c2-4fd2-982f-07d0b01dbfb5/latest
+    - m_Suffix: CcdBadgeName
+      m_Value: latest
+    - m_Suffix: CcdBucketId
+      m_Value: 831a472f-22c2-4fd2-982f-07d0b01dbfb5
+    - m_Suffix: CcdBucketName
+      m_Value: Android
+    - m_Suffix: Environmentid
+      m_Value: d14ab87f-a9b0-4b42-b289-efc23a43830d
+    - m_Suffix: Environmentname
+      m_Value: production
+    - m_Suffix: LoadPath
+      m_Value: https://e645e112-f8a5-4032-8c18-71b046374154.client-api.unity3dusercontent.com/client_api/v1/environments/production/buckets/831a472f-22c2-4fd2-982f-07d0b01dbfb5/release_by_badge/latest/entry_by_path/content/?path=
+    - m_Suffix: PromoteOnly
+      m_Value: False
   - m_GroupTypePrefix: Built-In
     m_Variables:
     - m_Suffix: BuildPath
       m_Value: '[UnityEngine.AddressableAssets.Addressables.BuildPath]/[BuildTarget]'
     - m_Suffix: LoadPath
       m_Value: '{UnityEngine.AddressableAssets.Addressables.RuntimePath}/[BuildTarget]'
-  environments: []
+  environments:
+  - id: d14ab87f-a9b0-4b42-b289-efc23a43830d
+    projectId: e645e112-f8a5-4032-8c18-71b046374154
+    projectGenesisId: e645e112-f8a5-4032-8c18-71b046374154
+    name: production
+    isDefault: 1
   currentEnvironment:
     id: 
     projectId: 

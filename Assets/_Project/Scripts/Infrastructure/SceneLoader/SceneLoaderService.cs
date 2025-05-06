@@ -1,6 +1,5 @@
 ﻿using Cysharp.Threading.Tasks;
 using JetBrains.Annotations;
-using UnityEngine.AddressableAssets;
 using UnityEngine.SceneManagement;
 
 namespace _Project.Scripts.Infrastructure.SceneLoader
@@ -13,7 +12,7 @@ namespace _Project.Scripts.Infrastructure.SceneLoader
             if (SceneManager.GetActiveScene().name.Equals(name))
                 return;
             
-            await Addressables.LoadSceneAsync(name);
+            await SceneManager.LoadSceneAsync(name).ToUniTask();
         }
     }
 }

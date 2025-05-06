@@ -18,12 +18,8 @@ MonoBehaviour:
   - m_GUID: 442db06ab34b2c949b10e10d8ff9e8d9
     m_Address: MenuScreen
     m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: bd9af2e3622d90d41bc0ef69c8761c49
-    m_Address: MenuScene
-    m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - remote
     FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 515fc7b8e12ae534e8914e9b77b01a48, type: 2}

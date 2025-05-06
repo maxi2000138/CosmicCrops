@@ -1,0 +1,10 @@
+# ninja log v5
+617	4470	7682558101516830	GameActivity/CMakeFiles/game.dir/UGAEntry.cpp.o	71d5dbf2cd8b0df0
+668	4773	7682558102904481	GameActivity/CMakeFiles/game.dir/UGAInputMotionEvent.cpp.o	7fd89dc46b5e420d
+630	4806	7682558103675249	GameActivity/CMakeFiles/game.dir/UGAInputKeyEvent.cpp.o	379e7c76752b000
+606	5136	7682558107535455	GameActivity/CMakeFiles/game.dir/UGAConfiguration.cpp.o	1ba95de0653c1763
+657	5144	7682558107537060	GameActivity/CMakeFiles/game.dir/UGASoftKeyboard.cpp.o	f308aed92fcd88c1
+3	5354	7682558109895237	GameActivity/CMakeFiles/game.dir/UGADebug.cpp.o	cee386ce02c51d36
+598	5787	7682558114117178	GameActivity/CMakeFiles/game.dir/UGAApplication.cpp.o	fb410c520fae4951
+648	5874	7682558115761687	GameActivity/CMakeFiles/game.dir/UGAInput.cpp.o	c1e9ef6baa306020
+5875	6722	7682558125103430	D:/UnityProjects/CosmicCrops/Library/Bee/Android/Prj/IL2CPP/Gradle/unityLibrary/build/intermediates/cxx/RelWithDebInfo/6l4v5192/obj/arm64-v8a/libgame.so	5a180211d920eca4

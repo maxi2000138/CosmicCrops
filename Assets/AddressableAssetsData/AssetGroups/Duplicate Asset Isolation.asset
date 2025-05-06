@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: Duplicate Asset Isolation
+  m_EditorClassIdentifier: 
+  m_GroupName: Duplicate Asset Isolation
+  m_GUID: d9cd25f49d440674ea1a874f5a605b2f
+  m_SerializeEntries:
+  - m_GUID: 756dcdf7e4fe2a64d87c055779077ec3
+    m_Address: Assets/_Project/Textures/ForAtlas/MenuScreen/preview_screen_abstract.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  m_ReadOnly: 0
+  m_Settings: {fileID: 11400000, guid: 515fc7b8e12ae534e8914e9b77b01a48, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: 272ac7d176772974db34283b7c4a7ee6, type: 2}
+    - {fileID: 11400000, guid: b8a53cb8269d575448c3c3561d66b50b, type: 2}

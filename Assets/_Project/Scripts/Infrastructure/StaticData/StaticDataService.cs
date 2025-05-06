@@ -11,14 +11,14 @@ namespace _Project.Scripts.Infrastructure.StaticData
     {
         private const string DataFolder = "StaticData/Presets/";
         
-        private readonly IAssetService _assetService;
+        private readonly IAssetProvider _assetProvider;
 
         private WeaponsConfig _weaponsConfig;
         private LoggerPreset _loggerPreset;
 
-        public StaticDataService(IAssetService assetService)
+        public StaticDataService(IAssetProvider assetProvider)
         {
-            _assetService = assetService;
+            _assetProvider = assetProvider;
         }
 
         void IStaticDataService.Load()
@@ -28,6 +28,6 @@ namespace _Project.Scripts.Infrastructure.StaticData
         
         LoggerPreset IStaticDataService.LoggerPreset() => _loggerPreset ??= LoadConfig<LoggerPreset>();
 
-        private T LoadConfig<T>() where T : ScriptableObject => _assetService.LoadFromResources<T>(DataFolder + typeof(T).Name);
+        private T LoadConfig<T>() where T : ScriptableObject => _assetProvider.LoadFromResources<T>(DataFolder + typeof(T).Name);
     }
 }
