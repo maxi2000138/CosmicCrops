@@ -9,6 +9,7 @@ using _Project.Scripts.Game.Features.Level.Systems;
 using _Project.Scripts.Game.Features.Loot.Systems;
 using _Project.Scripts.Game.Features.Weapon.Systems;
 using _Project.Scripts.Game.UI.Haptic.Systems;
+using _Project.Scripts.Game.UI.PointerArrow.Systems;
 using _Project.Scripts.Infrastructure.Systems;
 using JetBrains.Annotations;
 
@@ -45,6 +46,8 @@ namespace _Project.Scripts.Infrastructure.Factories.Systems
                 new HapticButtonSystem(),
                 
                 new RadarDrawSystem(),
+                new PointerArrowProviderSystem(),
+                new PointerArrowUpdateSystem(),
                 
                 new CharacterHealthViewUpdateSystem(),
                 new EnemyHealthViewUpdateSystem(),

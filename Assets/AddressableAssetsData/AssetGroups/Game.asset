@@ -63,6 +63,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - remote
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8e579b97e9b7671409bf9640b2e200db
+    m_Address: PointerArrowProvider
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - remote
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 9aa1606cb99a2204fa8f633927ce446a
     m_Address: LooseScreen
     m_ReadOnly: 0
@@ -83,6 +89,12 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: b74d0f9929158d54880f7b420213e8d0
     m_Address: Rifle
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - remote
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b789bb554c04f0e4299e0f452c48a6d3
+    m_Address: PointerArrow
     m_ReadOnly: 0
     m_SerializedLabels:
     - remote

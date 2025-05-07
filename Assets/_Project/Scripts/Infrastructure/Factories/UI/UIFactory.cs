@@ -1,6 +1,8 @@
-﻿using _Project.Scripts.Game.Entities._Components.UI;
+﻿using System.Threading.Tasks;
+using _Project.Scripts.Game.Entities._Components.UI;
 using _Project.Scripts.Game.Entities._Interfaces;
 using _Project.Scripts.Game.UI._Configs;
+using _Project.Scripts.Game.UI.PointerArrow.Components;
 using _Project.Scripts.Game.UI.Screens;
 using _Project.Scripts.Infrastructure.AssetData;
 using _Project.Scripts.Infrastructure.GUI;
@@ -59,6 +61,13 @@ namespace _Project.Scripts.Infrastructure.Factories.UI
             EnemyHealthViewComponent enemyHealth = Object.Instantiate(prefab, parent).GetComponent<EnemyHealthViewComponent>();
             enemyHealth.Enemy.SetValueAndForceNotify(enemy);
             return enemyHealth;
+        }
+        
+        async UniTask<PointerArrowComponent> IUIFactory.CreatePointerArrow(Transform parent)
+        {
+            GameObject prefab = await _assetProvider.LoadFromAddressable<GameObject>(_uiPrefabsConfig.PointerArrowPrefab.Name);
+            PointerArrowComponent pointerArrow = Object.Instantiate(prefab, parent).GetComponent<PointerArrowComponent>();
+            return pointerArrow;
         }
     }
 }

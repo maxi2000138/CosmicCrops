@@ -12,5 +12,8 @@ namespace _Project.Scripts.Game.UI._Configs
 
     public ConfigPrefab HealthViewPrefab => _healthView ??= StringParseUtils.ToPrefab(Data["prefab_health_view"]);
     private ConfigPrefab _healthView;
+
+    public ConfigPrefab PointerArrowPrefab => _pointerArrowPrefab ??= StringParseUtils.ToPrefab(Data["pointer_arrow_prefab"]);
+    private ConfigPrefab _pointerArrowPrefab;
   }
 }
