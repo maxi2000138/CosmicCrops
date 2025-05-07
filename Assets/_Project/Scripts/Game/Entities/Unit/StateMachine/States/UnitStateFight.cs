@@ -18,9 +18,9 @@ namespace _Project.Scripts.Game.Entities.Unit.StateMachine.States
 
         public UnitStateFight(IUnitStateMachine unitStateMachine, UnitComponent unit) : base(unitStateMachine, unit)
         {
-            _attackDistance = Unit.WeaponMediator.Weapon.Weapon.AttackDistance();
-            _aimingSpeed = Unit.WeaponMediator.Weapon.Weapon.AimingSpeed();
-            _attackInterval = Unit.WeaponMediator.Weapon.Weapon.AttackInterval();
+            _attackDistance = Unit.WeaponMediator.CurrentWeapon.Weapon.AttackDistance();
+            _aimingSpeed = Unit.WeaponMediator.CurrentWeapon.Weapon.AimingSpeed();
+            _attackInterval = Unit.WeaponMediator.CurrentWeapon.Weapon.AttackInterval();
         }
 
         [Inject]
@@ -57,7 +57,7 @@ namespace _Project.Scripts.Game.Entities.Unit.StateMachine.States
             
             if (CanAttack())
             {
-                Unit.WeaponMediator.Weapon.Weapon.Attack(_levelModel.Character);
+                Unit.WeaponMediator.CurrentWeapon.Weapon.Attack(_levelModel.Character);
                 Unit.Animator.OnAttack.Execute(_attackInterval);
             }
         }
@@ -71,7 +71,7 @@ namespace _Project.Scripts.Game.Entities.Unit.StateMachine.States
         
         private bool CanAttack()
         {
-            return Unit.WeaponMediator.Weapon.Weapon.CanAttack() && 
+            return Unit.WeaponMediator.CurrentWeapon.Weapon.CanAttack() && 
                    HasFacingTarget();
         }
 

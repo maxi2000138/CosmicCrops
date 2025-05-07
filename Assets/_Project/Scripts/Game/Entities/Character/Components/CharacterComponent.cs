@@ -15,15 +15,17 @@ namespace _Project.Scripts.Game.Entities.Character.Components
     [SerializeField] private CollectorComponent _collector;
     [SerializeField] private StateMachineComponent _stateMachine;
     [SerializeField] private HealthComponent _healthComponent;
-    [SerializeField] private WeaponMediatorComponent weaponMediatorComponent;
+    [SerializeField] private WeaponMediatorComponent _weaponMediatorComponent;
+    [SerializeField] private RadarComponent _radarComponent;
 
 
     public UnitAnimatorComponent UnitAnimator => _unitAnimator;
     public CharacterControllerComponent CharacterController => _characterController;
     public CollectorComponent Collector => _collector;
     public StateMachineComponent StateMachine => _stateMachine;
-    public WeaponMediatorComponent WeaponMediator => weaponMediatorComponent;
+    public WeaponMediatorComponent WeaponMediator => _weaponMediatorComponent;
     public HealthComponent Health => _healthComponent;
+    public RadarComponent Radar => _radarComponent;
 
     public Vector3 Position => transform.position;
     public Vector3 Forward => transform.forward;

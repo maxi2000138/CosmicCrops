@@ -8,16 +8,16 @@ namespace _Project.Scripts.Game.Features.Weapon.Componets
     [SerializeField] private Transform _container;
     
     public Transform Container => _container;
-    public WeaponComponent Weapon { get; private set; }
+    public WeaponComponent CurrentWeapon { get; private set; }
 
     public void SetWeapon(WeaponComponent weapon)
     {
-      if (Weapon != null)
+      if (CurrentWeapon != null)
       {
-        Weapon.Remove();
+        CurrentWeapon.Remove();
       }
 
-      Weapon = weapon;
+      CurrentWeapon = weapon;
     }
   }
 }

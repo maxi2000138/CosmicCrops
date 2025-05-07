@@ -32,6 +32,7 @@ namespace _Project.Scripts.Game.Entities.Character.StateMachine.States
         void IUnitState.Enter()
         {
             Character.UnitAnimator.OnRun.Execute(1f);
+            Character.Radar.Draw.Execute(R3.Unit.Default);
         }
 
         void IUnitState.Exit() { }

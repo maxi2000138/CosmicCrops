@@ -14,6 +14,7 @@ namespace _Project.Scripts.Game.Entities.Character.StateMachine.States
         void IUnitState.Enter()
         {
             Character.UnitAnimator.OnRun.Execute(0f);
+            Character.Radar.Clear.Execute(R3.Unit.Default);
             Character.CleanSubscribe();
         }
 

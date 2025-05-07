@@ -30,6 +30,8 @@ namespace _Project.Scripts.Game.Entities.Character.StateMachine.States
     
     void IUnitState.Enter()
     {
+      Character.Radar.Clear.Execute(R3.Unit.Default);
+
       SetTarget(null);
     }
     
@@ -66,8 +68,8 @@ namespace _Project.Scripts.Game.Entities.Character.StateMachine.States
     
     private void Attack()
     {
-      Character.UnitAnimator.OnAttack.Execute(Character.WeaponMediator.Weapon.Weapon.AttackInterval());
-      Character.WeaponMediator.Weapon.Weapon.Attack(_target);
+      Character.UnitAnimator.OnAttack.Execute(Character.WeaponMediator.CurrentWeapon.Weapon.AttackInterval());
+      Character.WeaponMediator.CurrentWeapon.Weapon.Attack(_target);
     }
     
     private bool HasInput()
@@ -80,7 +82,7 @@ namespace _Project.Scripts.Game.Entities.Character.StateMachine.States
       Quaternion lookRotation = Quaternion.LookRotation(_target.Position - Character.Position);
 
       Character.CharacterController.transform.rotation = Quaternion
-        .Slerp(Character.CharacterController.transform.rotation, lookRotation, Character.WeaponMediator.Weapon.Weapon.AimingSpeed());
+        .Slerp(Character.CharacterController.transform.rotation, lookRotation, Character.WeaponMediator.CurrentWeapon.Weapon.AimingSpeed());
     }
 
     private void UseGravity()
@@ -115,13 +117,13 @@ namespace _Project.Scripts.Game.Entities.Character.StateMachine.States
     {
       int index = -1;
             
-      float minDistance = Character.WeaponMediator.Weapon.Weapon.AttackDistance();
+      float minDistance = Character.WeaponMediator.CurrentWeapon.Weapon.AttackDistance();
 
       for (int i = 0; i < _levelModel.Enemies.Count; i++)
       {
         float distance = DistanceToTarget(_levelModel.Enemies[i].Position);
 
-        if (distance < Character.WeaponMediator.Weapon.Weapon.AttackDistance())
+        if (distance < Character.WeaponMediator.CurrentWeapon.Weapon.AttackDistance())
         {
           if (distance < minDistance)
           {
@@ -151,7 +153,7 @@ namespace _Project.Scripts.Game.Entities.Character.StateMachine.States
     private bool CanAttack()
     {
       return HasFacingTarget() && 
-             Character.WeaponMediator.Weapon.Weapon.CanAttack() &&
+             Character.WeaponMediator.CurrentWeapon.Weapon.CanAttack() &&
              HasObstacleOnAttackPath(_target.Position) == false;
     }
 

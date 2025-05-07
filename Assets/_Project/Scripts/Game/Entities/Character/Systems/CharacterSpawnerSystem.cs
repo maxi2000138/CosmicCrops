@@ -12,6 +12,7 @@ using _Project.Scripts.Infrastructure.Factories.StateMachine;
 using _Project.Scripts.Infrastructure.Systems;
 using _Project.Scripts.Utils.Extensions;
 using Cysharp.Threading.Tasks;
+using UnityEngine;
 using VContainer;
 
 namespace _Project.Scripts.Game.Entities.Character.Systems
@@ -66,11 +67,18 @@ namespace _Project.Scripts.Game.Entities.Character.Systems
       character.SetHeight(_characterConfig.Height);
 
       SetCameraTarget(character);
+      SetRadarRadius(character);
     }
     
     private void SetCameraTarget(CharacterComponent character)
     {
       _cameraService.SetTarget(character.transform);
+    }
+    
+    private void SetRadarRadius(CharacterComponent character)
+    {
+      float distance = Mathf.Sqrt(character.WeaponMediator.CurrentWeapon.Weapon.AttackDistance());
+      character.Radar.SetRadius(distance);
     }
   }
 }

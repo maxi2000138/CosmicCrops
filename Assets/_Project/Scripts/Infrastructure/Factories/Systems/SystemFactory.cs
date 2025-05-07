@@ -44,6 +44,8 @@ namespace _Project.Scripts.Infrastructure.Factories.Systems
                 new CollectingViewSystem(),
                 new HapticButtonSystem(),
                 
+                new RadarDrawSystem(),
+                
                 new CharacterHealthViewUpdateSystem(),
                 new EnemyHealthViewUpdateSystem(),
                 new EnemyHealthProviderSystem(),

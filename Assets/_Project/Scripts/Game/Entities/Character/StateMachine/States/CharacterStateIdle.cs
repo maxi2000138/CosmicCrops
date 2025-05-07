@@ -28,6 +28,7 @@ namespace _Project.Scripts.Game.Entities.Character.StateMachine.States
         void IUnitState.Enter()
         {
             Character.UnitAnimator.OnRun.Execute(0f);
+            Character.Radar.Draw.Execute(R3.Unit.Default);
         }
 
         void IUnitState.Exit() { }
@@ -80,7 +81,7 @@ namespace _Project.Scripts.Game.Entities.Character.StateMachine.States
         {
             for (int i = 0; i < _levelModel.Enemies.Count; i++)
             {
-                if (DistanceToTarget(_levelModel.Enemies[i].Position) < Character.WeaponMediator.Weapon.Weapon.AttackDistance())
+                if (DistanceToTarget(_levelModel.Enemies[i].Position) < Character.WeaponMediator.CurrentWeapon.Weapon.AttackDistance())
                 {
                     return true;
                 }

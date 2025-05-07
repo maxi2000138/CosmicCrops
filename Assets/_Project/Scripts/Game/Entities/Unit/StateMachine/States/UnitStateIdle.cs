@@ -26,7 +26,7 @@ namespace _Project.Scripts.Game.Entities.Unit.StateMachine.States
         
         public void Enter()
         {
-            _detectionDistance = Mathf.Pow(Unit.WeaponMediator.Weapon.Weapon.DetectionDistance(), 2);
+            _detectionDistance = Mathf.Pow(Unit.WeaponMediator.CurrentWeapon.Weapon.DetectionDistance(), 2);
             _delay = Unit.Stats.StayDelay;
 
             Unit.Animator.OnRun.Execute(0f);
