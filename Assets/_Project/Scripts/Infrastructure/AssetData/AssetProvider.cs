@@ -28,7 +28,7 @@ namespace _Project.Scripts.Infrastructure.AssetData
         async UniTask<T> IAssetProvider.LoadFromAddressable<T>(string address) where T : class 
             => await Load(Addressables.LoadAssetAsync<T>(address), address);
 
-        async UniTaskVoid IAssetProvider.CleanUp()
+        async UniTaskVoid IAssetProvider.Cleanup()
         {
             ReleaseHandles();
 

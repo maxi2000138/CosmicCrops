@@ -16,7 +16,6 @@ namespace _Project.Scripts.Game.Entities._Components
     public void SetMaxHealth(int maxHealth) => MaxHealth = maxHealth;
     public void SetBaseHealth(int baseHealth) => BaseHealth = baseHealth;
     
-    //TODO: setup format from localization
     public override string ToString() => string.Format("{0}/{1}", Mathf.Clamp(CurrentHealth.Value, 0, MaxHealth).ToString(), MaxHealth.ToString());
   }
 }

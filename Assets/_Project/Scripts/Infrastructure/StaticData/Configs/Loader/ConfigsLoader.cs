@@ -62,9 +62,6 @@ namespace _Project.Scripts.Infrastructure.StaticData.Configs.Loader
             var textAsset = await _assetProvider.LoadFromAddressable<TextAsset>(configName);
             var data = TsvHelper.ParseTsv(textAsset.text);
             
-            //TODO: correct unload with addressables
-            //Resources.UnloadAsset(textAsset);
-            
             data.RemoveAt(0); //ignore headers row
             return data;
         }

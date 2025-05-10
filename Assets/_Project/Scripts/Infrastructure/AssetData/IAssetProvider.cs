@@ -10,6 +10,6 @@ namespace _Project.Scripts.Infrastructure.AssetData
         T[] LoadAllFromResources<T>(string path) where T : Object;
         UniTask<T> LoadFromAddressable<T>(AssetReference assetReference) where T : class;
         UniTask<T> LoadFromAddressable<T>(string address) where T : class;
-        UniTaskVoid CleanUp();
+        UniTaskVoid Cleanup();
     }
 }

@@ -1,5 +1,5 @@
 weapon	type	ability	weapon_prefab	armament	clip_count	recharge_time	fire_interval	detection_distance	attack_distance	aiming	force_bullet
 enemy_barbarian_weapon	knife	knife_enemy_attack	Knife		10	0.5	1	5	2	0.2	0
-enemy_druid_weapon	gun	shotgun_enemy_attack	Rifle	shotgun_enemy_bullet	10	0.5	1	5	4	0.2	10
+enemy_druid_weapon	throwable	potion_enemy_attack	PotionWeapon	enemy_heal_potion	10	0.5	1	5	4	0.2	10
 player_barbarian_weapon	knife	knife_player_attack	Knife		10	0.5	1	5	2	0.2	0
-player_druid_weapon	gun	shotgun_player_attack	Rifle	shotgun_player_bullet	10	0.5	1	5	4	0.2	10
+player_druid_weapon	gun	shotgun_player_attack	Shotgun	shotgun_player_bullet	10	0.5	1	5	4	0.2	10

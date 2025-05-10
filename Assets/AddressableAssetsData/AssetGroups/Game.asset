@@ -39,6 +39,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - remote
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 35de70b8b0341b546872b0e032ced330
+    m_Address: Potion
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - remote
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 3bfda78987cc15146b3ad22c99fff1f6
     m_Address: GameScreen
     m_ReadOnly: 0
@@ -75,6 +81,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - remote
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8fa52733dc4bc1645995aab93a811865
+    m_Address: PotionWeapon
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - remote
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 9aa1606cb99a2204fa8f633927ce446a
     m_Address: LooseScreen
     m_ReadOnly: 0
@@ -94,7 +106,7 @@ MonoBehaviour:
     - remote
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: b74d0f9929158d54880f7b420213e8d0
-    m_Address: Rifle
+    m_Address: Shotgun
     m_ReadOnly: 0
     m_SerializedLabels:
     - remote

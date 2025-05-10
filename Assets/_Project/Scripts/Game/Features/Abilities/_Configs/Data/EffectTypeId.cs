@@ -5,5 +5,6 @@ namespace _Project.Scripts.Game.Features.Abilities._Configs.Data
     Unknown   = 0,
   
     Damage    = 1,
+    Heal      = 2,
   }
 }

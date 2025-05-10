@@ -49,6 +49,9 @@ namespace _Project.Scripts.Game.Features.Abilities.Systems
         case EffectTypeId.Damage:
           target.Health.CurrentHealth.Value -= effect.Value;
           break;
+        case EffectTypeId.Heal:
+          target.Health.CurrentHealth.Value += effect.Value;
+          break;
       }
     }
   }

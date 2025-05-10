@@ -3,3 +3,4 @@ knife_player_damage	Damage	5
 knife_enemy_damage	Damage	5
 shotgun_player_damage	Damage	5
 shotgun_enemy_damage	Damage	5
+potion_enemy_heal	Heal	2
