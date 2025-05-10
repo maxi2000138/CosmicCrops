@@ -1,0 +1,5 @@
+id	effects	statuses
+knife_player_attack	knife_player_damage	
+knife_enemy_attack	knife_enemy_damage	
+shotgun_player_attack	shotgun_player_damage	
+shotgun_enemy_attack	shotgun_player_damage	

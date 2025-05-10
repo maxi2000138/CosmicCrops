@@ -4,7 +4,7 @@
   {
     None = 0,
     
-    Character = 1,
+    Player = 1,
     Enemy = 2,
   }
 }

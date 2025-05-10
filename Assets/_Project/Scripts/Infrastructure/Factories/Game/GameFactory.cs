@@ -29,20 +29,17 @@ namespace _Project.Scripts.Infrastructure.Factories.Game
     private readonly LevelConfig _levelConfig;
     private readonly CharacterConfig _characterConfig;
     private readonly IProgressService _progressService;
-    private readonly IObjectPoolService _objectPoolService;
     private readonly LootConfig _lootConfig;
     private readonly UnitsConfig _unitsConfig;
 
-    public GameFactory(IAssetProvider assetProvider, 
-      LevelModel levelModel, LevelConfig levelConfig, CharacterConfig characterConfig, IProgressService progressService, 
-      IObjectPoolService objectPoolService, LootConfig lootConfig, UnitsConfig unitsConfig)
+    public GameFactory(IAssetProvider assetProvider, LevelModel levelModel, LevelConfig levelConfig, 
+      CharacterConfig characterConfig, IProgressService progressService, LootConfig lootConfig, UnitsConfig unitsConfig)
     {
       _assetProvider = assetProvider;
       _levelModel = levelModel;
       _levelConfig = levelConfig;
       _characterConfig = characterConfig;
       _progressService = progressService;
-      _objectPoolService = objectPoolService;
       _lootConfig = lootConfig;
       _unitsConfig = unitsConfig;
     }

@@ -860,7 +860,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -7820134700673006204, guid: 3c7b246f21cd73346bf6d7a754241cfc, type: 3}
       propertyPath: _unit
-      value: Orc_1
+      value: barbarian_1
       objectReference: {fileID: 0}
     - target: {fileID: -7820134700673006204, guid: 3c7b246f21cd73346bf6d7a754241cfc, type: 3}
       propertyPath: _unitName

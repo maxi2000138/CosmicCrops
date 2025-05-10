@@ -10,10 +10,8 @@ namespace _Project.Scripts.Game.Features.Weapon.Componets
 {
   public class WeaponComponent : MonoComponent<WeaponComponent>, IAnimationStateReader
   {
-    [SerializeField] private ProjectileType _projectileType;
     [SerializeField] private Transform _spawnPoint;
 
-    public ProjectileType ProjectileType => _projectileType;
     public Transform SpawnPoint => _spawnPoint;
     public IWeapon Weapon { get; private set; }
     

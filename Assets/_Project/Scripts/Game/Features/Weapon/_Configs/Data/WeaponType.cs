@@ -5,6 +5,7 @@
     Unknown   = 0,
     
     Knife     = 1,
-    Rifle     = 2,
+    Gun       = 2,
+    Throwable = 3,
   }
 }

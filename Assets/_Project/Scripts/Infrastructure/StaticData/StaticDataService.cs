@@ -1,4 +1,5 @@
-﻿using _Project.Scripts.Game.Features.Weapon._Configs;
+﻿using _Project.Scripts.Game.Entities.Unit._Presets;
+using _Project.Scripts.Game.Features.Weapon._Configs;
 using _Project.Scripts.Infrastructure.AssetData;
 using _Project.Scripts.Infrastructure.Logger._Configs;
 using JetBrains.Annotations;
@@ -13,9 +14,12 @@ namespace _Project.Scripts.Infrastructure.StaticData
         
         private readonly IAssetProvider _assetProvider;
 
-        private WeaponsConfig _weaponsConfig;
         private LoggerPreset _loggerPreset;
+        private UnitAnimatorsPreset _unitAnimatorsPreset;
 
+        LoggerPreset IStaticDataService.LoggerPreset() => _loggerPreset ??= LoadConfig<LoggerPreset>();
+        UnitAnimatorsPreset IStaticDataService.UnitAnimatorsPreset() => _unitAnimatorsPreset;
+        
         public StaticDataService(IAssetProvider assetProvider)
         {
             _assetProvider = assetProvider;
@@ -24,9 +28,10 @@ namespace _Project.Scripts.Infrastructure.StaticData
         void IStaticDataService.Load()
         { 
             _loggerPreset ??= LoadConfig<LoggerPreset>();
+            
+            _unitAnimatorsPreset = LoadConfig<UnitAnimatorsPreset>();
         }
         
-        LoggerPreset IStaticDataService.LoggerPreset() => _loggerPreset ??= LoadConfig<LoggerPreset>();
 
         private T LoadConfig<T>() where T : ScriptableObject => _assetProvider.LoadFromResources<T>(DataFolder + typeof(T).Name);
     }

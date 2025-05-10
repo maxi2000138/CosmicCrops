@@ -1,5 +1,4 @@
-﻿using _Project.Scripts.Game.Features.Level.Model;
-using _Project.Scripts.Game.Features.Weapon.Componets;
+﻿using _Project.Scripts.Game.Features.Weapon.Componets;
 using _Project.Scripts.Infrastructure.Systems;
 using _Project.Scripts.Infrastructure.Time;
 using _Project.Scripts.Utils.Extensions;
@@ -7,7 +6,7 @@ using VContainer;
 
 namespace _Project.Scripts.Game.Features.Weapon.Systems
 {
-  public class BulletMoveSystem : SystemComponent<BulletComponent>
+  public class DirectionArmamentMoveSystem : SystemComponent<DirectionArmamentComponent>
   {
     private ITimeService _time;
 
@@ -24,7 +23,7 @@ namespace _Project.Scripts.Game.Features.Weapon.Systems
       Components.Foreach(Move);
     }
     
-    
-    private void Move(BulletComponent bullet) => bullet.transform.position += bullet.Direction * _time.DeltaTime;
+    private void Move(DirectionArmamentComponent directionArmament) =>
+      directionArmament.transform.position += (directionArmament.TargetDirection * directionArmament.Armament.Speed * _time.DeltaTime);
   }
 }

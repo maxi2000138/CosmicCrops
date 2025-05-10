@@ -1,4 +1,5 @@
 key	value
+weapon	player_druid_weapon
 prefab_name	Player
 health	20
 speed	2

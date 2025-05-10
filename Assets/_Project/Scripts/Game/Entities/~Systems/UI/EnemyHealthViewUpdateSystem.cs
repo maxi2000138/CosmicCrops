@@ -27,14 +27,14 @@ namespace _Project.Scripts.Game.Entities._Systems.UI
       Components.Foreach(UpdatePosition);
     }
 
-    protected override void OnEnableComponent(EnemyHealthViewComponent component)
+    protected override void OnEnableComponent(EnemyHealthViewComponent armament)
     {
-      base.OnEnableComponent(component);
+      base.OnEnableComponent(armament);
 
-      component.Enemy
+      armament.Enemy
         .First(enemy => enemy != null)
-        .Subscribe(enemy => SubscribeOnChangeHealth(component, enemy))
-        .AddTo(component.LifetimeDisposable);
+        .Subscribe(enemy => SubscribeOnChangeHealth(armament, enemy))
+        .AddTo(armament.LifetimeDisposable);
     }
 
     private void SubscribeOnChangeHealth(EnemyHealthViewComponent healthView, IEnemy enemy)
@@ -62,7 +62,7 @@ namespace _Project.Scripts.Game.Entities._Systems.UI
       Vector3 position = component.Enemy.Value.Position.AddY(height);
       Vector3 screenPoint = _cameraService.Camera.WorldToScreenPoint(position);
       Vector3 viewportPoint = _cameraService.Camera.WorldToViewportPoint(position);
-      component.transform.position = screenPoint.ZeroZ();
+      component.transform.position = screenPoint.SetZ(0f);
       component.CanvasGroup.alpha += _cameraService.IsOnScreen(viewportPoint)
         ? Time.deltaTime * 1f : Time.deltaTime * -1f;
     }

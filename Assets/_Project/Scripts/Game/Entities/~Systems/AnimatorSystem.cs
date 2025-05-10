@@ -1,6 +1,5 @@
 ﻿using _Project.Scripts.Game.Entities._Components;
 using _Project.Scripts.Infrastructure.Systems;
-using _Project.Scripts.Utils;
 using _Project.Scripts.Utils.Constants;
 using R3;
 
@@ -8,32 +7,32 @@ namespace _Project.Scripts.Game.Entities._Systems
 {
   public sealed class AnimatorSystem : SystemComponent<UnitAnimatorComponent>
   {
-    protected override void OnEnableComponent(UnitAnimatorComponent component)
+    protected override void OnEnableComponent(UnitAnimatorComponent armament)
     {
-      base.OnEnableComponent(component);
+      base.OnEnableComponent(armament);
 
-      component.OnRun
-        .Subscribe(delta => component.AnimatorWrapper.Animator.SetFloat(Animations.Velocity, delta))
-        .AddTo(component.LifetimeDisposable);
+      armament.OnRun
+        .Subscribe(delta => armament.AnimatorWrapper.Animator.SetFloat(Animations.Velocity, delta))
+        .AddTo(armament.LifetimeDisposable);
 
-      component.OnCollect
-        .Subscribe(_ => component.AnimatorWrapper.PlayAnimation(Animations.Collect))
-        .AddTo(component.LifetimeDisposable);
+      armament.OnCollect
+        .Subscribe(_ => armament.AnimatorWrapper.PlayAnimation(Animations.Collect))
+        .AddTo(armament.LifetimeDisposable);
 
-      component.OnDeath
-        .Subscribe(_ => component.AnimatorWrapper.PlayAnimation(Animations.Death))
-        .AddTo(component.LifetimeDisposable);
+      armament.OnDeath
+        .Subscribe(_ => armament.AnimatorWrapper.PlayAnimation(Animations.Death))
+        .AddTo(armament.LifetimeDisposable);
             
-      component.OnVictory
-        .Subscribe(_ => component.AnimatorWrapper.PlayAnimation(Animations.Victory))
-        .AddTo(component.LifetimeDisposable);
+      armament.OnVictory
+        .Subscribe(_ => armament.AnimatorWrapper.PlayAnimation(Animations.Victory))
+        .AddTo(armament.LifetimeDisposable);
 
-      component.OnAttack
+      armament.OnAttack
         .Subscribe(interval => {
-          component.AnimatorWrapper.SetSpeed(Animations.Attack , Animations.AttackSpeed, interval);
-          component.AnimatorWrapper.PlayAnimation(Animations.Attack);
+          armament.AnimatorWrapper.SetSpeed(Animations.Attack , Animations.AttackSpeed, interval);
+          armament.AnimatorWrapper.PlayAnimation(Animations.Attack);
         })
-        .AddTo(component.LifetimeDisposable);
+        .AddTo(armament.LifetimeDisposable);
     }
   }
 }

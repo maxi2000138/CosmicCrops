@@ -16,11 +16,11 @@ namespace _Project.Scripts.Game.Features.Loot.Systems
       _gameFactory = gameFactory;
     }
 
-    protected override void OnEnableComponent(LootSpawnerComponent component)
+    protected override void OnEnableComponent(LootSpawnerComponent armament)
     {
-      base.OnEnableComponent(component);
+      base.OnEnableComponent(armament);
 
-      CreateLoot(component).Forget();
+      CreateLoot(armament).Forget();
     }
     
     private async UniTaskVoid CreateLoot(LootSpawnerComponent component)

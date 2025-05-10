@@ -117,6 +117,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3050426846845609681}
+  - component: {fileID: 1614274994189464220}
   - component: {fileID: 7208749702816837871}
   m_Layer: 0
   m_Name: Bullet
@@ -141,6 +142,21 @@ Transform:
   - {fileID: 5595898325847540267}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1614274994189464220
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 902364594539061998}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e4106150b204df29533e15f8f82dbdb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <DirectionComponent>k__BackingField: {fileID: 7208749702816837871}
+  <HomingComponent>k__BackingField: {fileID: 0}
+  <ThrowableComponent>k__BackingField: {fileID: 0}
 --- !u!114 &7208749702816837871
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -153,3 +169,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 36329d23cc704ce6b61aa01a29b5182f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _armament: {fileID: 1614274994189464220}

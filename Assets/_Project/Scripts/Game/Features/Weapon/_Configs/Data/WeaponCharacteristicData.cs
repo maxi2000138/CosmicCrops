@@ -4,10 +4,11 @@ namespace _Project.Scripts.Game.Features.Weapon._Configs.Data
 {
   public class WeaponCharacteristicData
   {
+    public string Weapon;
     public WeaponType WeaponType;
-    
     public string Ability;
-    public ConfigPrefab Prefab;
+    public ConfigPrefab WeaponPrefab;
+    public string Armament;
     public int ClipCount;
     public float RechargeTime;
     public float FireInterval;

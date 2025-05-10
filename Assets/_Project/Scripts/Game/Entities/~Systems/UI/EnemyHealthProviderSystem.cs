@@ -20,11 +20,11 @@ namespace _Project.Scripts.Game.Entities._Systems.UI
       _levelModel = levelModel;
     }
 
-    protected override void OnEnableComponent(EnemyHealthProviderComponent component)
+    protected override void OnEnableComponent(EnemyHealthProviderComponent armament)
     {
-      base.OnEnableComponent(component);
+      base.OnEnableComponent(armament);
 
-      CreateEnemyHealths(component).Forget();
+      CreateEnemyHealths(armament).Forget();
     }
 
     private async UniTaskVoid CreateEnemyHealths(EnemyHealthProviderComponent component)

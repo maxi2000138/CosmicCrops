@@ -1,3 +1,0 @@
-type	ability	prefab	clip_count	recharge_time	fire_interval	detection_distance	attack_distance	aiming	force_bullet
-knife	knife_player_attack	Knife	10	0.5	1	5	2	0.2	0
-rifle	shotgun_player_attack	Rifle	10	0.5	1	5	4	0.2	10

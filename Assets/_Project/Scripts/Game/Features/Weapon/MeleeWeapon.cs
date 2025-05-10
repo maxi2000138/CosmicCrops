@@ -5,9 +5,9 @@ using _Project.Scripts.Game.Features.Weapon.Componets;
 
 namespace _Project.Scripts.Game.Features.Weapon
 {
-  public class CharacterMeleeWeapon : BaseMeleeWeapon
+  public class MeleeWeapon : BaseMeleeWeapon
   {
-    public CharacterMeleeWeapon(WeaponComponent weapon, WeaponCharacteristicData weaponCharacteristic, IAbilityApplier abilityApplier) 
+    public MeleeWeapon(WeaponComponent weapon, WeaponCharacteristicData weaponCharacteristic, IAbilityApplier abilityApplier) 
       : base(weapon, weaponCharacteristic, abilityApplier)
     {
       

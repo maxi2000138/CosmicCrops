@@ -20,11 +20,11 @@ namespace _Project.Scripts.Game.UI.PointerArrow.Systems
       _levelModel = levelModel;
     }
 
-    protected override void OnEnableComponent(PointerArrowProviderComponent component)
+    protected override void OnEnableComponent(PointerArrowProviderComponent armament)
     {
-      base.OnEnableComponent(component);
+      base.OnEnableComponent(armament);
             
-      CreatePointers(component).Forget();
+      CreatePointers(armament).Forget();
     }
 
     private async UniTaskVoid CreatePointers(PointerArrowProviderComponent component)

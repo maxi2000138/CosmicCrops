@@ -18,23 +18,23 @@ namespace _Project.Scripts.Game.Entities._Systems.UI
       _levelModel = levelModel;
     }
 
-    protected override void OnEnableComponent(CharacterHealthViewComponent component)
+    protected override void OnEnableComponent(CharacterHealthViewComponent armament)
     {
-      base.OnEnableComponent(component);
+      base.OnEnableComponent(armament);
       
       _levelModel.Character.Health.CurrentHealth
         .Subscribe(SetHealth)
-        .AddTo(component.LifetimeDisposable);
+        .AddTo(armament.LifetimeDisposable);
       
       void SetHealth(int health)
       {
-        component.Tween?.Kill();
-        component.Text.text = _levelModel.Character.Health.ToString();
+        armament.Tween?.Kill();
+        armament.Text.text = _levelModel.Character.Health.ToString();
 
         float fillAmount = Mathematics.Remap(0, _levelModel.Character.Health.MaxHealth, 0, 1, health);
                     
-        component.Fill.fillAmount = fillAmount;
-        component.Tween = component.FillLerp.DOFillAmount(fillAmount, 0.25f).SetEase(Ease.Linear);
+        armament.Fill.fillAmount = fillAmount;
+        armament.Tween = armament.FillLerp.DOFillAmount(fillAmount, 0.25f).SetEase(Ease.Linear);
       }
     }
 

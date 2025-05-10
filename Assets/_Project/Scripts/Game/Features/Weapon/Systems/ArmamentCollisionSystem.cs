@@ -6,12 +6,11 @@ using _Project.Scripts.Game.Features.Weapon.Componets;
 using _Project.Scripts.Infrastructure.Systems;
 using _Project.Scripts.Utils.Extensions;
 using R3;
-using UnityEngine;
 using VContainer;
 
 namespace _Project.Scripts.Game.Features.Weapon.Systems
 {
-  public class BulletCollisionSystem : SystemComponent<BulletComponent>
+  public class ArmamentCollisionSystem : SystemComponent<ArmamentComponent>
   {
     private LevelModel _levelModel;
     private IAbilityApplier _abilityApplier;
@@ -31,37 +30,37 @@ namespace _Project.Scripts.Game.Features.Weapon.Systems
       Components.Foreach(CheckCharacterCollision);
     }
 
-    private void CheckEnemyCollision(BulletComponent bullet)
+    private void CheckEnemyCollision(ArmamentComponent armament)
     {
-      if(bullet.CollisionMask.Matches(CollisionLayer.Enemy) == false) return;
+      if(armament.CollisionMask.Matches(CollisionLayer.Enemy) == false) return;
 
       for (int i = 0; i < _levelModel.Enemies.Count; i++)
       {
         bool targetIsAlive = _levelModel.Enemies[i].Health.IsAlive;
-        bool isCollision = (bullet.Position - _levelModel.Enemies[i].Position).sqrMagnitude < bullet.CollisionDistance;
+        bool isCollision = (armament.Position - _levelModel.Enemies[i].Position).sqrMagnitude < armament.CollisionSqrDistance;
 
         if (targetIsAlive && isCollision)
         {
-          Collision(bullet, _levelModel.Enemies[i]);
+          Collision(armament, _levelModel.Enemies[i]);
         }
       }
     }
     
-    private void CheckCharacterCollision(BulletComponent bullet)
+    private void CheckCharacterCollision(ArmamentComponent armament)
     {
-      if(bullet.CollisionMask.Matches(CollisionLayer.Character) == false) return;
+      if(armament.CollisionMask.Matches(CollisionLayer.Player) == false) return;
       
       bool targetIsAlive = _levelModel.Character.Health.IsAlive;
-      bool isCollision = (bullet.Position - _levelModel.Character.Position).sqrMagnitude < bullet.CollisionDistance;
+      bool isCollision = (armament.Position - _levelModel.Character.Position).sqrMagnitude < armament.CollisionSqrDistance;
 
       if (targetIsAlive && isCollision)
       {
-        Collision(bullet, _levelModel.Character);
+        Collision(armament, _levelModel.Character);
       }
     }
 
     private void 
-      Collision(BulletComponent bullet, ITarget target)
+      Collision(ArmamentComponent bullet, ITarget target)
     {
       _abilityApplier.Apply(bullet.Ability, target);
       bullet.OnDestroy.Execute(Unit.Default);

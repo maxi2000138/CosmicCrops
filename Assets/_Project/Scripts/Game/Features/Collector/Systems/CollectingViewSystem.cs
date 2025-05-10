@@ -32,12 +32,12 @@ namespace _Project.Scripts.Game.Features.Collector.Systems
             Components.Foreach(UpdatePosition);
         }
 
-        protected override void OnEnableComponent(CollectingViewComponent component)
+        protected override void OnEnableComponent(CollectingViewComponent armament)
         {
-            base.OnEnableComponent(component);
+            base.OnEnableComponent(armament);
 
-            SubscribeOnStartCollecting(component);
-            SubscribeOnCancelCollecting(component);
+            SubscribeOnStartCollecting(armament);
+            SubscribeOnCancelCollecting(armament);
         }
         
         protected override void OnDisableComponent(CollectingViewComponent component)

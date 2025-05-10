@@ -27,6 +27,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - remote
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 2c6adbdf1554ad64d8c8eb0154f528e5
+    m_Address: Unit_Barbarian
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - remote
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 2de47394c47cde843bda599382124103
     m_Address: Level3
     m_ReadOnly: 0
@@ -45,14 +51,14 @@ MonoBehaviour:
     m_SerializedLabels:
     - remote
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 7413da3ef6426d74d9234afbee871f95
-    m_Address: Bullet
+  - m_GUID: 73e4f58c09abb9c47bf1382aaeed3370
+    m_Address: Unit_Druid
     m_ReadOnly: 0
     m_SerializedLabels:
     - remote
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 74dc452bcee644f43a0b4a09049ba527
-    m_Address: Unit
+  - m_GUID: 7413da3ef6426d74d9234afbee871f95
+    m_Address: Bullet
     m_ReadOnly: 0
     m_SerializedLabels:
     - remote

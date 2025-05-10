@@ -7,15 +7,15 @@ using JetBrains.Annotations;
 namespace _Project.Scripts.Game.Features.Weapon._Configs
 {
   [UsedImplicitly(ImplicitUseKindFlags.InstantiatedNoFixedConstructorSignature)]
-  public class ProjectilesConfig : BaseConfig<ProjectileType, ProjectileData>
+  public class ProjectilesConfig : BaseConfig<string, ProjectileData>
   {
     public override string ConfigName => "Projectiles";
-    protected override ProjectileType GetKey(ProjectileData data) => data.ProjectileType;
+    protected override string GetKey(ProjectileData data) => data.Projectile;
     protected override ProjectileData ParseData(List<string> row)
     {
       return new()
       {
-        ProjectileType = StringParseUtils.ToEnum<ProjectileType>(row[0]),
+        Projectile = row[0],
         CollisionMask = StringParseUtils.ToCollisionMask(row[1]),
         CollisionRadius = StringParseUtils.ToFloat(row[2]),
         LifeTime = StringParseUtils.ToFloat(row[3]),

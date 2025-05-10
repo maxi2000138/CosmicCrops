@@ -1,2 +1,0 @@
-type	CollisionLayer	collision_radius	lifetime	prefab_reference
-ShotgunBullet	Enemy	1	2.5	Bullet

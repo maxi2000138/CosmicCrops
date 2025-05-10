@@ -1,4 +1,5 @@
-﻿using _Project.Scripts.Infrastructure.Logger._Configs;
+﻿using _Project.Scripts.Game.Entities.Unit._Presets;
+using _Project.Scripts.Infrastructure.Logger._Configs;
 
 namespace _Project.Scripts.Infrastructure.StaticData
 {
@@ -6,5 +7,6 @@ namespace _Project.Scripts.Infrastructure.StaticData
     {
         void Load();
         LoggerPreset LoggerPreset();
+        UnitAnimatorsPreset UnitAnimatorsPreset();
     }
 }

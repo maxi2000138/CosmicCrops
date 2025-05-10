@@ -30,14 +30,14 @@ namespace _Project.Scripts.Infrastructure.Systems
             ComponentsContainer<T>.OnUnregistered -= OnDisableComponent;
         }
 
-        protected virtual void OnEnableComponent(T component)
+        protected virtual void OnEnableComponent(T armament)
         {
-            if (_components.Contains(component))
+            if (_components.Contains(armament))
             {
                 return;
             }
             
-            _components.Add(component);
+            _components.Add(armament);
         }
 
         protected virtual void OnDisableComponent(T component)

@@ -1,3 +1,0 @@
-id	effects	statuses
-knife_player_attack	knife_attack_damage	
-shotgun_player_attack	shotgun_player_damage	

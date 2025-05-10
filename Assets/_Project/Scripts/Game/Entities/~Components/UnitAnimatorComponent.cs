@@ -17,5 +17,10 @@ namespace _Project.Scripts.Game.Entities._Components
     public readonly ReactiveCommand<float> OnAttack = new();
     public readonly ReactiveCommand OnDeath = new();
     public readonly ReactiveCommand OnVictory = new();
+    
+    public void SetAnimatorController(RuntimeAnimatorController animatorController)
+    {
+      _animatorWrapper.SetAnimatorController(animatorController);
+    }
   }
 }

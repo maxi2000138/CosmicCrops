@@ -1,5 +1,4 @@
 ﻿using _Project.Scripts.Game.Entities._Interfaces;
-using _Project.Scripts.Game.Features.Weapon._Configs;
 using _Project.Scripts.Game.Features.Weapon._Configs.Data;
 using _Project.Scripts.Game.Features.Weapon.Componets;
 using _Project.Scripts.Game.Features.Weapon.Factories;
@@ -22,21 +21,14 @@ namespace _Project.Scripts.Game.Features.Weapon
     {
       base.Attack(target);
             
-      Shoot();
+      Shoot(target);
     }
 
-    private void Shoot()
+    private void Shoot(ITarget target = null)
     {
-      CreateBullet().Forget();
+      CreateBullet(target).Forget();
     }
 
-    private async UniTaskVoid CreateBullet()
-    {
-        Vector3 normalized = Weapon.SpawnPoint.forward.normalized;
-        Vector3 direction = new Vector3(normalized.x, 0f, normalized.z) * WeaponCharacteristic.ForceBullet;
-        
-        await WeaponFactory.CreateProjectile(Weapon.ProjectileType, Weapon.SpawnPoint, WeaponCharacteristic.Ability, direction);
-    }
-
+    protected async virtual UniTaskVoid CreateBullet(ITarget target = null) { }
   }
 }

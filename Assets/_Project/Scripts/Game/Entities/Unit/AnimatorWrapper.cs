@@ -28,6 +28,11 @@ namespace _Project.Scripts.Game.Entities.Unit
       Animator.SetFloat(animationSpeedHash, _animationDurations[animationHash] / duration);
     }
     
+    public void SetAnimatorController(RuntimeAnimatorController animatorController)
+    {
+      Animator.runtimeAnimatorController = animatorController;
+    }
+
     private void TryInit()
     {
       if (_isInit)
@@ -37,7 +42,7 @@ namespace _Project.Scripts.Game.Entities.Unit
 
       _isInit = true;
     }
-    
+
     private void FillAnimationDurations()
     {
 #if UNITY_EDITOR

@@ -5,17 +5,17 @@ using UnityEngine;
 
 public class RadarDrawSystem : SystemComponent<RadarComponent>
 {
-    protected override void OnEnableComponent(RadarComponent component)
+    protected override void OnEnableComponent(RadarComponent armament)
     {
-        base.OnEnableComponent(component);
+        base.OnEnableComponent(armament);
 
-        component.Draw
-            .Subscribe(_ => DrawCircle(component))
-            .AddTo(component.LifetimeDisposable);
+        armament.Draw
+            .Subscribe(_ => DrawCircle(armament))
+            .AddTo(armament.LifetimeDisposable);
 
-        component.Clear
-            .Subscribe(_ => Clear(component))
-            .AddTo(component.LifetimeDisposable);
+        armament.Clear
+            .Subscribe(_ => Clear(armament))
+            .AddTo(armament.LifetimeDisposable);
     }
     
     protected override void OnLateUpdate()

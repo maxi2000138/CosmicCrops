@@ -5,11 +5,11 @@ namespace _Project.Scripts.Game.Features.Level.Systems
 {
   public class BuildGroundNavMeshSystem : SystemComponent<GroundComponent>
   {
-    protected override void OnEnableComponent(GroundComponent component)
+    protected override void OnEnableComponent(GroundComponent armament)
     {
-      base.OnEnableComponent(component);
+      base.OnEnableComponent(armament);
       
-      component.BuildNavMesh();
+      armament.BuildNavMesh();
     }
   }
 }

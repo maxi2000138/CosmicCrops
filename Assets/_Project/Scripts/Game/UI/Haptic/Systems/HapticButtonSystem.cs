@@ -18,15 +18,15 @@ namespace _Project.Scripts.Game.UI.Haptic.Systems
       _hapticService = hapticService;
     }
         
-    protected override void OnEnableComponent(HapticButtonComponent component)
+    protected override void OnEnableComponent(HapticButtonComponent armament)
     {
-      base.OnEnableComponent(component);
+      base.OnEnableComponent(armament);
 
-      component.Button
+      armament.Button
         .OnClickAsObservable()
         .ThrottleFirst(ButtonSettings.ClickThrottle)
-        .Subscribe(_ => _hapticService.Play(component.HapticType))
-        .AddTo(component.LifetimeDisposable);
+        .Subscribe(_ => _hapticService.Play(armament.HapticType))
+        .AddTo(armament.LifetimeDisposable);
     }
     }
 }

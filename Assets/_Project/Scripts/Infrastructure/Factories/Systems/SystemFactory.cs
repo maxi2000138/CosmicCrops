@@ -22,8 +22,9 @@ namespace _Project.Scripts.Infrastructure.Factories.Systems
         {
             ISystem[] systems = 
             {
-                new CharacterSpawnerSystem(),
                 new StateMachineUpdateSystem(),
+
+                new CharacterSpawnerSystem(),
                 
                 new JoystickUpdateSystem(),
                 
@@ -34,9 +35,11 @@ namespace _Project.Scripts.Infrastructure.Factories.Systems
                 new ExecuteCollectorSystem(),
                
                 new ExecuteWeaponAmmunitionSystem(),
-                new BulletLifetimeSystem(),
-                new BulletMoveSystem(),
-                new BulletCollisionSystem(),
+                new ArmamentLifetimeSystem(),
+                new DirectionArmamentMoveSystem(),
+                new HomingArmamentMoveSystem(),
+                new ThrowableArmamentMoveSystem(),
+                new ArmamentCollisionSystem(),
                 
                 new ProcessAbilitySystem(),
                 

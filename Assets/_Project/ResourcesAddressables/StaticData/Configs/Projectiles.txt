@@ -1,0 +1,3 @@
+projectile	CollisionLayer	collision_radius	lifetime	prefab_reference
+shotgun_player_bullet	Enemy	1	2.5	Bullet
+shotgun_enemy_bullet	Player	1	2.5	Bullet
