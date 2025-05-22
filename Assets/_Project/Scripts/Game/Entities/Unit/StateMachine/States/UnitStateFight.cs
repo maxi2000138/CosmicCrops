@@ -46,14 +46,14 @@ namespace _Project.Scripts.Game.Entities.Unit.StateMachine.States
                 return;
             }
             
-            if (CannotAttack())
-            {
-                EnterState<UnitStatePursuit>();
-
-                return;
-            }
-            
-            LookAt();
+            // if (CannotAttack())
+            // {
+            //     EnterState<UnitStatePursuit>();
+            //
+            //     return;
+            // }
+            //
+            // LookAt();
             
             if (CanAttack())
             {

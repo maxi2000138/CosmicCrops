@@ -3,6 +3,7 @@ using _Project.Scripts.Game.Entities._Systems.UI;
 using _Project.Scripts.Game.Entities.Character.Systems;
 using _Project.Scripts.Game.Entities.Unit.Systems;
 using _Project.Scripts.Game.Features.Abilities.Systems;
+using _Project.Scripts.Game.Features.AI.Systems;
 using _Project.Scripts.Game.Features.Collector.Systems;
 using _Project.Scripts.Game.Features.Input.Systems;
 using _Project.Scripts.Game.Features.Level.Systems;
@@ -22,15 +23,16 @@ namespace _Project.Scripts.Infrastructure.Factories.Systems
         {
             ISystem[] systems = 
             {
-                new StateMachineUpdateSystem(),
-
                 new CharacterSpawnerSystem(),
+                new LootSpawnerSystem(),
+                new UnitSpawnerSystem(),
+                
+                new UnitAISystem(),
+                new StateMachineUpdateSystem(),
                 
                 new JoystickUpdateSystem(),
                 
                 new BuildGroundNavMeshSystem(),
-                new LootSpawnerSystem(),
-                new UnitSpawnerSystem(),
                 
                 new ExecuteCollectorSystem(),
                

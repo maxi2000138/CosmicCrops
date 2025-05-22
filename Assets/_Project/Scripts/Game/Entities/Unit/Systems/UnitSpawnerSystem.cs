@@ -56,7 +56,7 @@ namespace _Project.Scripts.Game.Entities.Unit.Systems
       unit.WeaponMediator.SetWeapon(weapon);
       unit.Animator.SetAnimatorController(AnimatorController());
 
-      unit.Stats = unitData;
+      unit.SetStats(unitData);
 
       unit.Health.SetBaseHealth(unitData.Health);
       unit.Health.SetMaxHealth(unitData.Health);

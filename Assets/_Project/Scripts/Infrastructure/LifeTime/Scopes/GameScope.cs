@@ -1,7 +1,10 @@
 ﻿using _Project.Scripts.Game.Features.Abilities.Services;
+using _Project.Scripts.Game.Features.AI.Services.UtilityAI;
+using _Project.Scripts.Game.Features.AI.UtilityAI;
 using _Project.Scripts.Game.Features.Collector.Factory;
 using _Project.Scripts.Game.Features.Inventory;
 using _Project.Scripts.Game.Features.Level.Model;
+using _Project.Scripts.Game.Features.UtilityAI;
 using _Project.Scripts.Game.Features.Weapon.Factories;
 using _Project.Scripts.Game.Infrastructure.Systems;
 using _Project.Scripts.Infrastructure.Factories.Game;
@@ -27,6 +30,8 @@ namespace _Project.Scripts.Infrastructure.LifeTime.Scopes
       builder.Register<LevelModel>(Lifetime.Singleton);
       builder.Register<InventoryModel>(Lifetime.Singleton);
 
+      builder.Register<ITargetPicker, TargetPicker>(Lifetime.Singleton);
+      builder.Register<IArtificialIntelligence, UtilityAI>(Lifetime.Singleton);
       builder.Register<IAbilityStatsProvider, AbilityStatsProvider>(Lifetime.Singleton);
       builder.Register<ICollectorFactory, CollectorFactory>(Lifetime.Singleton);
       builder.Register<IAbilityApplier, AbilityApplier>(Lifetime.Singleton);

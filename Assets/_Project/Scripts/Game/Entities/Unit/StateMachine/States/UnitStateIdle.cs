@@ -41,21 +41,21 @@ namespace _Project.Scripts.Game.Entities.Unit.StateMachine.States
                 return;
             }
             
-            if (CanPursuit())
-            {
-                EnterState<UnitStatePursuit>();
-            }
-            else
-            {
-                if (_delay > 0f)
-                {
-                    _delay -= Time.deltaTime;
-                }
-                else
-                {
-                    EnterState<UnitStatePatrol>();
-                }
-            }
+            // if (CanPursuit())
+            // {
+            //     EnterState<UnitStatePursuit>();
+            // }
+            // else
+            // {
+            //     if (_delay > 0f)
+            //     {
+            //         _delay -= Time.deltaTime;
+            //     }
+            //     else
+            //     {
+            //         EnterState<UnitStatePatrol>();
+            //     }
+            // }
         }
         public void Exit() { }
         

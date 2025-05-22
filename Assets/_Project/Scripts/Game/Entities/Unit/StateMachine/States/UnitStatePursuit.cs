@@ -47,28 +47,37 @@ namespace _Project.Scripts.Game.Entities.Unit.StateMachine.States
                 return;
             }
 
-            if (CanIdle())
+            if (Unit.Target == null)
             {
                 EnterState<UnitStateIdle>();
             }
             else
             {
-                if (CanFight())
-                {
-                    EnterState<UnitStateFight>();
-                }
-                else
-                {
-                    Unit.Agent.Agent.SetDestination(_levelModel.Character.Position);
-                }
+                Unit.Agent.Agent.SetDestination(Unit.Target.Position);
             }
+
+            // if (CanIdle())
+            // {
+            //     EnterState<UnitStateIdle>();
+            // }
+            // else
+            // {
+            //     if (CanFight())
+            //     {
+            //         EnterState<UnitStateFight>();
+            //     }
+            //     else
+            //     {
+            //         Unit.Agent.Agent.SetDestination(_levelModel.Character.Position);
+            //     }
+            // }
         }
 
         private bool HasObstacleOnAttackPath() => Physics.Linecast(Unit.Position, _levelModel.Character.Position, Layers.Wall);
 
         private bool CanIdle() => DistanceToTarget() > _pursuitRadius;
         private bool CanFight() => DistanceToTarget() < _attackDistance && HasObstacleOnAttackPath() == false;
-        private float DistanceToTarget() => (_levelModel.Character.Position - Unit.Position).sqrMagnitude;
+        private float DistanceToTarget() => (_levelModel.Character.Position - Unit.Target.Position).sqrMagnitude;
         private bool IsDeath() => Unit.Health.IsAlive == false;
     }
 }

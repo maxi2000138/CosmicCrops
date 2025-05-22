@@ -1,0 +1,11 @@
+﻿using System.Collections.Generic;
+using _Project.Scripts.Game.Entities._Interfaces;
+using _Project.Scripts.Game.Entities.Unit.Actions;
+
+namespace _Project.Scripts.Game.Features.AI.Services.UtilityAI
+{
+  public interface ITargetPicker
+  {
+    IEnumerable<ITarget> AvailableTargetsFor(UnitAction action, ITarget producer);
+  }
+}

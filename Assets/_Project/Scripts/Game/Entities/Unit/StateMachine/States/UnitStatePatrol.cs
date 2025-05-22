@@ -53,19 +53,19 @@ namespace _Project.Scripts.Game.Entities.Unit.StateMachine.States
                 return;
             }
             
-            if (CanPursuit())
-            {
-                EnterState<UnitStatePursuit>();
-            }
-            else
-            {
-                if (Unit.Agent.Agent.hasPath)
-                {
-                    return;
-                }
-
-                EnterState<UnitStateIdle>();
-            }
+            // if (CanPursuit())
+            // {
+            //     EnterState<UnitStatePursuit>();
+            // }
+            // else
+            // {
+            //     if (Unit.Agent.Agent.hasPath)
+            //     {
+            //         return;
+            //     }
+            //
+            //     EnterState<UnitStateIdle>();
+            // }
         }
 
         private Vector3 GeneratePointOnNavmesh()
