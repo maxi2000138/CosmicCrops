@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using _Project.Scripts.Game.Entities._Interfaces;
+using _Project.Scripts.Game.Entities.Unit.Components;
 using _Project.Scripts.Game.Features.AI.Services.UtilityAI;
 using _Project.Scripts.Game.Features.AI.UtilityAI.Calculations;
 
@@ -22,9 +23,9 @@ namespace _Project.Scripts.Game.Features.AI.UtilityAI
   public class Convolutions : List<UtilityFunction>
   {
     public void Add(
-      Func<BattleAction, IEnemy, bool> appliesTo,
-      Func<BattleAction, IEnemy, float> getInput, 
-      Func<float, IEnemy, float> score,
+      Func<BattleAction, UnitComponent, bool> appliesTo,
+      Func<BattleAction, UnitComponent, float> getInput, 
+      Func<float, UnitComponent, float> score,
       string name)
     {
       Add(new UtilityFunction(appliesTo, getInput, score, name));

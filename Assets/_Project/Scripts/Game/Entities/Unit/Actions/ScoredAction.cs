@@ -12,5 +12,28 @@ namespace _Project.Scripts.Game.Entities.Unit.Actions
       ActionType = battleAction.ActionType;
       Target = battleAction.Target;
     }
+    
+    public override string ToString()
+    {
+      string actionCategory = "other";
+
+      switch(ActionType)
+      {
+        case UnitActionType.Idle:
+          actionCategory = "idle";
+          break;
+        case UnitActionType.Patrol:
+          actionCategory = "patrol";
+          break;
+        case UnitActionType.Pursuit:
+          actionCategory = "pursuit";
+          break;
+        case UnitActionType.Fight:
+          actionCategory = "fight";
+          break;
+      }
+      
+      return $"{actionCategory}: {ActionType} target: {Target} score: {Score}";
+    }
   }
 }

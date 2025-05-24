@@ -5,6 +5,7 @@ using _Project.Scripts.Infrastructure.Input;
 using _Project.Scripts.Infrastructure.Pool;
 using _Project.Scripts.Infrastructure.StateMachine.States.Interfaces;
 using _Project.Scripts.Infrastructure.Time;
+using _Project.Scripts.Infrastructure.UniqueId;
 using Cysharp.Threading.Tasks;
 using JetBrains.Annotations;
 
@@ -41,6 +42,7 @@ namespace _Project.Scripts.Infrastructure.StateMachine.States
       InitCameraService();
       InitHaptic();
       InitPool();
+      InitGameUniqueId();
       
       gameStateMachine.Enter<StateLoadMenu>();
     }
@@ -49,5 +51,6 @@ namespace _Project.Scripts.Infrastructure.StateMachine.States
     private void InitCameraService() => _cameraService.Init();
     private void InitHaptic() => _hapticService.Init();
     private void InitPool() => _poolService.Init();
+    private void InitGameUniqueId() => GameUniqueId.Reset();
   }
 }

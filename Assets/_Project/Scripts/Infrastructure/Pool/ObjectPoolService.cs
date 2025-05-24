@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using _Project.Scripts.Infrastructure.Factories.Game;
 using _Project.Scripts.Infrastructure.Logger;
 using _Project.Scripts.Infrastructure.Pool.Item;
 using Cysharp.Threading.Tasks;
@@ -155,7 +156,7 @@ namespace _Project.Scripts.Infrastructure.Pool
 
 	    private MonoSpawnableItem InstantiatePrefab(MonoSpawnableItem prefab)
 	    {
-		    var spawnableItem = UnityEngine.Object.Instantiate(prefab);
+		    var spawnableItem = UnityObjectFactory.Instantiate(prefab);
 		    spawnableItem.OnCreated(this);
 		    
 		    if (_root != null)

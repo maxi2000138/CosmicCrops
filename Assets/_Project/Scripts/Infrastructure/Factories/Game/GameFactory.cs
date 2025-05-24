@@ -50,7 +50,7 @@ namespace _Project.Scripts.Infrastructure.Factories.Game
       int index = levelNumber > _levelConfig.Data.Count ? levelNumber % _levelConfig.Data.Count : levelNumber ;
       var data = _levelConfig.Data[index];
       var prefab = await _assetProvider.LoadFromAddressable<GameObject>(data.Prefab.Name);
-      LevelComponent level = Object.Instantiate(prefab).GetComponent<LevelComponent>();
+      LevelComponent level = UnityObjectFactory.Instantiate(prefab).GetComponent<LevelComponent>();
       _levelModel.SetLevel(level);
       return level;
     }
@@ -58,7 +58,7 @@ namespace _Project.Scripts.Infrastructure.Factories.Game
     async UniTask<CharacterComponent> IGameFactory.CreateCharacter(Vector3 position, Transform parent)
     {
       var prefab = await _assetProvider.LoadFromAddressable<GameObject>(_characterConfig.Prefab.Name);
-      CharacterComponent character = Object.Instantiate(prefab, position, Quaternion.identity, parent).GetComponent<CharacterComponent>();
+      CharacterComponent character = UnityObjectFactory.Instantiate(prefab, position, Quaternion.identity, parent).GetComponent<CharacterComponent>();
       _levelModel.SetCharacter(character);
       
       character.CharacterController.SetBaseSpeed(_characterConfig.Speed);
@@ -69,7 +69,7 @@ namespace _Project.Scripts.Infrastructure.Factories.Game
     async UniTask<UnitComponent> IGameFactory.CreateUnit(string unitName, Vector3 position, Transform parent)
     {
       GameObject prefab = await _assetProvider.LoadFromAddressable<GameObject>(_unitsConfig.Data[unitName].PrefabName);
-      UnitComponent unit = Object.Instantiate(prefab, position, Quaternion.identity, parent).GetComponent<UnitComponent>();
+      UnitComponent unit = UnityObjectFactory.Instantiate(prefab, position, Quaternion.identity, parent).GetComponent<UnitComponent>();
       _levelModel.AddEnemy(unit);
       return unit;
     }
@@ -78,7 +78,7 @@ namespace _Project.Scripts.Infrastructure.Factories.Game
     async UniTask<LootComponent> IGameFactory.CreateLoot(LootType lootType, Vector3 position, Transform parent)
     {
       GameObject prefab = await _assetProvider.LoadFromAddressable<GameObject>(_lootConfig.Data[lootType].PrefabName);
-      LootComponent loot = Object.Instantiate(prefab, position, Quaternion.identity, parent).GetComponent<LootComponent>();
+      LootComponent loot = UnityObjectFactory.Instantiate(prefab, position, Quaternion.identity, parent).GetComponent<LootComponent>();
       _levelModel.AddLoot(loot);
       return loot;
     }

@@ -36,5 +36,7 @@ namespace _Project.Scripts.Game.Entities.Character.Components
     {
       Height = height;
     }
+
+    public override string ToString() => "Character";
   }
 }
