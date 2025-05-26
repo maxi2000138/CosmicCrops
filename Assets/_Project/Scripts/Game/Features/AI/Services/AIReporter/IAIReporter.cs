@@ -11,7 +11,7 @@ namespace _Project.Scripts.Game.Features.AI.Services.AIReporter
   {
     event Action<DecisionDetails> DecisionDetailsReported;
     event Action<DecisionScore> DecisionScoreReported;
-    void ReportDecisionDetails(BattleAction battleAction, ITarget target, List<ScoreFactor> scoreFactors);
-    void ReportDecisionScores(ITarget producer, List<ScoredAction> choices);
+    void ReportDecisionDetails(ITarget unit, BattleAction battleAction, List<ScoreFactor> scoreFactors);
+    void ReportDecisionScores(ITarget unit, List<ScoredAction> choices);
   }
 }

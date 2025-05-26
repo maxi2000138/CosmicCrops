@@ -5,28 +5,21 @@ using _Project.Scripts.Game.Entities._Interfaces;
 using _Project.Scripts.Game.Entities.Unit.Actions;
 using _Project.Scripts.Game.Features.AI.Services.UtilityAI;
 using _Project.Scripts.Game.Features.AI.UtilityAI;
-using _Project.Scripts.Game.Features.Level.Model;
 
 namespace _Project.Scripts.Game.Features.AI.Services.AIReporter
 {
   public class AIReporter : IAIReporter
   {
-    private readonly LevelModel _levelModel;
     
     public event Action<DecisionDetails> DecisionDetailsReported;
     public event Action<DecisionScore> DecisionScoreReported;
 
-    public AIReporter(LevelModel levelModel)
-    {
-      _levelModel = levelModel;
-    }
-    
-    public void ReportDecisionDetails(BattleAction battleAction, ITarget target, List<ScoreFactor> scoreFactors)
+    public void ReportDecisionDetails(ITarget unit, BattleAction battleAction, List<ScoreFactor> scoreFactors)
     {
       DecisionDetails decisionDetails = new DecisionDetails
       {
-        ProducerName = $"{ battleAction.Producer }",
-        TargetName = $"{ target }",
+        ProducerName = $"{ unit }",
+        TargetName = $"{ battleAction.Target }",
         ActionName = $"{ battleAction.ActionType }",
         
         Scores = scoreFactors,
@@ -39,11 +32,11 @@ namespace _Project.Scripts.Game.Features.AI.Services.AIReporter
       DecisionDetailsReported?.Invoke(decisionDetails);
     }
 
-    public void ReportDecisionScores(ITarget producer, List<ScoredAction> choices)
+    public void ReportDecisionScores(ITarget unit, List<ScoredAction> choices)
     {
       DecisionScore decisionScore = new DecisionScore
       {
-        ProducerName = $"{ producer }",
+        ProducerName = $"{ unit }",
         Choices = choices,
         
         FormattedLine = string.Join(Environment.NewLine, 
