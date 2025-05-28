@@ -1,4 +1,4 @@
-﻿using _Project.Scripts.Game.Entities.Unit.Components;
+﻿using _Project.Scripts.Game.Entities.Enemy.Components;
 
 namespace _Project.Scripts.Game.Entities._Interfaces
 {

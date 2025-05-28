@@ -1,4 +1,4 @@
-﻿using _Project.Scripts.Game.Entities.Unit._Presets;
+﻿using _Project.Scripts.Game.Entities.Enemy._Presets;
 using _Project.Scripts.Infrastructure.Logger._Configs;
 
 namespace _Project.Scripts.Infrastructure.StaticData

@@ -1,4 +1,4 @@
-namespace _Project.Scripts.Game.Entities.Unit.Actions
+namespace _Project.Scripts.Game.Entities.Enemy.Actions
 {
   public enum UnitActionType
   {

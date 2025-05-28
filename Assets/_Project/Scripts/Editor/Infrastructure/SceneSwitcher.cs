@@ -3,7 +3,7 @@ using _Project.Scripts.Infrastructure.SceneLoader;
 using Cysharp.Threading.Tasks;
 using UnityEngine;
 
-namespace _Project.Scripts.Editor
+namespace _Project.Scripts.Editor.Infrastructure
 {
   public class SceneSwitcher
   {

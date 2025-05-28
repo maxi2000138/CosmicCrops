@@ -2,6 +2,7 @@
 using _Project.Scripts.Game.Features.Level.Model;
 using _Project.Scripts.Infrastructure.Systems;
 using _Project.Scripts.Utils;
+using _Project.Scripts.Utils.Extensions;
 using DG.Tweening;
 using VContainer;
 using R3;

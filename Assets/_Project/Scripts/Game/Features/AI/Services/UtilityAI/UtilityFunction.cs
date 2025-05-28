@@ -1,9 +1,7 @@
 using System;
-using _Project.Scripts.Game.Entities._Interfaces;
-using _Project.Scripts.Game.Entities.Unit.Components;
-using _Project.Scripts.Game.Features.AI.Services.UtilityAI;
+using _Project.Scripts.Game.Entities.Enemy.Components;
 
-namespace _Project.Scripts.Game.Features.AI.UtilityAI
+namespace _Project.Scripts.Game.Features.AI.Services.UtilityAI
 {
   public class UtilityFunction : IUtilityFunction
   {

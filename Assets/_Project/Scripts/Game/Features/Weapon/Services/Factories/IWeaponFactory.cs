@@ -1,11 +1,10 @@
 using _Project.Scripts.Game.Entities._Interfaces;
-using _Project.Scripts.Game.Features.Weapon._Configs.Data;
 using _Project.Scripts.Game.Features.Weapon.Componets;
 using _Project.Scripts.Game.Features.Weapon.Interfaces;
 using Cysharp.Threading.Tasks;
 using UnityEngine;
 
-namespace _Project.Scripts.Game.Features.Weapon.Factories
+namespace _Project.Scripts.Game.Features.Weapon.Services.Factories
 {
   public interface IWeaponFactory
   {

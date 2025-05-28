@@ -1,4 +1,4 @@
-﻿using _Project.Scripts.Game.Entities.Unit;
+﻿using _Project.Scripts.Game.Entities.Enemy;
 using _Project.Scripts.Infrastructure.Systems.Components;
 using R3;
 using UnityEngine;

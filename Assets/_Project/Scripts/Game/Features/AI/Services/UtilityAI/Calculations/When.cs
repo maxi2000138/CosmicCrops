@@ -1,14 +1,13 @@
 ﻿using System.Linq;
 using _Project.Scripts.Game.Entities._Interfaces;
-using _Project.Scripts.Game.Entities.Unit.Actions;
-using _Project.Scripts.Game.Entities.Unit.Components;
-using _Project.Scripts.Game.Entities.Unit.StateMachine.States;
+using _Project.Scripts.Game.Entities.Enemy.Actions;
+using _Project.Scripts.Game.Entities.Enemy.Components;
+using _Project.Scripts.Game.Entities.Enemy.StateMachine.States;
 using _Project.Scripts.Game.Features.Abilities._Configs.Data;
 using _Project.Scripts.Game.Features.Abilities.Services;
-using _Project.Scripts.Game.Features.AI.Services.UtilityAI;
 using UnityEngine;
 
-namespace _Project.Scripts.Game.Features.AI.UtilityAI.Calculations
+namespace _Project.Scripts.Game.Features.AI.Services.UtilityAI.Calculations
 {
   public class When
   {

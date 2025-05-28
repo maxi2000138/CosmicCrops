@@ -1,12 +1,11 @@
-﻿using _Project.Scripts.Game.Entities.Unit.Components;
+﻿using _Project.Scripts.Game.Entities.Enemy.Components;
 using _Project.Scripts.Game.Features.Level.Model;
 using _Project.Scripts.Game.Infrastructure.StateMachine;
-using _Project.Scripts.Infrastructure.Systems.Components;
 using _Project.Scripts.Utils.Extensions;
 using DG.Tweening;
 using VContainer;
 
-namespace _Project.Scripts.Game.Entities.Unit.StateMachine.States
+namespace _Project.Scripts.Game.Entities.Enemy.StateMachine.States
 {
     public sealed class EnemyStateDeath : UnitState, IUnitState
     {

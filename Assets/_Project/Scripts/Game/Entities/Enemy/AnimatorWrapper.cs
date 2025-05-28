@@ -3,7 +3,7 @@ using _Project.Scripts.Utils.Animations;
 using Sirenix.OdinInspector;
 using UnityEngine;
 
-namespace _Project.Scripts.Game.Entities.Unit
+namespace _Project.Scripts.Game.Entities.Enemy
 {
   public class AnimatorWrapper : SerializedMonoBehaviour
   {

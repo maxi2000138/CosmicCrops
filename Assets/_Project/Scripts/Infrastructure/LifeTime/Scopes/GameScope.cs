@@ -1,14 +1,13 @@
 ﻿using _Project.Scripts.Game._Editor;
 using _Project.Scripts.Game.Features.Abilities.Services;
+using _Project.Scripts.Game.Features.AI.Services;
 using _Project.Scripts.Game.Features.AI.Services.AIReporter;
 using _Project.Scripts.Game.Features.AI.Services.UtilityAI;
 using _Project.Scripts.Game.Features.AI.Services.UtilityAI.Calculations;
-using _Project.Scripts.Game.Features.AI.UtilityAI;
 using _Project.Scripts.Game.Features.Collector.Factory;
 using _Project.Scripts.Game.Features.Inventory;
 using _Project.Scripts.Game.Features.Level.Model;
-using _Project.Scripts.Game.Features.UtilityAI;
-using _Project.Scripts.Game.Features.Weapon.Factories;
+using _Project.Scripts.Game.Features.Weapon.Services.Factories;
 using _Project.Scripts.Game.Infrastructure.Systems;
 using _Project.Scripts.Infrastructure.Factories.Game;
 using _Project.Scripts.Infrastructure.Factories.StateMachine;

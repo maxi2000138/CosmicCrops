@@ -2,6 +2,7 @@
 using _Project.Scripts.Game.Entities._Interfaces;
 using _Project.Scripts.Game.Features.Collector.Components;
 using _Project.Scripts.Game.Features.Weapon.Componets;
+using _Project.Scripts.Game.UI.Radar.Components;
 using _Project.Scripts.Infrastructure.Systems.Components;
 using UnityEngine;
 

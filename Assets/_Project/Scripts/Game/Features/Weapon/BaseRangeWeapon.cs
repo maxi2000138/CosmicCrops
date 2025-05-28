@@ -1,7 +1,7 @@
 ﻿using _Project.Scripts.Game.Entities._Interfaces;
 using _Project.Scripts.Game.Features.Weapon._Configs.Data;
 using _Project.Scripts.Game.Features.Weapon.Componets;
-using _Project.Scripts.Game.Features.Weapon.Factories;
+using _Project.Scripts.Game.Features.Weapon.Services.Factories;
 using Cysharp.Threading.Tasks;
 using UnityEngine;
 

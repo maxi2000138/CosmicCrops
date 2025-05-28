@@ -1,9 +1,9 @@
-﻿using _Project.Scripts.Game.Entities.Unit.Components;
+﻿using _Project.Scripts.Game.Entities.Enemy.Components;
 using _Project.Scripts.Game.Infrastructure.StateMachine;
 using _Project.Scripts.Infrastructure.Time;
 using VContainer;
 
-namespace _Project.Scripts.Game.Entities.Unit.StateMachine.States
+namespace _Project.Scripts.Game.Entities.Enemy.StateMachine.States
 {
     public sealed class EnemyStateIdle : UnitState, IUnitState
     {

@@ -1,8 +1,8 @@
 ﻿using _Project.Scripts.Game.Entities._Interfaces;
 using _Project.Scripts.Game.Entities.Character._Configs;
 using _Project.Scripts.Game.Entities.Character.Components;
-using _Project.Scripts.Game.Entities.Unit._Configs;
-using _Project.Scripts.Game.Entities.Unit.Components;
+using _Project.Scripts.Game.Entities.Enemy._Configs;
+using _Project.Scripts.Game.Entities.Enemy.Components;
 using _Project.Scripts.Game.Features.Abilities.Components;
 using _Project.Scripts.Game.Features.Level._Configs;
 using _Project.Scripts.Game.Features.Level.Components;

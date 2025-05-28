@@ -1,7 +1,7 @@
 ﻿using _Project.Scripts.Game.Entities._Systems;
 using _Project.Scripts.Game.Entities._Systems.UI;
 using _Project.Scripts.Game.Entities.Character.Systems;
-using _Project.Scripts.Game.Entities.Unit.Systems;
+using _Project.Scripts.Game.Entities.Enemy.Systems;
 using _Project.Scripts.Game.Features.Abilities.Systems;
 using _Project.Scripts.Game.Features.AI.Systems;
 using _Project.Scripts.Game.Features.Collector.Systems;
@@ -11,6 +11,7 @@ using _Project.Scripts.Game.Features.Loot.Systems;
 using _Project.Scripts.Game.Features.Weapon.Systems;
 using _Project.Scripts.Game.UI.Haptic.Systems;
 using _Project.Scripts.Game.UI.PointerArrow.Systems;
+using _Project.Scripts.Game.UI.Radar.Systems;
 using _Project.Scripts.Infrastructure.Systems;
 using JetBrains.Annotations;
 

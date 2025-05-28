@@ -15,7 +15,7 @@ using UnityEngine;
 using VContainer;
 using Object = UnityEngine.Object;
 
-namespace _Project.Scripts.Game.Features.Weapon.Factories
+namespace _Project.Scripts.Game.Features.Weapon.Services.Factories
 {
   public class WeaponFactory : IWeaponFactory
   {

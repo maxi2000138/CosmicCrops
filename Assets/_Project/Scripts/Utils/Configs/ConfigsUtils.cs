@@ -1,5 +1,5 @@
 ﻿using System.Collections.Generic;
-using _Project.Scripts.Game.Entities.Unit._Configs;
+using _Project.Scripts.Game.Entities.Enemy._Configs;
 using _Project.Scripts.Utils.Parse;
 using UnityEngine;
 using UnityEngine.AddressableAssets;

@@ -1,11 +1,9 @@
 ﻿using _Project.Scripts.Game.Entities.Character._Configs;
-using _Project.Scripts.Game.Entities.Character.Components;
-using _Project.Scripts.Game.Entities.Unit._Configs;
-using _Project.Scripts.Game.Entities.Unit.Components;
+using _Project.Scripts.Game.Entities.Enemy._Configs;
+using _Project.Scripts.Game.Entities.Enemy.Components;
 using _Project.Scripts.Game.Features.Weapon._Configs;
-using _Project.Scripts.Game.Features.Weapon._Configs.Data;
 using _Project.Scripts.Game.Features.Weapon.Componets;
-using _Project.Scripts.Game.Features.Weapon.Factories;
+using _Project.Scripts.Game.Features.Weapon.Services.Factories;
 using _Project.Scripts.Infrastructure.Factories.Game;
 using _Project.Scripts.Infrastructure.Factories.StateMachine;
 using _Project.Scripts.Infrastructure.StaticData;
@@ -15,7 +13,7 @@ using Cysharp.Threading.Tasks;
 using UnityEngine;
 using VContainer;
 
-namespace _Project.Scripts.Game.Entities.Unit.Systems
+namespace _Project.Scripts.Game.Entities.Enemy.Systems
 {
   public class EnemySpawnerSystem : SystemComponent<EnemySpawnerComponent>
   {

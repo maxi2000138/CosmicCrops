@@ -1,4 +1,4 @@
-namespace _Project.Scripts.Game.Features.AI.UtilityAI
+namespace _Project.Scripts.Game.Features.AI.Services.UtilityAI
 {
   public class ScoreFactor
   {

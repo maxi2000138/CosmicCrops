@@ -1,5 +1,5 @@
 ﻿using System;
-using _Project.Scripts.Game.Entities.Unit.Components;
+using _Project.Scripts.Game.Entities.Enemy.Components;
 using _Project.Scripts.Game.Features.AI.Services.UtilityAI;
 
 namespace _Project.Scripts.Utils.UtilityAI

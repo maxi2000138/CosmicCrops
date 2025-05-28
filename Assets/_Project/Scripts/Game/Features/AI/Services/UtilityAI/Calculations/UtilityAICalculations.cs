@@ -1,5 +1,4 @@
 ﻿using _Project.Scripts.Game.Features.Abilities.Services;
-using _Project.Scripts.Game.Features.AI.UtilityAI.Calculations;
 
 namespace _Project.Scripts.Game.Features.AI.Services.UtilityAI.Calculations
 {

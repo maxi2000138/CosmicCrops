@@ -1,6 +1,6 @@
 ﻿using System;
 using _Project.Scripts.Game.Entities.Character._Configs;
-using _Project.Scripts.Game.Entities.Unit._Configs;
+using _Project.Scripts.Game.Entities.Enemy._Configs;
 using _Project.Scripts.Game.Features.Abilities._Configs;
 using _Project.Scripts.Game.Features.Collector._Configs;
 using _Project.Scripts.Game.Features.Level._Configs;

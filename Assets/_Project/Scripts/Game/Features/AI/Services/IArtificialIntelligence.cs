@@ -1,8 +1,7 @@
-﻿using _Project.Scripts.Game.Entities._Interfaces;
-using _Project.Scripts.Game.Entities.Unit.Actions;
-using _Project.Scripts.Game.Entities.Unit.Components;
+﻿using _Project.Scripts.Game.Entities.Enemy.Actions;
+using _Project.Scripts.Game.Entities.Enemy.Components;
 
-namespace _Project.Scripts.Game.Features.UtilityAI
+namespace _Project.Scripts.Game.Features.AI.Services
 {
   public interface IArtificialIntelligence
   {

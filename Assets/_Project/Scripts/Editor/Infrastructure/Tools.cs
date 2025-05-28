@@ -1,7 +1,7 @@
 ﻿using UnityEditor;
 using UnityEngine;
 
-namespace _Project.Scripts.Editor
+namespace _Project.Scripts.Editor.Infrastructure
 {
   public class Tools
   {

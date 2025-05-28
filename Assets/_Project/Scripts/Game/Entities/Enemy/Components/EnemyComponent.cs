@@ -1,12 +1,12 @@
-﻿using _Project.Scripts.Infrastructure.Systems.Components;
-using _Project.Scripts.Game.Entities.Unit._Configs;
-using _Project.Scripts.Game.Entities._Components;
+﻿using _Project.Scripts.Game.Entities._Components;
 using _Project.Scripts.Game.Entities._Interfaces;
+using _Project.Scripts.Game.Entities.Enemy._Configs;
 using _Project.Scripts.Game.Features.Weapon.Componets;
+using _Project.Scripts.Infrastructure.Systems.Components;
 using UnityEngine;
 using UnityEngine.Serialization;
 
-namespace _Project.Scripts.Game.Entities.Unit.Components
+namespace _Project.Scripts.Game.Entities.Enemy.Components
 {
   public class EnemyComponent : MonoComponent<EnemyComponent>, IEnemy
   {

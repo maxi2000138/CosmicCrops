@@ -4,7 +4,7 @@ using _Project.Scripts.Utils.Configs;
 using Sirenix.OdinInspector;
 using UnityEngine;
 
-namespace _Project.Scripts.Game.Entities.Unit.Components
+namespace _Project.Scripts.Game.Entities.Enemy.Components
 {
   public class EnemySpawnerComponent : MonoComponent<EnemySpawnerComponent>
   { 

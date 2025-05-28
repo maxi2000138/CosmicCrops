@@ -1,12 +1,10 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using _Project.Scripts.Game.Entities._Interfaces;
-using _Project.Scripts.Game.Entities.Unit.Actions;
-using _Project.Scripts.Game.Entities.Unit.Components;
+using _Project.Scripts.Game.Entities.Enemy.Actions;
+using _Project.Scripts.Game.Entities.Enemy.Components;
 using _Project.Scripts.Game.Features.AI.Services.AIReporter;
 using _Project.Scripts.Game.Features.AI.Services.UtilityAI.Calculations;
-using _Project.Scripts.Game.Features.AI.UtilityAI;
-using _Project.Scripts.Game.Features.UtilityAI;
 using _Project.Scripts.Utils.Extensions;
 
 namespace _Project.Scripts.Game.Features.AI.Services.UtilityAI

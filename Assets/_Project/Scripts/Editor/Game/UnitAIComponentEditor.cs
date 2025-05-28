@@ -1,12 +1,13 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using _Project.Scripts.Game._Editor;
+using _Project.Scripts.Game.Entities.Enemy.Actions;
+using _Project.Scripts.Game.Entities.Enemy.Components;
+using _Project.Scripts.Game.Features.AI.Services.AIReporter;
 using UnityEditor;
 using UnityEngine;
-using _Project.Scripts.Game.Entities.Unit.Components;
-using _Project.Scripts.Game.Features.AI.Services.AIReporter;
-using _Project.Scripts.Game.Entities.Unit.Actions;
 
-namespace _Project.Scripts.Game._Editor
+namespace _Project.Scripts.Editor.Game
 {
     [CustomEditor(typeof(EnemyAIComponent))]
     public class UnitAIComponentEditor : UnityEditor.Editor

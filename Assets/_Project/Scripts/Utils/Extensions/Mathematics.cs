@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace _Project.Scripts.Utils
+namespace _Project.Scripts.Utils.Extensions
 {
   public static class Mathematics
   {

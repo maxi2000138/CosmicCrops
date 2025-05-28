@@ -1,5 +1,5 @@
 ﻿using System.Collections.Generic;
-using _Project.Scripts.Game.Features.AI.UtilityAI;
+using _Project.Scripts.Game.Features.AI.Services.UtilityAI;
 
 namespace _Project.Scripts.Game.Features.AI.Services.AIReporter
 {

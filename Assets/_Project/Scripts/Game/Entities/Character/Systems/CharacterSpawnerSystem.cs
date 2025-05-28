@@ -6,7 +6,7 @@ using _Project.Scripts.Game.Features.Inventory;
 using _Project.Scripts.Game.Features.Weapon._Configs;
 using _Project.Scripts.Game.Features.Weapon._Configs.Data;
 using _Project.Scripts.Game.Features.Weapon.Componets;
-using _Project.Scripts.Game.Features.Weapon.Factories;
+using _Project.Scripts.Game.Features.Weapon.Services.Factories;
 using _Project.Scripts.Infrastructure.Camera;
 using _Project.Scripts.Infrastructure.Factories.Game;
 using _Project.Scripts.Infrastructure.Factories.StateMachine;

@@ -1,9 +1,8 @@
-﻿using _Project.Scripts.Game.Entities.Unit.Components;
+﻿using _Project.Scripts.Game.Entities.Enemy.Components;
 using _Project.Scripts.Game.Infrastructure.StateMachine;
-using _Project.Scripts.Infrastructure.Systems.Components;
 using _Project.Scripts.Utils.Extensions;
 
-namespace _Project.Scripts.Game.Entities.Unit.StateMachine.States
+namespace _Project.Scripts.Game.Entities.Enemy.StateMachine.States
 {
     public sealed class EnemyStateNone : UnitState, IUnitState
     {

@@ -1,10 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
-using _Project.Scripts.Game.Entities.Unit.Components;
-using _Project.Scripts.Game.Entities.Unit.StateMachine.States;
+using _Project.Scripts.Game.Entities.Enemy.Components;
+using _Project.Scripts.Game.Entities.Enemy.StateMachine.States;
 using _Project.Scripts.Game.Infrastructure.StateMachine;
 
-namespace _Project.Scripts.Game.Entities.Unit.StateMachine
+namespace _Project.Scripts.Game.Entities.Enemy.StateMachine
 {
   public class EnemyStateMachine : UnitStateMachine
   {

@@ -1,8 +1,8 @@
 ﻿using System;
-using _Project.Scripts.Game.Entities.Unit.Actions;
-using _Project.Scripts.Game.Entities.Unit.Components;
-using _Project.Scripts.Game.Entities.Unit.StateMachine.States;
-using _Project.Scripts.Game.Features.UtilityAI;
+using _Project.Scripts.Game.Entities.Enemy.Actions;
+using _Project.Scripts.Game.Entities.Enemy.Components;
+using _Project.Scripts.Game.Entities.Enemy.StateMachine.States;
+using _Project.Scripts.Game.Features.AI.Services;
 using _Project.Scripts.Game.Infrastructure.StateMachine;
 using _Project.Scripts.Infrastructure.Systems;
 using _Project.Scripts.Infrastructure.Time;

@@ -1,6 +1,6 @@
 using _Project.Scripts.Game.Entities._Interfaces;
 using _Project.Scripts.Game.Entities.Character.Components;
-using _Project.Scripts.Game.Entities.Unit.Components;
+using _Project.Scripts.Game.Entities.Enemy.Components;
 using _Project.Scripts.Game.Features.Abilities.Components;
 using _Project.Scripts.Game.Features.Level.Interface;
 using _Project.Scripts.Game.Features.Loot._Configs.Data;

@@ -1,10 +1,9 @@
 ﻿using System.Collections.Generic;
-using _Project.Scripts.Game.Features.Weapon._Configs.Data;
 using _Project.Scripts.Infrastructure.StaticData.Configs;
 using _Project.Scripts.Utils.Parse;
 using JetBrains.Annotations;
 
-namespace _Project.Scripts.Game.Entities.Unit._Configs
+namespace _Project.Scripts.Game.Entities.Enemy._Configs
 {
   [UsedImplicitly(ImplicitUseKindFlags.InstantiatedNoFixedConstructorSignature)]
   public class EnemiesConfig : BaseConfig<string, EnemyData>

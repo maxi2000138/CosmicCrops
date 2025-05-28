@@ -1,7 +1,6 @@
 ﻿using System.Collections.Generic;
 using _Project.Scripts.Game.Entities._Interfaces;
-using _Project.Scripts.Game.Entities.Unit.Actions;
-using _Project.Scripts.Game.Features.AI.UtilityAI;
+using _Project.Scripts.Game.Entities.Enemy.Actions;
 using _Project.Scripts.Game.Features.Level.Model;
 using Sirenix.Utilities;
 

@@ -1,12 +1,10 @@
 using System;
 using System.Collections.Generic;
-using _Project.Scripts.Game.Entities.Unit.Components;
-using _Project.Scripts.Game.Features.AI.Services.UtilityAI;
+using _Project.Scripts.Game.Entities.Enemy.Components;
 using _Project.Scripts.Game.Features.AI.Services.UtilityAI.Calculations;
-using _Project.Scripts.Game.Features.AI.UtilityAI.Calculations;
 using static _Project.Scripts.Utils.UtilityAI.ConditionCombiner;
 
-namespace _Project.Scripts.Game.Features.AI.UtilityAI 
+namespace _Project.Scripts.Game.Features.AI.Services.UtilityAI 
 {
   public class Brains
   {

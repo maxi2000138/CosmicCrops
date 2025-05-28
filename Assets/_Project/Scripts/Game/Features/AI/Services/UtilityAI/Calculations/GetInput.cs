@@ -1,8 +1,7 @@
-using _Project.Scripts.Game.Entities.Unit.Components;
-using _Project.Scripts.Game.Features.AI.Services.UtilityAI;
+using _Project.Scripts.Game.Entities.Enemy.Components;
 using UnityEngine;
 
-namespace _Project.Scripts.Game.Features.AI.UtilityAI.Calculations
+namespace _Project.Scripts.Game.Features.AI.Services.UtilityAI.Calculations
 {
   public class GetInput
   {
