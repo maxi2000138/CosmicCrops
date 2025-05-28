@@ -5,8 +5,7 @@ namespace _Project.Scripts.Game.Features.AI.Services.UtilityAI
 {
   public class BattleAction
   {
-    public ITarget Producer;
-    public ITarget Target;
+    public IUnit Unit;
     public UnitActionType ActionType;
   }
 }

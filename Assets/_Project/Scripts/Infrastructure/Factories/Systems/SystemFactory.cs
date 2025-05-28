@@ -25,10 +25,10 @@ namespace _Project.Scripts.Infrastructure.Factories.Systems
             {
                 new CharacterSpawnerSystem(),
                 new LootSpawnerSystem(),
-                new UnitSpawnerSystem(),
+                new EnemySpawnerSystem(),
                 
-                new UnitAISystem(),
                 new StateMachineUpdateSystem(),
+                new EnemyAISystem(),
                 
                 new JoystickUpdateSystem(),
                 

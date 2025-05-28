@@ -1,21 +1,23 @@
 ﻿using _Project.Scripts.Infrastructure.Systems.Components;
 using _Project.Scripts.Infrastructure.Time;
+using VContainer;
 
 namespace _Project.Scripts.Infrastructure.Systems
 {
   public abstract class TimerSystemComponent<T> : SystemComponent<T> where T : IComponent
   {
-    private readonly ITimeService _time;
-    private readonly float _executeIntervalSeconds;
+    private ITimeService _time;
+    private float _executeIntervalSeconds;
         
     private float _timeToExecute;
 
-    public TimerSystemComponent(float executeIntervalSeconds, ITimeService time)
+    protected void Initialize(float executeIntervalSeconds, ITimeService time)
     {
       _executeIntervalSeconds = executeIntervalSeconds;
       _time = time;
-    }
 
+    }
+    
     protected abstract void OnTimerUpdate();
 
     protected override void OnUpdate()

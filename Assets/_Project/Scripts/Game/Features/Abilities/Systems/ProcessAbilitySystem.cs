@@ -5,6 +5,7 @@ using _Project.Scripts.Game.Features.Abilities.Services;
 using _Project.Scripts.Infrastructure.Logger;
 using _Project.Scripts.Infrastructure.Systems;
 using _Project.Scripts.Utils.Extensions;
+using UnityEngine;
 using VContainer;
 
 namespace _Project.Scripts.Game.Features.Abilities.Systems
@@ -30,27 +31,27 @@ namespace _Project.Scripts.Game.Features.Abilities.Systems
     {
       DebugLogger.Log("Process ability: " + abilityComponent.AbilityName, LogsType.Ability);
 
-      if (abilityComponent.Target != null)
+      if (abilityComponent.Unit != null)
       {
         AbilityStats abilityStats = _abilityStatsProvider.GetAbilityStats(abilityComponent.AbilityName);
         foreach (var effect in abilityStats.EffectSetups)
         {
-          ProcessEffect(effect, abilityComponent.Target);
+          ProcessEffect(effect, abilityComponent.Unit);
         }
       }
       
       abilityComponent.Remove();
     }
     
-    private void ProcessEffect(EffectSetup effect, ITarget target)
+    private void ProcessEffect(EffectSetup effect, IUnit unit)
     {
       switch(effect.EffectTypeId)
       {
         case EffectTypeId.Damage:
-          target.Health.CurrentHealth.Value -= effect.Value;
+          unit.Health.CurrentHealth.Value = Mathf.Max(0, unit.Health.CurrentHealth.Value - effect.Value);
           break;
         case EffectTypeId.Heal:
-          target.Health.CurrentHealth.Value += effect.Value;
+          unit.Health.CurrentHealth.Value = Mathf.Min(unit.Health.MaxHealth, unit.Health.CurrentHealth.Value + effect.Value);
           break;
       }
     }

@@ -4,7 +4,6 @@ using _Project.Scripts.Game.Features.Collector.Components;
 using _Project.Scripts.Game.Features.Weapon.Componets;
 using _Project.Scripts.Infrastructure.Systems.Components;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 namespace _Project.Scripts.Game.Entities.Character.Components
 {
@@ -19,6 +18,8 @@ namespace _Project.Scripts.Game.Entities.Character.Components
     [SerializeField] private RadarComponent _radarComponent;
 
 
+    public IUnit Target { get; private set; }
+    public float Height { get; private set; }
     public UnitAnimatorComponent UnitAnimator => _unitAnimator;
     public CharacterControllerComponent CharacterController => _characterController;
     public CollectorComponent Collector => _collector;
@@ -30,12 +31,9 @@ namespace _Project.Scripts.Game.Entities.Character.Components
     public Vector3 Position => transform.position;
     public Vector3 Forward => transform.forward;
 
-    public float Height { get; private set; }
 
-    public void SetHeight(float height)
-    {
-      Height = height;
-    }
+    public void SetHeight(float height) { Height = height; }
+    public void SetTarget(IUnit unit) { Target = unit; }
 
     public override string ToString() => "Character";
   }

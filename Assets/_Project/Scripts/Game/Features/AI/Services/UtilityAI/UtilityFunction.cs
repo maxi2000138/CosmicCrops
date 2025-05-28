@@ -7,14 +7,14 @@ namespace _Project.Scripts.Game.Features.AI.UtilityAI
 {
   public class UtilityFunction : IUtilityFunction
   {
-    private readonly Func<BattleAction, UnitComponent, bool> _appliesTo;
-    private readonly Func<BattleAction, UnitComponent, float> _getInput;
-    private readonly Func<float, UnitComponent, float> _score;
+    private readonly Func<BattleAction, EnemyComponent, bool> _appliesTo;
+    private readonly Func<BattleAction, EnemyComponent, float> _getInput;
+    private readonly Func<float, EnemyComponent, float> _score;
 
     public string Name { get; }
     
-    public UtilityFunction(Func<BattleAction, UnitComponent, bool> appliesTo, Func<BattleAction, UnitComponent, float> getInput,
-      Func<float, UnitComponent, float> score,
+    public UtilityFunction(Func<BattleAction, EnemyComponent, bool> appliesTo, Func<BattleAction, EnemyComponent, float> getInput,
+      Func<float, EnemyComponent, float> score,
       string name)
     {
       _appliesTo = appliesTo;
@@ -23,8 +23,8 @@ namespace _Project.Scripts.Game.Features.AI.UtilityAI
       Name = name;
     }
     
-    public bool AppliesTo(BattleAction battleAction, UnitComponent unit) => _appliesTo(battleAction, unit);
-    public float GetInput(BattleAction battleAction, UnitComponent unit) => _getInput(battleAction, unit);
-    public float Score(float input, UnitComponent unit) => _score(input, unit);
+    public bool AppliesTo(BattleAction battleAction, EnemyComponent enemy) => _appliesTo(battleAction, enemy);
+    public float GetInput(BattleAction battleAction, EnemyComponent enemy) => _getInput(battleAction, enemy);
+    public float Score(float input, EnemyComponent enemy) => _score(input, enemy);
   }
 }

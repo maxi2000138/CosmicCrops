@@ -30,10 +30,10 @@ namespace _Project.Scripts.Infrastructure.Factories.Game
     private readonly CharacterConfig _characterConfig;
     private readonly IProgressService _progressService;
     private readonly LootConfig _lootConfig;
-    private readonly UnitsConfig _unitsConfig;
+    private readonly EnemiesConfig _enemiesConfig;
 
     public GameFactory(IAssetProvider assetProvider, LevelModel levelModel, LevelConfig levelConfig, 
-      CharacterConfig characterConfig, IProgressService progressService, LootConfig lootConfig, UnitsConfig unitsConfig)
+      CharacterConfig characterConfig, IProgressService progressService, LootConfig lootConfig, EnemiesConfig enemiesConfig)
     {
       _assetProvider = assetProvider;
       _levelModel = levelModel;
@@ -41,7 +41,7 @@ namespace _Project.Scripts.Infrastructure.Factories.Game
       _characterConfig = characterConfig;
       _progressService = progressService;
       _lootConfig = lootConfig;
-      _unitsConfig = unitsConfig;
+      _enemiesConfig = enemiesConfig;
     }
     
     async UniTask<ILevel> IGameFactory.CreateLevel()
@@ -66,12 +66,12 @@ namespace _Project.Scripts.Infrastructure.Factories.Game
       return character;
     }
     
-    async UniTask<UnitComponent> IGameFactory.CreateUnit(string unitName, Vector3 position, Transform parent)
+    async UniTask<EnemyComponent> IGameFactory.CreateUnit(string unitName, Vector3 position, Transform parent)
     {
-      GameObject prefab = await _assetProvider.LoadFromAddressable<GameObject>(_unitsConfig.Data[unitName].PrefabName);
-      UnitComponent unit = UnityObjectFactory.Instantiate(prefab, position, Quaternion.identity, parent).GetComponent<UnitComponent>();
-      _levelModel.AddEnemy(unit);
-      return unit;
+      GameObject prefab = await _assetProvider.LoadFromAddressable<GameObject>(_enemiesConfig.Data[unitName].PrefabName);
+      EnemyComponent enemy = UnityObjectFactory.Instantiate(prefab, position, Quaternion.identity, parent).GetComponent<EnemyComponent>();
+      _levelModel.AddEnemy(enemy);
+      return enemy;
     }
 
 
@@ -83,10 +83,10 @@ namespace _Project.Scripts.Infrastructure.Factories.Game
       return loot;
     }
     
-    AbilityComponent IGameFactory.CreateAbility(string abilityName, ITarget target)
+    AbilityComponent IGameFactory.CreateAbility(string abilityName, IUnit unit)
     {
       AbilityComponent abilityComponent = new AbilityComponent();
-      abilityComponent.Setup(abilityName, target);
+      abilityComponent.Setup(abilityName, unit);
       abilityComponent.Create();
 
       return abilityComponent;

@@ -24,11 +24,11 @@ MonoBehaviour:
     - Name: _logsActive
       Entry: 7
       Data: 0|System.Collections.Generic.Dictionary`2[[_Project.Scripts.Infrastructure.Logger.LogsType,
-        Assembly-CSharp],[System.Boolean, mscorlib]], mscorlib
+        Game],[System.Boolean, mscorlib]], mscorlib
     - Name: comparer
       Entry: 7
       Data: 1|System.Collections.Generic.EnumEqualityComparer`1[[_Project.Scripts.Infrastructure.Logger.LogsType,
-        Assembly-CSharp]], mscorlib
+        Game]], mscorlib
     - Name: 
       Entry: 12
       Data: 0
@@ -40,7 +40,7 @@ MonoBehaviour:
       Data: 
     - Name: 
       Entry: 12
-      Data: 4
+      Data: 8
     - Name: 
       Entry: 7
       Data: 
@@ -49,7 +49,7 @@ MonoBehaviour:
       Data: 0
     - Name: $v
       Entry: 5
-      Data: true
+      Data: false
     - Name: 
       Entry: 8
       Data: 
@@ -83,6 +83,54 @@ MonoBehaviour:
     - Name: $k
       Entry: 3
       Data: 3
+    - Name: $v
+      Entry: 5
+      Data: true
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 3
+      Data: 4
+    - Name: $v
+      Entry: 5
+      Data: true
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 3
+      Data: 5
+    - Name: $v
+      Entry: 5
+      Data: false
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 3
+      Data: 6
+    - Name: $v
+      Entry: 5
+      Data: true
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 3
+      Data: 7
     - Name: $v
       Entry: 5
       Data: true

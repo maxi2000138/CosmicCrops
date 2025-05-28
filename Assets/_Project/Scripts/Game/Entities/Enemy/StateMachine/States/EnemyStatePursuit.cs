@@ -1,0 +1,50 @@
+﻿using _Project.Scripts.Game.Entities.Unit.Components;
+using _Project.Scripts.Game.Features.Level.Model;
+using _Project.Scripts.Game.Infrastructure.StateMachine;
+using _Project.Scripts.Utils;
+using _Project.Scripts.Utils.Constants;
+using UnityEngine;
+using VContainer;
+
+namespace _Project.Scripts.Game.Entities.Unit.StateMachine.States
+{
+    public sealed class EnemyStatePursuit : UnitState, IUnitState
+    {
+        public EnemyStatePursuit(IUnitStateMachine unitStateMachine, EnemyComponent enemy) : base(unitStateMachine, enemy)
+        {
+            
+        }
+        
+        public void Enter()
+        {
+            Enemy.Agent.Agent.speed = Enemy.Stats.PursuitSpeed;
+            Enemy.Animator.OnRun.Execute(1f);
+        }
+
+        public void Exit()
+        {
+            Enemy.Agent.Agent.ResetPath();
+        }
+
+        public void Tick()
+        {
+            if (IsDeath())
+            {
+                EnterState<EnemyStateDeath>();
+                
+                return;
+            }
+
+            if (Enemy.Target == null)
+            {
+                EnterState<EnemyStateIdle>();
+            }
+            else
+            {
+                Enemy.Agent.Agent.SetDestination(Enemy.Target.Position);
+            }
+        }
+
+        private bool IsDeath() => Enemy.Health.IsAlive == false;
+    }
+}

@@ -9,6 +9,7 @@ namespace _Project.Scripts.Game.Infrastructure.StateMachine
         private IUnitState _activeUnitState;
 
         public IReadOnlyDictionary<Type, IUnitState> States { get; protected set; }
+        public IUnitState CurrentState => _activeUnitState;
         
         void IUnitStateMachine.Enter<T>()
         {
@@ -16,8 +17,7 @@ namespace _Project.Scripts.Game.Infrastructure.StateMachine
 
             state.Enter();
             
-            if(this is Entities.Unit.StateMachine.UnitStateMachine)
-                DebugLogger.Log("Enter Unit State: " + state.GetType().Name, LogsType.Character);
+            DebugLogger.Log("Enter Unit State: " + state.GetType().Name, LogsType.Character);
         }
 
         void IUnitStateMachine.Tick() => _activeUnitState?.Tick();

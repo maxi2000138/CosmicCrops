@@ -28,7 +28,7 @@ namespace _Project.Scripts.Game.Features.Weapon.Systems
     private void Move(HomingArmamentComponent homingArmament) => 
       homingArmament.transform.position += Direction(homingArmament) * homingArmament.Armament.Speed * _time.DeltaTime;
     
-    private Vector3 Direction(HomingArmamentComponent armament) => (armament.Target.Position - armament.Armament.Position).normalized;
+    private Vector3 Direction(HomingArmamentComponent armament) => (armament.Unit.Position - armament.Armament.Position).normalized;
   }
 
 

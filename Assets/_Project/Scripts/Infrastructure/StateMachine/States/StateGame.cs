@@ -96,7 +96,7 @@ namespace _Project.Scripts.Infrastructure.StateMachine.States
     private bool CharacterIsDeath() => _levelModel.Character.Health.IsAlive == false;
     private bool AllLootCollected() => _levelModel.Loot.Count == 0;
 
-    private void SetEnemyStateIdle(IEnemy enemy) => enemy.StateMachine.UnitStateMachine.Enter<UnitStateIdle>();
-    private void SetEnemyStateNone(IEnemy enemy) => enemy.StateMachine.UnitStateMachine.Enter<UnitStateNone>();
+    private void SetEnemyStateIdle(IEnemy enemy) => enemy.StateMachine.UnitStateMachine.Enter<EnemyStateIdle>();
+    private void SetEnemyStateNone(IEnemy enemy) => enemy.StateMachine.UnitStateMachine.Enter<EnemyStateNone>();
   }
 }

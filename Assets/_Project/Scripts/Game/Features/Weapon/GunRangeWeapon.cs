@@ -22,7 +22,7 @@ namespace _Project.Scripts.Game.Features.Weapon
       WeaponFactory = weaponFactory;
     }
 
-    protected override async UniTaskVoid CreateBullet(ITarget target = null) 
+    protected override async UniTaskVoid CreateBullet(IUnit unit = null) 
     {
       Vector3 normalized = Weapon.SpawnPoint.forward.normalized;
       Vector3 direction = new Vector3(normalized.x, 0f, normalized.z);

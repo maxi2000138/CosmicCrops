@@ -4,6 +4,7 @@ using _Project.Scripts.Game.Entities._Interfaces;
 using _Project.Scripts.Game.Entities.Unit.Actions;
 using _Project.Scripts.Game.Entities.Unit.Components;
 using _Project.Scripts.Game.Features.AI.Services.AIReporter;
+using _Project.Scripts.Game.Features.AI.Services.UtilityAI.Calculations;
 using _Project.Scripts.Game.Features.AI.UtilityAI;
 using _Project.Scripts.Game.Features.UtilityAI;
 using _Project.Scripts.Utils.Extensions;
@@ -17,58 +18,57 @@ namespace _Project.Scripts.Game.Features.AI.Services.UtilityAI
     private readonly ITargetPicker _targetPicker;
     private readonly IAIReporter _aiReporter;
 
-    public UtilityAI(ITargetPicker targetPicker, IAIReporter aiReporter)
+    public UtilityAI(ITargetPicker targetPicker, IAIReporter aiReporter, UtilityAICalculations utilityAICalculations)
     {
       _targetPicker = targetPicker;
       _aiReporter = aiReporter;
-      _utilityFunctions = new Brains().GetUtilityFunctions();
+      _utilityFunctions = new Brains(utilityAICalculations).GetUtilityFunctions();
     }
     
-    public UnitAction MakeBestDecision(UnitComponent unit)
+    public UnitAction MakeBestDecision(EnemyComponent enemy)
     {
-      List<ScoredAction> choises = GetScoredUnitActions(unit).ToList();
+      List<ScoredAction> choises = GetScoredUnitActions(enemy).ToList();
       
-      _aiReporter.ReportDecisionScores(unit, choises);
+      _aiReporter.ReportDecisionScores(enemy, choises);
 
       return choises.FindMax(x => x.Score);
     }
 
-    private IEnumerable<ScoredAction> GetScoredUnitActions(UnitComponent unit)
+    private IEnumerable<ScoredAction> GetScoredUnitActions(EnemyComponent enemy)
     {
-      foreach (BattleAction battleAction in BattleActions(unit))
+      foreach (BattleAction battleAction in BattleActions(enemy))
       {
-        var score = CalculateScore(battleAction, unit);
+        var score = CalculateScore(battleAction, enemy);
         
         yield return new ScoredAction(battleAction, score);
       }
     }
 
-    private IEnumerable<BattleAction> BattleActions(UnitComponent unit)
+    private IEnumerable<BattleAction> BattleActions(EnemyComponent enemy)
     {
-      foreach (UnitAction action in unit.AI.Actions)
+      foreach (UnitAction action in enemy.AI.Actions)
       {
-        foreach (ITarget target in _targetPicker.AvailableTargetsFor(action, unit))
+        foreach (IUnit target in _targetPicker.AvailableTargetsFor(action, enemy))
         {
           yield return new BattleAction()
           {
-            Producer = unit,
             ActionType = action.ActionType,
-            Target = target, 
+            Unit = target, 
           };
         }
       }
     }
 
-    private float CalculateScore(BattleAction battleAction, UnitComponent unit)
+    private float CalculateScore(BattleAction battleAction, EnemyComponent enemy)
     {
       List<ScoreFactor> scoreFactors = (from utilityFunction in _utilityFunctions
-        where utilityFunction.AppliesTo(battleAction, unit)
-          let input = utilityFunction.GetInput(battleAction, unit) 
-          let score = utilityFunction.Score(input, unit)
+        where utilityFunction.AppliesTo(battleAction, enemy)
+          let input = utilityFunction.GetInput(battleAction, enemy) 
+          let score = utilityFunction.Score(input, enemy)
             
         select new ScoreFactor(utilityFunction.Name, score)).ToList();
       
-      _aiReporter.ReportDecisionDetails(battleAction, unit, scoreFactors);
+      _aiReporter.ReportDecisionDetails(enemy, battleAction, scoreFactors);
 
       return scoreFactors.Sum(x => x.Score);
     }

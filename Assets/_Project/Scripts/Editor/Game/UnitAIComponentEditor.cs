@@ -8,7 +8,7 @@ using _Project.Scripts.Game.Entities.Unit.Actions;
 
 namespace _Project.Scripts.Game._Editor
 {
-    [CustomEditor(typeof(UnitAIComponent))]
+    [CustomEditor(typeof(EnemyAIComponent))]
     public class UnitAIComponentEditor : UnityEditor.Editor
     {
         private DecisionScore _latestScore;
@@ -18,7 +18,7 @@ namespace _Project.Scripts.Game._Editor
 
         private void OnEnable()
         {
-            _targetUnitName = (target as UnitAIComponent)?.GetComponent<UnitComponent>()?.ToString();
+            _targetUnitName = (target as EnemyAIComponent)?.GetComponent<EnemyComponent>()?.ToString();
             
             if (EditorBridge.AiReporter != null)
             {
@@ -92,7 +92,7 @@ namespace _Project.Scripts.Game._Editor
 
         private void DrawActionBlock(ScoredAction choice, bool isBest)
         {
-            string key = GetDetailKey(_latestScore.ProducerName, choice.ActionType.ToString(), choice.Target.ToString());
+            string key = GetDetailKey(_latestScore.ProducerName, choice.ActionType.ToString(), choice.Unit.ToString());
 
             Color originalBg = GUI.backgroundColor;
             GUI.backgroundColor = isBest ? new Color(0.15f, 0.15f, 0.85f) : new Color(0.95f, 0.95f, 0.95f);
@@ -108,7 +108,7 @@ namespace _Project.Scripts.Game._Editor
             GUI.backgroundColor = originalBg;
 
             EditorGUILayout.LabelField($"{choice.ActionType} → {choice.Score:F2}", EditorStyles.boldLabel);
-            EditorGUILayout.LabelField("Target:", choice.Target.ToString());
+            EditorGUILayout.LabelField("Target:", choice.Unit.ToString());
 
             if (_detailsMap.TryGetValue(key, out var details))
             {

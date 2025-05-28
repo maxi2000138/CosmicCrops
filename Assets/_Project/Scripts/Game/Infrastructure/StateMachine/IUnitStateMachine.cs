@@ -2,6 +2,7 @@
 {
     public interface IUnitStateMachine
     {
+        IUnitState CurrentState { get; }
         void Enter<T>() where T : class, IUnitState;
         void Tick();
     }

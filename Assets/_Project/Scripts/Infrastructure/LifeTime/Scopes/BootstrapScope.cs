@@ -78,7 +78,7 @@ namespace _Project.Scripts.Infrastructure.LifeTime.Scopes
       builder.RegisterConfig<UIPrefabsConfig>(Lifetime.Singleton);
       builder.RegisterConfig<ScreensConfig>(Lifetime.Singleton);
       builder.RegisterConfig<WeaponsConfig>(Lifetime.Singleton);
-      builder.RegisterConfig<UnitsConfig>(Lifetime.Singleton);
+      builder.RegisterConfig<EnemiesConfig>(Lifetime.Singleton);
       builder.RegisterConfig<LevelConfig>(Lifetime.Singleton);
       builder.RegisterConfig<LootConfig>(Lifetime.Singleton);
       builder.RegisterConfig<AbilitiesConfig>(Lifetime.Singleton);

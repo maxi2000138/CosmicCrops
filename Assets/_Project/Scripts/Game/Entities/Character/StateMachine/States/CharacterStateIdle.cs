@@ -95,8 +95,7 @@ namespace _Project.Scripts.Game.Entities.Character.StateMachine.States
             return _joystickService.GetAxis().sqrMagnitude > _joystickService.GetDeadZone();
         }
         
-        
-        private float DistanceToTarget(Vector3 target) => (Character.Position - target).sqrMagnitude;
+        private float DistanceToTarget(Vector3 target) => (Character.Position - target).magnitude;
     }
 
 }

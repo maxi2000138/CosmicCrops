@@ -17,18 +17,18 @@ namespace _Project.Scripts.Game.Features.Weapon
       
     }
 
-    public override void Attack(ITarget target = null)
+    public override void Attack(IUnit unit = null)
     {
-      base.Attack(target);
+      base.Attack(unit);
             
-      Shoot(target);
+      Shoot(unit);
     }
 
-    private void Shoot(ITarget target = null)
+    private void Shoot(IUnit unit = null)
     {
-      CreateBullet(target).Forget();
+      CreateBullet(unit).Forget();
     }
 
-    protected async virtual UniTaskVoid CreateBullet(ITarget target = null) { }
+    protected async virtual UniTaskVoid CreateBullet(IUnit unit = null) { }
   }
 }

@@ -87,7 +87,7 @@ namespace _Project.Scripts.Game.Entities.Character.Systems
     
     private void SetRadarRadius(CharacterComponent character)
     {
-      float distance = Mathf.Sqrt(character.WeaponMediator.CurrentWeapon.Weapon.AttackDistance());
+      float distance = character.WeaponMediator.CurrentWeapon.Weapon.AttackDistance();
       character.Radar.SetRadius(distance);
     }
     

@@ -4,10 +4,7 @@ using _Project.Scripts.Game.Entities.Unit.Components;
 using _Project.Scripts.Game.Entities.Unit.StateMachine;
 using _Project.Scripts.Game.Infrastructure.StateMachine;
 using _Project.Scripts.Utils.Extensions;
-using VContainer;
 using VContainer.Unity;
-using IState = _Project.Scripts.Infrastructure.StateMachine.States.Interfaces.IState;
-using UnitStateMachine = _Project.Scripts.Game.Entities.Unit.StateMachine.UnitStateMachine;
 
 namespace _Project.Scripts.Infrastructure.Factories.StateMachine
 {
@@ -27,11 +24,11 @@ namespace _Project.Scripts.Infrastructure.Factories.StateMachine
             return characterStateMachine;
         }
         
-        public IUnitStateMachine CreateUnitStateMachine(UnitComponent unit)
+        public IUnitStateMachine CreateEnemyStateMachine(EnemyComponent enemy)
         {
-            UnitStateMachine unitStateMachine = new UnitStateMachine(unit);
-            unitStateMachine.States.Values.Foreach(_lifetimeScope.Container.Inject);
-            return unitStateMachine;
+            EnemyStateMachine enemyStateMachine = new EnemyStateMachine(enemy);
+            enemyStateMachine.States.Values.Foreach(_lifetimeScope.Container.Inject);
+            return enemyStateMachine;
         }
     }
 }

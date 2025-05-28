@@ -86,7 +86,7 @@ namespace _Project.Scripts.Game.Features.Weapon.Factories
       bullet.SetCollisionMask(data.CollisionMask);
       return bullet;
     }
-    async UniTask<IProjectile> IWeaponFactory.CreateThrowable(string armament, Transform spawnPoint, string ability, float speed, ITarget target)
+    async UniTask<IProjectile> IWeaponFactory.CreateThrowable(string armament, Transform spawnPoint, string ability, float speed, IUnit unit)
     {
       ProjectileData data = _projectilesConfig.Data[armament];
       MonoSpawnableItem prefab = (await _assetProvider.LoadFromAddressable<GameObject>(data.Prefab.Name)).GetComponent<MonoSpawnableItem>();
@@ -94,8 +94,8 @@ namespace _Project.Scripts.Game.Features.Weapon.Factories
       potion.LifeTime = data.LifeTime;
       potion.SetAbility(ability);
       potion.SetSpeed(speed);
-      potion.HomingComponent.SetTarget(target);
-      potion.ThrowableComponent.SetInitialSqrDistance(spawnPoint.position.HorizontalProjectedSqrDistance(target.Position));
+      potion.HomingComponent.SetTarget(unit);
+      potion.ThrowableComponent.SetInitialSqrDistance(spawnPoint.position.HorizontalProjectedSqrDistance(unit.Position));
       potion.SetCollisionSqrDistance(Mathf.Pow(data.CollisionRadius, 2));
       potion.SetCollisionMask(data.CollisionMask);
       return potion;

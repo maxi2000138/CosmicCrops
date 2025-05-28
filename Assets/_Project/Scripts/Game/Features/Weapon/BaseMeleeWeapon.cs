@@ -10,7 +10,7 @@ namespace _Project.Scripts.Game.Features.Weapon
   {
     private readonly IAbilityApplier _abilityApplier;
     
-    private ITarget _target;
+    private IUnit _unit;
 
     protected BaseMeleeWeapon(WeaponComponent weapon, WeaponCharacteristicData weaponCharacteristic, IAbilityApplier abilityApplier) 
       : base(weapon, weaponCharacteristic)
@@ -32,18 +32,18 @@ namespace _Project.Scripts.Game.Features.Weapon
       Weapon.OnHit -= Hit;
     }
 
-    public override void Attack(ITarget target = null)
+    public override void Attack(IUnit unit = null)
     {
-      base.Attack(target);
+      base.Attack(unit);
       
-      _target = target;
+      _unit = unit;
     }
     
     private void Hit()
     {
-      if (_target != null)
+      if (_unit != null)
       {
-        _abilityApplier.Apply(WeaponCharacteristic.Ability, _target);
+        _abilityApplier.Apply(WeaponCharacteristic.Ability, _unit);
       }
     }
   }

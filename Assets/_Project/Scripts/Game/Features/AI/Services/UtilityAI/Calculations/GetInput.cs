@@ -1,15 +1,24 @@
-using _Project.Scripts.Game.Entities._Interfaces;
 using _Project.Scripts.Game.Entities.Unit.Components;
 using _Project.Scripts.Game.Features.AI.Services.UtilityAI;
 using UnityEngine;
 
 namespace _Project.Scripts.Game.Features.AI.UtilityAI.Calculations
 {
-  public static class GetInput
+  public class GetInput
   {
-    public static float DistanceToTarget(BattleAction battleAction, UnitComponent unit)
+    public float TargetPercentageHealth(BattleAction battleAction, EnemyComponent enemy)
     {
-      return Vector3.Distance(unit.Position, battleAction.Producer.Position);
+      return (float)battleAction.Unit.Health.CurrentHealth.CurrentValue / battleAction.Unit.Health.MaxHealth;
+    }
+    
+    public float DistanceToTarget(BattleAction battleAction, EnemyComponent enemy)
+    {
+      return Vector3.Distance(enemy.Position, battleAction.Unit.Position);
+    }
+    
+    public float One(BattleAction battleAction, EnemyComponent enemy)
+    {
+      return 1f;
     }
   }
 }

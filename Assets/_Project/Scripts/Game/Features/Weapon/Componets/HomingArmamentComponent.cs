@@ -9,8 +9,8 @@ namespace _Project.Scripts.Game.Features.Weapon.Componets
     [SerializeField] private ArmamentComponent _armament;
     
     public ArmamentComponent Armament => _armament;
-    public ITarget Target { get; private set; }
+    public IUnit Unit { get; private set; }
 
-    public void SetTarget(ITarget target) => Target = target;
+    public void SetTarget(IUnit unit) => Unit = unit;
   }
 }

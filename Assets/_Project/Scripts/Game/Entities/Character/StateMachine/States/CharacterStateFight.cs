@@ -3,8 +3,6 @@ using _Project.Scripts.Game.Entities.Character.Components;
 using _Project.Scripts.Game.Features.Level.Model;
 using _Project.Scripts.Game.Infrastructure.StateMachine;
 using _Project.Scripts.Infrastructure.Input;
-using _Project.Scripts.Utils;
-using _Project.Scripts.Utils.Constants;
 using UnityEngine;
 using VContainer;
 
@@ -14,7 +12,6 @@ namespace _Project.Scripts.Game.Entities.Character.StateMachine.States
   {
     private IJoystickService _joystickService;
     private LevelModel _levelModel;
-    private ITarget _target;
 
     [Inject]
     private void Construct(IJoystickService joystickService, LevelModel levelModel)
@@ -69,7 +66,7 @@ namespace _Project.Scripts.Game.Entities.Character.StateMachine.States
     private void Attack()
     {
       Character.UnitAnimator.OnAttack.Execute(Character.WeaponMediator.CurrentWeapon.Weapon.AttackInterval());
-      Character.WeaponMediator.CurrentWeapon.Weapon.Attack(_target);
+      Character.WeaponMediator.CurrentWeapon.Weapon.Attack(Character.Target);
     }
     
     private bool HasInput()
@@ -79,7 +76,7 @@ namespace _Project.Scripts.Game.Entities.Character.StateMachine.States
     
     private void LockAtTarget()
     {
-      Quaternion lookRotation = Quaternion.LookRotation(_target.Position - Character.Position);
+      Quaternion lookRotation = Quaternion.LookRotation(Character.Target.Position - Character.Position);
 
       Character.CharacterController.transform.rotation = Quaternion
         .Slerp(Character.CharacterController.transform.rotation, lookRotation, Character.WeaponMediator.CurrentWeapon.Weapon.AimingSpeed());
@@ -136,31 +133,26 @@ namespace _Project.Scripts.Game.Entities.Character.StateMachine.States
       return index;
     }
     
-    private float DistanceToTarget(Vector3 target) => (Character.Position - target).sqrMagnitude;
+    private float DistanceToTarget(Vector3 target) => (Character.Position - target).magnitude;
 
-    private bool HasObstacleOnAttackPath(Vector3 target)
-    {
-      return Physics.Linecast(Character.Position, target, Layers.Wall);
-    }
+
     
     private bool HasFacingTarget()
     {
-      float angle = Vector3.Angle(Character.Forward.normalized, (_target.Position - Character.Position).normalized);
+      float angle = Vector3.Angle(Character.Forward.normalized, (Character.Target.Position - Character.Position).normalized);
 
       return angle < 5f;
     }
     
     private bool CanAttack()
     {
-      return HasFacingTarget() && 
-             Character.WeaponMediator.CurrentWeapon.Weapon.CanAttack() &&
-             HasObstacleOnAttackPath(_target.Position) == false;
+      return HasFacingTarget() && Character.WeaponMediator.CurrentWeapon.Weapon.CanAttack();
     }
 
-    private void SetTarget(ITarget target)
+    private void SetTarget(IUnit unit)
     {
-      _target = target;
-      _levelModel.Target.Value = target;
+      Character.SetTarget(unit);
+      _levelModel.Target.Value = unit;
     }
   }
 

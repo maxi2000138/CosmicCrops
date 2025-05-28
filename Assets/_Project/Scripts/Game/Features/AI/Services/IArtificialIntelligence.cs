@@ -6,6 +6,6 @@ namespace _Project.Scripts.Game.Features.UtilityAI
 {
   public interface IArtificialIntelligence
   {
-    UnitAction MakeBestDecision(UnitComponent unit);
+    UnitAction MakeBestDecision(EnemyComponent enemy);
   }
 }

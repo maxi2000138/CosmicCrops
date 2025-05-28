@@ -4,7 +4,7 @@ namespace _Project.Scripts.Game.Features.Abilities.Factories
 {
   public class AbilityFactory
   {
-    public void CreateAbility(string abilityName, ITarget target)
+    public void CreateAbility(string abilityName, IUnit unit)
     {
       
     }

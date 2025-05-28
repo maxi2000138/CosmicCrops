@@ -6,6 +6,6 @@ namespace _Project.Scripts.Game.Features.AI.Services.UtilityAI
 {
   public interface ITargetPicker
   {
-    IEnumerable<ITarget> AvailableTargetsFor(UnitAction action, ITarget producer);
+    IEnumerable<IUnit> AvailableTargetsFor(UnitAction action, IUnit producer);
   }
 }

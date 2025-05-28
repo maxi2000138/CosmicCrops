@@ -421,6 +421,10 @@ PrefabInstance:
       value: druid_1
       objectReference: {fileID: 0}
     - target: {fileID: -7820134700673006204, guid: 3c7b246f21cd73346bf6d7a754241cfc, type: 3}
+      propertyPath: _enemy
+      value: druid_1
+      objectReference: {fileID: 0}
+    - target: {fileID: -7820134700673006204, guid: 3c7b246f21cd73346bf6d7a754241cfc, type: 3}
       propertyPath: _unitName
       value: Orc
       objectReference: {fileID: 0}
@@ -932,6 +936,10 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -7820134700673006204, guid: 3c7b246f21cd73346bf6d7a754241cfc, type: 3}
       propertyPath: _unit
+      value: barbarian_1
+      objectReference: {fileID: 0}
+    - target: {fileID: -7820134700673006204, guid: 3c7b246f21cd73346bf6d7a754241cfc, type: 3}
+      propertyPath: _enemy
       value: barbarian_1
       objectReference: {fileID: 0}
     - target: {fileID: -7820134700673006204, guid: 3c7b246f21cd73346bf6d7a754241cfc, type: 3}
@@ -1647,6 +1655,10 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -7820134700673006204, guid: 3c7b246f21cd73346bf6d7a754241cfc, type: 3}
       propertyPath: _unit
+      value: barbarian_1
+      objectReference: {fileID: 0}
+    - target: {fileID: -7820134700673006204, guid: 3c7b246f21cd73346bf6d7a754241cfc, type: 3}
+      propertyPath: _enemy
       value: barbarian_1
       objectReference: {fileID: 0}
     - target: {fileID: -7820134700673006204, guid: 3c7b246f21cd73346bf6d7a754241cfc, type: 3}

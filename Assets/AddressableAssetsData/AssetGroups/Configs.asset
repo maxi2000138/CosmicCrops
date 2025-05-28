@@ -52,7 +52,7 @@ MonoBehaviour:
     - remote
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 7da52ce36cd44d468a13785391cbf718
-    m_Address: Units
+    m_Address: Enemies
     m_ReadOnly: 0
     m_SerializedLabels:
     - remote

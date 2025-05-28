@@ -33,14 +33,14 @@ namespace _Project.Scripts.Game.Features.Weapon
     
     public virtual void Initialize()
     {
-      _attackDistance = Mathf.Pow(WeaponCharacteristic.AttackDistance, 2);
+      _attackDistance = WeaponCharacteristic.AttackDistance;
       _attackInterval = WeaponCharacteristic.FireInterval;
             
       ReadyAttack();
       ReloadClip();
     }
 
-    public virtual void Attack(ITarget target = null)
+    public virtual void Attack(IUnit unit = null)
     {
       NotReadyAttack();
       ReduceClip();
@@ -57,6 +57,7 @@ namespace _Project.Scripts.Game.Features.Weapon
     float IWeapon.AttackInterval() => _attackInterval;
     float IWeapon.DetectionDistance() => WeaponCharacteristic.DetectionDistance;
     float IWeapon.AimingSpeed() => WeaponCharacteristic.Aiming;
+    string IWeapon.Ability() => WeaponCharacteristic.Ability;
     
     void IWeapon.Execute()
     {

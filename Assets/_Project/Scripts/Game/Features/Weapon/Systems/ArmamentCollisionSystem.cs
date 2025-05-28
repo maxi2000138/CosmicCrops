@@ -60,9 +60,9 @@ namespace _Project.Scripts.Game.Features.Weapon.Systems
     }
 
     private void 
-      Collision(ArmamentComponent bullet, ITarget target)
+      Collision(ArmamentComponent bullet, IUnit unit)
     {
-      _abilityApplier.Apply(bullet.Ability, target);
+      _abilityApplier.Apply(bullet.Ability, unit);
       bullet.OnDestroy.Execute(Unit.Default);
     }
   }

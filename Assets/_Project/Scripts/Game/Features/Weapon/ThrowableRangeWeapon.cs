@@ -21,9 +21,9 @@ namespace _Project.Scripts.Game.Features.Weapon
       WeaponFactory = weaponFactory;
     }
 
-    protected override async UniTaskVoid CreateBullet(ITarget target = null) 
+    protected override async UniTaskVoid CreateBullet(IUnit unit = null) 
     {
-      await WeaponFactory.CreateThrowable(WeaponCharacteristic.Armament, Weapon.SpawnPoint, WeaponCharacteristic.Ability, WeaponCharacteristic.ForceBullet, target);
+      await WeaponFactory.CreateThrowable(WeaponCharacteristic.Armament, Weapon.SpawnPoint, WeaponCharacteristic.Ability, WeaponCharacteristic.ForceBullet, unit);
     }
   }
 }

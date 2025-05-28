@@ -8,8 +8,8 @@ namespace _Project.Scripts.Game.Features.AI.UtilityAI
   public interface IUtilityFunction
   {
     string Name { get; }
-    float GetInput(BattleAction battleAction, UnitComponent unit);
-    float Score(float score, UnitComponent unit);
-    bool AppliesTo(BattleAction battleAction, UnitComponent unit);
+    float GetInput(BattleAction battleAction, EnemyComponent enemy);
+    float Score(float score, EnemyComponent enemy);
+    bool AppliesTo(BattleAction battleAction, EnemyComponent enemy);
   }
 }

@@ -16,9 +16,9 @@ namespace _Project.Scripts.Game.Features.AI.Services.UtilityAI
       _levelModel = levelModel;
     }
 
-    public IEnumerable<ITarget> AvailableTargetsFor(UnitAction action, ITarget producer)
+    public IEnumerable<IUnit> AvailableTargetsFor(UnitAction action, IUnit producer)
     {
-      ISet<ITarget> targets = new HashSet<ITarget>();
+      ISet<IUnit> targets = new HashSet<IUnit>();
       
       void AddEnemies() => _levelModel.Enemies.ForEach(x => targets.Add(x));
       void AddCharacter() => targets.Add(_levelModel.Character);

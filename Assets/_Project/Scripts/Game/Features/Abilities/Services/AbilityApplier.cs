@@ -4,7 +4,6 @@ using _Project.Scripts.Infrastructure.Logger;
 
 namespace _Project.Scripts.Game.Features.Abilities.Services
 {
-
   public class AbilityApplier : IAbilityApplier
   {
     private readonly IGameFactory _gameFactory;
@@ -14,9 +13,9 @@ namespace _Project.Scripts.Game.Features.Abilities.Services
       _gameFactory = gameFactory;
     }
     
-    public void Apply(string abilityId, ITarget target)
+    public void Apply(string abilityId, IUnit unit)
     {
-      _gameFactory.CreateAbility(abilityId, target);
+      _gameFactory.CreateAbility(abilityId, unit);
 
       DebugLogger.Log("Apply ability: " + abilityId, LogsType.Ability);
     }

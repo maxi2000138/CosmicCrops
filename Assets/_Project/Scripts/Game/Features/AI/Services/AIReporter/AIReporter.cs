@@ -14,12 +14,12 @@ namespace _Project.Scripts.Game.Features.AI.Services.AIReporter
     public event Action<DecisionDetails> DecisionDetailsReported;
     public event Action<DecisionScore> DecisionScoreReported;
 
-    public void ReportDecisionDetails(ITarget unit, BattleAction battleAction, List<ScoreFactor> scoreFactors)
+    public void ReportDecisionDetails(IUnit unit, BattleAction battleAction, List<ScoreFactor> scoreFactors)
     {
       DecisionDetails decisionDetails = new DecisionDetails
       {
         ProducerName = $"{ unit }",
-        TargetName = $"{ battleAction.Target }",
+        TargetName = $"{ battleAction.Unit }",
         ActionName = $"{ battleAction.ActionType }",
         
         Scores = scoreFactors,
@@ -32,7 +32,7 @@ namespace _Project.Scripts.Game.Features.AI.Services.AIReporter
       DecisionDetailsReported?.Invoke(decisionDetails);
     }
 
-    public void ReportDecisionScores(ITarget unit, List<ScoredAction> choices)
+    public void ReportDecisionScores(IUnit unit, List<ScoredAction> choices)
     {
       DecisionScore decisionScore = new DecisionScore
       {

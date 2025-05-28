@@ -6,12 +6,12 @@ namespace _Project.Scripts.Game.Features.Abilities.Components
   public class AbilityComponent : Component<AbilityComponent>
   {
     public string AbilityName;
-    public ITarget Target;
+    public IUnit Unit;
     
-    public void Setup(string abilityName, ITarget target)
+    public void Setup(string abilityName, IUnit unit)
     {
       AbilityName = abilityName;
-      Target = target;
+      Unit = unit;
     }
   }
 }

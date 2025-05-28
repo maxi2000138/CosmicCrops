@@ -8,6 +8,6 @@ namespace _Project.Scripts.Infrastructure.Factories.StateMachine
     public interface IStateMachineFactory
     {
         IUnitStateMachine CreateCharacterStateMachine(CharacterComponent character);
-        IUnitStateMachine CreateUnitStateMachine(UnitComponent unit);
+        IUnitStateMachine CreateEnemyStateMachine(EnemyComponent enemy);
     }
 }

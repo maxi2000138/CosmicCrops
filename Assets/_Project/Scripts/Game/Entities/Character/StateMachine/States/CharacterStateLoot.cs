@@ -117,7 +117,7 @@ namespace _Project.Scripts.Game.Entities.Character.StateMachine.States
       return index;
     }
     
-    private float DistanceToLoot(Vector3 target) => (Character.Position - target).sqrMagnitude;
+    private float DistanceToLoot(Vector3 target) => (Character.Position - target).magnitude;
     
     private void SetLoot(ILoot loot)
     {

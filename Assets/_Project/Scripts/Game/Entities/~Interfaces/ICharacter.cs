@@ -1,6 +1,6 @@
 namespace _Project.Scripts.Game.Entities._Interfaces
 {
-  public interface ICharacter : ITarget, IStateMachineComponent
+  public interface ICharacter : IUnit
   {
     
   }

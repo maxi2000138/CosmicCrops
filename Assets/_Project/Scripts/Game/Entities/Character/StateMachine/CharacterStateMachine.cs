@@ -6,7 +6,7 @@ using _Project.Scripts.Game.Infrastructure.StateMachine;
 
 namespace _Project.Scripts.Game.Entities.Character.StateMachine
 {
-    public sealed class CharacterStateMachine : Infrastructure.StateMachine.UnitStateMachine
+    public sealed class CharacterStateMachine : UnitStateMachine
     {
         public CharacterStateMachine(CharacterComponent character)
         {

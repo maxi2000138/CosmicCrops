@@ -23,6 +23,6 @@ namespace _Project.Scripts.Game.Features.Weapon.Systems
     }
     
     private float CurrentDistance(ThrowableArmamentComponent armament) =>
-      armament.transform.position.HorizontalProjectedSqrDistance(armament.Armament.HomingComponent.Target.Position);
+      armament.transform.position.HorizontalProjectedSqrDistance(armament.Armament.HomingComponent.Unit.Position);
   }
 }

@@ -8,9 +8,9 @@ namespace _Project.Scripts.Utils.Configs
 {
   public static class ConfigsUtils
   {
-    public static IEnumerable<string> GetAllUnitNames()
+    public static IEnumerable<string> GetAllUnemiesNames()
     {
-      UnitsConfig configParser = new UnitsConfig();
+      EnemiesConfig configParser = new EnemiesConfig();
       var textAsset = Addressables.LoadAssetAsync<TextAsset>(configParser.ConfigName).WaitForCompletion();
       
       var data = TsvHelper.ParseTsv(textAsset.text);

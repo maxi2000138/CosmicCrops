@@ -11,6 +11,6 @@ namespace _Project.Scripts.Game.Features.Weapon.Factories
   {
     UniTask<WeaponComponent> CreateWeaponComponent(string armament, Transform parent);
     UniTask<IProjectile> CreateBullet(string armament, Transform spawnPoint, string ability, float speed, Vector3 direction);
-    UniTask<IProjectile> CreateThrowable(string armament, Transform spawnPoint, string ability, float speed, ITarget target);
+    UniTask<IProjectile> CreateThrowable(string armament, Transform spawnPoint, string ability, float speed, IUnit unit);
   }
 }

@@ -5,12 +5,13 @@ namespace _Project.Scripts.Game.Features.Weapon.Interfaces
 {
   public interface IWeapon : IDisposable
   {
-    void Attack(ITarget target = null);
+    void Attack(IUnit unit = null);
     bool CanAttack();
     float AttackDistance();
     float DetectionDistance();
     float AimingSpeed();
     void Execute();
     float AttackInterval();
+    string Ability();
   }
 }

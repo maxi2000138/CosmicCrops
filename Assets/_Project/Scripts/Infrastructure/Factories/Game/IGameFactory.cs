@@ -15,7 +15,7 @@ namespace _Project.Scripts.Infrastructure.Factories.Game
     UniTask<ILevel> CreateLevel();
     UniTask<CharacterComponent> CreateCharacter(Vector3 position, Transform parent);
     UniTask<LootComponent> CreateLoot(LootType lootType, Vector3 position, Transform parent);
-    UniTask<UnitComponent> CreateUnit(string unitName, Vector3 position, Transform parent);
-    AbilityComponent CreateAbility(string abilityName, ITarget target);
+    UniTask<EnemyComponent> CreateUnit(string unitName, Vector3 position, Transform parent);
+    AbilityComponent CreateAbility(string abilityName, IUnit unit);
   }
 }

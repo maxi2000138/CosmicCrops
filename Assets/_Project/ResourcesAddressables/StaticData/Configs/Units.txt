@@ -1,3 +1,0 @@
-unit	prefab_name	weapon	health	patrol_radius	height	scale	walk_speed	pursuit_speed	pursuit_radius	stay_delay
-barbarian_1	Unit_Barbarian	enemy_barbarian_weapon	10	5	3	1	2	1	5	2
-druid_1	Unit_Druid	enemy_druid_weapon	10	5	3	1	2	1	5	2
