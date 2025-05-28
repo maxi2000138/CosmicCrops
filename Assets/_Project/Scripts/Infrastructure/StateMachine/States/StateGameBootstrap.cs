@@ -46,7 +46,6 @@ namespace _Project.Scripts.Infrastructure.StateMachine.States
     private void CleanupWorld()
     {
       _assetProvider.Cleanup();
-      _levelModel.Cleanup();
       _guiService.Cleanup();
       _cameraService.Cleanup();
     }

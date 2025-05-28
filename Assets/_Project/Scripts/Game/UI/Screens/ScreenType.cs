@@ -9,5 +9,6 @@
         Win      = 3,
         Menu     = 4,
         Loose    = 5,
+        Settings = 6,
     }
 }

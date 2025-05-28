@@ -4,3 +4,4 @@ Lobby	LobbyScreen
 Win	WinScreen
 Menu	MenuScreen
 Loose	LooseScreen
+Settings	SettingsScreen

@@ -8,10 +8,13 @@ using _Project.Scripts.Game.Features.Collector.Systems;
 using _Project.Scripts.Game.Features.Input.Systems;
 using _Project.Scripts.Game.Features.Level.Systems;
 using _Project.Scripts.Game.Features.Loot.Systems;
+using _Project.Scripts.Game.Features.Pause.Systems;
 using _Project.Scripts.Game.Features.Weapon.Systems;
 using _Project.Scripts.Game.UI.Haptic.Systems;
 using _Project.Scripts.Game.UI.PointerArrow.Systems;
 using _Project.Scripts.Game.UI.Radar.Systems;
+using _Project.Scripts.Game.UI.Settings.Systems;
+using _Project.Scripts.Game.UI.Settings.Toggle.Systems;
 using _Project.Scripts.Infrastructure.Systems;
 using JetBrains.Annotations;
 
@@ -46,10 +49,13 @@ namespace _Project.Scripts.Infrastructure.Factories.Systems
                 
                 new ProcessAbilitySystem(),
                 
+                new PauseSystem(),
+                
                 //View
                 new AnimatorSystem(),
                 new CollectingViewSystem(),
                 new HapticButtonSystem(),
+                new HapticActiveSystem(),
                 
                 new RadarDrawSystem(),
                 new PointerArrowProviderSystem(),
@@ -58,6 +64,11 @@ namespace _Project.Scripts.Infrastructure.Factories.Systems
                 new CharacterHealthViewUpdateSystem(),
                 new EnemyHealthViewUpdateSystem(),
                 new EnemyHealthProviderSystem(),
+                
+                new SettingsButtonSystem(),
+                new SettingsMediatorSystem(),
+                
+                new ToggleSystem(),
             };
 
             return systems;
