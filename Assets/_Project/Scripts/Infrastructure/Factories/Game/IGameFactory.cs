@@ -1,10 +1,10 @@
-using _Project.Scripts.Game.Entities._Interfaces;
-using _Project.Scripts.Game.Entities.Character.Components;
-using _Project.Scripts.Game.Entities.Enemy.Components;
 using _Project.Scripts.Game.Features.Abilities.Components;
 using _Project.Scripts.Game.Features.Level.Interface;
 using _Project.Scripts.Game.Features.Loot._Configs.Data;
 using _Project.Scripts.Game.Features.Loot.Components;
+using _Project.Scripts.Game.Features.Units._Interfaces;
+using _Project.Scripts.Game.Features.Units.Character.Components;
+using _Project.Scripts.Game.Features.Units.Enemy.Components;
 using Cysharp.Threading.Tasks;
 using UnityEngine;
 

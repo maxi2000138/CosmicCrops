@@ -1,5 +1,5 @@
 ﻿using System.Collections.Generic;
-using _Project.Scripts.Game.Entities.Enemy.Actions;
+using _Project.Scripts.Game.Features.Units.Enemy.Actions;
 
 namespace _Project.Scripts.Game.Features.AI.Services.AIReporter
 {

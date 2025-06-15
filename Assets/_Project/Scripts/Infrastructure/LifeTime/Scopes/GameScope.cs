@@ -1,4 +1,5 @@
 ﻿using _Project.Scripts.Game._Editor;
+using _Project.Scripts.Game.Features;
 using _Project.Scripts.Game.Features.Abilities.Services;
 using _Project.Scripts.Game.Features.AI.Services;
 using _Project.Scripts.Game.Features.AI.Services.AIReporter;
@@ -11,7 +12,6 @@ using _Project.Scripts.Game.Features.Weapon.Services.Factories;
 using _Project.Scripts.Game.Infrastructure.Systems;
 using _Project.Scripts.Infrastructure.Factories.Game;
 using _Project.Scripts.Infrastructure.Factories.StateMachine;
-using _Project.Scripts.Infrastructure.Factories.Systems;
 using _Project.Scripts.Infrastructure.LifeTime.EntryPoints;
 using _Project.Scripts.Infrastructure.StateMachine.States;
 using _Project.Scripts.Infrastructure.StateMachine.States.Interfaces;
@@ -26,8 +26,9 @@ namespace _Project.Scripts.Infrastructure.LifeTime.Scopes
     {
       base.Configure(builder);
 
-      builder.RegisterEntryPoint<SystemsContainer>();
       builder.RegisterEntryPoint<GameEntryPoint>();
+      builder.RegisterEntryPoint<SystemsContainer>();
+      builder.Register<BattleFeature>(Lifetime.Singleton);
       
       builder.Register<LevelModel>(Lifetime.Singleton);
       builder.Register<InventoryModel>(Lifetime.Singleton);
@@ -39,7 +40,6 @@ namespace _Project.Scripts.Infrastructure.LifeTime.Scopes
       builder.Register<IAbilityStatsProvider, AbilityStatsProvider>(Lifetime.Singleton);
       builder.Register<ICollectorFactory, CollectorFactory>(Lifetime.Singleton);
       builder.Register<IAbilityApplier, AbilityApplier>(Lifetime.Singleton);
-      builder.Register<ISystemFactory, SystemFactory>(Lifetime.Singleton);
 
       builder.Register<IGameFactory, GameFactory>(Lifetime.Singleton);
       builder.Register<IWeaponFactory, WeaponFactory>(Lifetime.Singleton);

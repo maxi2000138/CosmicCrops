@@ -1,4 +1,4 @@
-﻿namespace _Project.Scripts.Game.Features.Pause.Interface
+﻿namespace _Project.Scripts.Game.UI.Pause.Interface
 {
   public interface IPause
   {

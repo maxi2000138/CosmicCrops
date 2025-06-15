@@ -9,8 +9,8 @@ namespace _Project.Scripts.Infrastructure.Systems
         
         protected SystemBase() => LifetimeDisposable = new CompositeDisposable();
 
-        void ISystem.EnableSystem() => OnEnableSystem();
-        void ISystem.DisableSystem() => OnDisableSystem();
+        void ISystem.EnableSystems() => OnEnableSystem();
+        void ISystem.DisableSystems() => OnDisableSystem();
         void ISystem.Update() => OnUpdate();
         void ISystem.FixedUpdate() => OnFixedUpdate();
         void ISystem.LateUpdate() => OnLateUpdate();

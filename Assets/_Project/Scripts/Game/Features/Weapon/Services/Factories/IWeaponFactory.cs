@@ -1,5 +1,5 @@
-using _Project.Scripts.Game.Entities._Interfaces;
-using _Project.Scripts.Game.Features.Weapon.Componets;
+using _Project.Scripts.Game.Features.Units._Interfaces;
+using _Project.Scripts.Game.Features.Weapon.Components;
 using _Project.Scripts.Game.Features.Weapon.Interfaces;
 using Cysharp.Threading.Tasks;
 using UnityEngine;

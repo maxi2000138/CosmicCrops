@@ -1,10 +1,10 @@
 ﻿using _Project.Scripts.Game.Features.Level.Model;
-using _Project.Scripts.Game.Features.Pause.Components;
+using _Project.Scripts.Game.UI.Pause.Components;
 using _Project.Scripts.Infrastructure.Systems;
 using R3;
 using VContainer;
 
-namespace _Project.Scripts.Game.Features.Pause.Systems
+namespace _Project.Scripts.Game.UI.Pause.Systems
 {
   public class PauseSystem : SystemComponent<PauseComponent>
   {

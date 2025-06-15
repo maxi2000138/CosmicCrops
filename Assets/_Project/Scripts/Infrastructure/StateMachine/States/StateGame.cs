@@ -1,7 +1,7 @@
-﻿using _Project.Scripts.Game.Entities._Interfaces;
-using _Project.Scripts.Game.Entities.Character.StateMachine.States;
-using _Project.Scripts.Game.Entities.Enemy.StateMachine.States;
-using _Project.Scripts.Game.Features.Level.Model;
+﻿using _Project.Scripts.Game.Features.Level.Model;
+using _Project.Scripts.Game.Features.Units._Interfaces;
+using _Project.Scripts.Game.Features.Units.Character.StateMachine.States;
+using _Project.Scripts.Game.Features.Units.Enemy.StateMachine.States;
 using _Project.Scripts.Game.UI.Screens;
 using _Project.Scripts.Infrastructure.Factories.UI;
 using _Project.Scripts.Infrastructure.Input;

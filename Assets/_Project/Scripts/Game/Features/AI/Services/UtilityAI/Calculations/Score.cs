@@ -1,6 +1,6 @@
 using System;
-using _Project.Scripts.Game.Entities._Interfaces;
-using _Project.Scripts.Game.Entities.Enemy.Components;
+using _Project.Scripts.Game.Features.Units._Interfaces;
+using _Project.Scripts.Game.Features.Units.Enemy.Components;
 using UnityEngine;
 
 namespace _Project.Scripts.Game.Features.AI.Services.UtilityAI.Calculations

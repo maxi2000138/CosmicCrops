@@ -1,12 +1,11 @@
-﻿using _Project.Scripts.Game.UI.Screens;
-using _Project.Scripts.Infrastructure.GUI;
+﻿using _Project.Scripts.Infrastructure.GUI;
 using _Project.Scripts.Utils.Extensions;
 using Cysharp.Threading.Tasks;
 using DG.Tweening;
 using R3;
 using VContainer;
 
-namespace CodeBase.UI.Screens
+namespace _Project.Scripts.Game.UI.Screens
 {
   public sealed class SettingsScreen : BaseScreen
   {

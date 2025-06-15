@@ -1,4 +1,4 @@
-﻿using _Project.Scripts.Game.Entities.Enemy._Presets;
+﻿using _Project.Scripts.Game.Features.Units.Enemy._Presets;
 using _Project.Scripts.Game.Features.Weapon._Configs;
 using _Project.Scripts.Infrastructure.AssetData;
 using _Project.Scripts.Infrastructure.Logger._Configs;

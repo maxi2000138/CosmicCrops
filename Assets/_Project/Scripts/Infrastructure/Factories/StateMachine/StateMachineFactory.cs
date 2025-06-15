@@ -1,7 +1,7 @@
-﻿using _Project.Scripts.Game.Entities.Character.Components;
-using _Project.Scripts.Game.Entities.Character.StateMachine;
-using _Project.Scripts.Game.Entities.Enemy.Components;
-using _Project.Scripts.Game.Entities.Enemy.StateMachine;
+﻿using _Project.Scripts.Game.Features.Units.Character.Components;
+using _Project.Scripts.Game.Features.Units.Character.StateMachine;
+using _Project.Scripts.Game.Features.Units.Enemy.Components;
+using _Project.Scripts.Game.Features.Units.Enemy.StateMachine;
 using _Project.Scripts.Game.Infrastructure.StateMachine;
 using _Project.Scripts.Utils.Extensions;
 using VContainer.Unity;

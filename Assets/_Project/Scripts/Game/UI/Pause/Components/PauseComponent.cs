@@ -1,8 +1,8 @@
 ﻿using System;
-using _Project.Scripts.Game.Features.Pause.Interface;
+using _Project.Scripts.Game.UI.Pause.Interface;
 using _Project.Scripts.Infrastructure.Systems.Components;
 
-namespace _Project.Scripts.Game.Features.Pause.Components
+namespace _Project.Scripts.Game.UI.Pause.Components
 {
   public sealed class PauseComponent : MonoComponent<PauseComponent>
   {

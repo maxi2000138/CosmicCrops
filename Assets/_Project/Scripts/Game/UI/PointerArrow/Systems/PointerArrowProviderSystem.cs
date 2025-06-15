@@ -1,5 +1,5 @@
-﻿using _Project.Scripts.Game.Entities._Interfaces;
-using _Project.Scripts.Game.Features.Level.Model;
+﻿using _Project.Scripts.Game.Features.Level.Model;
+using _Project.Scripts.Game.Features.Units._Interfaces;
 using _Project.Scripts.Game.UI.PointerArrow.Components;
 using _Project.Scripts.Infrastructure.Factories.UI;
 using _Project.Scripts.Infrastructure.Systems;

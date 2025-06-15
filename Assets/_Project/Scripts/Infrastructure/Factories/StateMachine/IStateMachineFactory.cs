@@ -1,5 +1,5 @@
-﻿using _Project.Scripts.Game.Entities.Character.Components;
-using _Project.Scripts.Game.Entities.Enemy.Components;
+﻿using _Project.Scripts.Game.Features.Units.Character.Components;
+using _Project.Scripts.Game.Features.Units.Enemy.Components;
 using _Project.Scripts.Game.Infrastructure.StateMachine;
 using _Project.Scripts.Infrastructure.StateMachine;
 

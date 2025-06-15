@@ -3,7 +3,7 @@ using R3;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-namespace _Project.Scripts.Game.UI.Toggle.Components
+namespace _Project.Scripts.Game.UI.Settings.Toggle.Components
 {
   public sealed class HandleComponent : MonoComponent<HandleComponent>, IDragHandler, IEndDragHandler
   {

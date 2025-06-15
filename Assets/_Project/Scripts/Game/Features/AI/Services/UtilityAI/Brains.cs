@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
-using _Project.Scripts.Game.Entities.Enemy.Components;
 using _Project.Scripts.Game.Features.AI.Services.UtilityAI.Calculations;
+using _Project.Scripts.Game.Features.Units.Enemy.Components;
 using static _Project.Scripts.Utils.UtilityAI.ConditionCombiner;
 
 namespace _Project.Scripts.Game.Features.AI.Services.UtilityAI 

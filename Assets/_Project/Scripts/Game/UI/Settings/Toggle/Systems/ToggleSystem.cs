@@ -1,4 +1,4 @@
-﻿using _Project.Scripts.Game.UI.Toggle.Components;
+﻿using _Project.Scripts.Game.UI.Settings.Toggle.Components;
 using _Project.Scripts.Infrastructure.Systems;
 using DG.Tweening;
 using R3;

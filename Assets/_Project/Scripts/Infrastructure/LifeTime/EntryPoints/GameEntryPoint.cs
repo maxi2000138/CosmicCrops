@@ -1,10 +1,6 @@
-﻿using _Project.Scripts.Infrastructure.Factories.Systems;
-using _Project.Scripts.Infrastructure.LifeTime.EntryPoints.Core;
+﻿using _Project.Scripts.Infrastructure.LifeTime.EntryPoints.Core;
 using _Project.Scripts.Infrastructure.StateMachine;
 using _Project.Scripts.Infrastructure.StateMachine.States;
-using _Project.Scripts.Utils.Extensions;
-using JetBrains.Annotations;
-using VContainer;
 
 namespace _Project.Scripts.Infrastructure.LifeTime.EntryPoints
 {

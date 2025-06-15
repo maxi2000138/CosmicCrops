@@ -1,6 +1,6 @@
 ﻿using System.Threading.Tasks;
-using _Project.Scripts.Game.Entities._Components.UI;
-using _Project.Scripts.Game.Entities._Interfaces;
+using _Project.Scripts.Game.Features.Units._Components.UI;
+using _Project.Scripts.Game.Features.Units._Interfaces;
 using _Project.Scripts.Game.UI._Configs;
 using _Project.Scripts.Game.UI.PointerArrow.Components;
 using _Project.Scripts.Game.UI.Screens;

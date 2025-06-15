@@ -1,4 +1,4 @@
-﻿using _Project.Scripts.Game.Entities._Interfaces;
+﻿using _Project.Scripts.Game.Features.Units._Interfaces;
 using _Project.Scripts.Infrastructure.Systems.Components;
 
 namespace _Project.Scripts.Game.Features.Abilities.Components

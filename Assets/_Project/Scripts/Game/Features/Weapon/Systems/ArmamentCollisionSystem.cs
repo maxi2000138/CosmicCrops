@@ -1,8 +1,8 @@
 ﻿using _Project.Scripts.Game.Common.Data;
-using _Project.Scripts.Game.Entities._Interfaces;
 using _Project.Scripts.Game.Features.Abilities.Services;
 using _Project.Scripts.Game.Features.Level.Model;
-using _Project.Scripts.Game.Features.Weapon.Componets;
+using _Project.Scripts.Game.Features.Units._Interfaces;
+using _Project.Scripts.Game.Features.Weapon.Components;
 using _Project.Scripts.Infrastructure.Systems;
 using _Project.Scripts.Utils.Extensions;
 using R3;

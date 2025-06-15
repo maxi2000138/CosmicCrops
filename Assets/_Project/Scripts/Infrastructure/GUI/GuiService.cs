@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using _Project.Scripts.Game.UI;
+using _Project.Scripts.Game.UI.Canvas;
 using _Project.Scripts.Game.UI.Screens;
 using _Project.Scripts.Infrastructure.Camera;
 using UnityEngine;

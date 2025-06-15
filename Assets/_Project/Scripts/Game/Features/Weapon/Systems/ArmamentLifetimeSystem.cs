@@ -1,4 +1,4 @@
-﻿using _Project.Scripts.Game.Features.Weapon.Componets;
+﻿using _Project.Scripts.Game.Features.Weapon.Components;
 using _Project.Scripts.Infrastructure.Systems;
 using _Project.Scripts.Utils.Extensions;
 using R3;

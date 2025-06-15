@@ -1,6 +1,6 @@
-﻿using _Project.Scripts.Game.Entities._Interfaces;
-using _Project.Scripts.Game.Features.Level.Interface;
+﻿using _Project.Scripts.Game.Features.Level.Interface;
 using _Project.Scripts.Game.Features.Loot.Interface;
+using _Project.Scripts.Game.Features.Units._Interfaces;
 using ObservableCollections;
 using R3;
 

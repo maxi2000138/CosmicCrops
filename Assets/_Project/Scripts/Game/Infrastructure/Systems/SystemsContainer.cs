@@ -1,70 +1,40 @@
 ﻿using System;
-using _Project.Scripts.Infrastructure.Factories.Systems;
-using _Project.Scripts.Infrastructure.Systems;
-using _Project.Scripts.Utils.Extensions;
-using VContainer;
+using _Project.Scripts.Game.Features;
 using VContainer.Unity;
 
 namespace _Project.Scripts.Game.Infrastructure.Systems
 {
   public class SystemsContainer : IInitializable ,ITickable, IFixedTickable, ILateTickable, IDisposable
   {
-    private readonly ISystemFactory _systemFactory;
-    private readonly IObjectResolver _objectResolver;
+    private readonly BattleFeature _battleFeature;
 
-    private ISystem[] _systems = Array.Empty<ISystem>();
-
-    public SystemsContainer(ISystemFactory systemFactory, IObjectResolver objectResolver)
+    public SystemsContainer(BattleFeature battleFeature)
     {
-      _systemFactory = systemFactory;
-      _objectResolver = objectResolver;
+      _battleFeature = battleFeature;
     }
     
     public void Initialize()
     {
-      _systems = _systemFactory.CreateGameSystems();
-      _systems.Foreach(_objectResolver.Inject);
-      
-      _systems.Foreach(Enable);
+      _battleFeature.EnableSystems();
     }
     
     void ITickable.Tick()
-    {
-      for (int i = 0; i < _systems.Length; i++)
-      {
-        _systems[i].Update();
-      }
+    { 
+      _battleFeature.Update();
     }
     void IFixedTickable.FixedTick()
-    {
-      for (int i = 0; i < _systems.Length; i++)
-      {
-        _systems[i].FixedUpdate();
-      }
+    { 
+      _battleFeature.FixedUpdate();
     }
     void ILateTickable.LateTick()
     {
-      for (int i = 0; i < _systems.Length; i++)
-      {
-        _systems[i].LateUpdate();
-      }
+        _battleFeature.LateUpdate();
     }
 
     void IDisposable.Dispose()
     {
-      _systems.Foreach(Disable);
-      _systems = Array.Empty<ISystem>();
-    }
-    
-    private void Enable(ISystem system)
-    {
-      system.EnableSystem();
-    }
-
-    private void Disable(ISystem system)
-    {
-      system.DisableSystem();
-      system.Dispose();
+      _battleFeature.DisableSystems();
+      _battleFeature.Dispose();
     }
   }
 }

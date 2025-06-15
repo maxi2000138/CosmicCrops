@@ -1,9 +1,9 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using _Project.Scripts.Game._Editor;
-using _Project.Scripts.Game.Entities.Enemy.Actions;
-using _Project.Scripts.Game.Entities.Enemy.Components;
 using _Project.Scripts.Game.Features.AI.Services.AIReporter;
+using _Project.Scripts.Game.Features.Units.Enemy.Actions;
+using _Project.Scripts.Game.Features.Units.Enemy.Components;
 using UnityEditor;
 using UnityEngine;
 

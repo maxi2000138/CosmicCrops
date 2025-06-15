@@ -5,7 +5,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-namespace _Project.Scripts.Game.UI.Toggle.Components
+namespace _Project.Scripts.Game.UI.Settings.Toggle.Components
 {
   public sealed class ToggleComponent : MonoComponent<ToggleComponent>, IPointerClickHandler
   {

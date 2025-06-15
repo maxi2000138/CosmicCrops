@@ -1,10 +1,10 @@
 ﻿using System.Linq;
-using _Project.Scripts.Game.Entities._Interfaces;
-using _Project.Scripts.Game.Entities.Enemy.Actions;
-using _Project.Scripts.Game.Entities.Enemy.Components;
-using _Project.Scripts.Game.Entities.Enemy.StateMachine.States;
 using _Project.Scripts.Game.Features.Abilities._Configs.Data;
 using _Project.Scripts.Game.Features.Abilities.Services;
+using _Project.Scripts.Game.Features.Units._Interfaces;
+using _Project.Scripts.Game.Features.Units.Enemy.Actions;
+using _Project.Scripts.Game.Features.Units.Enemy.Components;
+using _Project.Scripts.Game.Features.Units.Enemy.StateMachine.States;
 using UnityEngine;
 
 namespace _Project.Scripts.Game.Features.AI.Services.UtilityAI.Calculations

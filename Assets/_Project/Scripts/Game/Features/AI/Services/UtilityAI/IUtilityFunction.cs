@@ -1,4 +1,4 @@
-using _Project.Scripts.Game.Entities.Enemy.Components;
+using _Project.Scripts.Game.Features.Units.Enemy.Components;
 
 namespace _Project.Scripts.Game.Features.AI.Services.UtilityAI
 {

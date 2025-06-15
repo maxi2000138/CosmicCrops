@@ -1,10 +1,11 @@
 using System;
-using _Project.Scripts.Game.Entities._Interfaces;
 using _Project.Scripts.Game.Features.Abilities.Services;
+using _Project.Scripts.Game.Features.Units._Interfaces;
 using _Project.Scripts.Game.Features.Weapon._Configs;
 using _Project.Scripts.Game.Features.Weapon._Configs.Data;
-using _Project.Scripts.Game.Features.Weapon.Componets;
+using _Project.Scripts.Game.Features.Weapon.Components;
 using _Project.Scripts.Game.Features.Weapon.Interfaces;
+using _Project.Scripts.Game.Features.Weapon.Variations;
 using _Project.Scripts.Infrastructure.AssetData;
 using _Project.Scripts.Infrastructure.Pool;
 using _Project.Scripts.Infrastructure.Pool.Item;
