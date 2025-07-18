@@ -17,13 +17,19 @@ namespace _Project.Scripts.Game.Features.Units.Enemy
     {
       TryInit();
     }
-    
+
+
     public void PlayAnimation(int animationHash, float transitionDuration = 0)
     {
       Animator.CrossFade(animationHash, transitionDuration);
     }
     
-    public void SetSpeed(int animationHash, int animationSpeedHash, float duration)
+    public void SetAnimatorSpeed(float speed)
+    {
+      Animator.speed = speed;
+    }
+
+    public void SetAnimationSpeed(int animationHash, int animationSpeedHash, float duration)
     {
       Animator.SetFloat(animationSpeedHash, _animationDurations[animationHash] / duration);
     }

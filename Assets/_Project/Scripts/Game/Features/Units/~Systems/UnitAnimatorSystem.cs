@@ -29,7 +29,7 @@ namespace _Project.Scripts.Game.Features.Units._Systems
 
       armament.OnAttack
         .Subscribe(interval => {
-          armament.AnimatorWrapper.SetSpeed(Animations.Attack , Animations.AttackSpeed, interval);
+          armament.AnimatorWrapper.SetAnimationSpeed(Animations.Attack , Animations.AttackSpeed, interval);
           armament.AnimatorWrapper.PlayAnimation(Animations.Attack);
         })
         .AddTo(armament.LifetimeDisposable);

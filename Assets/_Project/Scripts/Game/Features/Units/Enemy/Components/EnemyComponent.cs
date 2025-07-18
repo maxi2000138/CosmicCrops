@@ -15,7 +15,6 @@ namespace _Project.Scripts.Game.Features.Units.Enemy.Components
     [SerializeField] private UnitAnimatorComponent animator;
     [SerializeField] private HealthComponent _health;
     [SerializeField] private WeaponMediatorComponent _weaponMediatorComponent;
-    [FormerlySerializedAs("_unitAiComponent")]
     [SerializeField] private EnemyAIComponent enemyAIComponent;
 
     public EnemyData Stats { get; private set; }

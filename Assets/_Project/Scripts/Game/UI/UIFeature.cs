@@ -1,4 +1,5 @@
 ﻿using _Project.Scripts.Game.UI.Haptic.Systems;
+using _Project.Scripts.Game.UI.Pause.Systems;
 using _Project.Scripts.Game.UI.PointerArrow.Systems;
 using _Project.Scripts.Game.UI.Radar.Systems;
 using _Project.Scripts.Game.UI.Settings;
@@ -17,6 +18,8 @@ namespace _Project.Scripts.Game.UI
       Add(new RadarDrawSystem());
       Add(new PointerArrowProviderSystem());
       Add(new PointerArrowUpdateSystem());
+      
+      Add(new PauseSystem());
                 
       Add(new SettingsFeature(objectResolver));
     }

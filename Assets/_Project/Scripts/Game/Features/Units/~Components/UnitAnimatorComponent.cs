@@ -1,11 +1,12 @@
 ﻿using _Project.Scripts.Game.Features.Units.Enemy;
+using _Project.Scripts.Game.UI.Pause.Interface;
 using _Project.Scripts.Infrastructure.Systems.Components;
 using R3;
 using UnityEngine;
 
 namespace _Project.Scripts.Game.Features.Units._Components
 {
-  public sealed class UnitAnimatorComponent : MonoComponent<UnitAnimatorComponent>
+  public sealed class UnitAnimatorComponent : MonoComponent<UnitAnimatorComponent>, IPause
   {
     [SerializeField] private AnimatorWrapper _animatorWrapper;
         
@@ -21,6 +22,10 @@ namespace _Project.Scripts.Game.Features.Units._Components
     public void SetAnimatorController(RuntimeAnimatorController animatorController)
     {
       _animatorWrapper.SetAnimatorController(animatorController);
+    }
+    public void Pause(bool isPause)
+    {
+      _animatorWrapper.SetAnimatorSpeed(isPause ? 0f : 1f);
     }
   }
 }
