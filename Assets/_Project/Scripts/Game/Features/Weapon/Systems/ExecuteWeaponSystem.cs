@@ -4,7 +4,7 @@ using _Project.Scripts.Utils.Extensions;
 
 namespace _Project.Scripts.Game.Features.Weapon.Systems
 {
-  public sealed class ExecuteWeaponAmmunitionSystem : SystemComponent<WeaponComponent>
+  public sealed class ExecuteWeaponSystem : SystemComponent<WeaponComponent>
   {
     protected override void OnUpdate()
     {

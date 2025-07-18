@@ -8,8 +8,11 @@ namespace _Project.Scripts.Game.Features.Weapon
   {
     public WeaponFeature(IObjectResolver objectResolver) : base(objectResolver)
     {
-      Add(new ExecuteWeaponAmmunitionSystem());
-      Add(new ArmamentLifetimeSystem());
+      Add(new DestroyArmamentsByLifetimeSystem());
+      Add(new DestroyHomingArmamentWithoutTargetSystem());
+      Add(new RemoveArmamentOnDestroySystem());
+     
+      Add(new ExecuteWeaponSystem());
       Add(new ArmamentCollisionSystem());
       
       Add(new DirectionArmamentMoveSystem());
