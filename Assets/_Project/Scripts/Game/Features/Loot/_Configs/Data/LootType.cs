@@ -1,9 +1,9 @@
 ﻿namespace _Project.Scripts.Game.Features.Loot._Configs.Data
 {
-  public enum LootType
+  public enum LootType  : byte
   {
-    Unknown = 0,
+    Coin    = 0,
     
-    Coin    = 1,
+    None    = byte.MaxValue
   }
 }

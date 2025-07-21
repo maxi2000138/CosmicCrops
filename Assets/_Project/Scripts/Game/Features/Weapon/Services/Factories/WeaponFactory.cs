@@ -39,9 +39,9 @@ namespace _Project.Scripts.Game.Features.Weapon.Services.Factories
       _objectPoolService = objectPoolService;
     }
   
-    async UniTask<WeaponComponent> IWeaponFactory.CreateWeaponComponent(string armament, Transform parent)
+    async UniTask<WeaponComponent> IWeaponFactory.CreateWeaponComponent(int weaponId, Transform parent)
     {
-      WeaponCharacteristicData data = _weaponsConfig.Data[armament];
+      WeaponCharacteristicData data = _weaponsConfig.Data[weaponId];
       GameObject prefab = await _assetProvider.LoadFromAddressable<GameObject>(data.WeaponPrefab.Name);
       WeaponComponent weapon = Object.Instantiate(prefab, parent.position, parent.rotation).GetComponent<WeaponComponent>();
       weapon.transform.SetParent(parent, true);
@@ -55,10 +55,10 @@ namespace _Project.Scripts.Game.Features.Weapon.Services.Factories
       BaseWeapon currentWeapon;
       switch(weaponCharacteristic.WeaponType)
       {
-        case WeaponType.Knife:
+        case WeaponType.Melee:
           currentWeapon = new MeleeWeapon(weapon, weaponCharacteristic, _abilityApplier);
           break;
-        case WeaponType.Gun:
+        case WeaponType.Ranged:
           currentWeapon = new GunRangeWeapon(weapon, weaponCharacteristic);
           break;
         case WeaponType.Throwable:

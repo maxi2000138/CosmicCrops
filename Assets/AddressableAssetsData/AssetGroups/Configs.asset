@@ -15,6 +15,12 @@ MonoBehaviour:
   m_GroupName: Configs
   m_GUID: 5648a976088f44f4db3ffd82ec27a8cc
   m_SerializeEntries:
+  - m_GUID: 03ebd9646be7a384ea16c894b4a20650
+    m_Address: Skins
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - remote
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 16add2e3a7d047b9ab9c0abe4e93a494
     m_Address: Weapons
     m_ReadOnly: 0

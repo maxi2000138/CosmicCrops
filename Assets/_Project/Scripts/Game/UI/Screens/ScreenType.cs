@@ -2,13 +2,13 @@
 {
     public enum ScreenType
     {
-        Unknown  = 0,
+        Game     = 0,
+        Lobby    = 1,
+        Win      = 2,
+        Menu     = 3,
+        Loose    = 4,
+        Settings = 5,
         
-        Game     = 1,
-        Lobby    = 2,
-        Win      = 3,
-        Menu     = 4,
-        Loose    = 5,
-        Settings = 6,
+        None     = byte.MaxValue
     }
 }

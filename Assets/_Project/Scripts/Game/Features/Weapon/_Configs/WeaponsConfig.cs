@@ -1,4 +1,4 @@
-﻿using System.Collections.Generic;
+﻿  using System.Collections.Generic;
 using _Project.Scripts.Game.Features.Weapon._Configs.Data;
 using _Project.Scripts.Infrastructure.StaticData.Configs;
 using _Project.Scripts.Utils.Parse;
@@ -7,27 +7,28 @@ using JetBrains.Annotations;
 namespace _Project.Scripts.Game.Features.Weapon._Configs
 {
   [UsedImplicitly(ImplicitUseKindFlags.InstantiatedNoFixedConstructorSignature)]
-  public class WeaponsConfig : BaseConfig<string, WeaponCharacteristicData>
+  public class WeaponsConfig : BaseConfig<int, WeaponCharacteristicData>
   {
     public override string ConfigName => "Weapons";
-    protected override string GetKey(WeaponCharacteristicData data) => data.Weapon;
+    protected override int GetKey(WeaponCharacteristicData data) => data.Id;
 
     protected override WeaponCharacteristicData ParseData(List<string> row)
     {
       return new()
       {
-        Weapon = row[0],
-        WeaponType = StringParseUtils.ToEnum<WeaponType>(row[1]),
-        Ability = row[2],
-        WeaponPrefab = StringParseUtils.ToPrefab(row[3]),
-        Armament = row[4],
-        ClipCount = StringParseUtils.ToInt(row[5]),
-        RechargeTime = StringParseUtils.ToFloat(row[6]),
-        FireInterval = StringParseUtils.ToFloat(row[7]),
-        DetectionDistance = StringParseUtils.ToFloat(row[8]),
-        AttackDistance = StringParseUtils.ToFloat(row[9]),
-        Aiming = StringParseUtils.ToFloat(row[10]),
-        ForceBullet = StringParseUtils.ToFloat(row[11]),
+        Id = StringParseUtils.ToInt(row[0]),
+        Weapon = row[1],
+        WeaponType = StringParseUtils.ToEnum<WeaponType>(row[2]),
+        Ability = row[3],
+        WeaponPrefab = StringParseUtils.ToPrefab(row[4]),
+        Armament = row[5],
+        ClipCount = StringParseUtils.ToInt(row[6]),
+        RechargeTime = StringParseUtils.ToFloat(row[7]),
+        FireInterval = StringParseUtils.ToFloat(row[8]),
+        DetectionDistance = StringParseUtils.ToFloat(row[9]),
+        AttackDistance = StringParseUtils.ToFloat(row[10]),
+        Aiming = StringParseUtils.ToFloat(row[11]),
+        ForceBullet = StringParseUtils.ToFloat(row[12]),
       };
     }
   }

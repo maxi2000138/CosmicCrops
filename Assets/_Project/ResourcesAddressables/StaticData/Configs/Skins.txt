@@ -1,0 +1,7 @@
+id	skin	baseHealth	baseSpeed
+0	barbarian	10	3
+1	druid	10	3
+2	engineer	10	3
+3	knight	10	3
+4	mague	10	3
+5	rogue	10	3

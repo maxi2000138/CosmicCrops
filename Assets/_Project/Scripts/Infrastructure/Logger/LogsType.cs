@@ -1,6 +1,6 @@
 ﻿namespace _Project.Scripts.Infrastructure.Logger
 {
-  public enum LogsType
+  public enum LogsType : byte
   {
     Infrastructure  = 0,
     Character       = 1,

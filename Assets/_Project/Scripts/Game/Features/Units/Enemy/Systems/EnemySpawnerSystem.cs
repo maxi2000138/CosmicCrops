@@ -50,7 +50,7 @@ namespace _Project.Scripts.Game.Features.Units.Enemy.Systems
       EnemyData enemyData = _enemiesConfig.Data[spawner.Enemy];
       EnemyComponent enemy = await _gameFactory.CreateUnit(spawner.Enemy, spawner.Position, spawner.transform.parent);
       
-      WeaponComponent weapon = await _weaponFactory.CreateWeaponComponent(enemyData.Weapon, enemy.WeaponMediator.Container);
+      WeaponComponent weapon = await _weaponFactory.CreateWeaponComponent(1, enemy.WeaponMediator.Container);
       enemy.WeaponMediator.SetWeapon(weapon);
       enemy.Animator.SetAnimatorController(AnimatorController());
 
@@ -64,7 +64,7 @@ namespace _Project.Scripts.Game.Features.Units.Enemy.Systems
     }
     
     private RuntimeAnimatorController AnimatorController() =>
-      _staticData.UnitAnimatorsPreset().Controllers[_weaponsConfig.Data[_characterConfig.Weapon].WeaponType];
+      _staticData.UnitAnimatorsPreset().Controllers[_weaponsConfig.Data[1].WeaponType];
 
   }
 }

@@ -11,17 +11,17 @@ namespace _Project.Scripts.Tests.EditMode
     public class ValidationTests
     {
         [TestCaseSource(nameof(GetConfigsTypes))]
-        public async Task FindMissingPrefabsInConfig(Type type)
+        public void FindMissingPrefabsInConfig(Type type)
         {
             var configLoader = new TestsConfigLoader();
             var prefabValidator = new PrefabValidator();
 
-            var prefabs = await configLoader.GetPrefabsFromConfig(type);
+            var prefabs = configLoader.GetPrefabsFromConfig(type);
             var missingPrefabs = new List<string>();
 
             foreach (var prefab in prefabs)
             {
-                if(await prefabValidator.ExistsInAdressables(prefab.Name) == false)
+                if(prefabValidator.ExistsInAdressables(prefab.Name) == false)
                     missingPrefabs.Add(prefab.Name);
             }
 

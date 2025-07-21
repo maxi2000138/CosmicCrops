@@ -3,19 +3,22 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
+using _Project.Scripts.Game._Editor;
 using _Project.Scripts.Infrastructure.StaticData.Configs;
 using _Project.Scripts.Infrastructure.StaticData.Configs.Data;
 using _Project.Scripts.Utils.Parse;
 using Cysharp.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
+using UnityEngine.Rendering.VirtualTexturing;
+
 namespace _Project.Scripts.Tests.EditMode.PrefabsValidation
 {
   public class TestsConfigLoader
   {
-    public async UniTask<List<ConfigPrefab>> GetPrefabsFromConfig(Type configType)
+    public List<ConfigPrefab> GetPrefabsFromConfig(Type configType)
     {
-      var config = await LoadConfig(configType);;
+      var config = LoadConfig(configType);
     
       var dataValues = config is BaseConfigConstants
         ? new[] { config }
@@ -24,24 +27,13 @@ namespace _Project.Scripts.Tests.EditMode.PrefabsValidation
       return GetPrefabNamesFromData(dataValues);
     }
 
-    public async UniTask<IConfigParser> LoadConfig(Type type)
+    public IConfigParser LoadConfig(Type type)
     {
       var parser = (IConfigParser)Activator.CreateInstance(type);
-      return await LoadConfig(parser, parser.ConfigName);
-    }
-
-    public async UniTask<T> LoadConfig<T>(T parser, string name) where T : IConfigParser
-    {
-      var textAsset = await Addressables.LoadAssetAsync<TextAsset>(name).ToUniTask();
-
-      var data = TsvHelper.ParseTsv(textAsset.text);
-      data.RemoveAt(0);
-
-      parser.Parse(data);
-
+      EditorConfigHelper.LoadConfigInEditor(parser);
       return parser;
     }
-
+    
     private IEnumerable GetDataValues(IConfigParser config)
     {
       var dataProperty = config.GetType().GetProperty("Data");

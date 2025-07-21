@@ -1,9 +1,9 @@
 namespace _Project.Scripts.Game.Features.Collector._Configs.Data
 {
-  public enum CollectorType
+  public enum CollectorType : byte
   {
-    Unknown = 0,
+    Default = 0,
     
-    Default = 1,
+    None = byte.MaxValue
   }
 }

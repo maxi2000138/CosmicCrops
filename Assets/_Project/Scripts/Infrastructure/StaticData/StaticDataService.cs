@@ -1,10 +1,10 @@
 ﻿using _Project.Scripts.Game.Features.Units.Enemy._Presets;
-using _Project.Scripts.Game.Features.Weapon._Configs;
 using _Project.Scripts.Infrastructure.AssetData;
 using _Project.Scripts.Infrastructure.Logger._Configs;
+using _Project.Scripts.Menu.Infrastructure._Presets;
 using JetBrains.Annotations;
 using UnityEngine;
-
+    
 namespace _Project.Scripts.Infrastructure.StaticData
 {
     [UsedImplicitly(ImplicitUseKindFlags.InstantiatedNoFixedConstructorSignature)]
@@ -16,10 +16,12 @@ namespace _Project.Scripts.Infrastructure.StaticData
 
         private LoggerPreset _loggerPreset;
         private UnitAnimatorsPreset _unitAnimatorsPreset;
+        private TexturePreset _texturePreset;
 
         LoggerPreset IStaticDataService.LoggerPreset() => _loggerPreset ??= LoadConfig<LoggerPreset>();
         UnitAnimatorsPreset IStaticDataService.UnitAnimatorsPreset() => _unitAnimatorsPreset;
-        
+        TexturePreset IStaticDataService.TexturePreset() => _texturePreset;
+
         public StaticDataService(IAssetProvider assetProvider)
         {
             _assetProvider = assetProvider;
@@ -30,6 +32,7 @@ namespace _Project.Scripts.Infrastructure.StaticData
             _loggerPreset ??= LoadConfig<LoggerPreset>();
             
             _unitAnimatorsPreset = LoadConfig<UnitAnimatorsPreset>();
+            _texturePreset = LoadConfig<TexturePreset>();
         }
         
 

@@ -1,10 +1,10 @@
 ﻿namespace _Project.Scripts.Game.Common.Data
 {
-  public enum CollisionLayer
+  public enum CollisionLayer : byte
   {
-    None = 0,
+    Player = 0,
+    Enemy = 1,
     
-    Player = 1,
-    Enemy = 2,
+    None = byte.MaxValue
   }
 }

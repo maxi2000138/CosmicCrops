@@ -57,7 +57,7 @@ namespace _Project.Scripts.Game.Features.Units.Character.Systems
     {
       var character = await _gameFactory.CreateCharacter(spawner.Position, spawner.transform.parent);
 
-      WeaponComponent weapon = await _weaponFactory.CreateWeaponComponent(_characterConfig.Weapon, character.WeaponMediator.Container);
+      WeaponComponent weapon = await _weaponFactory.CreateWeaponComponent(1, character.WeaponMediator.Container);
       character.WeaponMediator.SetWeapon(weapon);
       character.UnitAnimator.SetAnimatorController(AnimatorController());
       
@@ -90,7 +90,8 @@ namespace _Project.Scripts.Game.Features.Units.Character.Systems
       character.Radar.SetRadius(distance);
     }
     
+    //TODO: Refactor
     private RuntimeAnimatorController AnimatorController() =>
-      _staticData.UnitAnimatorsPreset().Controllers[_weaponsConfig.Data[_characterConfig.Weapon].WeaponType];
+      _staticData.UnitAnimatorsPreset().Controllers[_weaponsConfig.Data[1].WeaponType];
   }
 }

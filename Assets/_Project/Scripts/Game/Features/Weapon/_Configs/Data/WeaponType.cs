@@ -1,11 +1,11 @@
 ﻿namespace _Project.Scripts.Game.Features.Weapon._Configs.Data
 {
-  public enum WeaponType
+  public enum WeaponType : byte
   {
-    Unknown   = 0,
+    Melee        = 0,
+    Throwable    = 1,
+    Ranged       = 2,
     
-    Knife     = 1,
-    Gun       = 2,
-    Throwable = 3,
+    None      = byte.MaxValue
   }
 }
