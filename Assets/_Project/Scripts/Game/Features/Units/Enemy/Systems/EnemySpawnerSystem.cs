@@ -4,6 +4,7 @@ using _Project.Scripts.Game.Features.Units.Enemy.Components;
 using _Project.Scripts.Game.Features.Weapon._Configs;
 using _Project.Scripts.Game.Features.Weapon.Components;
 using _Project.Scripts.Game.Features.Weapon.Services.Factories;
+using _Project.Scripts.Game.Infrastructure.Factory;
 using _Project.Scripts.Infrastructure.Factories.Game;
 using _Project.Scripts.Infrastructure.Factories.StateMachine;
 using _Project.Scripts.Infrastructure.StaticData;

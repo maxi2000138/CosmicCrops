@@ -72,7 +72,7 @@ namespace _Project.Scripts.Game.Features.AI.Services.UtilityAI.Calculations
     {
       return (battleAction.Unit.StateMachine.UnitStateMachine.CurrentState is EnemyStatePursuit  ||
              battleAction.Unit.StateMachine.UnitStateMachine.CurrentState is EnemyStateFight)
-             && (EnemyComponent)battleAction.Unit.Target == enemy
+             && battleAction.Unit.Target as EnemyComponent == enemy
              && IsWeaponHealing(battleAction.Unit);
     }
 

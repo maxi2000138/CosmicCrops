@@ -1,6 +1,7 @@
 ﻿using _Project.Scripts.Game._Editor;
 using _Project.Scripts.Game.Features.AI.Services.AIReporter;
 using _Project.Scripts.Game.Features.Level.Model;
+using _Project.Scripts.Game.Infrastructure.Factory;
 using _Project.Scripts.Infrastructure.AssetData;
 using _Project.Scripts.Infrastructure.Camera;
 using _Project.Scripts.Infrastructure.Factories.Game;

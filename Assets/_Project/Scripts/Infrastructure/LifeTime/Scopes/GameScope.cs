@@ -1,5 +1,4 @@
-﻿using _Project.Scripts.Game._Editor;
-using _Project.Scripts.Game.Features;
+﻿using _Project.Scripts.Game.Features;
 using _Project.Scripts.Game.Features.Abilities.Services;
 using _Project.Scripts.Game.Features.AI.Services;
 using _Project.Scripts.Game.Features.AI.Services.AIReporter;
@@ -9,12 +8,13 @@ using _Project.Scripts.Game.Features.Collector.Factory;
 using _Project.Scripts.Game.Features.Inventory;
 using _Project.Scripts.Game.Features.Level.Model;
 using _Project.Scripts.Game.Features.Weapon.Services.Factories;
+using _Project.Scripts.Game.Infrastructure.Factory;
 using _Project.Scripts.Game.Infrastructure.Systems;
-using _Project.Scripts.Infrastructure.Factories.Game;
 using _Project.Scripts.Infrastructure.Factories.StateMachine;
 using _Project.Scripts.Infrastructure.LifeTime.EntryPoints;
 using _Project.Scripts.Infrastructure.StateMachine.States;
 using _Project.Scripts.Infrastructure.StateMachine.States.Interfaces;
+using _Project.Scripts.Infrastructure.Systems;
 using VContainer;
 using VContainer.Unity;
 
@@ -27,8 +27,8 @@ namespace _Project.Scripts.Infrastructure.LifeTime.Scopes
       base.Configure(builder);
 
       builder.RegisterEntryPoint<GameEntryPoint>();
-      builder.RegisterEntryPoint<SystemsContainer>();
-      builder.Register<BattleFeature>(Lifetime.Singleton);
+      builder.Register<Feature, BattleFeature>(Lifetime.Singleton);
+      builder.Register<SystemsContainer>(Lifetime.Singleton).AsImplementedInterfaces();
       
       builder.Register<LevelModel>(Lifetime.Singleton);
       builder.Register<InventoryModel>(Lifetime.Singleton);

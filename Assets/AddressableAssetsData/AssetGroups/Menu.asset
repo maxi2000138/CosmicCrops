@@ -15,6 +15,12 @@ MonoBehaviour:
   m_GroupName: Menu
   m_GUID: d4c8d98aa0d71824db1b566b1ef7a011
   m_SerializeEntries:
+  - m_GUID: 23c859ff2c3175944b15f201e8e00752
+    m_Address: CharacterPreview
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - remote
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 442db06ab34b2c949b10e10d8ff9e8d9
     m_Address: MenuScreen
     m_ReadOnly: 0

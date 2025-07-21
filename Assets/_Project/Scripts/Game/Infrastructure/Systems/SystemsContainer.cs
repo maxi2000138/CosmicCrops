@@ -1,40 +1,41 @@
 ﻿using System;
 using _Project.Scripts.Game.Features;
+using _Project.Scripts.Infrastructure.Systems;
 using VContainer.Unity;
 
 namespace _Project.Scripts.Game.Infrastructure.Systems
 {
   public class SystemsContainer : IInitializable ,ITickable, IFixedTickable, ILateTickable, IDisposable
   {
-    private readonly BattleFeature _battleFeature;
+    private readonly Feature _feature;
 
-    public SystemsContainer(BattleFeature battleFeature)
+    public SystemsContainer(Feature feature)
     {
-      _battleFeature = battleFeature;
+      _feature = feature;
     }
     
     public void Initialize()
     {
-      _battleFeature.EnableSystems();
+      _feature.EnableSystems();
     }
     
     void ITickable.Tick()
     { 
-      _battleFeature.Update();
+      _feature.Update();
     }
     void IFixedTickable.FixedTick()
     { 
-      _battleFeature.FixedUpdate();
+      _feature.FixedUpdate();
     }
     void ILateTickable.LateTick()
     {
-        _battleFeature.LateUpdate();
+        _feature.LateUpdate();
     }
 
     void IDisposable.Dispose()
     {
-      _battleFeature.DisableSystems();
-      _battleFeature.Dispose();
+      _feature.DisableSystems();
+      _feature.Dispose();
     }
   }
 }

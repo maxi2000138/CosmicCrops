@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace _Project.Scripts.Game.Features.Units.Enemy._Presets
 {
-  [CreateAssetMenu(fileName = nameof(UnitAnimatorsPreset), order = -1, menuName = "Presets/" + nameof(UnitAnimatorsPreset))]
+  [CreateAssetMenu(fileName = nameof(UnitAnimatorsPreset), menuName = "Presets/" + nameof(UnitAnimatorsPreset))]
   public class UnitAnimatorsPreset : BasePreset
   {
     public Dictionary<WeaponType, RuntimeAnimatorController> Controllers;

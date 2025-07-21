@@ -1,4 +1,5 @@
 ﻿using _Project.Scripts.Game.Features.Loot.Components;
+using _Project.Scripts.Game.Infrastructure.Factory;
 using _Project.Scripts.Infrastructure.Factories.Game;
 using _Project.Scripts.Infrastructure.Systems;
 using Cysharp.Threading.Tasks;

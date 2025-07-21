@@ -4,7 +4,7 @@ using UnityEngine.Experimental.Rendering;
 
 namespace _Project.Scripts.Menu.Infrastructure._Presets
 {
-  [CreateAssetMenu(fileName = nameof(TexturePreset), order = -1, menuName = "Presets/" + nameof(TexturePreset))]
+  [CreateAssetMenu(fileName = nameof(TexturePreset), menuName = "Presets/" + nameof(TexturePreset))]
   public class TexturePreset : BasePreset
   {
     public RenderTextureSettings RenderTextureSettings;

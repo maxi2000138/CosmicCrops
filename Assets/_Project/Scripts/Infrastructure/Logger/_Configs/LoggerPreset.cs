@@ -6,7 +6,7 @@ using UnityEngine;
 
 namespace _Project.Scripts.Infrastructure.Logger._Configs
 {
-  [CreateAssetMenu(fileName = nameof(LoggerPreset), order = -1, menuName = "Presets/" + nameof(LoggerPreset))]
+  [CreateAssetMenu(fileName = nameof(LoggerPreset), menuName = "Presets/" + nameof(LoggerPreset))]
   public sealed class LoggerPreset : BasePreset
   {
     [DictionaryDrawerSettings(IsReadOnly = true, DisplayMode = DictionaryDisplayOptions.OneLine)]

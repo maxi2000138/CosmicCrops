@@ -1,6 +1,7 @@
 ﻿using _Project.Scripts.Game.Features.Units.Enemy._Presets;
 using _Project.Scripts.Infrastructure.AssetData;
 using _Project.Scripts.Infrastructure.Logger._Configs;
+using _Project.Scripts.Menu.Features.CharacterPreview._Preset;
 using _Project.Scripts.Menu.Infrastructure._Presets;
 using JetBrains.Annotations;
 using UnityEngine;
@@ -17,10 +18,12 @@ namespace _Project.Scripts.Infrastructure.StaticData
         private LoggerPreset _loggerPreset;
         private UnitAnimatorsPreset _unitAnimatorsPreset;
         private TexturePreset _texturePreset;
+        private CharacterPreviewPreset _characterPreviewPreset;
 
         LoggerPreset IStaticDataService.LoggerPreset() => _loggerPreset ??= LoadConfig<LoggerPreset>();
         UnitAnimatorsPreset IStaticDataService.UnitAnimatorsPreset() => _unitAnimatorsPreset;
         TexturePreset IStaticDataService.TexturePreset() => _texturePreset;
+        CharacterPreviewPreset IStaticDataService.CharacterPreviewPreset() => _characterPreviewPreset;
 
         public StaticDataService(IAssetProvider assetProvider)
         {
@@ -33,6 +36,7 @@ namespace _Project.Scripts.Infrastructure.StaticData
             
             _unitAnimatorsPreset = LoadConfig<UnitAnimatorsPreset>();
             _texturePreset = LoadConfig<TexturePreset>();
+            _characterPreviewPreset = LoadConfig<CharacterPreviewPreset>();
         }
         
 

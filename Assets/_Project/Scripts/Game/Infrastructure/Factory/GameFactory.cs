@@ -12,14 +12,13 @@ using _Project.Scripts.Game.Features.Units.Character.Components;
 using _Project.Scripts.Game.Features.Units.Enemy._Configs;
 using _Project.Scripts.Game.Features.Units.Enemy.Components;
 using _Project.Scripts.Infrastructure.AssetData;
-using _Project.Scripts.Infrastructure.Pool;
+using _Project.Scripts.Infrastructure.Factories.Game;
 using _Project.Scripts.Infrastructure.Progress;
-using _Project.Scripts.Infrastructure.Systems.Components;
 using Cysharp.Threading.Tasks;
 using JetBrains.Annotations;
 using UnityEngine;
 
-namespace _Project.Scripts.Infrastructure.Factories.Game
+namespace _Project.Scripts.Game.Infrastructure.Factory
 {
   [UsedImplicitly(ImplicitUseKindFlags.InstantiatedNoFixedConstructorSignature)]
   public class GameFactory : IGameFactory

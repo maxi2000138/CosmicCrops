@@ -8,7 +8,7 @@ using _Project.Scripts.Game.Features.Units.Enemy.Components;
 using Cysharp.Threading.Tasks;
 using UnityEngine;
 
-namespace _Project.Scripts.Infrastructure.Factories.Game
+namespace _Project.Scripts.Game.Infrastructure.Factory
 {
   public interface IGameFactory
   {
