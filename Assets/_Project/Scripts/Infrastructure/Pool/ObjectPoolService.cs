@@ -26,7 +26,7 @@ namespace _Project.Scripts.Infrastructure.Pool
 		    _parent = parent;
 	    }
 
-	    async UniTask IObjectPoolService.Init()
+	    UniTask IObjectPoolService.Init()
 	    {
 		    _root = new GameObject().transform;
 		    _root.SetParent(_parent);
@@ -35,6 +35,8 @@ namespace _Project.Scripts.Infrastructure.Pool
 		    _prefabLookup = new Dictionary<MonoSpawnableItem, ObjectPool<MonoSpawnableItem>>();
 		    _instanceLookup = new Dictionary<MonoSpawnableItem, ObjectPool<MonoSpawnableItem>>();
 		    _release = new List<ObjectPoolContainer<MonoSpawnableItem>>();
+		    
+		    return UniTask.CompletedTask;
 	    }
 	    
 	    void IObjectPoolService.Execute()

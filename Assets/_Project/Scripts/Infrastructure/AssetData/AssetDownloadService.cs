@@ -38,7 +38,6 @@ namespace _Project.Scripts.Infrastructure.AssetData
 
     public async UniTask UpdateContentAsync()
     {
-      UniTask ret;
       AsyncOperationHandle downloadHandle = Addressables.DownloadDependenciesAsync(RemoteLabel);
 
       while (downloadHandle.IsDone == false && downloadHandle.IsValid())

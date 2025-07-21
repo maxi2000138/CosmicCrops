@@ -16,14 +16,15 @@ namespace _Project.Scripts.Infrastructure.StateMachine.States
       _loadingCurtain = loadingCurtain;
     }
     
-    async UniTask IEnterState.Enter(IGameStateMachine gameStateMachine)
+    UniTask IEnterState.Enter(IGameStateMachine gameStateMachine)
     {
       _loadingCurtain.Show();
       
       Application.targetFrameRate = 60; 
       QualitySettings.vSyncCount = 0;
       
-      gameStateMachine.Enter<StateLoadStaticData>();
+      gameStateMachine.Enter<StateLoadStaticData>().Forget();
+      return UniTask.CompletedTask;
     }
   }
 }

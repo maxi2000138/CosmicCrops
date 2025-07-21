@@ -12,11 +12,12 @@ namespace _Project.Scripts.Infrastructure.StateMachine.States
       _progressService = progressService;
     }
     
-    async UniTask IEnterState.Enter(IGameStateMachine gameStateMachine)
+    UniTask IEnterState.Enter(IGameStateMachine gameStateMachine)
     {
       _progressService.Init();
 
-      gameStateMachine.Enter<StateInitGameServices>();
+      gameStateMachine.Enter<StateInitGameServices>().Forget();
+      return UniTask.CompletedTask;
     }
   }
 }

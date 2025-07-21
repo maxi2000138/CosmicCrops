@@ -6,7 +6,7 @@ namespace _Project.Scripts.Infrastructure.AssetData
   {
     float Progress { get; }
     event Action ProgressUpdated;
-    void Report(float value);
+    new void Report(float value);
     void Reset();
   }
 }

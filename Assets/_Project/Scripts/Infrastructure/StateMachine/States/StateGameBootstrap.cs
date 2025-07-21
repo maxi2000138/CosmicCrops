@@ -37,7 +37,7 @@ namespace _Project.Scripts.Infrastructure.StateMachine.States
       CleanupWorld();
       await _gameFactory.CreateLevel();
       
-      gameStateMachine.Enter<StateLobby>();
+      gameStateMachine.Enter<StateLobby>().Forget();
     }
 
     private void CleanupWorld()

@@ -34,7 +34,7 @@ namespace _Project.Scripts.Infrastructure.StateMachine.States
     }
 
 
-    async UniTask IEnterState.Enter(IGameStateMachine gameStateMachine)
+    UniTask IEnterState.Enter(IGameStateMachine gameStateMachine)
     {
       _loadingCurtain.Show();
       
@@ -44,7 +44,8 @@ namespace _Project.Scripts.Infrastructure.StateMachine.States
       InitPool();
       InitGameUniqueId();
       
-      gameStateMachine.Enter<StateLoadMenu>();
+      gameStateMachine.Enter<StateLoadMenu>().Forget();
+      return UniTask.CompletedTask;
     }
 
     private void InitJoystick() => _joystickService.Init(_time);

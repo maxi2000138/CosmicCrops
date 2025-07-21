@@ -28,7 +28,7 @@ namespace _Project.Scripts.Infrastructure.StateMachine.States
       await LoadConfigs();
       LoadResources();
 
-      gameStateMachine.Enter<StateLoadProgress>();
+      gameStateMachine.Enter<StateLoadProgress>().Forget();
     }
     
     private async UniTask DownloadAssets()

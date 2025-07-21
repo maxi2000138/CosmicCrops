@@ -27,7 +27,6 @@ namespace _Project.Scripts.Game.Features.Weapon.Variations
     {
       CreateBullet(unit).Forget();
     }
-
-    protected async virtual UniTaskVoid CreateBullet(IUnit unit = null) { }
+    protected virtual async UniTaskVoid CreateBullet(IUnit unit = null) { await UniTask.Yield(); }
   }
 }
