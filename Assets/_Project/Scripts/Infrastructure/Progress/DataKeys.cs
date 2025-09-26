@@ -4,5 +4,6 @@
     {
         public const string Haptic = "HAPTIC_DATA_KEY";
         public const string Level = "LEVEL_DATA_KEY";
+        public const string Inventory = "INVENTORY_DATA_KEY";
     }
 }

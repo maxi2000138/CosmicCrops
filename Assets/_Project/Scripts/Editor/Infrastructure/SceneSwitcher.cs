@@ -1,5 +1,4 @@
-﻿using _Project.Scripts.Infrastructure;
-using _Project.Scripts.Infrastructure.SceneLoader;
+﻿using _Project.Scripts.Infrastructure.SceneLoader;
 using Cysharp.Threading.Tasks;
 using UnityEngine;
 
@@ -20,7 +19,7 @@ namespace _Project.Scripts.Editor.Infrastructure
     
     private async UniTaskVoid LoadBootstrapScene()
     {
-      await new SceneLoaderService().Load(Scenes.BOOTSTRAP);
+      await new SceneLoaderService().Load(Scripts.Infrastructure.Scenes.BOOTSTRAP);
     }
   }
 }

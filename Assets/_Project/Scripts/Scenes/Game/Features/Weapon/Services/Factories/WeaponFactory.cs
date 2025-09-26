@@ -87,6 +87,7 @@ namespace _Project.Scripts.Game.Features.Weapon.Services.Factories
       bullet.SetCollisionMask(data.CollisionMask);
       return bullet;
     }
+    
     async UniTask<IProjectile> IWeaponFactory.CreateThrowable(string armament, Transform spawnPoint, string ability, float speed, IUnit unit)
     {
       ProjectileData data = _projectilesConfig.Data[armament];

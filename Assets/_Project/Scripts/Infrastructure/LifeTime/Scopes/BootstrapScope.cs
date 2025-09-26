@@ -1,6 +1,7 @@
 ﻿using System;
 using _Project.Scripts.Game.Features.Abilities._Configs;
 using _Project.Scripts.Game.Features.Collector._Configs;
+using _Project.Scripts.Game.Features.Inventory;
 using _Project.Scripts.Game.Features.Level._Configs;
 using _Project.Scripts.Game.Features.Loot._Configs;
 using _Project.Scripts.Game.Features.Units.Character._Configs;
@@ -21,6 +22,7 @@ using _Project.Scripts.Infrastructure.Progress;
 using _Project.Scripts.Infrastructure.SceneLoader;
 using _Project.Scripts.Infrastructure.StateMachine;
 using _Project.Scripts.Infrastructure.StateMachine.States;
+using _Project.Scripts.Infrastructure.StateMachine.States.Interfaces;
 using _Project.Scripts.Infrastructure.StaticData;
 using _Project.Scripts.Infrastructure.StaticData.Configs.Loader;
 using _Project.Scripts.Infrastructure.Time;
@@ -29,7 +31,6 @@ using _Project.Scripts.Utils.PartLinears;
 using UnityEngine;
 using VContainer;
 using VContainer.Unity;
-using IState = _Project.Scripts.Infrastructure.StateMachine.States.Interfaces.IState;
 
 
 namespace _Project.Scripts.Infrastructure.LifeTime.Scopes
@@ -58,6 +59,8 @@ namespace _Project.Scripts.Infrastructure.LifeTime.Scopes
       builder.RegisterComponentInNewPrefab(_cameraService, Lifetime.Singleton).UnderTransform(transform).As<ICameraService>();
       builder.RegisterComponentInNewPrefab(_guiService, Lifetime.Singleton).UnderTransform(transform).As<IGuiService>();
       builder.RegisterComponentInNewPrefab(_joystickService, Lifetime.Singleton).UnderTransform(transform).As<IJoystickService>();
+      
+      builder.Register<InventoryModel>(Lifetime.Singleton);
       
       builder.Register<DebugLogger>(Lifetime.Singleton);
       builder.Register<ITimeService, TimeService>(Lifetime.Singleton);

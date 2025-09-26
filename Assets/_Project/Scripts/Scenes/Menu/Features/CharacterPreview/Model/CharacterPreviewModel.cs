@@ -2,8 +2,10 @@
 using _Project.Scripts.Infrastructure.GUI;
 using _Project.Scripts.Menu.Features.RenderTexture.Factory;
 using _Project.Scripts.Menu.Infrastructure.Factory;
+using _Project.Scripts.Scenes.Menu.Infrastructure.Data;
 using Cysharp.Threading.Tasks;
 using JetBrains.Annotations;
+using R3;
 using VContainer.Unity;
 
 namespace _Project.Scripts.Menu.Features.CharacterPreview.Model
@@ -17,6 +19,9 @@ namespace _Project.Scripts.Menu.Features.CharacterPreview.Model
 
         public CharacterPreviewComponent CharacterPreview { get; private set; }
         public UnityEngine.RenderTexture RenderTexture { get; private set; }
+        
+        public readonly ReactiveProperty<PreviewState> State = 
+            new ReactiveProperty<PreviewState>(PreviewState.Start);
 
         public CharacterPreviewModel(IMenuFactory menuFactory, IGuiService guiService, IRenderTextureFactory renderTextureFactory)
         {

@@ -31,7 +31,6 @@ namespace _Project.Scripts.Infrastructure.LifeTime.Scopes
       builder.Register<SystemsContainer>(Lifetime.Singleton).AsImplementedInterfaces();
       
       builder.Register<LevelModel>(Lifetime.Singleton);
-      builder.Register<InventoryModel>(Lifetime.Singleton);
 
       builder.Register<UtilityAICalculations>(Lifetime.Singleton);
       builder.Register<ITargetPicker, TargetPicker>(Lifetime.Singleton);

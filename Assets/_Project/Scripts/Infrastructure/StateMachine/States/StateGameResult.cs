@@ -9,7 +9,6 @@ using _Project.Scripts.Utils.Extensions;
 using Cysharp.Threading.Tasks;
 using JetBrains.Annotations;
 using R3;
-using VContainer;
 
 namespace _Project.Scripts.Infrastructure.StateMachine.States
 {

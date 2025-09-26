@@ -248,7 +248,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   parentReference:
     TypeName: 
-  autoRun: 0
+  autoRun: 1
   autoInjectGameObjects: []
   _loadingCurtain: {fileID: 2093739890547209090, guid: 2d308ca63bd2ce5408865609866e1eaa, type: 3}
   _cameraService: {fileID: 4534098391641314438, guid: 5547a724bfa4edd46b8cdf44d9cdd7b5, type: 3}

@@ -1,4 +1,5 @@
 ﻿using System;
+using _Project.Scripts.Infrastructure.Progress.Data;
 
 namespace _Project.Scripts.Infrastructure.Progress
 {
@@ -6,6 +7,8 @@ namespace _Project.Scripts.Infrastructure.Progress
     {
         IData<int> LevelData { get; }
         IData<bool> HapticData { get; }
+        IData<Inventory> InventoryData { get; }
+        
         void Init();
     }
 }

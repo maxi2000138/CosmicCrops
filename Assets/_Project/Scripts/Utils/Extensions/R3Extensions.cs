@@ -12,5 +12,11 @@ namespace _Project.Scripts.Utils.Extensions
       source.Value = value;
       source.ForceNotify();
     }
+    public static Observable<TResult> ObserveEveryValueChanged<TSource, TResult>(this Observable<TSource> source, Func<TSource, TResult> selector)
+    {
+      return source
+        .Select(selector)
+        .DistinctUntilChanged();
+    }
   }
 }
