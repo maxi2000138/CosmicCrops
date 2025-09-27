@@ -1,0 +1,6 @@
+key	value
+enemy_prefab	Enemy
+character_prefab	Player
+character_health	20
+character_speed	2
+character_height	3

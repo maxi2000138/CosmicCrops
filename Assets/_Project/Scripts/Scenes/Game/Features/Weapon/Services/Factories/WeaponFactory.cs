@@ -39,7 +39,7 @@ namespace _Project.Scripts.Game.Features.Weapon.Services.Factories
       _objectPoolService = objectPoolService;
     }
   
-    async UniTask<WeaponComponent> IWeaponFactory.CreateWeaponComponent(int weaponId, Transform parent)
+    async UniTask<WeaponComponent> IWeaponFactory.CreateWeaponComponent(string weaponId, Transform parent)
     {
       WeaponCharacteristicData data = _weaponsConfig.Data[weaponId];
       GameObject prefab = await _assetProvider.LoadFromAddressable<GameObject>(data.WeaponPrefab.Name);

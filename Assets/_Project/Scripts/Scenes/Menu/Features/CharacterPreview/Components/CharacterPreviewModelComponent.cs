@@ -24,7 +24,7 @@ namespace _Project.Scripts.Menu.Features.CharacterPreview.Components
   public struct WeaponData
   {
     [ValueDropdown(ConfigEnum.Weapons)]
-    public int WeaponId;
+    public string WeaponId;
     public WeaponComponent Weapon;
   }
 
@@ -32,7 +32,7 @@ namespace _Project.Scripts.Menu.Features.CharacterPreview.Components
   public struct SkinData
   {
     [ValueDropdown(ConfigEnum.Skins)]
-    public int SkinId;
+    public string SkinId;
     public GameObject Visual;
   }
 }

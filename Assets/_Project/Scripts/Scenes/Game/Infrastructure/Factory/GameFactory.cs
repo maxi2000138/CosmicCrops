@@ -7,13 +7,13 @@ using _Project.Scripts.Game.Features.Loot._Configs;
 using _Project.Scripts.Game.Features.Loot._Configs.Data;
 using _Project.Scripts.Game.Features.Loot.Components;
 using _Project.Scripts.Game.Features.Units._Interfaces;
-using _Project.Scripts.Game.Features.Units.Character._Configs;
 using _Project.Scripts.Game.Features.Units.Character.Components;
 using _Project.Scripts.Game.Features.Units.Enemy._Configs;
 using _Project.Scripts.Game.Features.Units.Enemy.Components;
 using _Project.Scripts.Infrastructure.AssetData;
 using _Project.Scripts.Infrastructure.Factories.Game;
 using _Project.Scripts.Infrastructure.Progress;
+using _Project.Scripts.Scenes.Game.Common._Config;
 using Cysharp.Threading.Tasks;
 using JetBrains.Annotations;
 using UnityEngine;
@@ -26,21 +26,19 @@ namespace _Project.Scripts.Game.Infrastructure.Factory
     private readonly IAssetProvider _assetProvider;
     private readonly LevelModel _levelModel;
     private readonly LevelConfig _levelConfig;
-    private readonly CharacterConfig _characterConfig;
+    private readonly CommonConstantsConfig _commonConstantsConfig;
     private readonly IProgressService _progressService;
     private readonly LootConfig _lootConfig;
-    private readonly EnemiesConfig _enemiesConfig;
 
     public GameFactory(IAssetProvider assetProvider, LevelModel levelModel, LevelConfig levelConfig, 
-      CharacterConfig characterConfig, IProgressService progressService, LootConfig lootConfig, EnemiesConfig enemiesConfig)
+      CommonConstantsConfig commonConstantsConfig, IProgressService progressService, LootConfig lootConfig)
     {
       _assetProvider = assetProvider;
       _levelModel = levelModel;
       _levelConfig = levelConfig;
-      _characterConfig = characterConfig;
+      _commonConstantsConfig = commonConstantsConfig;
       _progressService = progressService;
       _lootConfig = lootConfig;
-      _enemiesConfig = enemiesConfig;
     }
     
     async UniTask<ILevel> IGameFactory.CreateLevel()
@@ -56,24 +54,23 @@ namespace _Project.Scripts.Game.Infrastructure.Factory
     
     async UniTask<CharacterComponent> IGameFactory.CreateCharacter(Vector3 position, Transform parent)
     {
-      var prefab = await _assetProvider.LoadFromAddressable<GameObject>(_characterConfig.Prefab.Name);
+      var prefab = await _assetProvider.LoadFromAddressable<GameObject>(_commonConstantsConfig.CharacterPrefab.Name);
       CharacterComponent character = UnityObjectFactory.Instantiate(prefab, position, Quaternion.identity, parent).GetComponent<CharacterComponent>();
       _levelModel.SetCharacter(character);
       
-      character.CharacterController.SetBaseSpeed(_characterConfig.Speed);
+      character.CharacterController.SetBaseSpeed(_commonConstantsConfig.CharacterSpeed);
       
       return character;
     }
     
     async UniTask<EnemyComponent> IGameFactory.CreateUnit(string unitName, Vector3 position, Transform parent)
     {
-      GameObject prefab = await _assetProvider.LoadFromAddressable<GameObject>(_enemiesConfig.Data[unitName].PrefabName);
+      GameObject prefab = await _assetProvider.LoadFromAddressable<GameObject>(_commonConstantsConfig.EnemyPrefab.Name);
       EnemyComponent enemy = UnityObjectFactory.Instantiate(prefab, position, Quaternion.identity, parent).GetComponent<EnemyComponent>();
       _levelModel.AddEnemy(enemy);
       return enemy;
     }
-
-
+    
     async UniTask<LootComponent> IGameFactory.CreateLoot(LootType lootType, Vector3 position, Transform parent)
     {
       GameObject prefab = await _assetProvider.LoadFromAddressable<GameObject>(_lootConfig.Data[lootType].PrefabName);

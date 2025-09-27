@@ -3,6 +3,7 @@ using _Project.Scripts.Game.Features.Units._Interfaces;
 using _Project.Scripts.Game.Features.Units.Enemy._Configs;
 using _Project.Scripts.Game.Features.Weapon.Components;
 using _Project.Scripts.Infrastructure.Systems.Components;
+using _Project.Scripts.Scenes.Game.Features.Units._Components;
 using UnityEngine;
 using UnityEngine.Serialization;
 
@@ -16,6 +17,8 @@ namespace _Project.Scripts.Game.Features.Units.Enemy.Components
     [SerializeField] private HealthComponent _health;
     [SerializeField] private WeaponMediatorComponent _weaponMediatorComponent;
     [SerializeField] private EnemyAIComponent enemyAIComponent;
+    [SerializeField] private BodyMediatorComponent bodyMediatorComponent;
+    
 
     public EnemyData Stats { get; private set; }
     public IUnit Target { get; private set; }
@@ -26,6 +29,8 @@ namespace _Project.Scripts.Game.Features.Units.Enemy.Components
     public EnemyAIComponent AI => enemyAIComponent;
     public StateMachineComponent StateMachine => _stateMachine;
     public HealthComponent Health => _health;
+    public BodyMediatorComponent BodyMediator => bodyMediatorComponent;
+    
     public Vector3 Position => transform.position;
     public float Height => Stats.Height;
     public Vector3 Forward => transform.forward;

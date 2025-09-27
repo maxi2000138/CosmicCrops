@@ -805,7 +805,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -7820134700673006204, guid: 3c7b246f21cd73346bf6d7a754241cfc, type: 3}
       propertyPath: _enemy
-      value: barbarian_1
+      value: melee
       objectReference: {fileID: 0}
     - target: {fileID: -7820134700673006204, guid: 3c7b246f21cd73346bf6d7a754241cfc, type: 3}
       propertyPath: _unitName

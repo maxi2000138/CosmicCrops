@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using _Project.Scripts.Infrastructure.AssetData;
 using _Project.Scripts.Utils.Parse;
-using _Project.Scripts.Utils.PartLinears;
 using Cysharp.Threading.Tasks;
 using UnityEngine;
 
@@ -14,30 +13,19 @@ namespace _Project.Scripts.Infrastructure.StaticData.Configs.Loader
         private const int ProcessConfigsPerFrame = 4;
 
         private readonly IAssetProvider _assetProvider;
-        private readonly PartLinearsConfig _partLinearConfig;
         private readonly IReadOnlyList<IConfigParser> _configParsers;
 
-        public ConfigsLoader(PartLinearsConfig partLinearConfig, IEnumerable<IConfigParser> configParsers, IAssetProvider assetProvider)
+        public ConfigsLoader(IEnumerable<IConfigParser> configParsers, IAssetProvider assetProvider)
         {
             _assetProvider = assetProvider;
-            _partLinearConfig = partLinearConfig;
             _configParsers = configParsers.ToList();
         }
 
         public async UniTask LoadConfigs(Action<float> onProgress)
         {
-            await LoadPartLinears(_partLinearConfig);
-            PartLinearUtils.SetConfig(_partLinearConfig);
-            
             await LoadConfigs(_configParsers, onProgress);
         }
 
-        private async UniTask LoadPartLinears(PartLinearsConfig config)
-        {
-            var data = await LoadTsv(config.ConfigName);
-            config.Parse(data);
-        }
-        
         private async UniTask LoadConfigs(IReadOnlyList<IConfigParser> configParsers, Action<float> onProgress)
         {
             var configCount = configParsers.Count;

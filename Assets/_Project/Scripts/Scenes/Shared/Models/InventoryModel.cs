@@ -7,8 +7,8 @@ namespace _Project.Scripts.Game.Features.Inventory
   {
     private readonly IProgressService _progressService;
 
-    public ReactiveProperty<int> SelectedWeapon { get; } = new ReactiveProperty<int>();
-    public ReactiveProperty<int> SelectedSkin { get; } = new ReactiveProperty<int>();
+    public ReactiveProperty<string> SelectedWeapon { get; } = new ReactiveProperty<string>();
+    public ReactiveProperty<string> SelectedSkin { get; } = new ReactiveProperty<string>();
     public ReactiveProperty<int> IndexWeapon { get; } = new ReactiveProperty<int>();
     public ReactiveProperty<int> IndexSkin { get; } = new ReactiveProperty<int>();
     public ReactiveCommand<float> StartCollectingLoot { get; } = new ReactiveCommand<float>();
@@ -23,7 +23,5 @@ namespace _Project.Scripts.Game.Features.Inventory
     public int GetWeaponIndex() => _progressService.InventoryData.Data.Value.WeaponIndex;
     public void SetSkinIndex(int index) => _progressService.InventoryData.Data.Value.EquipmentIndex = index;
     public void SetWeaponIndex(int index) => _progressService.InventoryData.Data.Value.WeaponIndex = index;
-
-    
   }
 }

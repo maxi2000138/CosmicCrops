@@ -1,4 +1,4 @@
-id	weapon	type	ability	weapon_prefab	armament	clip_count	recharge_time	fire_interval	detection_distance	attack_distance	aiming	force_bullet
-0	dagger	melee	knife_enemy_attack	Knife		10	0.5	1	5	2	0.45	0
-1	potion	throwable	potion_enemy_attack	PotionWeapon	enemy_heal_potion	10	0.5	1	5	4	0.45	10
-2	shotgun	ranged	shotgun_player_attack	Shotgun	shotgun_player_bullet	10	0.5	1	5	4	0.45	10
+weapon	type	ability	weapon_prefab	armament	clip_count	recharge_time	fire_interval	detection_distance	attack_distance	aiming	force_bullet
+dagger	melee	knife_enemy_attack	Knife		10	0.5	1	5	2	0.45	0
+potion	throwable	potion_enemy_attack	PotionWeapon	enemy_heal_potion	10	0.5	1	5	4	0.45	10
+shotgun	ranged	shotgun_player_attack	Shotgun	shotgun_player_bullet	10	0.5	1	5	4	0.45	10

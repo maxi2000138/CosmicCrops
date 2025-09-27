@@ -1,6 +1,5 @@
 ﻿using _Project.Scripts.Game.Features.Collector.Factory;
 using _Project.Scripts.Game.Features.Inventory;
-using _Project.Scripts.Game.Features.Units.Character._Configs;
 using _Project.Scripts.Game.Features.Units.Character.Components;
 using _Project.Scripts.Game.Features.Units.Character.StateMachine.States;
 using _Project.Scripts.Game.Features.Weapon._Configs;
@@ -8,10 +7,10 @@ using _Project.Scripts.Game.Features.Weapon.Components;
 using _Project.Scripts.Game.Features.Weapon.Services.Factories;
 using _Project.Scripts.Game.Infrastructure.Factory;
 using _Project.Scripts.Infrastructure.Camera;
-using _Project.Scripts.Infrastructure.Factories.Game;
 using _Project.Scripts.Infrastructure.Factories.StateMachine;
 using _Project.Scripts.Infrastructure.StaticData;
 using _Project.Scripts.Infrastructure.Systems;
+using _Project.Scripts.Scenes.Game.Common._Config;
 using _Project.Scripts.Utils.Extensions;
 using Cysharp.Threading.Tasks;
 using UnityEngine;
@@ -27,18 +26,18 @@ namespace _Project.Scripts.Game.Features.Units.Character.Systems
     private InventoryModel _inventoryModel;
     private ICollectorFactory _collectorFactory;
     private IWeaponFactory _weaponFactory;
-    private CharacterConfig _characterConfig;
     private IStaticDataService _staticData;
     private WeaponsConfig _weaponsConfig;
+    private CommonConstantsConfig _commonConstantsConfig;
 
     [Inject]
     private void Construct(IGameFactory gameFactory, ICollectorFactory collectorFactory, ICameraService cameraService, 
-      IStateMachineFactory stateMachineFactory, InventoryModel inventoryModel, IWeaponFactory weaponFactory, CharacterConfig characterConfig,
-      IStaticDataService staticData, WeaponsConfig weaponsConfig)
+      IStateMachineFactory stateMachineFactory, InventoryModel inventoryModel, IWeaponFactory weaponFactory,
+      IStaticDataService staticData, WeaponsConfig weaponsConfig, CommonConstantsConfig commonConstantsConfig)
     {
+      _commonConstantsConfig = commonConstantsConfig;
       _weaponsConfig = weaponsConfig;
       _staticData = staticData;
-      _characterConfig = characterConfig;
       _weaponFactory = weaponFactory;
       _collectorFactory = collectorFactory;
       _inventoryModel = inventoryModel;
@@ -58,7 +57,7 @@ namespace _Project.Scripts.Game.Features.Units.Character.Systems
     {
       var character = await _gameFactory.CreateCharacter(spawner.Position, spawner.transform.parent);
 
-      WeaponComponent weapon = await _weaponFactory.CreateWeaponComponent(1, character.WeaponMediator.Container);
+      WeaponComponent weapon = await _weaponFactory.CreateWeaponComponent(_inventoryModel.SelectedWeapon.CurrentValue, character.WeaponMediator.Container);
       character.WeaponMediator.SetWeapon(weapon);
       character.UnitAnimator.SetAnimatorController(AnimatorController());
       
@@ -69,15 +68,25 @@ namespace _Project.Scripts.Game.Features.Units.Character.Systems
       
       character.Collector.SetCollector(_collectorFactory.CreateDefault());
 
-      character.Health.SetBaseHealth(_characterConfig.Health);
-      character.Health.SetMaxHealth(_characterConfig.Health);
-      character.Health.CurrentHealth.SetValueAndForceNotify(_characterConfig.Health);
+      character.Health.SetBaseHealth(_commonConstantsConfig.CharacterHealth);
+      character.Health.SetMaxHealth(_commonConstantsConfig.CharacterHealth);
+      character.Health.CurrentHealth.SetValueAndForceNotify(_commonConstantsConfig.CharacterHealth);
       
         
-      character.SetHeight(_characterConfig.Height);
+      character.SetHeight(_commonConstantsConfig.CharacterHeight);
 
+      SetSkin(character);
       SetCameraTarget(character);
       SetRadarRadius(character);
+    }
+    
+    private void SetSkin(CharacterComponent character)
+    {
+      for (int i = 0; i < character.BodyMediator.Skins.Length; i++)
+      {
+        character.BodyMediator.Skins[i].Visual
+          .SetActive(character.BodyMediator.Skins[i].SkinId == _inventoryModel.SelectedSkin.Value);
+      }
     }
 
     private void SetCameraTarget(CharacterComponent character)
@@ -91,8 +100,7 @@ namespace _Project.Scripts.Game.Features.Units.Character.Systems
       character.Radar.SetRadius(distance);
     }
     
-    //TODO: Refactor
     private RuntimeAnimatorController AnimatorController() =>
-      _staticData.UnitAnimatorsPreset().Controllers[_weaponsConfig.Data[1].WeaponType];
+      _staticData.UnitAnimatorsPreset().Controllers[_weaponsConfig.Data[_inventoryModel.SelectedWeapon.CurrentValue].WeaponType];
   }
 }

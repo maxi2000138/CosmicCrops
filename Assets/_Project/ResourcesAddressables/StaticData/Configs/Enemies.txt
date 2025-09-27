@@ -1,3 +1,4 @@
-unit	prefab_name	weapon	health	patrol_radius	height	scale	walk_speed	pursuit_speed	pursuit_radius	stay_delay
-barbarian_1	Enemy_Barbarian	enemy_barbarian_weapon	10	5	3	1	2	1	6	2
-druid_1	Enemy_Druid	enemy_druid_weapon	10	5	3	1	2	1	6	2
+unit	weapon	health	patrol_radius	height	walk_speed	pursuit_speed	pursuit_radius	stay_delay
+melee	dagger	10	5	3	2	1	6	2
+mage	potion	30	4	3	2	1	6	2
+range	shotgun	5	5	3	2	1	6	2

@@ -4,7 +4,6 @@ using _Project.Scripts.Game.Features.Collector._Configs;
 using _Project.Scripts.Game.Features.Inventory;
 using _Project.Scripts.Game.Features.Level._Configs;
 using _Project.Scripts.Game.Features.Loot._Configs;
-using _Project.Scripts.Game.Features.Units.Character._Configs;
 using _Project.Scripts.Game.Features.Units.Enemy._Configs;
 using _Project.Scripts.Game.Features.Weapon._Configs;
 using _Project.Scripts.Game.UI._Configs;
@@ -26,8 +25,8 @@ using _Project.Scripts.Infrastructure.StateMachine.States.Interfaces;
 using _Project.Scripts.Infrastructure.StaticData;
 using _Project.Scripts.Infrastructure.StaticData.Configs.Loader;
 using _Project.Scripts.Infrastructure.Time;
+using _Project.Scripts.Scenes.Game.Common._Config;
 using _Project.Scripts.Utils.Extensions;
-using _Project.Scripts.Utils.PartLinears;
 using UnityEngine;
 using VContainer;
 using VContainer.Unity;
@@ -75,9 +74,8 @@ namespace _Project.Scripts.Infrastructure.LifeTime.Scopes
       builder.Register<IUIFactory, UIFactory>(Lifetime.Singleton);
       builder.Register<IObjectPoolService, ObjectPoolService>(Lifetime.Singleton).WithParameter(transform).As<IDisposable>();
       
-      builder.RegisterConfig<PartLinearsConfig>(Lifetime.Singleton);
+      builder.RegisterConfig<CommonConstantsConfig>(Lifetime.Singleton);
       builder.RegisterConfig<ProjectilesConfig>(Lifetime.Singleton);
-      builder.RegisterConfig<CharacterConfig>(Lifetime.Singleton);
       builder.RegisterConfig<UIPrefabsConfig>(Lifetime.Singleton);
       builder.RegisterConfig<ScreensConfig>(Lifetime.Singleton);
       builder.RegisterConfig<WeaponsConfig>(Lifetime.Singleton);

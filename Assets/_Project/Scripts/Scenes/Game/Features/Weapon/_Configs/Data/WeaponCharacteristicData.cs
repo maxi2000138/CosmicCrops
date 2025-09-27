@@ -4,7 +4,6 @@ namespace _Project.Scripts.Game.Features.Weapon._Configs.Data
 {
   public class WeaponCharacteristicData
   {
-    public int Id;
     public string Weapon;
     public WeaponType WeaponType;
     public string Ability;

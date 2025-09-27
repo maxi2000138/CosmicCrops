@@ -5,18 +5,17 @@ using _Project.Scripts.Utils.Parse;
 
 namespace _Project.Scripts.Game.Features.Units._Configs
 {
-  public class SkinsConfig : BaseConfig<int, SkinCharacteristicData>
+  public class SkinsConfig : BaseConfig<string, SkinCharacteristicData>
   {
     public override string ConfigName => "Skins";
-    protected override int GetKey(SkinCharacteristicData data) => data.Id;
+    protected override string GetKey(SkinCharacteristicData data) => data.Skin;
     protected override SkinCharacteristicData ParseData(List<string> row)
     {
       return new()
       {
-        Id = StringParseUtils.ToInt(row[0]),
-        Skin = row[1],
-        BaseHealth = StringParseUtils.ToFloat(row[2]),
-        BaseSpeed = StringParseUtils.ToFloat(row[3]),
+        Skin = row[0],
+        BaseHealth = StringParseUtils.ToFloat(row[1]),
+        BaseSpeed = StringParseUtils.ToFloat(row[2]),
       };
     }
   }

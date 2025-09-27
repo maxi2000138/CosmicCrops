@@ -1,11 +1,10 @@
-﻿using _Project.Scripts.Game.Features.Units.Character._Configs;
+﻿using _Project.Scripts.Game.Features.Inventory;
 using _Project.Scripts.Game.Features.Units.Enemy._Configs;
 using _Project.Scripts.Game.Features.Units.Enemy.Components;
 using _Project.Scripts.Game.Features.Weapon._Configs;
 using _Project.Scripts.Game.Features.Weapon.Components;
 using _Project.Scripts.Game.Features.Weapon.Services.Factories;
 using _Project.Scripts.Game.Infrastructure.Factory;
-using _Project.Scripts.Infrastructure.Factories.Game;
 using _Project.Scripts.Infrastructure.Factories.StateMachine;
 using _Project.Scripts.Infrastructure.StaticData;
 using _Project.Scripts.Infrastructure.Systems;
@@ -24,13 +23,13 @@ namespace _Project.Scripts.Game.Features.Units.Enemy.Systems
     private EnemiesConfig _enemiesConfig;
     private IStaticDataService _staticData;
     private WeaponsConfig _weaponsConfig;
-    private CharacterConfig _characterConfig;
+    private InventoryModel _inventoryModel;
 
     [Inject]
     private void Construct(IGameFactory gameFactory, IStateMachineFactory stateMachineFactory, EnemiesConfig enemiesConfig, 
-      IWeaponFactory weaponFactory, IStaticDataService staticData, WeaponsConfig weaponsConfig, CharacterConfig characterConfig)
+      IWeaponFactory weaponFactory, IStaticDataService staticData, WeaponsConfig weaponsConfig, InventoryModel inventoryModel)
     {
-      _characterConfig = characterConfig;
+      _inventoryModel = inventoryModel;
       _weaponsConfig = weaponsConfig;
       _staticData = staticData;
       _weaponFactory = weaponFactory;
@@ -51,9 +50,10 @@ namespace _Project.Scripts.Game.Features.Units.Enemy.Systems
       EnemyData enemyData = _enemiesConfig.Data[spawner.Enemy];
       EnemyComponent enemy = await _gameFactory.CreateUnit(spawner.Enemy, spawner.Position, spawner.transform.parent);
       
-      WeaponComponent weapon = await _weaponFactory.CreateWeaponComponent(1, enemy.WeaponMediator.Container);
+    // TODO: set from config
+      WeaponComponent weapon = await _weaponFactory.CreateWeaponComponent(enemyData.Weapon, enemy.WeaponMediator.Container);
       enemy.WeaponMediator.SetWeapon(weapon);
-      enemy.Animator.SetAnimatorController(AnimatorController());
+      enemy.Animator.SetAnimatorController(AnimatorController(enemyData));
 
       enemy.SetStats(enemyData);
 
@@ -62,10 +62,23 @@ namespace _Project.Scripts.Game.Features.Units.Enemy.Systems
       enemy.Health.CurrentHealth.SetValueAndForceNotify(enemyData.Health);
       
       enemy.StateMachine.CreateStateMachine(_stateMachineFactory.CreateEnemyStateMachine(enemy));
+      
+      SetSkin(enemy);
     }
     
-    private RuntimeAnimatorController AnimatorController() =>
-      _staticData.UnitAnimatorsPreset().Controllers[_weaponsConfig.Data[1].WeaponType];
+    private void SetSkin(EnemyComponent enemy)
+    {
+      int skinIndex = enemy.BodyMediator.Skins.GetRandomIndex();
+
+      for (int i = 0; i < enemy.BodyMediator.Skins.Length; i++)
+      {
+        enemy.BodyMediator.Skins[i].Visual.SetActive(i == skinIndex);
+      }
+    }
+    
+    // TODO: set from config
+    private RuntimeAnimatorController AnimatorController(EnemyData enemyData) =>
+      _staticData.UnitAnimatorsPreset().Controllers[_weaponsConfig.Data[enemyData.Weapon].WeaponType];
 
   }
 }
